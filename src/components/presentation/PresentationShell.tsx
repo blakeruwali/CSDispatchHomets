@@ -2,7 +2,9 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import { slides } from "./slideData";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { MobilePresentation } from "./MobilePresentation";
-import { Search, X, Sun, Moon } from "lucide-react";
+import { Search, X, Sun, Moon, BookOpen, Presentation } from "lucide-react";
+import { KnowledgeBase } from "@/components/knowledge-base/KnowledgeBase";
+import { kbSections } from "@/components/knowledge-base/kbData";
 
 export const PresentationShell: React.FC = () => {
   const isMobile = useIsMobile();
@@ -16,6 +18,7 @@ const ScrollablePresentation: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [lightMode, setLightMode] = useState(false);
+  const [activeTab, setActiveTab] = useState<"guide" | "kb">("guide");
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const scrollToSlide = useCallback((i: number) => {
@@ -38,7 +41,6 @@ const ScrollablePresentation: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Keyboard shortcut: Ctrl+K for search
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -77,12 +79,22 @@ const ScrollablePresentation: React.FC = () => {
   const textSubtle = lightMode ? "text-gray-400" : "text-white/30";
   const activeBg = lightMode ? "bg-orange-50 text-gray-900" : "bg-white/10 text-white";
   const hoverBg = lightMode ? "hover:bg-gray-100 hover:text-gray-700" : "hover:bg-white/5 hover:text-white/70";
-  const badgeActive = lightMode ? "bg-[hsl(15,90%,55%)] text-white" : "bg-[hsl(15,90%,55%)] text-white";
+  const badgeActive = "bg-[hsl(15,90%,55%)] text-white";
   const badgeInactive = lightMode ? "bg-gray-200 text-gray-500" : "bg-white/10 text-white/40";
+
+  // KB sidebar: count matching articles per section
+  const kbSidebarSections = kbSections.map((s) => {
+    const matchCount = query
+      ? s.articles.filter(
+          (a) => a.title.toLowerCase().includes(query) || a.keywords.toLowerCase().includes(query)
+        ).length
+      : s.articles.length;
+    return { ...s, matchCount };
+  });
 
   return (
     <div className="flex h-screen w-screen overflow-hidden" style={{ background: bg }}>
-      {/* Left sidebar navigation */}
+      {/* Left sidebar */}
       <div
         className="w-56 flex-shrink-0 flex flex-col h-full"
         style={{ background: sidebarBg, borderRight: `1px solid ${borderColor}` }}
@@ -92,37 +104,72 @@ const ScrollablePresentation: React.FC = () => {
           style={{ borderBottom: `1px solid ${borderColor}` }}
         >
           <span className={`text-xs font-semibold uppercase tracking-wider ${textMuted}`}>
-            Slides
+            {activeTab === "guide" ? "Slides" : "Sections"}
           </span>
         </div>
         <div className="flex-1 overflow-y-auto py-2 px-2 space-y-0.5">
-          {(query ? filteredSlides : slides.map((s, i) => ({ ...s, originalIndex: i }))).map(
-            (slide, _, __, i = slide.originalIndex) => (
-              <button
-                key={i}
-                onClick={() => {
-                  scrollToSlide(i);
-                  if (query) { setSearchQuery(""); setSearchOpen(false); }
-                }}
-                className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-all flex items-center gap-2.5 ${
-                  i === activeIndex
-                    ? `${activeBg} font-medium`
-                    : `${textMuted} ${hoverBg}`
-                }`}
-              >
-                <span
-                  className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold flex-shrink-0 ${
-                    i === activeIndex ? badgeActive : badgeInactive
-                  }`}
-                >
-                  {i + 1}
-                </span>
-                <span className="truncate">{slide.title}</span>
-              </button>
-            )
-          )}
-          {query && filteredSlides.length === 0 && (
-            <p className={`text-xs px-3 py-4 ${textMuted}`}>No matching slides</p>
+          {activeTab === "guide" ? (
+            <>
+              {(query ? filteredSlides : slides.map((s, i) => ({ ...s, originalIndex: i }))).map(
+                (slide, _, __, i = slide.originalIndex) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      scrollToSlide(i);
+                      if (query) { setSearchQuery(""); setSearchOpen(false); }
+                    }}
+                    className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-all flex items-center gap-2.5 ${
+                      i === activeIndex
+                        ? `${activeBg} font-medium`
+                        : `${textMuted} ${hoverBg}`
+                    }`}
+                  >
+                    <span
+                      className={`w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold flex-shrink-0 ${
+                        i === activeIndex ? badgeActive : badgeInactive
+                      }`}
+                    >
+                      {i + 1}
+                    </span>
+                    <span className="truncate">{slide.title}</span>
+                  </button>
+                )
+              )}
+              {query && filteredSlides.length === 0 && (
+                <p className={`text-xs px-3 py-4 ${textMuted}`}>No matching slides</p>
+              )}
+            </>
+          ) : (
+            <>
+              {kbSidebarSections.map((section) => {
+                if (query && section.matchCount === 0) return null;
+                const Icon = section.icon;
+                return (
+                  <button
+                    key={section.id}
+                    onClick={() => {
+                      const el = document.getElementById(`kb-${section.id}`);
+                      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                    className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-all flex items-center gap-2.5 ${textMuted} ${hoverBg}`}
+                  >
+                    <div
+                      className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
+                      style={{ background: `${section.iconColor}33` }}
+                    >
+                      <Icon className="w-3 h-3" style={{ color: section.iconColor }} />
+                    </div>
+                    <span className="truncate">{section.title}</span>
+                    {query && (
+                      <span className={`ml-auto text-[10px] ${textSubtle}`}>{section.matchCount}</span>
+                    )}
+                  </button>
+                );
+              })}
+              {query && kbSidebarSections.every((s) => s.matchCount === 0) && (
+                <p className={`text-xs px-3 py-4 ${textMuted}`}>No matching articles</p>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -134,10 +181,30 @@ const ScrollablePresentation: React.FC = () => {
           className="h-12 flex items-center justify-between px-5 flex-shrink-0 backdrop-blur-md"
           style={{ background: headerBg, borderBottom: `1px solid ${borderColor}` }}
         >
-          <div className="flex items-center gap-3">
-            <span className={`text-sm font-medium ${textMuted}`}>
-              Customer Service & Dispatch Guide
-            </span>
+          <div className="flex items-center gap-1">
+            {/* Tab buttons */}
+            <button
+              onClick={() => { setActiveTab("guide"); setSearchQuery(""); setSearchOpen(false); }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                activeTab === "guide"
+                  ? `${lightMode ? "bg-orange-50 text-orange-700" : "bg-white/10 text-white"}`
+                  : `${textMuted} ${hoverBg}`
+              }`}
+            >
+              <Presentation className="w-3.5 h-3.5" />
+              Guide
+            </button>
+            <button
+              onClick={() => { setActiveTab("kb"); setSearchQuery(""); setSearchOpen(false); }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                activeTab === "kb"
+                  ? `${lightMode ? "bg-orange-50 text-orange-700" : "bg-white/10 text-white"}`
+                  : `${textMuted} ${hoverBg}`
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              Knowledge Base
+            </button>
           </div>
 
           <div className="flex items-center gap-2">
@@ -152,7 +219,7 @@ const ScrollablePresentation: React.FC = () => {
                   <input
                     ref={searchInputRef}
                     type="text"
-                    placeholder="Search slides..."
+                    placeholder={activeTab === "guide" ? "Search slides..." : "Search knowledge base..."}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className={`bg-transparent text-sm outline-none w-48 ${textPrimary} placeholder:${textMuted}`}
@@ -201,42 +268,48 @@ const ScrollablePresentation: React.FC = () => {
               {lightMode ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
             </button>
 
-            {/* Slide counter */}
-            <span className={`text-xs ${textSubtle}`}>
-              {activeIndex + 1} / {slides.length}
-            </span>
+            {/* Counter */}
+            {activeTab === "guide" && (
+              <span className={`text-xs ${textSubtle}`}>
+                {activeIndex + 1} / {slides.length}
+              </span>
+            )}
           </div>
         </div>
 
-        {/* Scrollable slides */}
-        <div className="flex-1 overflow-y-auto px-6 py-6 space-y-6">
-          {slides.map((slide, i) => {
-            const SlideComponent = slide.component;
-            const isHighlighted = query && filteredSlides.some((s) => s.originalIndex === i);
-            const isDimmed = query && !isHighlighted;
+        {/* Content */}
+        {activeTab === "guide" ? (
+          <div className="flex-1 overflow-y-auto px-6 py-6 space-y-6">
+            {slides.map((slide, i) => {
+              const SlideComponent = slide.component;
+              const isHighlighted = query && filteredSlides.some((s) => s.originalIndex === i);
+              const isDimmed = query && !isHighlighted;
 
-            return (
-              <div
-                key={i}
-                ref={(el) => (slideRefs.current[i] = el)}
-                data-slide-index={i}
-                className={`rounded-xl overflow-hidden shadow-lg transition-opacity duration-300 ${
-                  isDimmed ? "opacity-20" : "opacity-100"
-                }`}
-                style={{
-                  background: cardBg,
-                  border: isHighlighted
-                    ? "2px solid hsl(15,90%,55%)"
-                    : `1px solid ${borderColor}`,
-                }}
-              >
-                <div className="slide-content p-6 md:p-8">
-                  <SlideComponent />
+              return (
+                <div
+                  key={i}
+                  ref={(el) => (slideRefs.current[i] = el)}
+                  data-slide-index={i}
+                  className={`rounded-xl overflow-hidden shadow-lg transition-opacity duration-300 ${
+                    isDimmed ? "opacity-20" : "opacity-100"
+                  }`}
+                  style={{
+                    background: cardBg,
+                    border: isHighlighted
+                      ? "2px solid hsl(15,90%,55%)"
+                      : `1px solid ${borderColor}`,
+                  }}
+                >
+                  <div className="slide-content p-6 md:p-8">
+                    <SlideComponent />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        ) : (
+          <KnowledgeBase lightMode={lightMode} searchQuery={searchQuery} />
+        )}
       </div>
     </div>
   );
