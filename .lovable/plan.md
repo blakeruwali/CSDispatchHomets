@@ -1,50 +1,56 @@
 
+# Customer Service Dispatcher Guide Slides
 
-# Replace Mobile Slides with a One-Page Scrollable Summary
+## Overview
 
-## The Problem
+Add 5 new slides to the front of the deck (positions 1-5) that serve as a dispatcher's quick-reference guide for scheduling HVAC service calls. All 17 existing investor slides shift to positions 6-22 -- nothing gets deleted.
 
-The current mobile view still tries to render full desktop slides scaled down to 960px -- charts, 5-column grids, and complex layouts are still hard to read on a 375px phone. 60% of your visitors hit this broken experience.
+## New Slides (in order)
 
-## The Drastic Solution
+### Slide 1: Dispatcher Guide — Title/Cover
+A branded cover slide labeled "Customer Service & Dispatch Guide" with the Homets logo, a subtitle like "Quick Reference for Scheduling Calls," and the phone number prominently displayed.
 
-Completely replace `MobilePresentation` with a **single scrolling landing page** that distills the entire 18-slide deck into 8 focused sections. No slides, no swiping, no scaling -- just a clean, mobile-native page investors can scroll through in 2 minutes.
+### Slide 2: Type of Service
+Three clear categories, each with an icon, short description, and common scenarios:
+- **Repair** -- System not working, strange noises, leaks, no heat/cool
+- **Install** -- New system, replacement of old unit, new construction
+- **Maintenance** -- Seasonal tune-up, filter change, annual inspection
 
-## What Investors See on Mobile
+Each card includes example customer phrases a dispatcher might hear (e.g., "My furnace won't turn on" maps to Repair).
 
-1. **Hero** -- Logo, tagline, "$250K Pre-Seed 2026" badge
-2. **The Problem** -- 3 pain points as compact cards (not 5)
-3. **The Solution** -- 90-min guarantee, key differentiators as a short list
-4. **Traction** -- 4 big stats in a 2x2 grid: $54.5K month 1, ~$650K run rate, 66 five-star reviews, 500+ homes
-5. **Market** -- $76-80B market, 6.9% CAGR, key drivers as bullets
-6. **The Ask** -- $250K SAFE at $2M cap, allocation breakdown, investor returns table (20x at $40M exit)
-7. **Why Now** -- 3-4 compelling reasons as compact cards
-8. **Contact** -- Phone, website, address with tap-to-call/tap-to-email links
+### Slide 3: System Types
+A visual grid of the 5 system types the company services:
+- **Boilers** -- Hot water/steam heating systems
+- **Furnaces** -- Forced air gas/electric heating
+- **Air Conditioners (AC)** -- Central and window cooling units
+- **Heat Pumps** -- Dual heating/cooling electric systems
+- **Mini Splits** -- Ductless heating/cooling zones
 
-## What Gets Cut for Mobile
+Each with an icon and 2-3 bullet points on what to ask the customer to identify the system.
 
-- Detailed pricebook tables (too dense)
-- Multi-chart financial projections (replaced by key numbers)
-- 6-phase growth roadmap (too granular)
-- Market positioning matrix
-- Customer stories slide
-- Team org chart
-- Funding deployment timeline
+### Slide 4: Diagnostic & Service Fees
+A clean fee table covering:
+- Standard diagnostic/service call fee
+- After-hours/emergency surcharge (if any)
+- What's included in the diagnostic visit
+- How fees apply toward repair cost
+- A note on the 90-minute response guarantee
 
-These are all still available in the desktop deck -- mobile just needs to hook the investor and get them to call.
+### Slide 5: Residential vs. Commercial
+A side-by-side comparison:
+- **Residential**: Typical home systems, standard pricing, scheduling priority rules
+- **Commercial**: Larger systems, different pricing tiers, multi-unit considerations, property manager protocols
+- Key questions dispatchers should ask to determine residential vs. commercial (e.g., "Is this a home or a business?", "How many units?")
 
 ## Technical Details
 
-**File to rewrite:** `src/components/presentation/MobilePresentation.tsx`
+**File modified:** `src/components/presentation/slideData.tsx`
+- Add 5 new exported slide components (DispatchTitleSlide, ServiceTypeSlide, SystemTypeSlide, DiagnosticFeesSlide, ResidentialCommercialSlide)
+- Uses existing design patterns: dark background (hsl(0,0%,7%)), brand color constants (ORANGE, RED, WARM, GREEN), rounded-2xl cards, Lucide icons
+- Update the `slides` export array to prepend the 5 new slides, pushing all 17 existing slides to indices 5-21
 
-Replace the entire component with a single scrollable page that:
-- Uses native mobile layout (flexbox, no CSS transform/scale)
-- All text is sized for mobile (16-20px body, 28-36px headlines)
-- Uses the existing brand colors (ORANGE, RED, WARM, GREEN constants)
-- Includes the Homets logo at the top
-- Has a sticky bottom CTA bar with "Call Now" button (tel: link to 516-259-1191)
-- Each section separated by subtle dividers
-- Smooth scroll, dark background matching the brand
+**No other files change** -- PresentationShell, ScaledSlide, and MobilePresentation remain untouched.
 
-**No other files change** -- `PresentationShell.tsx` already routes mobile to this component.
-
+## Slide Count
+- Before: 17 slides (investor deck)
+- After: 22 slides (5 dispatcher guide + 17 investor deck)
