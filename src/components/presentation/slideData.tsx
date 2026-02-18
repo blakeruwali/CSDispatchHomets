@@ -6,7 +6,9 @@ import {
   ThermometerSun, CheckCircle,
   Zap, ChevronRight, Repeat, MessageSquare,
   Hammer, Settings, Thermometer, Fan, CircleDot,
-  ClipboardList, HelpCircle, Building
+  ClipboardList, HelpCircle, Building,
+  ArrowRight, PhoneCall, MapPin, User, Mail, Calendar,
+  FileText, Siren, Timer, Users
 } from "lucide-react";
 
 const ORANGE = "hsl(15, 90%, 55%)";
@@ -1217,14 +1219,270 @@ export const ScriptsCheatSheetSlide = () => {
   );
 };
 
-/* ── Export slide list (12 slides: Customer Service & Dispatch Guide) ── */
+/* ── NEW SLIDE: Call Flow / Decision Tree ── */
+export const CallFlowSlide = () => {
+  const steps = [
+    { icon: PhoneCall, label: "Answer Call", desc: "Greet & identify caller", color: ORANGE },
+    { icon: Siren, label: "Emergency?", desc: "Gas leak / no heat / flood → escalate", color: RED },
+    { icon: Wrench, label: "Service Type", desc: "Repair · Install · Maintenance", color: WARM },
+    { icon: Thermometer, label: "System Type", desc: "Boiler · Furnace · AC · Heat Pump · Mini Split", color: GREEN },
+    { icon: Home, label: "Resi or Comm?", desc: "Determines pricing & job type", color: ORANGE },
+    { icon: ClipboardList, label: "Collect Info", desc: "Name, address, phone, system age", color: "hsl(200, 80%, 55%)" },
+    { icon: MessageSquare, label: "Select Script", desc: "Diagnostic · Estimate · Maintenance · Membership · Plumbing", color: WARM },
+    { icon: Calendar, label: "Book It", desc: "Confirm window & 90-min guarantee", color: GREEN },
+  ];
+  return (
+    <div className="flex flex-col justify-center h-full px-24" style={{ background: "hsl(0,0%,7%)" }}>
+      <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: ORANGE }}>
+        Call Intake Overview
+      </p>
+      <h2 className="text-5xl font-bold text-white mb-10">Call Flow — Decision Tree</h2>
+      <div className="flex items-center justify-between gap-2">
+        {steps.map((s, i) => (
+          <React.Fragment key={i}>
+            <div className="flex flex-col items-center text-center" style={{ width: 180 }}>
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-3"
+                style={{ background: `linear-gradient(135deg, ${s.color}, ${s.color}cc)` }}>
+                <s.icon className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-1">{s.label}</h3>
+              <p className="text-xs text-white/50 leading-snug">{s.desc}</p>
+            </div>
+            {i < steps.length - 1 && (
+              <ArrowRight className="w-6 h-6 flex-shrink-0 -mt-6" style={{ color: "hsl(0,0%,30%)" }} />
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+      <div className="mt-10 p-5 rounded-2xl" style={{ background: `linear-gradient(135deg, ${RED}22, ${RED}11)`, border: `1px solid ${RED}44` }}>
+        <p className="text-lg font-bold text-white flex items-center gap-2 mb-2">
+          <AlertTriangle className="w-5 h-5" style={{ color: RED }} />
+          Emergency Shortcut
+        </p>
+        <p className="text-base text-white/60">
+          If the caller reports a <span className="font-bold text-white">gas leak, carbon monoxide alarm, flooding, or no heat in freezing temps</span> — skip to Emergency Protocol immediately. Do not continue standard intake.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+/* ── NEW SLIDE: Customer Information Checklist ── */
+export const CustomerChecklistSlide = () => {
+  const fields = [
+    { label: "Full Name", icon: User, placeholder: "First & Last", required: true },
+    { label: "Phone Number", icon: Phone, placeholder: "Primary + alt", required: true },
+    { label: "Email Address", icon: Mail, placeholder: "For confirmation", required: false },
+    { label: "Service Address", icon: MapPin, placeholder: "Full address w/ apt #", required: true },
+    { label: "System Type", icon: Thermometer, placeholder: "Boiler / Furnace / AC / HP / Mini Split", required: true },
+    { label: "System Age", icon: Clock, placeholder: "Years or 'not sure'", required: true },
+    { label: "Problem Description", icon: FileText, placeholder: "Symptoms in customer's words", required: true },
+    { label: "Preferred Time Window", icon: Calendar, placeholder: "Morning / Afternoon / ASAP", required: true },
+    { label: "Membership Status", icon: Shield, placeholder: "Home+ / Business+ / None", required: false },
+    { label: "How They Heard About Us", icon: Users, placeholder: "Google / Referral / Repeat", required: false },
+  ];
+  return (
+    <div className="flex flex-col justify-center h-full px-24" style={{ background: "hsl(0,0%,7%)" }}>
+      <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: ORANGE }}>
+        Every Call — No Exceptions
+      </p>
+      <h2 className="text-5xl font-bold text-white mb-10">Customer Information Checklist</h2>
+      <div className="grid grid-cols-2 gap-x-10 gap-y-4">
+        {fields.map((f, i) => (
+          <div key={i} className="flex items-center gap-4 p-4 rounded-xl" style={{ background: "hsl(0,0%,11%)" }}>
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ background: `linear-gradient(135deg, ${ORANGE}44, ${ORANGE}22)` }}>
+              <f.icon className="w-5 h-5" style={{ color: ORANGE }} />
+            </div>
+            <div className="flex-1">
+              <p className="text-lg font-bold text-white flex items-center gap-2">
+                {f.label}
+                {f.required && <span className="text-xs font-bold px-1.5 py-0.5 rounded" style={{ background: `${RED}33`, color: RED }}>Required</span>}
+              </p>
+              <p className="text-sm text-white/40">{f.placeholder}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/* ── NEW SLIDE: Scheduling & Dispatch Rules ── */
+export const SchedulingRulesSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24" style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: GREEN }}>
+      Dispatch Operations
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-8">Scheduling &amp; Dispatch Rules</h2>
+    <div className="grid grid-cols-3 gap-6">
+      <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+          style={{ background: `linear-gradient(135deg, ${ORANGE}, ${RED})` }}>
+          <Timer className="w-7 h-7 text-white" />
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-3">90-Minute Guarantee</h3>
+        <div className="space-y-2 text-sm text-white/60">
+          <p>Tech arrives within 90 minutes of the scheduled window — or the service call is <span className="font-bold text-white">FREE</span>.</p>
+          <p>Always confirm: <span className="italic text-white/75">"We guarantee arrival within 90 minutes of your window."</span></p>
+        </div>
+      </div>
+      <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+          style={{ background: `linear-gradient(135deg, ${WARM}, ${ORANGE})` }}>
+          <Calendar className="w-7 h-7 text-white" />
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-3">Time Windows</h3>
+        <div className="space-y-2">
+          {[
+            { window: "Morning", time: "8:00 AM – 12:00 PM" },
+            { window: "Afternoon", time: "12:00 PM – 4:00 PM" },
+            { window: "Evening", time: "4:00 PM – 8:00 PM" },
+            { window: "Emergency", time: "Available 24/7" },
+          ].map((w, i) => (
+            <div key={i} className="flex justify-between p-2.5 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <span className="text-sm text-white/60">{w.window}</span>
+              <span className="text-sm font-bold" style={{ color: WARM }}>{w.time}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+        <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+          style={{ background: `linear-gradient(135deg, ${GREEN}, hsl(145,60%,35%))`}}>
+          <MapPin className="w-7 h-7 text-white" />
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-3">Service Zones</h3>
+        <div className="space-y-2">
+          {[
+            { zone: "Nassau County", status: "Primary", color: GREEN },
+            { zone: "Suffolk County", status: "Primary", color: GREEN },
+            { zone: "Queens / Brooklyn", status: "Case-by-case", color: WARM },
+          ].map((z, i) => (
+            <div key={i} className="flex justify-between p-2.5 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <span className="text-sm text-white/60">{z.zone}</span>
+              <span className="text-sm font-bold" style={{ color: z.color }}>{z.status}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div className="mt-6 grid grid-cols-2 gap-6">
+      <div className="p-5 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+        <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+          <Users className="w-5 h-5" style={{ color: ORANGE }} />
+          Tech Assignment Logic
+        </h3>
+        <div className="space-y-1.5 text-sm text-white/60">
+          <p>1. Match by <span className="font-bold text-white">zone proximity</span> first</p>
+          <p>2. Then by <span className="font-bold text-white">skillset</span> (boiler vs. AC vs. plumbing)</p>
+          <p>3. Then by <span className="font-bold text-white">availability</span> — earliest open slot</p>
+          <p>4. Members get <span className="font-bold" style={{ color: WARM }}>priority scheduling</span></p>
+        </div>
+      </div>
+      <div className="p-5 rounded-2xl" style={{ background: `linear-gradient(135deg, ${RED}22, ${RED}11)`, border: `1px solid ${RED}44` }}>
+        <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+          <AlertTriangle className="w-5 h-5" style={{ color: RED }} />
+          When Fully Booked
+        </h3>
+        <div className="space-y-1.5 text-sm text-white/60">
+          <p>1. Offer the <span className="font-bold text-white">next available slot</span> and add to waitlist</p>
+          <p>2. For emergencies: <span className="font-bold text-white">always escalate to dispatch manager</span></p>
+          <p>3. Never turn away a customer — offer callback or next-day priority</p>
+          <p>4. Log the overflow in ServiceTitan for capacity planning</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── NEW SLIDE: Emergency & After-Hours Protocol ── */
+export const EmergencyProtocolSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24" style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: RED }}>
+      ⚠️ Priority Protocol
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-8">Emergency &amp; After-Hours</h2>
+    <div className="grid grid-cols-2 gap-8">
+      <div>
+        <h3 className="text-2xl font-bold text-white mb-4">What Qualifies as an Emergency</h3>
+        <div className="space-y-3">
+          {[
+            { icon: AlertTriangle, title: "Gas Leak / CO Alarm", desc: "Instruct caller to leave immediately & call 911. Then dispatch.", color: RED },
+            { icon: Flame, title: "No Heat (Below 40°F)", desc: "Winter emergency — dispatch same-day, priority override.", color: RED },
+            { icon: Snowflake, title: "No AC (Elderly / Medical)", desc: "Health risk — treat as emergency. Confirm medical need.", color: ORANGE },
+            { icon: Wind, title: "Active Flooding / Water Leak", desc: "Instruct to shut main valve. Dispatch plumbing emergency.", color: "hsl(200, 80%, 55%)" },
+            { icon: Siren, title: "System Making Dangerous Sounds", desc: "Banging, screeching, electrical burning smell — shut off & dispatch.", color: WARM },
+          ].map((e, i) => (
+            <div key={i} className="flex gap-4 p-4 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ background: `linear-gradient(135deg, ${e.color}, ${e.color}cc)` }}>
+                <e.icon className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <p className="text-lg font-bold text-white">{e.title}</p>
+                <p className="text-sm text-white/55">{e.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col gap-6">
+        <div className="p-6 rounded-2xl" style={{ background: `linear-gradient(135deg, ${RED}22, ${RED}11)`, border: `1px solid ${RED}44` }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <Clock className="w-5 h-5" style={{ color: RED }} />
+            After-Hours Procedures
+          </h3>
+          <div className="space-y-2 text-sm text-white/60">
+            <p>• <span className="font-bold text-white">Hours:</span> Mon–Sun, 7 AM – 10 PM standard</p>
+            <p>• <span className="font-bold text-white">After 10 PM:</span> Emergency-only dispatch</p>
+            <p>• <span className="font-bold text-white">No surcharge</span> — same pricing 24/7</p>
+            <p>• Log all after-hours calls in ServiceTitan with "After-Hours" tag</p>
+          </div>
+        </div>
+        <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <PhoneCall className="w-5 h-5" style={{ color: WARM }} />
+            Escalation Contacts
+          </h3>
+          <div className="space-y-3">
+            {[
+              { role: "Dispatch Manager", action: "All emergencies & full-book overrides" },
+              { role: "On-Call Technician", action: "After-hours emergency dispatch" },
+              { role: "Operations Manager", action: "Customer complaints & escalations" },
+            ].map((c, i) => (
+              <div key={i} className="p-3 rounded-xl" style={{ background: "hsl(0,0%,15%)" }}>
+                <p className="text-sm font-bold text-white">{c.role}</p>
+                <p className="text-xs text-white/45">{c.action}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-5 rounded-2xl" style={{ background: `linear-gradient(135deg, ${GREEN}22, ${GREEN}11)`, border: `1px solid ${GREEN}44` }}>
+          <p className="text-lg font-bold" style={{ color: GREEN }}>✅ Key Guarantees</p>
+          <div className="mt-2 space-y-1 text-sm text-white/60">
+            <p>• No emergency surcharge — ever</p>
+            <p>• 90-minute arrival guarantee still applies</p>
+            <p>• Same licensed, background-checked technicians</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (16 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide },
+  { title: "Call Flow / Decision Tree", component: CallFlowSlide },
   { title: "Job Types & Business Units", component: JobTypesSlide },
   { title: "Type of Service", component: ServiceTypeSlide },
   { title: "System Types", component: SystemTypeSlide },
+  { title: "Customer Info Checklist", component: CustomerChecklistSlide },
   { title: "Diagnostic Fees", component: DiagnosticFeesSlide },
   { title: "Residential vs Commercial", component: ResidentialCommercialSlide },
+  { title: "Scheduling & Dispatch Rules", component: SchedulingRulesSlide },
+  { title: "Emergency & After-Hours", component: EmergencyProtocolSlide },
   { title: "Diagnostic Sales Script", component: DiagnosticSalesScriptSlide },
   { title: "Estimate Sales Script", component: EstimateSalesScriptSlide },
   { title: "Maintenance Sales Script", component: MaintenanceSalesScriptSlide },

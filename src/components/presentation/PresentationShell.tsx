@@ -121,7 +121,7 @@ const DesktopPresentation: React.FC = () => {
               </button>
             </div>
             <span className="text-white/40 text-sm font-medium">
-              Homets Air & Heat — Investor Deck
+              Customer Service & Dispatch Guide
             </span>
             <div className="flex items-center gap-3">
               <span className="text-white/40 text-sm">

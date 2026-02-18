@@ -1,6 +1,11 @@
 import React from "react";
 import { HometsLogo } from "./HometsLogo";
-import { Phone, Mail, MapPin, Globe, Star, Home, Clock, TrendingUp, AlertTriangle, Shield, Zap, DollarSign, Users, Wrench } from "lucide-react";
+import {
+  Phone, MapPin, Clock, AlertTriangle, Shield, DollarSign,
+  Wrench, Hammer, Settings, Flame, Snowflake, ThermometerSun,
+  Repeat, Fan, ChevronRight, Home, Building, Calendar,
+  User, Mail, FileText, Siren, PhoneCall, Wind
+} from "lucide-react";
 
 const ORANGE = "hsl(15, 90%, 55%)";
 const RED = "hsl(0, 78%, 50%)";
@@ -25,171 +30,108 @@ const SectionTitle: React.FC<{ children: React.ReactNode; accent?: string }> = (
   </h2>
 );
 
-const StatCard: React.FC<{ value: string; label: string; color?: string }> = ({ value, label, color = ORANGE }) => (
-  <div className="rounded-xl p-4 text-center" style={{ background: SURFACE2 }}>
-    <div className="text-2xl font-extrabold mb-1" style={{ color }}>{value}</div>
-    <div className="text-xs" style={{ color: MUTED }}>{label}</div>
-  </div>
-);
-
-const PainCard: React.FC<{ icon: React.ReactNode; title: string; desc: string }> = ({ icon, title, desc }) => (
-  <div className="flex gap-3 rounded-xl p-4" style={{ background: SURFACE2 }}>
-    <div className="flex-shrink-0 mt-0.5" style={{ color: RED }}>{icon}</div>
-    <div>
-      <div className="font-semibold text-sm mb-1" style={{ color: TEXT }}>{title}</div>
-      <div className="text-xs leading-relaxed" style={{ color: MUTED }}>{desc}</div>
-    </div>
-  </div>
-);
-
-const WhyNowCard: React.FC<{ icon: React.ReactNode; text: string }> = ({ icon, text }) => (
-  <div className="flex gap-3 items-start rounded-xl p-4" style={{ background: SURFACE2 }}>
-    <div className="flex-shrink-0" style={{ color: GREEN }}>{icon}</div>
-    <div className="text-sm" style={{ color: TEXT }}>{text}</div>
-  </div>
-);
-
 export const MobilePresentation: React.FC = () => {
   return (
     <div className="min-h-screen pb-20" style={{ background: BG }}>
       {/* Hero */}
       <section className="flex flex-col items-center justify-center px-5 pt-12 pb-10 text-center" style={{ borderBottom: `1px solid ${BORDER}` }}>
         <HometsLogo width={220} className="mb-6" />
-        <p className="text-lg font-medium mb-4" style={{ color: MUTED }}>
-          Long Island's Fastest-Growing HVAC Company
-        </p>
+        <h1 className="text-xl font-bold mb-2" style={{ color: TEXT }}>Customer Service & Dispatch Guide</h1>
+        <p className="text-sm mb-4" style={{ color: MUTED }}>Quick Reference for Scheduling HVAC Service Calls</p>
         <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold"
           style={{ background: `linear-gradient(135deg, ${ORANGE}, ${RED})`, color: "white" }}>
-          <DollarSign className="w-4 h-4" />
-          $250K Pre-Seed · 2026
+          <Phone className="w-4 h-4" />
+          (516) 259-1191
         </div>
         <p className="text-xs mt-4" style={{ color: MUTED }}>Scroll to explore ↓</p>
       </section>
 
-      {/* Problem */}
+      {/* Call Flow */}
       <Section>
-        <SectionTitle accent={RED}>The Problem</SectionTitle>
-        <div className="space-y-3">
-          <PainCard
-            icon={<Clock className="w-5 h-5" />}
-            title="4-6 Hour Wait Times"
-            desc="Homeowners wait half a day for a tech who may not even fix it on the first visit."
-          />
-          <PainCard
-            icon={<AlertTriangle className="w-5 h-5" />}
-            title="No Transparency"
-            desc="Hidden fees, surprise charges, and no upfront pricing. Homeowners feel ripped off."
-          />
-          <PainCard
-            icon={<Shield className="w-5 h-5" />}
-            title="Unreliable Service"
-            desc="Unlicensed techs, no-shows, and sloppy work. 1 in 3 HVAC jobs needs a callback."
-          />
-        </div>
-      </Section>
-
-      {/* Solution */}
-      <Section>
-        <SectionTitle>The Solution</SectionTitle>
-        <div className="rounded-xl p-4 mb-4" style={{ background: `linear-gradient(135deg, ${ORANGE}22, ${RED}11)`, border: `1px solid ${ORANGE}44` }}>
-          <div className="text-xl font-extrabold mb-1" style={{ color: ORANGE }}>90-Minute Guarantee</div>
-          <div className="text-sm" style={{ color: TEXT }}>We arrive in 90 minutes or the service call is free.</div>
-        </div>
-        <ul className="space-y-2.5">
+        <SectionTitle>Call Flow</SectionTitle>
+        <div className="space-y-2">
           {[
-            "Upfront flat-rate pricing — no surprises",
-            "Licensed, background-checked technicians",
-            "Same-day repairs, 7 days a week",
-            "Real-time tracking & appointment updates",
-            "Lifetime workmanship warranty",
-          ].map((item, i) => (
-            <li key={i} className="flex gap-2 items-start text-sm" style={{ color: TEXT }}>
-              <Zap className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: WARM }} />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      {/* Traction */}
-      <Section>
-        <SectionTitle accent={GREEN}>Traction</SectionTitle>
-        <div className="grid grid-cols-2 gap-3">
-          <StatCard value="$54.5K" label="Month 1 Revenue" color={GREEN} />
-          <StatCard value="~$650K" label="Annual Run Rate" color={GREEN} />
-          <StatCard value="66" label="Five-Star Reviews" color={WARM} />
-          <StatCard value="500+" label="Homes Served" color={ORANGE} />
-        </div>
-      </Section>
-
-      {/* Market */}
-      <Section>
-        <SectionTitle>Market Opportunity</SectionTitle>
-        <div className="flex gap-3 mb-4">
-          <StatCard value="$76-80B" label="U.S. HVAC Market" />
-          <StatCard value="6.9%" label="Annual Growth (CAGR)" />
-        </div>
-        <ul className="space-y-2">
-          {[
-            "Aging housing stock driving replacement demand",
-            "Extreme weather increasing system failures",
-            "Energy efficiency mandates creating upgrade cycles",
-            "Fragmented market — no dominant brand on Long Island",
-          ].map((item, i) => (
-            <li key={i} className="flex gap-2 items-start text-sm" style={{ color: MUTED }}>
-              <TrendingUp className="w-3.5 h-3.5 flex-shrink-0 mt-1" style={{ color: ORANGE }} />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      {/* The Ask */}
-      <Section>
-        <SectionTitle accent={WARM}>The Ask</SectionTitle>
-        <div className="rounded-xl p-5 mb-4 text-center" style={{ background: SURFACE2 }}>
-          <div className="text-3xl font-extrabold mb-1" style={{ color: WARM }}>$250K</div>
-          <div className="text-sm mb-3" style={{ color: MUTED }}>SAFE Note · $2M Valuation Cap</div>
-          <div className="text-xs" style={{ color: MUTED }}>~12.5% equity at conversion</div>
-        </div>
-
-        <div className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: MUTED }}>Allocation</div>
-        <div className="space-y-2 mb-5">
-          {[
-            { label: "Crew Hiring & Training", pct: "45%", color: ORANGE },
-            { label: "Fleet & Equipment", pct: "25%", color: WARM },
-            { label: "Demand Gen", pct: "15%", color: RED },
-            { label: "Technology", pct: "10%", color: GREEN },
-            { label: "Working Capital", pct: "5%", color: MUTED },
-          ].map((item, i) => (
-            <div key={i} className="flex justify-between items-center text-sm" style={{ color: TEXT }}>
-              <span className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full" style={{ background: item.color }} />
-                {item.label}
-              </span>
-              <span className="font-bold" style={{ color: item.color }}>{item.pct}</span>
+            { icon: PhoneCall, label: "Answer & Greet", color: ORANGE },
+            { icon: Siren, label: "Emergency? → Escalate", color: RED },
+            { icon: Wrench, label: "Identify Service Type", color: WARM },
+            { icon: ThermometerSun, label: "Identify System Type", color: GREEN },
+            { icon: Home, label: "Residential or Commercial?", color: ORANGE },
+            { icon: User, label: "Collect Customer Info", color: "hsl(200, 80%, 55%)" },
+            { icon: FileText, label: "Select Sales Script", color: WARM },
+            { icon: Calendar, label: "Book & Confirm", color: GREEN },
+          ].map((s, i) => (
+            <div key={i} className="flex items-center gap-3 rounded-xl p-3" style={{ background: SURFACE2 }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ background: s.color }}>
+                <s.icon className="w-4 h-4 text-white" />
+              </div>
+              <span className="text-sm font-semibold" style={{ color: TEXT }}>{i + 1}. {s.label}</span>
             </div>
           ))}
         </div>
+      </Section>
 
-        <div className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: MUTED }}>Investor Returns</div>
+      {/* Service Types */}
+      <Section>
+        <SectionTitle>Service Types</SectionTitle>
+        <div className="space-y-3">
+          {[
+            { icon: Wrench, title: "Repair", color: RED, desc: "System not working, strange noises, leaks" },
+            { icon: Hammer, title: "Install", color: ORANGE, desc: "New system or replacement" },
+            { icon: Settings, title: "Maintenance", color: GREEN, desc: "Tune-up, filter change, inspection" },
+          ].map((s, i) => (
+            <div key={i} className="flex gap-3 rounded-xl p-4" style={{ background: SURFACE2 }}>
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ background: s.color }}>
+                <s.icon className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="font-bold text-sm" style={{ color: TEXT }}>{s.title}</div>
+                <div className="text-xs" style={{ color: MUTED }}>{s.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* System Types */}
+      <Section>
+        <SectionTitle>System Types</SectionTitle>
+        <div className="grid grid-cols-2 gap-2">
+          {[
+            { icon: Flame, label: "Boilers", color: RED },
+            { icon: ThermometerSun, label: "Furnaces", color: ORANGE },
+            { icon: Snowflake, label: "Air Conditioners", color: "hsl(200, 80%, 55%)" },
+            { icon: Repeat, label: "Heat Pumps", color: GREEN },
+            { icon: Fan, label: "Mini Splits", color: WARM },
+          ].map((s, i) => (
+            <div key={i} className="flex items-center gap-2 rounded-xl p-3" style={{ background: SURFACE2 }}>
+              <s.icon className="w-5 h-5 flex-shrink-0" style={{ color: s.color }} />
+              <span className="text-sm font-semibold" style={{ color: TEXT }}>{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Fee Reference */}
+      <Section>
+        <SectionTitle accent={WARM}>Fee Reference</SectionTitle>
         <div className="rounded-xl overflow-hidden" style={{ background: SURFACE2 }}>
           <table className="w-full text-sm">
-            <thead>
-              <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
-                <th className="text-left p-3 font-semibold" style={{ color: MUTED }}>Exit</th>
-                <th className="text-right p-3 font-semibold" style={{ color: MUTED }}>Return</th>
-              </tr>
-            </thead>
             <tbody>
               {[
-                { exit: "$10M", ret: "5x", color: WARM },
-                { exit: "$20M", ret: "10x", color: ORANGE },
-                { exit: "$40M", ret: "20x", color: GREEN },
-              ].map((row, i) => (
-                <tr key={i} style={{ borderBottom: i < 2 ? `1px solid ${BORDER}` : undefined }}>
-                  <td className="p-3" style={{ color: TEXT }}>{row.exit}</td>
-                  <td className="p-3 text-right font-bold" style={{ color: row.color }}>{row.ret}</td>
+                { label: "Resi Diagnostic", value: "$199", color: ORANGE },
+                { label: "Comm Standard", value: "$269", color: ORANGE },
+                { label: "Comm Complex", value: "$499", color: ORANGE },
+                { label: "Replacement Estimate", value: "FREE", color: GREEN },
+                { label: "Resi Labor", value: "$219/hr", color: WARM },
+                { label: "Comm Labor", value: "$269/hr", color: WARM },
+                { label: "AC/Furnace Tune-Up", value: "$299", color: GREEN },
+                { label: "Premium Tune-Up", value: "$449", color: GREEN },
+              ].map((r, i) => (
+                <tr key={i} style={{ borderBottom: `1px solid ${BORDER}` }}>
+                  <td className="p-3" style={{ color: TEXT }}>{r.label}</td>
+                  <td className="p-3 text-right font-bold" style={{ color: r.color }}>{r.value}</td>
                 </tr>
               ))}
             </tbody>
@@ -197,47 +139,122 @@ export const MobilePresentation: React.FC = () => {
         </div>
       </Section>
 
-      {/* Why Now */}
+      {/* Customer Info Checklist */}
       <Section>
-        <SectionTitle accent={GREEN}>Why Now</SectionTitle>
-        <div className="space-y-3">
-          <WhyNowCard icon={<TrendingUp className="w-5 h-5" />} text="Revenue growing month-over-month with zero paid marketing — pure word-of-mouth" />
-          <WhyNowCard icon={<Users className="w-5 h-5" />} text="First-mover advantage on Long Island — no tech-enabled HVAC competitor" />
-          <WhyNowCard icon={<Wrench className="w-5 h-5" />} text="Peak HVAC season approaching — capital now means maximum crew deployment" />
-          <WhyNowCard icon={<Home className="w-5 h-5" />} text="Proven model ready to scale — unit economics already profitable" />
+        <SectionTitle>Customer Checklist</SectionTitle>
+        <div className="space-y-2">
+          {[
+            "Full Name", "Phone Number", "Service Address", "System Type",
+            "System Age", "Problem Description", "Preferred Time Window",
+            "Membership Status", "How They Heard About Us",
+          ].map((f, i) => (
+            <div key={i} className="flex items-center gap-2 rounded-lg p-2.5" style={{ background: SURFACE2 }}>
+              <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" style={{ color: ORANGE }} />
+              <span className="text-sm" style={{ color: TEXT }}>{f}</span>
+            </div>
+          ))}
         </div>
+      </Section>
+
+      {/* Scheduling */}
+      <Section>
+        <SectionTitle accent={GREEN}>Scheduling</SectionTitle>
+        <div className="rounded-xl p-4 mb-3" style={{ background: `linear-gradient(135deg, ${ORANGE}22, ${RED}11)`, border: `1px solid ${ORANGE}44` }}>
+          <div className="text-lg font-extrabold mb-1" style={{ color: ORANGE }}>90-Minute Guarantee</div>
+          <div className="text-xs" style={{ color: TEXT }}>We arrive in 90 minutes or the service call is free.</div>
+        </div>
+        <div className="space-y-2">
+          {[
+            { window: "Morning", time: "8 AM – 12 PM" },
+            { window: "Afternoon", time: "12 PM – 4 PM" },
+            { window: "Evening", time: "4 PM – 8 PM" },
+            { window: "Emergency", time: "24/7" },
+          ].map((w, i) => (
+            <div key={i} className="flex justify-between p-2.5 rounded-lg" style={{ background: SURFACE2 }}>
+              <span className="text-sm" style={{ color: MUTED }}>{w.window}</span>
+              <span className="text-sm font-bold" style={{ color: WARM }}>{w.time}</span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 space-y-1.5">
+          {[
+            { zone: "Nassau County", status: "Primary" },
+            { zone: "Suffolk County", status: "Primary" },
+            { zone: "Queens / Brooklyn", status: "Case-by-case" },
+          ].map((z, i) => (
+            <div key={i} className="flex justify-between p-2.5 rounded-lg" style={{ background: SURFACE2 }}>
+              <span className="text-sm" style={{ color: MUTED }}>{z.zone}</span>
+              <span className="text-sm font-bold" style={{ color: GREEN }}>{z.status}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Emergency Protocol */}
+      <Section>
+        <SectionTitle accent={RED}>Emergency Protocol</SectionTitle>
+        <div className="space-y-2">
+          {[
+            { icon: AlertTriangle, title: "Gas Leak / CO Alarm", desc: "Tell caller to leave & call 911", color: RED },
+            { icon: Flame, title: "No Heat (Below 40°F)", desc: "Same-day priority dispatch", color: RED },
+            { icon: Wind, title: "Active Flooding", desc: "Shut main valve, dispatch plumbing", color: "hsl(200, 80%, 55%)" },
+            { icon: Siren, title: "Dangerous Sounds/Smell", desc: "Shut off system, dispatch ASAP", color: WARM },
+          ].map((e, i) => (
+            <div key={i} className="flex gap-3 rounded-xl p-3" style={{ background: SURFACE2 }}>
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ background: e.color }}>
+                <e.icon className="w-4.5 h-4.5 text-white" />
+              </div>
+              <div>
+                <div className="font-bold text-sm" style={{ color: TEXT }}>{e.title}</div>
+                <div className="text-xs" style={{ color: MUTED }}>{e.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 p-3 rounded-xl text-xs" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}44`, color: TEXT }}>
+          ✅ No emergency surcharge · 90-min guarantee applies · Same licensed techs
+        </div>
+      </Section>
+
+      {/* Quick Script Reference */}
+      <Section>
+        <SectionTitle>Sales Scripts</SectionTitle>
+        <div className="space-y-2">
+          {[
+            { label: "Diagnostic — $199 resi / $269 comm", color: ORANGE },
+            { label: "Estimate — Always FREE", color: GREEN },
+            { label: "Maintenance — $299 tune-up", color: WARM },
+            { label: "Membership — $299/yr Home+", color: RED },
+            { label: "Plumbing — $199 inspection", color: "hsl(200, 80%, 55%)" },
+          ].map((s, i) => (
+            <div key={i} className="flex items-center gap-2 rounded-lg p-3" style={{ background: SURFACE2 }}>
+              <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: s.color }} />
+              <span className="text-sm" style={{ color: TEXT }}>{s.label}</span>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs mt-3" style={{ color: MUTED }}>
+          🎯 Your job: book the visit. The technician closes on-site.
+        </p>
       </Section>
 
       {/* Contact */}
       <section className="px-5 py-8">
-        <SectionTitle>Get In Touch</SectionTitle>
+        <SectionTitle>Key Numbers</SectionTitle>
         <div className="space-y-3">
           <a href="tel:5162591191" className="flex items-center gap-3 rounded-xl p-4 no-underline" style={{ background: SURFACE2, color: TEXT }}>
             <Phone className="w-5 h-5" style={{ color: ORANGE }} />
             <div>
-              <div className="font-semibold text-sm">Call Us</div>
+              <div className="font-semibold text-sm">Main Line</div>
               <div className="text-xs" style={{ color: MUTED }}>(516) 259-1191</div>
-            </div>
-          </a>
-          <a href="mailto:info@hometsair.com" className="flex items-center gap-3 rounded-xl p-4 no-underline" style={{ background: SURFACE2, color: TEXT }}>
-            <Mail className="w-5 h-5" style={{ color: ORANGE }} />
-            <div>
-              <div className="font-semibold text-sm">Email</div>
-              <div className="text-xs" style={{ color: MUTED }}>info@hometsair.com</div>
-            </div>
-          </a>
-          <a href="https://hometsair.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl p-4 no-underline" style={{ background: SURFACE2, color: TEXT }}>
-            <Globe className="w-5 h-5" style={{ color: ORANGE }} />
-            <div>
-              <div className="font-semibold text-sm">Website</div>
-              <div className="text-xs" style={{ color: MUTED }}>hometsair.com</div>
             </div>
           </a>
           <div className="flex items-center gap-3 rounded-xl p-4" style={{ background: SURFACE2 }}>
             <MapPin className="w-5 h-5" style={{ color: ORANGE }} />
             <div>
-              <div className="font-semibold text-sm" style={{ color: TEXT }}>Long Island, NY</div>
-              <div className="text-xs" style={{ color: MUTED }}>Serving Nassau & Suffolk Counties</div>
+              <div className="font-semibold text-sm" style={{ color: TEXT }}>Service Area</div>
+              <div className="text-xs" style={{ color: MUTED }}>Nassau & Suffolk Counties, Long Island</div>
             </div>
           </div>
         </div>
