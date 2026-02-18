@@ -9,7 +9,9 @@ import {
   Users, Truck, Target, Phone, Mail, Globe,
   ThermometerSun, CheckCircle, Home, BarChart3,
   Zap, Award, HeartHandshake, Building2, Leaf,
-  Quote, ChevronRight, Rocket, Lock, Repeat
+  Quote, ChevronRight, Rocket, Lock, Repeat,
+  Hammer, Settings, Thermometer, Fan, CircleDot,
+  ClipboardList, HelpCircle, Building, MessageSquare
 } from "lucide-react";
 import {
   PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis,
@@ -22,7 +24,320 @@ const WARM = "hsl(25, 100%, 60%)";
 const MUTED = "hsl(0, 0%, 65%)";
 const GREEN = "hsl(145, 60%, 45%)";
 
-/* ── Slide 1: Title ── */
+/* ── DISPATCHER GUIDE SLIDES (1-5) ── */
+
+/* ── Dispatch Slide 1: Title/Cover ── */
+export const DispatchTitleSlide = () => (
+  <div className="flex flex-col items-center justify-center h-full text-center px-20"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
+      <span className="text-lg text-white/50 tracking-widest uppercase">Internal Reference</span>
+    </div>
+    <HometsLogoDark width={450} className="mb-8" />
+    <h2 className="text-5xl font-bold text-white mb-4">
+      Customer Service &amp; Dispatch Guide
+    </h2>
+    <p className="text-2xl text-white/60 mb-10 font-light tracking-wide max-w-[900px]">
+      Quick Reference for Scheduling HVAC Service Calls
+    </p>
+    <div className="px-10 py-5 rounded-2xl border-2 border-white/20"
+      style={{ background: "linear-gradient(135deg, hsl(15,90%,55%,0.15), hsl(0,78%,50%,0.1))" }}>
+      <div className="flex items-center gap-4">
+        <Phone className="w-8 h-8" style={{ color: ORANGE }} />
+        <span className="text-3xl font-bold text-white">(516) 259-1191</span>
+      </div>
+    </div>
+    <p className="mt-10 text-lg text-white/40">Nassau &amp; Suffolk County, Long Island, NY</p>
+  </div>
+);
+
+/* ── Dispatch Slide 2: Type of Service ── */
+export const ServiceTypeSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: ORANGE }}>
+      Step 1 — Identify Service Type
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-10">What Does the Customer Need?</h2>
+    <div className="grid grid-cols-3 gap-8">
+      {[
+        {
+          icon: Wrench, title: "Repair", color: RED,
+          desc: "System not working, strange noises, leaks, no heat or cooling.",
+          phrases: [
+            "\"My furnace won't turn on\"",
+            "\"There's water leaking from my AC\"",
+            "\"I hear a loud banging noise\"",
+            "\"No heat / no cold air coming out\"",
+          ],
+        },
+        {
+          icon: Hammer, title: "Install", color: ORANGE,
+          desc: "New system, replacement of old unit, new construction or renovation.",
+          phrases: [
+            "\"I need a new AC unit\"",
+            "\"My system is 20 years old\"",
+            "\"We're building a new home\"",
+            "\"I want to switch to a heat pump\"",
+          ],
+        },
+        {
+          icon: Settings, title: "Maintenance", color: GREEN,
+          desc: "Seasonal tune-up, filter change, annual inspection, preventive care.",
+          phrases: [
+            "\"I need my annual tune-up\"",
+            "\"Can someone check my system?\"",
+            "\"I want to change my filters\"",
+            "\"Getting ready for winter/summer\"",
+          ],
+        },
+      ].map((svc, i) => (
+        <div key={i} className="p-8 rounded-2xl flex flex-col" style={{ background: "hsl(0,0%,11%)" }}>
+          <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
+            style={{ background: `linear-gradient(135deg, ${svc.color}, ${svc.color}cc)` }}>
+            <svc.icon className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="text-3xl font-bold text-white mb-3">{svc.title}</h3>
+          <p className="text-lg text-white/55 mb-6 leading-relaxed">{svc.desc}</p>
+          <div className="mt-auto">
+            <p className="text-xs uppercase tracking-widest mb-3" style={{ color: MUTED }}>
+              <MessageSquare className="w-3.5 h-3.5 inline mr-1 mb-0.5" />
+              Customer might say:
+            </p>
+            <div className="space-y-2">
+              {svc.phrases.map((p, j) => (
+                <div key={j} className="flex items-start gap-2">
+                  <ChevronRight className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: svc.color }} />
+                  <span className="text-base text-white/70 italic">{p}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+/* ── Dispatch Slide 3: System Types ── */
+export const SystemTypeSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: ORANGE }}>
+      Step 2 — Identify System Type
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-10">What Kind of System?</h2>
+    <div className="grid grid-cols-5 gap-5">
+      {[
+        {
+          icon: Flame, title: "Boilers", color: RED,
+          desc: "Hot water / steam heating",
+          ask: ["Do you have radiators or baseboard heaters?", "Is it steam or hot water?", "Do you see a large tank with pipes?"],
+        },
+        {
+          icon: ThermometerSun, title: "Furnaces", color: ORANGE,
+          desc: "Forced air gas / electric",
+          ask: ["Do you have air vents in your rooms?", "Is it gas or electric?", "Can you hear the blower fan?"],
+        },
+        {
+          icon: Snowflake, title: "Air Conditioners", color: "hsl(200, 80%, 55%)",
+          desc: "Central & window cooling",
+          ask: ["Is there an outdoor unit?", "Central or window unit?", "Does it connect to your ductwork?"],
+        },
+        {
+          icon: Repeat, title: "Heat Pumps", color: GREEN,
+          desc: "Dual heating & cooling",
+          ask: ["Does your system heat AND cool?", "Is it an all-electric system?", "Single outdoor unit, year-round?"],
+        },
+        {
+          icon: Fan, title: "Mini Splits", color: WARM,
+          desc: "Ductless zones",
+          ask: ["Wall-mounted indoor units?", "How many rooms/zones?", "Any outdoor condenser visible?"],
+        },
+      ].map((sys, i) => (
+        <div key={i} className="p-6 rounded-2xl flex flex-col" style={{ background: "hsl(0,0%,11%)" }}>
+          <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center"
+            style={{ background: `linear-gradient(135deg, ${sys.color}, ${sys.color}cc)` }}>
+            <sys.icon className="w-7 h-7 text-white" />
+          </div>
+          <h3 className="text-xl font-bold text-white mb-1 text-center">{sys.title}</h3>
+          <p className="text-sm text-white/50 mb-5 text-center">{sys.desc}</p>
+          <div className="mt-auto">
+            <p className="text-xs uppercase tracking-widest mb-2" style={{ color: MUTED }}>
+              <HelpCircle className="w-3 h-3 inline mr-1 mb-0.5" />
+              Ask the customer:
+            </p>
+            <div className="space-y-2">
+              {sys.ask.map((q, j) => (
+                <div key={j} className="flex items-start gap-2">
+                  <CircleDot className="w-3 h-3 mt-1 flex-shrink-0" style={{ color: sys.color }} />
+                  <span className="text-sm text-white/65 leading-snug">{q}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+/* ── Dispatch Slide 4: Diagnostic & Service Fees ── */
+export const DiagnosticFeesSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: ORANGE }}>
+      Step 3 — Communicate Fees
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-10">Diagnostic &amp; Service Fees</h2>
+    <div className="grid grid-cols-2 gap-8">
+      {/* Fee table */}
+      <div className="rounded-2xl overflow-hidden" style={{ background: "hsl(0,0%,11%)" }}>
+        <div className="p-6 border-b" style={{ borderColor: "hsl(0,0%,18%)" }}>
+          <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+            <ClipboardList className="w-6 h-6" style={{ color: ORANGE }} />
+            Fee Schedule
+          </h3>
+        </div>
+        <div className="divide-y" style={{ borderColor: "hsl(0,0%,18%)" }}>
+          {[
+            { label: "Standard Diagnostic / Service Call", value: "$89", note: "Mon–Fri, 7 AM – 6 PM" },
+            { label: "After-Hours & Weekend Service", value: "$139", note: "Evenings, Sat & Sun" },
+            { label: "Emergency / Holiday Service", value: "$189", note: "24/7 holidays & overnight" },
+          ].map((row, i) => (
+            <div key={i} className="flex items-center justify-between p-5" style={{ borderColor: "hsl(0,0%,18%)" }}>
+              <div>
+                <p className="text-lg font-semibold text-white">{row.label}</p>
+                <p className="text-sm text-white/40 mt-1">{row.note}</p>
+              </div>
+              <span className="text-3xl font-bold" style={{ color: ORANGE }}>{row.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* What's included + guarantee */}
+      <div className="flex flex-col gap-6">
+        <div className="p-6 rounded-2xl flex-1" style={{ background: "hsl(0,0%,11%)" }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <CheckCircle className="w-5 h-5" style={{ color: GREEN }} />
+            What's Included
+          </h3>
+          <div className="space-y-3">
+            {[
+              "Full system inspection & diagnosis",
+              "Written report of findings",
+              "Upfront repair estimate before any work",
+              "Diagnostic fee applied toward repair cost",
+              "No hidden fees — price quoted is price paid",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: GREEN }} />
+                <span className="text-base text-white/70">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-6 rounded-2xl" style={{ background: "linear-gradient(135deg, hsl(15,90%,55%,0.15), hsl(0,78%,50%,0.1))", border: "1px solid hsl(15,90%,55%,0.3)" }}>
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center"
+              style={{ background: "linear-gradient(135deg, hsl(15,90%,55%), hsl(0,78%,50%))" }}>
+              <Clock className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <p className="text-xl font-bold text-white">90-Minute Response Guarantee</p>
+              <p className="text-base text-white/60">We arrive within 90 minutes or the service call is FREE.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Dispatch Slide 5: Residential vs. Commercial ── */
+export const ResidentialCommercialSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: ORANGE }}>
+      Step 4 — Residential or Commercial?
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-10">Determine Customer Type</h2>
+    <div className="grid grid-cols-2 gap-8 mb-8">
+      {/* Residential */}
+      <div className="p-8 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-14 h-14 rounded-2xl flex items-center justify-center"
+            style={{ background: `linear-gradient(135deg, ${WARM}, ${ORANGE})` }}>
+            <Home className="w-7 h-7 text-white" />
+          </div>
+          <h3 className="text-3xl font-bold text-white">Residential</h3>
+        </div>
+        <div className="space-y-3 mb-6">
+          {[
+            "Single-family homes, condos, apartments",
+            "Standard diagnostic fee: $89",
+            "Priority scheduling for emergencies",
+            "Homeowner is point of contact",
+            "Standard warranty terms apply",
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-3">
+              <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
+              <span className="text-base text-white/70">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Commercial */}
+      <div className="p-8 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-14 h-14 rounded-2xl flex items-center justify-center"
+            style={{ background: `linear-gradient(135deg, ${GREEN}, hsl(145,60%,35%)` }}>
+            <Building className="w-7 h-7 text-white" />
+          </div>
+          <h3 className="text-3xl font-bold text-white">Commercial</h3>
+        </div>
+        <div className="space-y-3 mb-6">
+          {[
+            "Offices, retail, multi-unit buildings, restaurants",
+            "Custom pricing — based on system size & units",
+            "Property manager / super may be contact",
+            "Multi-unit & rooftop systems common",
+            "Maintenance contracts available",
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-3">
+              <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: GREEN }} />
+              <span className="text-base text-white/70">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    {/* Dispatcher questions */}
+    <div className="p-6 rounded-2xl" style={{ background: "linear-gradient(135deg, hsl(15,90%,55%,0.12), hsl(0,78%,50%,0.08))" }}>
+      <p className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+        <HelpCircle className="w-5 h-5" style={{ color: ORANGE }} />
+        Key Questions to Ask
+      </p>
+      <div className="grid grid-cols-4 gap-6">
+        {[
+          "\"Is this for a home or a business?\"",
+          "\"How many units / systems need service?\"",
+          "\"Are you the homeowner or property manager?\"",
+          "\"Is there a building super we should coordinate with?\"",
+        ].map((q, i) => (
+          <div key={i} className="flex items-start gap-2">
+            <MessageSquare className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <span className="text-base text-white/70 italic">{q}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+/* ── INVESTOR PITCH DECK SLIDES (6-22) ── */
+
+/* ── Slide 6: Title ── */
 export const TitleSlide = () => (
   <div className="flex flex-col items-center justify-center h-full text-center px-20"
     style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
@@ -1423,8 +1738,15 @@ export const ContactSlide = () => (
   </div>
 );
 
-/* ── Export slide list (17 slides) ── */
+/* ── Export slide list (22 slides: 5 dispatch + 17 investor) ── */
 export const slides = [
+  /* Dispatcher Guide (1-5) */
+  { title: "Dispatch Guide", component: DispatchTitleSlide },
+  { title: "Type of Service", component: ServiceTypeSlide },
+  { title: "System Types", component: SystemTypeSlide },
+  { title: "Diagnostic Fees", component: DiagnosticFeesSlide },
+  { title: "Residential vs Commercial", component: ResidentialCommercialSlide },
+  /* Investor Deck (6-22) */
   { title: "Title", component: TitleSlide },
   { title: "The Problem", component: ProblemSlide },
   { title: "The Solution", component: SolutionSlide },
