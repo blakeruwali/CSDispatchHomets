@@ -2257,9 +2257,148 @@ export const MaintenanceSalesScriptSlide = () => (
   </div>
 );
 
-/* ── Export slide list (26 slides: 9 dispatch + 17 investor) ── */
+/* ── Dispatch Slide 10: Membership / Service Agreement Sales Script ── */
+export const MembershipSalesScriptSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: WARM }}>
+      Sales Script — Membership
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-8">Upselling Maintenance Plans</h2>
+    <div className="grid grid-cols-2 gap-8">
+      {/* Left: The Script */}
+      <div className="flex flex-col gap-5">
+        {[
+          {
+            step: "1",
+            label: "Transition Naturally",
+            color: WARM,
+            script: "\"Before we wrap up — I want to make sure you never have to deal with an unexpected breakdown again. Have you heard about our maintenance membership?\"",
+            note: "Use after booking a service or at the end of any call.",
+          },
+          {
+            step: "2",
+            label: "Present the Value",
+            color: ORANGE,
+            script: "\"It includes two tune-ups a year — one before summer, one before winter — so your system is always ready. Plus you get priority scheduling, which means you jump to the front of the line during peak season.\"",
+            note: "Lead with what they GET, not what they pay.",
+          },
+          {
+            step: "3",
+            label: "Highlight Savings",
+            color: GREEN,
+            script: "\"Members also get a discount on all repairs. Most customers save more than the cost of the membership on their very first repair. It basically pays for itself.\"",
+            note: "Make the math obvious — savings > cost.",
+          },
+          {
+            step: "4",
+            label: "Handle Hesitation",
+            color: RED,
+            script: "\"I totally get it — no pressure at all. But think about it this way: one emergency call on a Saturday night can easily cost more than an entire year of membership. This is insurance for your comfort.\"",
+            note: "Reframe as protection, not expense.",
+          },
+          {
+            step: "5",
+            label: "Soft Close",
+            color: GREEN,
+            script: "\"Tell you what — I can add it to today's visit and our tech will walk you through everything on-site. If it's not for you, no hard feelings. Sound fair?\"",
+            note: "Low-commitment close. Let the tech seal the deal.",
+          },
+        ].map((item, i) => (
+          <div key={i} className="flex gap-4 rounded-2xl p-5" style={{ background: "hsl(0,0%,11%)" }}>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-lg font-extrabold"
+              style={{ background: item.color, color: "white" }}>
+              {item.step}
+            </div>
+            <div className="flex-1">
+              <p className="text-lg font-bold text-white mb-1">{item.label}</p>
+              <p className="text-base italic text-white/75 mb-2 leading-relaxed">{item.script}</p>
+              <p className="text-sm text-white/40 flex items-start gap-1.5">
+                <Zap className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: item.color }} />
+                {item.note}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Right: Plans & Objections */}
+      <div className="flex flex-col gap-5">
+        <div className="p-6 rounded-2xl" style={{ background: `linear-gradient(135deg, ${WARM}22, ${ORANGE}11)`, border: `1px solid ${WARM}44` }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <Shield className="w-5 h-5" style={{ color: WARM }} />
+            Membership Tiers
+          </h3>
+          <div className="space-y-3">
+            <div className="p-3 rounded-xl" style={{ background: "hsl(0,0%,9%)" }}>
+              <p className="text-sm text-white/40 mb-1">Residential — Home+</p>
+              <div className="flex justify-between items-center">
+                <span className="text-base text-white/70">Starting at</span>
+                <span className="text-2xl font-bold" style={{ color: GREEN }}>$299<span className="text-sm text-white/40">/yr</span></span>
+              </div>
+              <p className="text-xs text-white/30 mt-1">Up to $2,999/yr for premium tier</p>
+            </div>
+            <div className="p-3 rounded-xl" style={{ background: "hsl(0,0%,9%)" }}>
+              <p className="text-sm text-white/40 mb-1">Commercial — Business+</p>
+              <div className="flex justify-between items-center">
+                <span className="text-base text-white/70">Starting at</span>
+                <span className="text-2xl font-bold" style={{ color: ORANGE }}>$699<span className="text-sm text-white/40">/yr</span></span>
+              </div>
+              <p className="text-xs text-white/30 mt-1">Up to $5,999/yr for premium tier</p>
+            </div>
+          </div>
+          <div className="mt-3 p-3 rounded-xl space-y-1.5" style={{ background: "hsl(0,0%,9%)" }}>
+            <p className="text-sm font-bold text-white">All plans include:</p>
+            {["Priority scheduling", "2 tune-ups per year", "Repair discounts", "No overtime charges"].map((perk, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <ChevronRight className="w-3.5 h-3.5" style={{ color: GREEN }} />
+                <span className="text-sm text-white/65">{perk}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <Shield className="w-5 h-5" style={{ color: GREEN }} />
+            Objection Handlers
+          </h3>
+          <div className="space-y-4">
+            {[
+              {
+                objection: "\"I don't need a membership, my system is new\"",
+                response: "\"That's actually the perfect time to start! Keeping up with maintenance from day one protects your manufacturer warranty and keeps your system running at peak efficiency for years.\"",
+              },
+              {
+                objection: "\"I'll just call when something breaks\"",
+                response: "\"You absolutely can. But during peak season, our members get priority — non-members sometimes wait 2-3 days. Plus, a single emergency repair often costs more than a full year of membership.\"",
+              },
+              {
+                objection: "\"That's an extra expense I don't need\"",
+                response: "\"I hear you. But think of it this way — the membership discount on just one repair usually covers the annual cost. Everything after that is pure savings. It's really more of an investment than an expense.\"",
+              },
+              {
+                objection: "\"Let me think about it\"",
+                response: "\"Of course! Our tech can go over all the details during your visit too. A lot of customers like to see the value in person before deciding — totally fair.\"",
+              },
+            ].map((item, i) => (
+              <div key={i}>
+                <p className="text-sm font-bold mb-1" style={{ color: RED }}>{item.objection}</p>
+                <p className="text-sm text-white/65 italic leading-relaxed">{item.response}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-4 rounded-2xl text-center" style={{ background: `linear-gradient(135deg, ${WARM}22, ${WARM}11)`, border: `1px solid ${WARM}44` }}>
+          <p className="text-lg font-bold" style={{ color: WARM }}>🎯 Goal: Plant the seed — tech closes on-site</p>
+          <p className="text-sm text-white/50 mt-1">Mention it on every call. Even a "maybe" is a win — the tech does the heavy lifting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (27 slides: 10 dispatch + 17 investor) ── */
 export const slides = [
-  /* Dispatcher Guide (1-9) */
+  /* Dispatcher Guide (1-10) */
   { title: "Dispatch Guide", component: DispatchTitleSlide },
   { title: "Job Types & Business Units", component: JobTypesSlide },
   { title: "Type of Service", component: ServiceTypeSlide },
@@ -2269,7 +2408,8 @@ export const slides = [
   { title: "Diagnostic Sales Script", component: DiagnosticSalesScriptSlide },
   { title: "Estimate Sales Script", component: EstimateSalesScriptSlide },
   { title: "Maintenance Sales Script", component: MaintenanceSalesScriptSlide },
-  /* Investor Deck (10-26) */
+  { title: "Membership Sales Script", component: MembershipSalesScriptSlide },
+  /* Investor Deck (11-27) */
   { title: "Title", component: TitleSlide },
   { title: "The Problem", component: ProblemSlide },
   { title: "The Solution", component: SolutionSlide },
