@@ -2396,9 +2396,138 @@ export const MembershipSalesScriptSlide = () => (
   </div>
 );
 
-/* ── Export slide list (27 slides: 10 dispatch + 17 investor) ── */
+/* ── Dispatch Slide 11: Plumbing Sales Script ── */
+const PLUMB_BLUE = "hsl(200, 80%, 55%)";
+export const PlumbingSalesScriptSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: PLUMB_BLUE }}>
+      Sales Script — Plumbing
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-8">Booking Plumbing Service &amp; Repair</h2>
+    <div className="grid grid-cols-2 gap-8">
+      {/* Left: The Script */}
+      <div className="flex flex-col gap-5">
+        {[
+          {
+            step: "1",
+            label: "Assess Urgency",
+            color: RED,
+            script: "\"I'm sorry you're dealing with that. Let me ask a few quick questions so we can get you the right help — is this an active leak or flooding right now, or is it something that's been building up?\"",
+            note: "Active leaks = emergency dispatch. Non-urgent = schedule normally.",
+          },
+          {
+            step: "2",
+            label: "Describe What We Do",
+            color: PLUMB_BLUE,
+            script: "\"We'll send a licensed plumber to diagnose the issue. They'll inspect everything, explain exactly what's going on, and give you upfront pricing before any work begins — no surprises.\"",
+            note: "Upfront pricing is the #1 trust builder for plumbing.",
+          },
+          {
+            step: "3",
+            label: "Gather Details",
+            color: ORANGE,
+            script: "\"To make sure we send the right tech with the right equipment — can you tell me what type of issue you're seeing? Is it a drain, toilet, water heater, leak, or something else?\"",
+            note: "Match to job type: Repair, Inspection, or Installation.",
+          },
+          {
+            step: "4",
+            label: "Build Confidence",
+            color: GREEN,
+            script: "\"Our plumbers are licensed and background-checked. We stand behind every job with a workmanship guarantee, and we always clean up after ourselves — your home will look like we were never there.\"",
+            note: "Plumbing customers worry about mess and trust. Address both.",
+          },
+          {
+            step: "5",
+            label: "Close & Schedule",
+            color: PLUMB_BLUE,
+            script: "\"We have availability [today/tomorrow]. Our tech will call 30 minutes before arrival so you're not waiting around. Can I get you on the schedule?\"",
+            note: "Courtesy call mention reduces no-shows and builds trust.",
+          },
+        ].map((item, i) => (
+          <div key={i} className="flex gap-4 rounded-2xl p-5" style={{ background: "hsl(0,0%,11%)" }}>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-lg font-extrabold"
+              style={{ background: item.color, color: "white" }}>
+              {item.step}
+            </div>
+            <div className="flex-1">
+              <p className="text-lg font-bold text-white mb-1">{item.label}</p>
+              <p className="text-base italic text-white/75 mb-2 leading-relaxed">{item.script}</p>
+              <p className="text-sm text-white/40 flex items-start gap-1.5">
+                <Zap className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: item.color }} />
+                {item.note}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Right: Job Type Ref & Objections */}
+      <div className="flex flex-col gap-5">
+        <div className="p-6 rounded-2xl" style={{ background: `linear-gradient(135deg, ${PLUMB_BLUE}22, ${PLUMB_BLUE}11)`, border: `1px solid ${PLUMB_BLUE}44` }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <ClipboardList className="w-5 h-5" style={{ color: PLUMB_BLUE }} />
+            ServiceTitan Job Type Guide
+          </h3>
+          <div className="space-y-2">
+            {[
+              { scenario: "Leak, clog, broken fixture, running toilet", job: "Plumbing Repair", bu: "Plumbing Service" },
+              { scenario: "Camera inspection, sewer scope, full assessment", job: "Plumbing Inspection", bu: "Plumbing Service" },
+              { scenario: "Wants quote for new water heater / repipe", job: "Plumbing Estimate", bu: "Plumbing Service" },
+              { scenario: "Approved install — water heater, fixture, repipe", job: "Plumbing Installation", bu: "Plumbing Install" },
+            ].map((row, i) => (
+              <div key={i} className="p-3 rounded-xl" style={{ background: "hsl(0,0%,9%)" }}>
+                <p className="text-xs text-white/40 mb-1">{row.scenario}</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm font-semibold text-white">{row.job}</span>
+                  <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${PLUMB_BLUE}33`, color: PLUMB_BLUE }}>{row.bu}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <Shield className="w-5 h-5" style={{ color: GREEN }} />
+            Objection Handlers
+          </h3>
+          <div className="space-y-4">
+            {[
+              {
+                objection: "\"How much will the repair cost?\"",
+                response: "\"Every plumbing issue is a little different, so I can't give an exact number over the phone. But our plumber will diagnose it and give you an upfront price before any work starts — you'll always know the cost before saying yes.\"",
+              },
+              {
+                objection: "\"I'll just try to fix it myself\"",
+                response: "\"I totally understand the DIY instinct! Just be careful with plumbing — a small mistake can lead to water damage that costs thousands. Our tech can at least take a look and let you know what you're dealing with.\"",
+              },
+              {
+                objection: "\"Can you come right now? It's an emergency\"",
+                response: "\"Absolutely — let me check our emergency availability. We prioritize active leaks and flooding. Can you shut off the water supply to that area in the meantime? I'll get someone to you as fast as possible.\"",
+              },
+              {
+                objection: "\"I want to get a few quotes first\"",
+                response: "\"Smart move. We offer free estimates for installations, and for repairs, our plumber gives you the full price upfront on-site. Many customers appreciate that we don't charge just to show up and look.\"",
+              },
+            ].map((item, i) => (
+              <div key={i}>
+                <p className="text-sm font-bold mb-1" style={{ color: RED }}>{item.objection}</p>
+                <p className="text-sm text-white/65 italic leading-relaxed">{item.response}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-4 rounded-2xl text-center" style={{ background: `linear-gradient(135deg, ${PLUMB_BLUE}22, ${PLUMB_BLUE}11)`, border: `1px solid ${PLUMB_BLUE}44` }}>
+          <p className="text-lg font-bold" style={{ color: PLUMB_BLUE }}>🎯 Goal: Book the plumbing visit</p>
+          <p className="text-sm text-white/50 mt-1">Qualify the urgency, match the right job type, and get them on the schedule.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (28 slides: 11 dispatch + 17 investor) ── */
 export const slides = [
-  /* Dispatcher Guide (1-10) */
+  /* Dispatcher Guide (1-11) */
   { title: "Dispatch Guide", component: DispatchTitleSlide },
   { title: "Job Types & Business Units", component: JobTypesSlide },
   { title: "Type of Service", component: ServiceTypeSlide },
@@ -2409,7 +2538,8 @@ export const slides = [
   { title: "Estimate Sales Script", component: EstimateSalesScriptSlide },
   { title: "Maintenance Sales Script", component: MaintenanceSalesScriptSlide },
   { title: "Membership Sales Script", component: MembershipSalesScriptSlide },
-  /* Investor Deck (11-27) */
+  { title: "Plumbing Sales Script", component: PlumbingSalesScriptSlide },
+  /* Investor Deck (12-28) */
   { title: "Title", component: TitleSlide },
   { title: "The Problem", component: ProblemSlide },
   { title: "The Solution", component: SolutionSlide },
