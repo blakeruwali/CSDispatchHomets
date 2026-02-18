@@ -1652,6 +1652,117 @@ const objectionCategories = [
       },
     ],
   },
+  {
+    category: "Rental / Tenant Scenarios",
+    icon: Building,
+    color: "hsl(180, 50%, 50%)",
+    objections: [
+      {
+        trigger: "\"I'm a renter — my landlord has to approve this.\"",
+        response: "Totally understand! We work with tenants and landlords all the time. If you'd like, we can do the diagnostic and provide a detailed report you can share with your landlord. That way they have all the info they need to approve the work quickly.",
+        tip: "Offer a diagnostic report as a bridge — makes landlord approval easier",
+      },
+      {
+        trigger: "\"My landlord won't pay for it.\"",
+        response: "I'm sorry to hear that. In most cases, HVAC is the landlord's responsibility — especially if it's a safety issue like no heat or a gas concern. We can provide documentation that may help. Would you like us to come out and assess the situation?",
+        tip: "Gently educate on landlord obligations, offer documentation",
+      },
+      {
+        trigger: "\"Can you bill my landlord directly?\"",
+        response: "We typically collect payment at the time of service, but we can absolutely provide a detailed invoice and diagnostic report that your landlord can use for reimbursement. Many landlords prefer it that way.",
+        tip: "Payment at service, but provide full documentation for reimbursement",
+      },
+      {
+        trigger: "\"I don't know what kind of system I have — I just rent here.\"",
+        response: "No worries at all! That's actually very common. Our technician will identify your system when they arrive and explain everything. All we need from you is the address and the issue you're experiencing.",
+        tip: "Reassure them — tech handles identification on-site",
+      },
+      {
+        trigger: "\"My landlord has their own HVAC guy.\"",
+        response: "That's great! If they're available quickly, go with them. But if you're stuck waiting — especially in extreme weather — we offer same-day service and a 90-minute arrival guarantee. We're here as a backup option.",
+        tip: "Position as the fast backup, not a replacement",
+      },
+      {
+        trigger: "\"I'm moving out soon, why should I fix it?\"",
+        response: "I get it — you don't want to invest in a place you're leaving. But if it's a comfort or safety issue while you're still there, a diagnostic can help. Plus, your landlord may cover the cost since it's their property.",
+        tip: "Focus on immediate comfort + landlord responsibility",
+      },
+    ],
+  },
+  {
+    category: "Warranty Expiration Pushback",
+    icon: FileText,
+    color: "hsl(45, 85%, 50%)",
+    objections: [
+      {
+        trigger: "\"My system is still under warranty — why should I pay?\"",
+        response: "Great news that you have a warranty! Manufacturer warranties typically cover parts, but labor and the diagnostic visit are separate. Our tech can verify your warranty status on-site and help you get the most out of your coverage.",
+        tip: "Clarify parts vs. labor warranty — help them maximize coverage",
+      },
+      {
+        trigger: "\"The warranty just expired — can you still cover it?\"",
+        response: "Unfortunately we can't extend manufacturer warranties, but here's the good news: our Home+ Membership gives you 10-15% off all repairs going forward, plus priority scheduling and annual tune-ups. It's the best way to protect yourself after warranty.",
+        tip: "Pivot to membership as post-warranty protection",
+      },
+      {
+        trigger: "\"I paid a lot for this system — it shouldn't be breaking already.\"",
+        response: "I completely understand your frustration. Even high-quality systems need maintenance and can develop issues over time. Let's get a tech out to diagnose it — it might be a simple fix. And if the system is still under warranty, we'll make sure you get full credit for covered parts.",
+        tip: "Validate frustration, set realistic expectations, check warranty",
+      },
+      {
+        trigger: "\"Who handles the warranty — you or the manufacturer?\"",
+        response: "The manufacturer covers the parts warranty, and we handle the labor. Our technician can look up your warranty status on-site, submit any claims, and make sure you're not paying for parts that are covered. We make the process easy.",
+        tip: "Be clear on roles — position as warranty facilitator",
+      },
+      {
+        trigger: "\"I didn't register my warranty — am I out of luck?\"",
+        response: "Not necessarily! Many manufacturers have a grace period for registration, and some warranties apply automatically. Our tech can check the serial number on-site and verify your coverage. It's worth checking before assuming the worst.",
+        tip: "Don't let them give up — tech can verify on-site",
+      },
+      {
+        trigger: "\"My extended warranty company says you need to be approved.\"",
+        response: "We work with most home warranty companies. Give me the name of your provider and your claim number, and I'll verify everything before we send a tech. We want to make sure you're fully covered.",
+        tip: "Get warranty company name + claim # upfront to avoid surprises",
+      },
+    ],
+  },
+  {
+    category: "Seasonal Timing Objections",
+    icon: Calendar,
+    color: "hsl(320, 60%, 55%)",
+    objections: [
+      {
+        trigger: "\"It's not that hot/cold yet — I'll wait.\"",
+        response: "That's actually the best time to get it checked! Right now our schedule is more flexible, so you'll get faster service and more appointment options. Once the extreme weather hits, everyone calls at once and wait times go up significantly.",
+        tip: "Off-season = faster service, more availability, better prep",
+      },
+      {
+        trigger: "\"I'll just wait until summer/winter to deal with it.\"",
+        response: "I hear you, but small issues now often turn into emergency breakdowns when you need the system most. A quick diagnostic now can catch problems early and save you from a much more expensive repair — or a no-heat/no-AC emergency.",
+        tip: "Gentle urgency — small fix now vs. emergency later",
+      },
+      {
+        trigger: "\"Is this really urgent or can it wait?\"",
+        response: "Without seeing the system, I can't say for sure — but I'd rather you have peace of mind. Our diagnostic will tell you exactly what's going on. If it's minor, the tech will let you know and you can plan accordingly. No pressure.",
+        tip: "Honest answer — use diagnostic as the decision-maker",
+      },
+      {
+        trigger: "\"I only use AC/heat a few months — not worth fixing.\"",
+        response: "I understand. But even seasonal systems need to be in working order for safety and efficiency. A system running poorly drives up your energy bills even in short seasons. Plus, fixing it now means you're ready when you need it — no emergency calls.",
+        tip: "Efficiency + safety + readiness when needed",
+      },
+      {
+        trigger: "\"Can I just get a tune-up instead of a repair?\"",
+        response: "A tune-up is a great idea for maintenance! But if you're experiencing a specific issue — like strange noises, weak airflow, or temperature problems — you'll want a diagnostic so the tech can identify and fix the root cause. We can discuss both options when the tech arrives.",
+        tip: "Clarify tune-up vs. diagnostic — don't upsell, educate",
+      },
+      {
+        trigger: "\"I heard you should replace your system in spring/fall — should I wait?\"",
+        response: "Spring and fall are popular for replacements because demand is lower and you have more time to decide. But if your system is struggling now, waiting could mean an uncomfortable or unsafe situation. Let's do a diagnostic to see where your system stands — then you can make an informed decision.",
+        tip: "Validate the advice, but prioritize current comfort and safety",
+      },
+    ],
+  },
 ];
 
 export const ObjectionHandlingSlide = () => {
