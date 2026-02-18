@@ -191,62 +191,71 @@ export const DiagnosticFeesSlide = () => (
     </p>
     <h2 className="text-5xl font-bold text-white mb-10">Diagnostic &amp; Service Fees</h2>
     <div className="grid grid-cols-2 gap-8">
-      {/* Fee table */}
+      {/* Diagnostic fee table */}
       <div className="rounded-2xl overflow-hidden" style={{ background: "hsl(0,0%,11%)" }}>
         <div className="p-6 border-b" style={{ borderColor: "hsl(0,0%,18%)" }}>
           <h3 className="text-2xl font-bold text-white flex items-center gap-3">
             <ClipboardList className="w-6 h-6" style={{ color: ORANGE }} />
-            Fee Schedule
+            Diagnostic / Service Call
           </h3>
+          <p className="text-sm text-white/40 mt-1">~90%+ Gross Margin · No emergency surcharge</p>
         </div>
         <div className="divide-y" style={{ borderColor: "hsl(0,0%,18%)" }}>
           {[
-            { label: "Standard Diagnostic / Service Call", value: "$89", note: "Mon–Fri, 7 AM – 6 PM" },
-            { label: "After-Hours & Weekend Service", value: "$139", note: "Evenings, Sat & Sun" },
-            { label: "Emergency / Holiday Service", value: "$189", note: "24/7 holidays & overnight" },
+            { label: "Residential / Specialty Diagnostic", value: "$199", note: "Standard home service call" },
+            { label: "Commercial Standard Diagnostic", value: "$269", note: "Office, retail, multi-unit" },
+            { label: "Complex Commercial Diagnostic", value: "$499", note: "Large / multi-system commercial" },
+            { label: "System Replacement Estimate", value: "FREE", note: "No-cost in-home estimate", free: true },
           ].map((row, i) => (
             <div key={i} className="flex items-center justify-between p-5" style={{ borderColor: "hsl(0,0%,18%)" }}>
               <div>
                 <p className="text-lg font-semibold text-white">{row.label}</p>
                 <p className="text-sm text-white/40 mt-1">{row.note}</p>
               </div>
-              <span className="text-3xl font-bold" style={{ color: ORANGE }}>{row.value}</span>
+              <span className="text-3xl font-bold" style={{ color: row.free ? GREEN : ORANGE }}>{row.value}</span>
             </div>
           ))}
         </div>
       </div>
-      {/* What's included + guarantee */}
+      {/* Repair & Tune-Up rates */}
       <div className="flex flex-col gap-6">
-        <div className="p-6 rounded-2xl flex-1" style={{ background: "hsl(0,0%,11%)" }}>
+        <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
           <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <CheckCircle className="w-5 h-5" style={{ color: GREEN }} />
-            What's Included
+            <Wrench className="w-5 h-5" style={{ color: RED }} />
+            Repair Pricing (55–70% GM)
           </h3>
+          <p className="text-sm text-white/50 mb-3">Truck Roll ($199) + Hours × Rate + Material</p>
           <div className="space-y-3">
             {[
-              "Full system inspection & diagnosis",
-              "Written report of findings",
-              "Upfront repair estimate before any work",
-              "Diagnostic fee applied toward repair cost",
-              "No hidden fees — price quoted is price paid",
+              "Residential Labor: $219/hr",
+              "Commercial Labor: $269/hr",
+              "Material Markup: +$79 to 2.19×",
+              "60+ tasks · all prices end in 9",
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
-                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: GREEN }} />
+                <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: RED }} />
                 <span className="text-base text-white/70">{item}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="p-6 rounded-2xl" style={{ background: "linear-gradient(135deg, hsl(15,90%,55%,0.15), hsl(0,78%,50%,0.1))", border: "1px solid hsl(15,90%,55%,0.3)" }}>
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, hsl(15,90%,55%), hsl(0,78%,50%))" }}>
-              <Clock className="w-7 h-7 text-white" />
-            </div>
-            <div>
-              <p className="text-xl font-bold text-white">90-Minute Response Guarantee</p>
-              <p className="text-base text-white/60">We arrive within 90 minutes or the service call is FREE.</p>
-            </div>
+        <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <Settings className="w-5 h-5" style={{ color: GREEN }} />
+            Tune-Up Pricing (~80%+ GM)
+          </h3>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { label: "Resi AC / Furnace", value: "$299" },
+              { label: "Premium / Specialty", value: "$449" },
+              { label: "Commercial RTU", value: "$549" },
+              { label: "Commercial VRF", value: "$899" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center justify-between p-3 rounded-xl" style={{ background: "hsl(0,0%,15%)" }}>
+                <span className="text-sm text-white/60">{item.label}</span>
+                <span className="text-lg font-bold" style={{ color: GREEN }}>{item.value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -261,60 +270,95 @@ export const ResidentialCommercialSlide = () => (
     <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: ORANGE }}>
       Step 4 — Residential or Commercial?
     </p>
-    <h2 className="text-5xl font-bold text-white mb-10">Determine Customer Type</h2>
-    <div className="grid grid-cols-2 gap-8 mb-8">
+    <h2 className="text-5xl font-bold text-white mb-8">Determine Customer Type</h2>
+    <div className="grid grid-cols-2 gap-8 mb-6">
       {/* Residential */}
-      <div className="p-8 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
-        <div className="flex items-center gap-4 mb-6">
+      <div className="p-7 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+        <div className="flex items-center gap-4 mb-5">
           <div className="w-14 h-14 rounded-2xl flex items-center justify-center"
             style={{ background: `linear-gradient(135deg, ${WARM}, ${ORANGE})` }}>
             <Home className="w-7 h-7 text-white" />
           </div>
-          <h3 className="text-3xl font-bold text-white">Residential</h3>
+          <div>
+            <h3 className="text-3xl font-bold text-white">Residential</h3>
+            <p className="text-sm text-white/40">Single-family, condos, apartments</p>
+          </div>
         </div>
-        <div className="space-y-3 mb-6">
+        <div className="space-y-2 mb-5">
           {[
-            "Single-family homes, condos, apartments",
-            "Standard diagnostic fee: $89",
-            "Priority scheduling for emergencies",
-            "Homeowner is point of contact",
-            "Standard warranty terms apply",
+            { label: "Diagnostic", value: "$199" },
+            { label: "Labor Rate", value: "$219/hr" },
+            { label: "AC / Furnace Tune-Up", value: "$299" },
+            { label: "Premium Tune-Up", value: "$449" },
           ].map((item, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
-              <span className="text-base text-white/70">{item}</span>
+            <div key={i} className="flex items-center justify-between p-2.5 rounded-xl" style={{ background: "hsl(0,0%,15%)" }}>
+              <span className="text-sm text-white/60">{item.label}</span>
+              <span className="text-lg font-bold" style={{ color: ORANGE }}>{item.value}</span>
             </div>
           ))}
+        </div>
+        <div className="p-4 rounded-xl" style={{ background: "hsl(0,0%,8%)" }}>
+          <p className="text-sm font-bold text-white mb-2">Home+ Plans</p>
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-sm">
+              <span className="text-white/50">Comfort — 2 tune-ups, 10% disc.</span>
+              <span className="font-bold" style={{ color: WARM }}>$299/yr</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-white/50">Infinite — 2 tune-ups, 15% disc, $1.5K credit</span>
+              <span className="font-bold" style={{ color: WARM }}>$2,999/yr</span>
+            </div>
+          </div>
         </div>
       </div>
       {/* Commercial */}
-      <div className="p-8 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
-        <div className="flex items-center gap-4 mb-6">
+      <div className="p-7 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+        <div className="flex items-center gap-4 mb-5">
           <div className="w-14 h-14 rounded-2xl flex items-center justify-center"
-            style={{ background: `linear-gradient(135deg, ${GREEN}, hsl(145,60%,35%)` }}>
+            style={{ background: `linear-gradient(135deg, ${GREEN}, hsl(145,60%,35%))` }}>
             <Building className="w-7 h-7 text-white" />
           </div>
-          <h3 className="text-3xl font-bold text-white">Commercial</h3>
+          <div>
+            <h3 className="text-3xl font-bold text-white">Commercial</h3>
+            <p className="text-sm text-white/40">Offices, retail, multi-unit, restaurants</p>
+          </div>
         </div>
-        <div className="space-y-3 mb-6">
+        <div className="space-y-2 mb-5">
           {[
-            "Offices, retail, multi-unit buildings, restaurants",
-            "Custom pricing — based on system size & units",
-            "Property manager / super may be contact",
-            "Multi-unit & rooftop systems common",
-            "Maintenance contracts available",
+            { label: "Standard Diagnostic", value: "$269" },
+            { label: "Complex Diagnostic", value: "$499" },
+            { label: "Labor Rate", value: "$269/hr" },
+            { label: "RTU Tune-Up", value: "$549" },
+            { label: "VRF Tune-Up", value: "$899" },
           ].map((item, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: GREEN }} />
-              <span className="text-base text-white/70">{item}</span>
+            <div key={i} className="flex items-center justify-between p-2.5 rounded-xl" style={{ background: "hsl(0,0%,15%)" }}>
+              <span className="text-sm text-white/60">{item.label}</span>
+              <span className="text-lg font-bold" style={{ color: GREEN }}>{item.value}</span>
             </div>
           ))}
         </div>
+        <div className="p-4 rounded-xl" style={{ background: "hsl(0,0%,8%)" }}>
+          <p className="text-sm font-bold text-white mb-2">Business+ Plans</p>
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-sm">
+              <span className="text-white/50">Essential — Quarterly tune-ups</span>
+              <span className="font-bold" style={{ color: GREEN }}>$699/yr</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-white/50">Premier — Priority + discounts</span>
+              <span className="font-bold" style={{ color: GREEN }}>$1,499/yr</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-white/50">Enterprise — $3K repair credit</span>
+              <span className="font-bold" style={{ color: GREEN }}>$5,999/yr</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    {/* Dispatcher questions */}
-    <div className="p-6 rounded-2xl" style={{ background: "linear-gradient(135deg, hsl(15,90%,55%,0.12), hsl(0,78%,50%,0.08))" }}>
-      <p className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+    {/* Key questions */}
+    <div className="p-5 rounded-2xl" style={{ background: "linear-gradient(135deg, hsl(15,90%,55%,0.12), hsl(0,78%,50%,0.08))" }}>
+      <p className="text-lg font-bold text-white mb-3 flex items-center gap-2">
         <HelpCircle className="w-5 h-5" style={{ color: ORANGE }} />
         Key Questions to Ask
       </p>
