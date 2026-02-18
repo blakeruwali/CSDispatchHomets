@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { HometsLogoDark } from "./HometsLogo";
 import {
   Flame, Snowflake, Wind, Cpu, Wrench, AlertTriangle,
@@ -8,7 +8,8 @@ import {
   Hammer, Settings, Thermometer, Fan, CircleDot,
   ClipboardList, HelpCircle, Building,
   ArrowRight, PhoneCall, MapPin, User, Mail, Calendar,
-  FileText, Siren, Timer, Users
+  FileText, Siren, Timer, Users, Search, X,
+  ShieldAlert, HandCoins, UserX, AlertOctagon, Headphones
 } from "lucide-react";
 
 const ORANGE = "hsl(15, 90%, 55%)";
@@ -1471,7 +1472,295 @@ export const EmergencyProtocolSlide = () => (
   </div>
 );
 
-/* ── Export slide list (16 slides: Customer Service & Dispatch Guide) ── */
+/* ── Slide 17: Comprehensive Objection Handling ── */
+
+const objectionCategories = [
+  {
+    category: "Price Objections",
+    icon: DollarSign,
+    color: ORANGE,
+    objections: [
+      {
+        trigger: "\"That's too expensive.\"",
+        response: "I completely understand — no one wants to overpay. Our diagnostic fee covers a full system inspection by a licensed technician who will explain exactly what's going on before any work is done. There are never hidden fees, and the diagnostic fee is waived if you move forward with the repair.",
+        tip: "Acknowledge → Reframe value → Remove risk",
+      },
+      {
+        trigger: "\"I can get it cheaper somewhere else.\"",
+        response: "That's totally fair to shop around. What I can tell you is our technicians are fully licensed and insured, we offer a 90-minute arrival guarantee, and we stand behind every repair with a satisfaction guarantee. Many customers come to us after a cheaper fix didn't hold up.",
+        tip: "Don't bash competitors — sell trust & guarantees",
+      },
+      {
+        trigger: "\"Why do I have to pay just for someone to come look at it?\"",
+        response: "Great question! The $199 diagnostic covers a full inspection — our tech will diagnose the issue, explain your options, and give you an upfront price before any work begins. If you choose to go ahead with the repair, the diagnostic fee gets applied to the total cost. There's no pressure and no surprises.",
+        tip: "Explain value of diagnosis, mention fee rolls into repair",
+      },
+      {
+        trigger: "\"Can you give me a price over the phone?\"",
+        response: "I wish I could! But HVAC systems are complex, and giving a price without seeing the system could lead to inaccurate quotes. Our tech will provide an exact price on-site before doing any work — and you're never obligated to proceed.",
+        tip: "Never quote repairs over the phone — always on-site",
+      },
+      {
+        trigger: "\"I wasn't expecting it to cost this much.\"",
+        response: "I hear you. The good news is you don't have to decide right now. Our tech will walk you through all your options — from the most affordable fix to a long-term solution. We also offer financing options to make it easier.",
+        tip: "Offer options & financing, no pressure",
+      },
+      {
+        trigger: "\"Do you offer any discounts or coupons?\"",
+        response: "We do have our Home+ Membership Plan which saves you money year-round — 10-15% off all repairs, two annual tune-ups included, and priority scheduling. Would you like me to tell you more about it?",
+        tip: "Pivot to membership — it's the best ongoing discount",
+      },
+    ],
+  },
+  {
+    category: "Trust & Credibility",
+    icon: Shield,
+    color: "hsl(200, 80%, 55%)",
+    objections: [
+      {
+        trigger: "\"I've never heard of your company.\"",
+        response: "That's okay! We're a fully licensed and insured HVAC company serving Nassau and Suffolk County. We have hundreds of 5-star reviews, and every technician is background-checked. We'd love to earn your trust on this first visit.",
+        tip: "Social proof + credentials + low-risk first visit",
+      },
+      {
+        trigger: "\"How do I know your techs are qualified?\"",
+        response: "All of our technicians are fully licensed, insured, and go through rigorous background checks. They undergo continuous training and are equipped with the latest diagnostic tools. You're in great hands.",
+        tip: "Emphasize licensing, training, background checks",
+      },
+      {
+        trigger: "\"My last HVAC company ripped me off.\"",
+        response: "I'm really sorry to hear that — that's frustrating. We do things differently. Our tech will show you exactly what's wrong, explain your options, and give you the price upfront before any work starts. You're always in control.",
+        tip: "Empathize first, then differentiate with transparency",
+      },
+      {
+        trigger: "\"Are you guys licensed and insured?\"",
+        response: "Absolutely! We are fully licensed and insured in the state of New York. Every technician carries their credentials, and we're happy to provide proof of insurance if needed.",
+        tip: "Confident, direct answer — offer documentation",
+      },
+    ],
+  },
+  {
+    category: "Timing & Urgency",
+    icon: Clock,
+    color: WARM,
+    objections: [
+      {
+        trigger: "\"I'll just wait and see if it gets worse.\"",
+        response: "I totally understand wanting to hold off. The only thing I'd mention is that small HVAC issues tend to get bigger — and more expensive — over time. Catching it early usually saves money in the long run. We can get someone out quickly so you have peace of mind.",
+        tip: "Gentle urgency — don't scare, just inform",
+      },
+      {
+        trigger: "\"I don't have time for an appointment right now.\"",
+        response: "No problem at all! We offer flexible scheduling including early morning, evening, and weekend slots. We also have a 90-minute arrival window so you're not stuck waiting all day. What time works best for you?",
+        tip: "Flexibility + 90-min window removes the hassle",
+      },
+      {
+        trigger: "\"How long will the repair take?\"",
+        response: "Most repairs are completed in 1-3 hours, but our technician will give you an accurate time estimate once they've diagnosed the issue. We always respect your time.",
+        tip: "Set expectations, be honest about unknowns",
+      },
+      {
+        trigger: "\"Can you come today / right now?\"",
+        response: "Let me check our schedule! We do have same-day availability in many cases, and we guarantee arrival within a 90-minute window. Let me see what's open for you.",
+        tip: "Check board, offer fastest available slot",
+      },
+    ],
+  },
+  {
+    category: "Angry / Upset Customers",
+    icon: AlertTriangle,
+    color: RED,
+    objections: [
+      {
+        trigger: "\"I want to speak to a manager!\"",
+        response: "I completely understand, and I want to make sure this gets resolved for you. Let me get all the details so I can connect you with the right person who can help. Can you tell me what happened?",
+        tip: "Don't resist — gather info first, then escalate. Never say 'calm down'.",
+      },
+      {
+        trigger: "\"Your technician was rude / unprofessional.\"",
+        response: "I'm so sorry you had that experience — that's not the standard we hold ourselves to. I'm going to document this and escalate it to our operations manager right away. Can I also schedule a follow-up visit with a different technician at no extra charge?",
+        tip: "Apologize sincerely, document, offer resolution",
+      },
+      {
+        trigger: "\"The problem came back after your repair.\"",
+        response: "I'm sorry to hear that. We stand behind our work, so let's get a technician back out to take a look at no additional diagnostic charge. We want to make this right.",
+        tip: "Warranty callback — no charge for re-diagnosis",
+      },
+      {
+        trigger: "\"I've been waiting too long!\"",
+        response: "I sincerely apologize for the wait. Let me check on the status of your appointment right now and give you an updated ETA. Your time is valuable and I want to make sure we're taking care of you.",
+        tip: "Apologize → Check status → Provide update → Offer solution",
+      },
+      {
+        trigger: "\"I want a refund.\"",
+        response: "I understand your frustration. Let me pull up your account and review the details of the service. I'll connect you with our team to discuss options — we always want to be fair and make things right.",
+        tip: "Don't promise a refund — escalate to manager with full context",
+      },
+    ],
+  },
+  {
+    category: "Competitor Comparisons",
+    icon: Users,
+    color: GREEN,
+    objections: [
+      {
+        trigger: "\"Another company quoted me less.\"",
+        response: "I appreciate you sharing that. I'd just encourage you to compare apples to apples — our quote includes licensed technicians, a satisfaction guarantee, and no hidden fees. Sometimes lower quotes don't include parts, labor, or warranty. We want you to feel confident in your investment.",
+        tip: "Never badmouth — highlight what's included in YOUR price",
+      },
+      {
+        trigger: "\"My regular guy can do it for less.\"",
+        response: "If you have someone you trust, that's great! If they're ever unavailable or you want a second opinion, we're here. We offer upfront pricing and guarantees so you always know what you're getting.",
+        tip: "Respect their relationship — position as backup/second opinion",
+      },
+      {
+        trigger: "\"I saw a deal on [Groupon / Angi / etc.]\"",
+        response: "Those deals can be tempting! Just be sure to check what's included — many promotional offers have limitations or upsell once the tech is on-site. With us, the price we quote is the price you pay, guaranteed.",
+        tip: "Transparency is the differentiator",
+      },
+    ],
+  },
+  {
+    category: "Service & Process",
+    icon: HelpCircle,
+    color: "hsl(270, 60%, 55%)",
+    objections: [
+      {
+        trigger: "\"Why can't you fix it over the phone?\"",
+        response: "I wish we could! But HVAC systems have many components, and our technician needs to physically inspect the system to give you an accurate diagnosis and safe repair. We wouldn't want to guess and have you waste money on the wrong fix.",
+        tip: "Safety + accuracy — never diagnose remotely",
+      },
+      {
+        trigger: "\"Can I just buy the part and install it myself?\"",
+        response: "Some parts can be a DIY job, but for your safety and warranty protection, HVAC repairs should be done by a licensed professional — especially anything involving gas, refrigerant, or electrical. Our tech will make sure it's done safely and up to code.",
+        tip: "Emphasize safety, code compliance, warranty",
+      },
+      {
+        trigger: "\"What if I'm not happy with the repair?\"",
+        response: "We have a satisfaction guarantee! If something isn't right, we'll come back and make it right. Your satisfaction is our top priority, and we never consider a job done until you're happy.",
+        tip: "Lead with the guarantee — it removes all risk",
+      },
+      {
+        trigger: "\"Do you guarantee your work?\"",
+        response: "Absolutely! All of our repairs come with a satisfaction guarantee, and parts carry manufacturer warranties. We stand behind every job.",
+        tip: "Confident yes — guarantee + warranty",
+      },
+      {
+        trigger: "\"I need to talk to my spouse / landlord first.\"",
+        response: "Of course, take your time! I can hold this appointment slot for you, or if you'd like, I can send you the details so you can share them. Just give us a call back when you're ready.",
+        tip: "Don't pressure — hold the slot, make it easy to return",
+      },
+    ],
+  },
+];
+
+export const ObjectionHandlingSlide = () => {
+  const [search, setSearch] = useState("");
+  const query = search.toLowerCase().trim();
+
+  const filtered = useMemo(() => {
+    if (!query) return objectionCategories;
+    return objectionCategories
+      .map((cat) => ({
+        ...cat,
+        objections: cat.objections.filter(
+          (o) =>
+            o.trigger.toLowerCase().includes(query) ||
+            o.response.toLowerCase().includes(query) ||
+            o.tip.toLowerCase().includes(query)
+        ),
+      }))
+      .filter((cat) => cat.objections.length > 0);
+  }, [query]);
+
+  return (
+    <div className="flex flex-col h-full px-16 py-10" style={{ background: "hsl(0,0%,7%)" }}>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-5">
+        <div>
+          <p className="text-xl font-semibold mb-1 uppercase tracking-widest" style={{ color: ORANGE }}>
+            Quick Reference — Objection Handling
+          </p>
+          <h2 className="text-4xl font-bold text-white">What to Say When Customers Push Back</h2>
+        </div>
+        <Shield className="w-10 h-10" style={{ color: ORANGE }} />
+      </div>
+
+      {/* Search bar */}
+      <div className="mb-5">
+        <div
+          className="flex items-center gap-3 px-4 py-3 rounded-xl"
+          style={{ background: "hsl(0,0%,12%)", border: "1px solid hsl(0,0%,20%)" }}
+        >
+          <Search className="w-5 h-5 text-white/40" />
+          <input
+            type="text"
+            placeholder="Search objections... (e.g. 'too expensive', 'refund', 'competitor')"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="flex-1 bg-transparent text-lg text-white outline-none placeholder:text-white/30"
+          />
+          {search && (
+            <button onClick={() => setSearch("")} className="text-white/40 hover:text-white/70">
+              <X className="w-5 h-5" />
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Objection cards — scrollable */}
+      <div className="flex-1 overflow-y-auto space-y-4 pr-2" style={{ maxHeight: "calc(100% - 180px)" }}>
+        {filtered.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-xl text-white/40">No matching objections found</p>
+            <p className="text-sm text-white/25 mt-2">Try different keywords</p>
+          </div>
+        )}
+        {filtered.map((cat, ci) => {
+          const Icon = cat.icon;
+          return (
+            <div key={ci}>
+              <div className="flex items-center gap-3 mb-3">
+                <div
+                  className="w-8 h-8 rounded-lg flex items-center justify-center"
+                  style={{ background: `${cat.color}22` }}
+                >
+                  <Icon className="w-4 h-4" style={{ color: cat.color }} />
+                </div>
+                <h3 className="text-lg font-bold text-white">{cat.category}</h3>
+                <span className="text-xs text-white/30 ml-1">({cat.objections.length})</span>
+              </div>
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                {cat.objections.map((obj, oi) => (
+                  <div
+                    key={oi}
+                    className="p-4 rounded-xl"
+                    style={{ background: "hsl(0,0%,11%)", border: "1px solid hsl(0,0%,16%)" }}
+                  >
+                    <p className="text-base font-bold mb-2" style={{ color: cat.color }}>
+                      🗣️ {obj.trigger}
+                    </p>
+                    <p className="text-sm text-white/70 leading-relaxed mb-3">
+                      ✅ {obj.response}
+                    </p>
+                    <div
+                      className="px-3 py-2 rounded-lg text-xs text-white/50 italic"
+                      style={{ background: "hsl(0,0%,8%)" }}
+                    >
+                      💡 Tip: {obj.tip}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+/* ── Export slide list (17 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -1489,4 +1778,5 @@ export const slides = [
   { title: "Membership Sales Script", component: MembershipSalesScriptSlide, keywords: "membership service agreement sales script plan discount" },
   { title: "Plumbing Sales Script", component: PlumbingSalesScriptSlide, keywords: "plumbing sales script drain water heater leak" },
   { title: "Scripts Cheat Sheet", component: ScriptsCheatSheetSlide, keywords: "cheat sheet quick reference scripts summary objections" },
+  { title: "Objection Handling", component: ObjectionHandlingSlide, keywords: "objection handling price expensive refund angry competitor discount rebuttal de-escalation trust credibility timing urgency spouse landlord guarantee" },
 ];
