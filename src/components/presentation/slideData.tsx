@@ -1907,10 +1907,111 @@ export const DiagnosticSalesScriptSlide = () => (
   </div>
 );
 
-/* ── Export slide list (23 slides: 6 dispatch + 17 investor) ── */
+/* ── Dispatch Slide 2: ServiceTitan Job Types & Business Units ── */
+export const JobTypesSlide = () => {
+  const businessUnits = [
+    {
+      unit: "HVAC Repairs",
+      color: RED,
+      icon: Wrench,
+      jobs: [
+        "HVAC Diagnostic",
+        "HVAC Repair",
+        "No Cool <12",
+        "No Cool 12+",
+        "No Heat <12",
+        "No Heat 12+",
+        "No Hot Water <10",
+        "No Hot Water 10+",
+        "Recall",
+        "Warranty",
+      ],
+    },
+    {
+      unit: "HVAC Maintenance",
+      color: GREEN,
+      icon: Settings,
+      jobs: [
+        "HVAC Maintenance <12",
+        "HVAC Maintenance 12+",
+      ],
+    },
+    {
+      unit: "HVAC Sales",
+      color: WARM,
+      icon: DollarSign,
+      jobs: ["HVAC Estimate"],
+    },
+    {
+      unit: "HVAC Install",
+      color: ORANGE,
+      icon: Hammer,
+      jobs: ["HVAC Installation"],
+    },
+    {
+      unit: "Plumbing Service",
+      color: "hsl(200, 80%, 55%)",
+      icon: ClipboardList,
+      jobs: [
+        "Plumbing Inspection",
+        "Plumbing Repair",
+        "Plumbing Estimate",
+      ],
+    },
+    {
+      unit: "Plumbing Install",
+      color: "hsl(220, 70%, 55%)",
+      icon: Hammer,
+      jobs: ["Plumbing Installation"],
+    },
+  ];
+
+  return (
+    <div className="flex flex-col justify-center h-full px-24"
+      style={{ background: "hsl(0,0%,7%)" }}>
+      <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: ORANGE }}>
+        ServiceTitan Reference
+      </p>
+      <h2 className="text-5xl font-bold text-white mb-8">Job Types &amp; Business Units</h2>
+      <div className="grid grid-cols-3 gap-6">
+        {businessUnits.map((bu, i) => (
+          <div key={i} className="rounded-2xl overflow-hidden" style={{ background: "hsl(0,0%,11%)" }}>
+            <div className="p-5 flex items-center gap-3" style={{ borderBottom: `2px solid ${bu.color}` }}>
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                style={{ background: `linear-gradient(135deg, ${bu.color}, ${bu.color}cc)` }}>
+                <bu.icon className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white">{bu.unit}</h3>
+                <p className="text-xs text-white/40">{bu.jobs.length} job type{bu.jobs.length > 1 ? "s" : ""}</p>
+              </div>
+            </div>
+            <div className="p-4 space-y-1.5">
+              {bu.jobs.map((job, j) => (
+                <div key={j} className="flex items-center gap-2.5 p-2.5 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+                  <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" style={{ color: bu.color }} />
+                  <span className="text-sm text-white/75">{job}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-6 p-4 rounded-2xl flex items-center gap-4" style={{ background: "linear-gradient(135deg, hsl(15,90%,55%,0.12), hsl(0,78%,50%,0.08))", border: "1px solid hsl(15,90%,55%,0.25)" }}>
+        <HelpCircle className="w-6 h-6 flex-shrink-0" style={{ color: ORANGE }} />
+        <p className="text-base text-white/70">
+          <span className="font-bold text-white">Tip:</span> "&lt;12" and "12+" refer to system age in years — select the right variant based on what the customer tells you. Always match the correct Business Unit so techs and reporting stay accurate.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+/* ── Export slide list (24 slides: 7 dispatch + 17 investor) ── */
 export const slides = [
-  /* Dispatcher Guide (1-6) */
+  /* Dispatcher Guide (1-7) */
   { title: "Dispatch Guide", component: DispatchTitleSlide },
+  { title: "Job Types & Business Units", component: JobTypesSlide },
   { title: "Type of Service", component: ServiceTypeSlide },
   { title: "System Types", component: SystemTypeSlide },
   { title: "Diagnostic Fees", component: DiagnosticFeesSlide },
