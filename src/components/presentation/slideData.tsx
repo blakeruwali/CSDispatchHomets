@@ -2525,9 +2525,112 @@ export const PlumbingSalesScriptSlide = () => (
   </div>
 );
 
-/* ── Export slide list (28 slides: 11 dispatch + 17 investor) ── */
+/* ── Dispatch Slide 12: Sales Scripts Cheat Sheet ── */
+export const ScriptsCheatSheetSlide = () => {
+  const scripts = [
+    {
+      title: "Diagnostic",
+      color: ORANGE,
+      icon: Wrench,
+      steps: ["Empathize with issue", "Present $199 diagnostic", "Stack value (safety check + upfront pricing)", "Handle price objection", "Close with 90-min guarantee"],
+      price: "$199",
+      goal: "Book the diagnostic visit",
+      topObjection: "\"Too expensive\" → Competitors charge more with less transparency. $199 credited toward repair.",
+    },
+    {
+      title: "Estimate",
+      color: GREEN,
+      icon: DollarSign,
+      steps: ["Qualify: replacement or new?", "It's FREE & no-obligation", "Gather: age, sqft, motivation", "Mention brands + financing", "Close: ~45 min visit"],
+      price: "FREE",
+      goal: "Book the free estimate",
+      topObjection: "\"Ballpark over phone?\" → Every home is different; free visit = accurate number.",
+    },
+    {
+      title: "Maintenance",
+      color: WARM,
+      icon: Settings,
+      steps: ["Seasonal urgency hook", "Multi-point inspection value", "Benefits: lifespan, bills, prevention", "Plant membership seed", "Close: ~60 min visit"],
+      price: "Varies",
+      goal: "Book tune-up + seed membership",
+      topObjection: "\"System is fine\" → Best time! Catches hidden issues before emergencies.",
+    },
+    {
+      title: "Membership",
+      color: WARM,
+      icon: Shield,
+      steps: ["Transition after any booking", "2 tune-ups + priority scheduling", "Savings > membership cost", "Reframe as protection", "Soft close — tech seals deal"],
+      price: "From $299/yr",
+      goal: "Plant the seed for on-site close",
+      topObjection: "\"Extra expense\" → One repair covers the annual cost. Everything after = savings.",
+    },
+    {
+      title: "Plumbing",
+      color: PLUMB_BLUE,
+      icon: ClipboardList,
+      steps: ["Assess urgency (active leak?)", "Upfront pricing, no surprises", "Gather: drain/toilet/heater/leak", "Licensed, background-checked, clean", "Close: 30-min courtesy call"],
+      price: "On-site quote",
+      goal: "Book the plumbing visit",
+      topObjection: "\"Fix it myself\" → Small mistakes = thousands in water damage. Let us look first.",
+    },
+  ];
+
+  return (
+    <div className="flex flex-col justify-center h-full px-24"
+      style={{ background: "hsl(0,0%,7%)" }}>
+      <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: ORANGE }}>
+        Quick Reference
+      </p>
+      <h2 className="text-5xl font-bold text-white mb-6">Sales Scripts Cheat Sheet</h2>
+      <div className="grid grid-cols-5 gap-4">
+        {scripts.map((s, i) => (
+          <div key={i} className="rounded-2xl overflow-hidden flex flex-col" style={{ background: "hsl(0,0%,11%)" }}>
+            {/* Header */}
+            <div className="p-4 flex items-center gap-3" style={{ borderBottom: `2px solid ${s.color}` }}>
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ background: `linear-gradient(135deg, ${s.color}, ${s.color}cc)` }}>
+                <s.icon className="w-4.5 h-4.5 text-white" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white leading-tight">{s.title}</h3>
+                <span className="text-xs font-bold" style={{ color: s.price === "FREE" ? GREEN : s.color }}>{s.price}</span>
+              </div>
+            </div>
+            {/* Steps */}
+            <div className="p-3 flex-1 space-y-1.5">
+              {s.steps.map((step, j) => (
+                <div key={j} className="flex items-start gap-2 p-2 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+                  <span className="text-xs font-extrabold mt-0.5 flex-shrink-0" style={{ color: s.color }}>{j + 1}</span>
+                  <span className="text-xs text-white/70 leading-snug">{step}</span>
+                </div>
+              ))}
+            </div>
+            {/* Top Objection */}
+            <div className="px-3 pb-2">
+              <p className="text-xs italic text-white/40 leading-snug p-2 rounded-lg" style={{ background: "hsl(0,0%,9%)" }}>
+                {s.topObjection}
+              </p>
+            </div>
+            {/* Goal */}
+            <div className="p-3 text-center" style={{ background: `${s.color}15`, borderTop: `1px solid ${s.color}33` }}>
+              <p className="text-xs font-bold" style={{ color: s.color }}>🎯 {s.goal}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-5 p-4 rounded-2xl flex items-center gap-4" style={{ background: "linear-gradient(135deg, hsl(15,90%,55%,0.12), hsl(0,78%,50%,0.08))", border: "1px solid hsl(15,90%,55%,0.25)" }}>
+        <HelpCircle className="w-6 h-6 flex-shrink-0" style={{ color: ORANGE }} />
+        <p className="text-base text-white/70">
+          <span className="font-bold text-white">Remember:</span> Your job is to book the visit — not sell the repair, system, or membership. The technician closes on-site. Focus on empathy, value, and urgency.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+/* ── Export slide list (29 slides: 12 dispatch + 17 investor) ── */
 export const slides = [
-  /* Dispatcher Guide (1-11) */
+  /* Dispatcher Guide (1-12) */
   { title: "Dispatch Guide", component: DispatchTitleSlide },
   { title: "Job Types & Business Units", component: JobTypesSlide },
   { title: "Type of Service", component: ServiceTypeSlide },
@@ -2539,7 +2642,8 @@ export const slides = [
   { title: "Maintenance Sales Script", component: MaintenanceSalesScriptSlide },
   { title: "Membership Sales Script", component: MembershipSalesScriptSlide },
   { title: "Plumbing Sales Script", component: PlumbingSalesScriptSlide },
-  /* Investor Deck (12-28) */
+  { title: "Scripts Cheat Sheet", component: ScriptsCheatSheetSlide },
+  /* Investor Deck (13-29) */
   { title: "Title", component: TitleSlide },
   { title: "The Problem", component: ProblemSlide },
   { title: "The Solution", component: SolutionSlide },
