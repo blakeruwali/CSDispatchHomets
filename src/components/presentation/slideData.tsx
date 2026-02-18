@@ -2132,9 +2132,134 @@ export const EstimateSalesScriptSlide = () => (
   </div>
 );
 
-/* ── Export slide list (25 slides: 8 dispatch + 17 investor) ── */
+/* ── Dispatch Slide 9: Maintenance / Tune-Up Sales Script ── */
+export const MaintenanceSalesScriptSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "hsl(0,0%,7%)" }}>
+    <p className="text-2xl font-semibold mb-4 uppercase tracking-widest" style={{ color: WARM }}>
+      Sales Script — Maintenance
+    </p>
+    <h2 className="text-5xl font-bold text-white mb-8">Booking the Tune-Up</h2>
+    <div className="grid grid-cols-2 gap-8">
+      {/* Left: The Script */}
+      <div className="flex flex-col gap-5">
+        {[
+          {
+            step: "1",
+            label: "Open with Seasonal Urgency",
+            color: WARM,
+            script: "\"Great timing — [summer/winter] is right around the corner, and this is when systems break down the most. A tune-up now can save you from an emergency call later.\"",
+            note: "Tie it to the season. Create urgency without pressure.",
+          },
+          {
+            step: "2",
+            label: "Present the Service",
+            color: ORANGE,
+            script: "\"Our tune-up is a comprehensive multi-point inspection — we clean the system, check all safety components, test efficiency, and make sure everything is running at peak performance.\"",
+            note: "Stack the value. Make it sound thorough, not routine.",
+          },
+          {
+            step: "3",
+            label: "Explain the Benefits",
+            color: GREEN,
+            script: "\"Regular maintenance extends your system's life by years, keeps your energy bills lower, and — most importantly — catches small problems before they become expensive repairs.\"",
+            note: "Hit all 3: longevity, savings, prevention.",
+          },
+          {
+            step: "4",
+            label: "Mention the Membership",
+            color: WARM,
+            script: "\"We also offer a maintenance membership that includes priority scheduling, discounts on repairs, and two tune-ups a year. Most customers save more than the membership costs in the first visit alone.\"",
+            note: "Plant the seed — the tech will close the membership on-site.",
+          },
+          {
+            step: "5",
+            label: "Close & Schedule",
+            color: GREEN,
+            script: "\"We have openings [this week/next week]. The visit takes about an hour, and you'll know exactly where your system stands. Want me to get you booked?\"",
+            note: "Simple, direct close. Don't overcomplicate it.",
+          },
+        ].map((item, i) => (
+          <div key={i} className="flex gap-4 rounded-2xl p-5" style={{ background: "hsl(0,0%,11%)" }}>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-lg font-extrabold"
+              style={{ background: item.color, color: "white" }}>
+              {item.step}
+            </div>
+            <div className="flex-1">
+              <p className="text-lg font-bold text-white mb-1">{item.label}</p>
+              <p className="text-base italic text-white/75 mb-2 leading-relaxed">{item.script}</p>
+              <p className="text-sm text-white/40 flex items-start gap-1.5">
+                <Zap className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: item.color }} />
+                {item.note}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Right: Key Details & Objections */}
+      <div className="flex flex-col gap-5">
+        <div className="p-6 rounded-2xl" style={{ background: `linear-gradient(135deg, ${WARM}22, ${WARM}11)`, border: `1px solid ${WARM}44` }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <Settings className="w-5 h-5" style={{ color: WARM }} />
+            Tune-Up Overview
+          </h3>
+          <div className="space-y-2">
+            {[
+              { label: "Multi-Point Inspection", price: "✓", highlight: true },
+              { label: "Visit Duration", price: "~60 min", highlight: false },
+              { label: "System Age Variants", price: "<12 / 12+", highlight: false },
+              { label: "Membership Upsell", price: "ON-SITE", highlight: true },
+            ].map((row, i) => (
+              <div key={i} className="flex justify-between items-center p-3 rounded-xl" style={{ background: "hsl(0,0%,9%)" }}>
+                <span className="text-sm text-white/60">{row.label}</span>
+                <span className="text-xl font-bold" style={{ color: row.highlight ? WARM : ORANGE }}>{row.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-6 rounded-2xl" style={{ background: "hsl(0,0%,11%)" }}>
+          <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            <Shield className="w-5 h-5" style={{ color: GREEN }} />
+            Objection Handlers
+          </h3>
+          <div className="space-y-4">
+            {[
+              {
+                objection: "\"My system is working fine, why do I need a tune-up?\"",
+                response: "\"That's actually the best time to do it! A tune-up catches hidden issues — like a cracked heat exchanger or a failing capacitor — before they leave you without heat or AC when you need it most.\"",
+              },
+              {
+                objection: "\"How much does a tune-up cost?\"",
+                response: "\"It depends on the system type and age. Our tech will give you the full breakdown on-site. What I can tell you is that a tune-up costs a fraction of what an emergency repair would — it's the best investment you can make for your system.\"",
+              },
+              {
+                objection: "\"I had it serviced last year\"",
+                response: "\"That's great — you're on top of it! Manufacturers actually recommend service every 6-12 months to maintain your warranty and keep efficiency up. Think of it like an oil change for your car.\"",
+              },
+              {
+                objection: "\"Can't I just do it myself?\"",
+                response: "\"You can do the basics like changing filters, absolutely. But our techs check refrigerant levels, electrical connections, and safety controls that require professional tools and training. It's about safety and catching what you can't see.\"",
+              },
+            ].map((item, i) => (
+              <div key={i}>
+                <p className="text-sm font-bold mb-1" style={{ color: RED }}>{item.objection}</p>
+                <p className="text-sm text-white/65 italic leading-relaxed">{item.response}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-4 rounded-2xl text-center" style={{ background: `linear-gradient(135deg, ${WARM}22, ${WARM}11)`, border: `1px solid ${WARM}44` }}>
+          <p className="text-lg font-bold" style={{ color: WARM }}>🎯 Goal: Book the tune-up + plant membership seed</p>
+          <p className="text-sm text-white/50 mt-1">The tech upsells the membership on-site. You just need to get them in the door.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (26 slides: 9 dispatch + 17 investor) ── */
 export const slides = [
-  /* Dispatcher Guide (1-8) */
+  /* Dispatcher Guide (1-9) */
   { title: "Dispatch Guide", component: DispatchTitleSlide },
   { title: "Job Types & Business Units", component: JobTypesSlide },
   { title: "Type of Service", component: ServiceTypeSlide },
@@ -2143,7 +2268,8 @@ export const slides = [
   { title: "Residential vs Commercial", component: ResidentialCommercialSlide },
   { title: "Diagnostic Sales Script", component: DiagnosticSalesScriptSlide },
   { title: "Estimate Sales Script", component: EstimateSalesScriptSlide },
-  /* Investor Deck (9-25) */
+  { title: "Maintenance Sales Script", component: MaintenanceSalesScriptSlide },
+  /* Investor Deck (10-26) */
   { title: "Title", component: TitleSlide },
   { title: "The Problem", component: ProblemSlide },
   { title: "The Solution", component: SolutionSlide },
