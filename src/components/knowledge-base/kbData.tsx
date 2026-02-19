@@ -1540,4 +1540,437 @@ export const kbSections: KBSectionData[] = [
       },
     ],
   },
+  {
+    id: "phone-scripts",
+    title: "Phone Scripts & Call Protocols",
+    description: "Verbatim scripts for greetings, closings, voicemails, holds, transfers & special situations",
+    icon: Phone,
+    iconColor: GREEN,
+    articles: [
+      {
+        title: "Opening Greeting Script",
+        keywords: "greeting answer call opening hello welcome script phone",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Standard greeting — use every time:</strong></p>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="text-sm italic">"Thank you for calling [Company Name], this is [Your Name]. How can I help you today?"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">🎯 Tone & Pacing Notes:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Smile while speaking</strong> — customers can hear it in your voice</li>
+                <li>• Speak at a moderate pace — not rushed, not slow</li>
+                <li>• Emphasize "How can I help you" — shows eagerness to assist</li>
+                <li>• Wait for the customer to finish before responding</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-1">📋 Returning Customer Variation:</p>
+              <p className="text-sm opacity-80 italic">"Thank you for calling [Company Name], this is [Your Name]. I see you're an existing customer — welcome back! How can I help you today?"</p>
+              <p className="text-sm opacity-70 mt-1">Use when caller ID matches a customer record in ServiceTitan.</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${WARM}15`, border: `1px solid ${WARM}33` }}>
+              <p className="font-semibold mb-1">⚠️ Never Say:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• "Yeah?" or "Hello?" — always use the full script</li>
+                <li>• "What do you need?" — sounds dismissive</li>
+                <li>• Company name only with no greeting — feels robotic</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Call Closing & Confirmation Script",
+        keywords: "closing confirm appointment recap summary end call goodbye",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Always recap before ending the call:</strong></p>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-2">✅ Closing Script Template:</p>
+              <div className="text-sm opacity-80 space-y-1 italic">
+                <p>"Great, let me confirm everything for you:"</p>
+                <p>"We have you scheduled for [Job Type] on [Date] between [Time Window]."</p>
+                <p>"Our technician will arrive at [Service Address]."</p>
+                <p>"The dispatch fee is [$XX], which goes toward any repair."</p>
+                <p>"You'll receive a text with your tech's photo and ETA on the day of service."</p>
+                <p>"Is there anything else I can help you with today?"</p>
+              </div>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 Confirmation Checklist:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• ✅ Appointment date and time window confirmed</li>
+                <li>• ✅ Service address verified</li>
+                <li>• ✅ Job type / issue described</li>
+                <li>• ✅ Pricing expectations set (dispatch fee, estimates)</li>
+                <li>• ✅ Tech arrival process explained</li>
+                <li>• ✅ Customer phone number confirmed for day-of texts</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-1">💡 Final Sign-Off:</p>
+              <p className="text-sm opacity-80 italic">"Thank you for choosing [Company Name], [Customer Name]. We look forward to helping you. Have a great [day/evening]!"</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Voicemail Scripts",
+        keywords: "voicemail message leave recording missed call after hours",
+        content: (
+          <div className="space-y-3">
+            <p>Use these word-for-word when leaving voicemails:</p>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-2">📞 Missed Customer Call:</p>
+              <p className="text-sm opacity-80 italic">"Hi [Name], this is [Your Name] from [Company]. I'm returning your call about [issue if known]. I'd love to help you get that taken care of. You can reach us back at [phone number] — we're available [hours]. Thanks and talk soon!"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}33` }}>
+              <p className="font-semibold mb-2">📅 Appointment Confirmation:</p>
+              <p className="text-sm opacity-80 italic">"Hi [Name], this is [Your Name] from [Company] confirming your appointment for [Date] between [Time Window]. If you need to reschedule, give us a call at [phone number]. We look forward to seeing you!"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${WARM}15`, border: `1px solid ${WARM}33` }}>
+              <p className="font-semibold mb-2">😟 Follow-Up After No-Show:</p>
+              <p className="text-sm opacity-80 italic">"Hi [Name], this is [Your Name] from [Company]. We had you on the schedule today but it looks like we may have missed you. No worries — give us a call at [phone number] and we'll get you rescheduled at a time that works. Thanks!"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">🌙 After-Hours Greeting (auto-attendant):</p>
+              <p className="text-sm opacity-80 italic">"Thank you for calling [Company]. Our office is currently closed. Our regular hours are [hours]. If this is a heating or cooling emergency, please press 1 to reach our on-call technician. Otherwise, leave a message and we'll return your call the next business day. Thank you!"</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Hold & Transfer Protocols",
+        keywords: "hold transfer wait manager escalation warm cold transfer",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-2">⏸️ Placing on Hold:</p>
+              <div className="text-sm opacity-80 space-y-1">
+                <p><strong>Ask permission:</strong> <span className="italic">"May I place you on a brief hold while I look into that?"</span></p>
+                <p><strong>Wait for "yes"</strong> before pressing hold.</p>
+                <p><strong>Max hold time:</strong> 90 seconds</p>
+              </div>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">🔄 Check-Back Etiquette:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• After 60 seconds: <span className="italic">"Thank you for holding, I'm still looking into this for you."</span></li>
+                <li>• After 90 seconds: <span className="italic">"I appreciate your patience. Would you prefer to continue holding or would you like a callback?"</span></li>
+                <li>• <strong>Never leave a customer on hold without checking back</strong></li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}33` }}>
+              <p className="font-semibold mb-2">🔀 Transfer Types:</p>
+              <div className="space-y-2 text-sm opacity-80">
+                <div><strong>Warm Transfer (preferred):</strong> Brief the receiving person first, then introduce: <span className="italic">"[Name], I have [Customer] on the line who needs help with [issue]."</span></div>
+                <div><strong>Cold Transfer (last resort):</strong> Only if warm transfer unavailable. Tell customer: <span className="italic">"I'm going to transfer you to [Department/Person]. If you get disconnected, their direct number is [number]."</span></div>
+              </div>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-1">⬆️ Manager Escalation:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Customer asks for manager → <span className="italic">"Absolutely, let me get my manager for you."</span></li>
+                <li>• <strong>Never argue</strong> or try to convince them otherwise</li>
+                <li>• Brief the manager on the situation before connecting</li>
+                <li>• If manager unavailable: <span className="italic">"My manager is currently assisting another customer. Can I have them call you back within 30 minutes?"</span></li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Non-English Caller Handling",
+        keywords: "spanish language interpreter translation non-english bilingual",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}33` }}>
+              <p className="font-semibold mb-2">🌐 Step-by-Step Protocol:</p>
+              <ol className="space-y-1 text-sm opacity-80 list-decimal pl-4">
+                <li>Identify the language (ask: <span className="italic">"What language do you speak?" / "¿Qué idioma habla?"</span>)</li>
+                <li>Say: <span className="italic">"Please hold one moment, I'll connect an interpreter."</span></li>
+                <li>Call the language line / interpreter service (see internal directory)</li>
+                <li>Conference the interpreter into the call</li>
+                <li>Book the appointment normally — interpreter stays on the line</li>
+                <li>Add a note in ServiceTitan: "Customer speaks [Language] — interpreter needed for future calls"</li>
+              </ol>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${WARM}15`, border: `1px solid ${WARM}33` }}>
+              <p className="font-semibold mb-2">🇪🇸 Key Spanish Phrases for HVAC Emergencies:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>"No tiene calefacción?"</strong> — No heat?</li>
+                <li>• <strong>"No tiene aire acondicionado?"</strong> — No AC?</li>
+                <li>• <strong>"¿Huele a gas?"</strong> — Do you smell gas?</li>
+                <li>• <strong>"Salga de la casa ahora"</strong> — Leave the house now</li>
+                <li>• <strong>"Vamos a enviar un técnico"</strong> — We'll send a technician</li>
+                <li>• <strong>"¿Cuál es su dirección?"</strong> — What is your address?</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-1">💡 Tips:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Speak slowly and clearly — even if a translator is on the line</li>
+                <li>• Use simple sentences and avoid idioms or slang</li>
+                <li>• Be patient — translated calls take 2–3x longer</li>
+                <li>• Never ask a customer's child to translate</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "After-Hours & Overflow Call Handling",
+        keywords: "after hours emergency on-call overnight weekend overflow pricing",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-2">🚨 After-Hours Emergency — Dispatch Now:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• No heat when below 40°F outside</li>
+                <li>• Gas leak or CO detector alarm</li>
+                <li>• Flooded basement from plumbing/HVAC</li>
+                <li>• No AC when above 95°F with elderly/infants in home</li>
+                <li>• Complete electrical failure related to HVAC</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${WARM}15`, border: `1px solid ${WARM}33` }}>
+              <p className="font-semibold mb-2">📅 Next-Day Scheduling (not emergency):</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• System running but not cooling/heating efficiently</li>
+                <li>• Strange noises but system still functioning</li>
+                <li>• Thermostat issues (not related to safety)</li>
+                <li>• Maintenance or tune-up requests</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">💰 After-Hours Pricing:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>After-hours dispatch fee:</strong> Typically 1.5x–2x regular rate</li>
+                <li>• <strong>Always state upfront:</strong> <span className="italic">"Our after-hours dispatch fee is [$XX]. Would you like to proceed, or would you prefer first available tomorrow morning?"</span></li>
+                <li>• <strong>Members:</strong> May receive discounted or waived after-hours fees — check membership status</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-1">📋 On-Call Tech Dispatch Rules:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Check the on-call schedule in ServiceTitan before dispatching</li>
+                <li>• Text/call the on-call tech to confirm availability</li>
+                <li>• Give customer a realistic ETA (usually 60–120 minutes after hours)</li>
+                <li>• Log everything in ServiceTitan with "After-Hours" tag</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+    ],
+  },
+  {
+    id: "post-service",
+    title: "Post-Service & Customer Retention",
+    description: "Follow-up scripts, review requests, referrals, retention & seasonal outreach",
+    icon: Star,
+    iconColor: WARM,
+    articles: [
+      {
+        title: "Post-Service Follow-Up Script",
+        keywords: "follow up callback after service satisfaction check quality",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Call within 24 hours of every completed job:</strong></p>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-2">📞 Follow-Up Script:</p>
+              <p className="text-sm opacity-80 italic">"Hi [Name], this is [Your Name] from [Company]. I'm calling to make sure everything is working well after yesterday's visit. How's your [heating/cooling/plumbing] doing today?"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">✅ If Satisfied:</p>
+              <div className="text-sm opacity-80 space-y-1">
+                <p className="italic">"That's wonderful to hear! We're so glad [Tech Name] was able to take care of that for you."</p>
+                <p>→ Transition to Google review request (see next article)</p>
+                <p>→ Mention referral program if appropriate</p>
+              </div>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-2">❌ If NOT Satisfied:</p>
+              <div className="text-sm opacity-80 space-y-1">
+                <p className="italic">"I'm sorry to hear that. Can you tell me more about what's going on?"</p>
+                <p>→ Listen fully without interrupting</p>
+                <p>→ Apologize sincerely: <span className="italic">"I apologize for the inconvenience."</span></p>
+                <p>→ Offer a callback visit at no charge or escalate to manager</p>
+                <p>→ Log the complaint in ServiceTitan</p>
+              </div>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Google Review Request Script",
+        keywords: "google review rating stars feedback online reputation",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Timing:</strong> Ask immediately after the customer expresses satisfaction (during follow-up call or at end of service).</p>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-2">⭐ Review Request Script:</p>
+              <p className="text-sm opacity-80 italic">"I'm really glad we could help! If you have a moment, it would mean a lot to us if you could leave us a quick Google review. I can text you the link right now — it only takes about 30 seconds. Would that be okay?"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📱 How to Send the Link:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Use the review link template in ServiceTitan automated messages</li>
+                <li>• Or text manually: <span className="italic">"Here's the link to leave a review: [URL]. Thank you so much!"</span></li>
+                <li>• Follow up via email if they prefer</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-1">🚫 What NOT to Say:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Never offer discounts or incentives for reviews (violates Google policy)</li>
+                <li>• Don't say "5-star review" — just ask for honest feedback</li>
+                <li>• Don't pressure — if they say no, say <span className="italic">"No problem at all!"</span></li>
+                <li>• Never ask unhappy customers for reviews</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Referral Program Script",
+        keywords: "referral program recommend friend family reward bonus",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Mention naturally after a positive interaction:</strong></p>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-2">🤝 Referral Script:</p>
+              <p className="text-sm opacity-80 italic">"By the way, [Name], if you know anyone — friends, family, neighbors — who needs heating, cooling, or plumbing help, we have a referral program. You'll receive [reward amount/type] for every person you refer who books a service. It's our way of saying thank you!"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 Program Details to Know:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Reward:</strong> [Configure per company — e.g., $50 credit, gift card]</li>
+                <li>• <strong>How it works:</strong> Referred person must book and complete a service</li>
+                <li>• <strong>Tracking:</strong> Log referrals in ServiceTitan under the referring customer's profile</li>
+                <li>• <strong>No limit</strong> on number of referrals</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-1">💡 Natural Transitions:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• After review request: <span className="italic">"And if you know anyone who needs help..."</span></li>
+                <li>• After a big job: <span className="italic">"We love working with great customers like you..."</span></li>
+                <li>• During membership signup: <span className="italic">"Members also get enhanced referral rewards..."</span></li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Handling Negative Feedback Post-Service",
+        keywords: "complaint unhappy negative feedback post service callback refund",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-2">🛑 De-Escalation Script:</p>
+              <div className="text-sm opacity-80 space-y-1">
+                <p><strong>1. Acknowledge:</strong> <span className="italic">"I'm really sorry to hear about your experience. That's not the level of service we aim for."</span></p>
+                <p><strong>2. Listen:</strong> Let them vent completely. Do not interrupt.</p>
+                <p><strong>3. Empathize:</strong> <span className="italic">"I completely understand your frustration."</span></p>
+                <p><strong>4. Act:</strong> <span className="italic">"Here's what I'd like to do to make this right..."</span></p>
+              </div>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 Resolution Options:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Callback visit (free):</strong> For incomplete work or issue not resolved</li>
+                <li>• <strong>Different technician:</strong> If personality clash or trust issue</li>
+                <li>• <strong>Partial refund/credit:</strong> Manager approval required</li>
+                <li>• <strong>Full refund:</strong> Manager + owner approval required</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-1">⬆️ Escalate to Manager When:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Customer demands a refund</li>
+                <li>• Customer threatens legal action or BBB complaint</li>
+                <li>• Property damage is alleged</li>
+                <li>• Customer uses abusive language (stay calm, transfer)</li>
+                <li>• Same issue reported 3+ times</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Membership Retention Calls",
+        keywords: "membership retention cancel renewal expire annual plan",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Call members 30 days before expiration:</strong></p>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-2">📞 Renewal Script:</p>
+              <p className="text-sm opacity-80 italic">"Hi [Name], this is [Your Name] from [Company]. I'm reaching out because your maintenance membership is coming up for renewal on [Date]. I wanted to make sure we get you scheduled for your [spring/fall] tune-up and keep all your member benefits active. Can I go ahead and renew that for you?"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">💎 Renewal Benefits Pitch:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Priority scheduling</strong> — members get seen first, especially in peak season</li>
+                <li>• <strong>Discount on repairs</strong> — typically 15–20% off parts and labor</li>
+                <li>• <strong>2 tune-ups/year</strong> — heating in fall, cooling in spring</li>
+                <li>• <strong>No after-hours fees</strong> — emergency service at regular rates</li>
+                <li>• <strong>Extended equipment life</strong> — regular maintenance adds 5+ years</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-2">❌ "I Want to Cancel" — Response:</p>
+              <div className="text-sm opacity-80 space-y-1">
+                <p><strong>Ask why:</strong> <span className="italic">"I understand. May I ask what's prompting you to cancel? I want to make sure we haven't missed anything."</span></p>
+                <p><strong>Common reasons & responses:</strong></p>
+                <ul className="space-y-1 pl-4">
+                  <li>• <strong>"Too expensive"</strong> → Highlight savings: <span className="italic">"Your membership has saved you $[XX] this year in repair discounts alone."</span></li>
+                  <li>• <strong>"Don't use it"</strong> → <span className="italic">"Let me get your tune-up scheduled right now so you get the full value."</span></li>
+                  <li>• <strong>"Moving"</strong> → <span className="italic">"If you're staying in our service area, it transfers to your new home!"</span></li>
+                </ul>
+                <p className="mt-1">If they still want to cancel, process it gracefully: <span className="italic">"We understand. We'll process that for you. You're always welcome back!"</span></p>
+              </div>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Seasonal Outreach Scripts",
+        keywords: "seasonal outreach spring summer fall winter tune-up reminder proactive",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Proactive calls to existing customers before peak seasons:</strong></p>
+            <div className="p-3 rounded-lg" style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}33` }}>
+              <p className="font-semibold mb-2">❄️ Pre-Winter (Sept–Oct) Script:</p>
+              <p className="text-sm opacity-80 italic">"Hi [Name], this is [Your Name] from [Company]. With winter right around the corner, I wanted to reach out and see if we can get your heating system tuned up before the cold hits. A fall tune-up helps prevent breakdowns and keeps your energy bills down. We have openings [next week / timeframe]. Would you like to schedule?"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-2">☀️ Pre-Summer (Mar–Apr) Script:</p>
+              <p className="text-sm opacity-80 italic">"Hi [Name], this is [Your Name] from [Company]. Summer's coming and now is the perfect time to make sure your AC is ready to go. We'd love to get you on the schedule for a spring tune-up — it helps catch any issues before the heat wave. Can I book that for you?"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 Outreach Best Practices:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Start calling <strong>6–8 weeks</strong> before peak season</li>
+                <li>• Prioritize members first, then recent customers, then dormant</li>
+                <li>• Mention specific benefits: efficiency, warranty compliance, comfort</li>
+                <li>• If no answer, leave a voicemail + send a text/email follow-up</li>
+                <li>• Track outreach in ServiceTitan with campaign tags</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-1">💡 Upsell Opportunities:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Mention <strong>IAQ products</strong> during seasonal calls (UV lights, humidifiers)</li>
+                <li>• Offer <strong>membership signup</strong> for non-members: <span className="italic">"Did you know our members save 15% and get priority booking?"</span></li>
+                <li>• Suggest <strong>smart thermostat install</strong> during the tune-up visit</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+    ],
+  },
 ];
