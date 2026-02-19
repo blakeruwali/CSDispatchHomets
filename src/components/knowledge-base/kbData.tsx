@@ -1540,4 +1540,193 @@ export const kbSections: KBSectionData[] = [
       },
     ],
   },
+  {
+    id: "repair-pricing",
+    title: "Repair Pricing — Good / Better / Best",
+    description: "Tiered repair proposals for upselling and maximizing ticket value",
+    icon: TrendingUp,
+    iconColor: GREEN,
+    articles: [
+      {
+        title: "Heat Pump Mechanical Repair",
+        keywords: "heat pump compressor motor repair good better best pricing proposal",
+        content: (
+          <div className="space-y-4">
+            <p>Use this <strong>Good / Better / Best</strong> framework when presenting heat pump mechanical repair options. Always present all three tiers.</p>
+
+            {/* GOOD */}
+            <div className="rounded-xl overflow-hidden" style={{ border: `1px solid ${ORANGE}44` }}>
+              <div className="px-4 py-2 font-bold text-sm" style={{ background: `${ORANGE}22`, color: ORANGE }}>
+                🔧 Good — Restore Mechanical Operation — $2,899
+              </div>
+              <div className="p-4 space-y-2 text-sm" style={{ background: "hsl(0,0%,12%)" }}>
+                <p className="opacity-80">Replace failed compressor or motor, verify refrigerant charge and airflow, confirm safe system operation.</p>
+                <table className="w-full text-sm">
+                  <tbody>
+                    <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                      <td className="py-1.5 opacity-80">Compressor or Motor Replacement</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: ORANGE }}>$2,899</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1.5 font-bold">Total</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: ORANGE }}>$2,899</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* BETTER */}
+            <div className="rounded-xl overflow-hidden" style={{ border: `1px solid ${WARM}44` }}>
+              <div className="px-4 py-2 font-bold text-sm" style={{ background: `${WARM}22`, color: WARM }}>
+                ⚡ Better — Reduce Mechanical Stress — $3,248
+              </div>
+              <div className="p-4 space-y-2 text-sm" style={{ background: "hsl(0,0%,12%)" }}>
+                <p className="opacity-80">Complete mechanical repair plus hard start kit to reduce compressor startup amperage by up to 50%.</p>
+                <table className="w-full text-sm">
+                  <tbody>
+                    <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                      <td className="py-1.5 opacity-80">Compressor or Motor Replacement</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: WARM }}>$2,899</td>
+                    </tr>
+                    <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                      <td className="py-1.5 opacity-80">Hard Start Kit Installation</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: WARM }}>$349</td>
+                    </tr>
+                    <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                      <td className="py-1.5 opacity-80">90-Day Extended Repair Warranty</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: GREEN }}>FREE</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1.5 font-bold">Total</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: WARM }}>$3,248</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* BEST */}
+            <div className="rounded-xl overflow-hidden" style={{ border: `1px solid ${GREEN}44` }}>
+              <div className="px-4 py-2 font-bold text-sm" style={{ background: `${GREEN}22`, color: GREEN }}>
+                🏆 Best — Complete Mechanical Protection — $3,533.40
+              </div>
+              <div className="p-4 space-y-2 text-sm" style={{ background: "hsl(0,0%,12%)" }}>
+                <p className="opacity-80">Full restoration with hard start protection, surge guard, complimentary tune-up, 1-year warranty, and Home+ membership with 10% savings.</p>
+                <table className="w-full text-sm">
+                  <tbody>
+                    <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                      <td className="py-1.5 opacity-80">Compressor or Motor Replacement</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: GREEN }}>$2,899</td>
+                    </tr>
+                    <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                      <td className="py-1.5 opacity-80">Hard Start Kit Installation</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: GREEN }}>$349</td>
+                    </tr>
+                    <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                      <td className="py-1.5 opacity-80">HVAC Surge Protector Installation</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: GREEN }}>$379</td>
+                    </tr>
+                    <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                      <td className="py-1.5 opacity-80">1-Year Comprehensive Warranty</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: GREEN }}>FREE</td>
+                    </tr>
+                    <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                      <td className="py-1.5 opacity-80">✓ Heat Pump Tune-Up</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: GREEN }}>INCLUDED</td>
+                    </tr>
+                    <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                      <td className="py-1.5 opacity-80">✓ Home+ Comfort Membership</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: GREEN }}>INCLUDED</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1.5 font-bold">Total</td>
+                      <td className="py-1.5 text-right font-bold" style={{ color: GREEN }}>$3,533.40</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-1">🎯 Sales Tip:</p>
+              <p className="text-sm opacity-80">Always present <strong>Best</strong> first — anchor the value. Most customers choose <strong>Better</strong> when all three are shown. The "Best" package saves the customer money long-term and builds recurring revenue through Home+ membership.</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Understanding the Tiered Approach",
+        keywords: "good better best upsell tiered pricing strategy sales technique",
+        content: (
+          <div className="space-y-3">
+            <p>The <strong>Good / Better / Best</strong> model is the standard repair proposal format at Homets. Every repair over $500 should be presented this way.</p>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2">
+                <Wrench className="w-4 h-4 mt-1 flex-shrink-0" style={{ color: ORANGE }} />
+                <div><strong>Good</strong> — Minimum viable fix. Solves the immediate problem, no extras.</div>
+              </div>
+              <div className="flex items-start gap-2">
+                <Shield className="w-4 h-4 mt-1 flex-shrink-0" style={{ color: WARM }} />
+                <div><strong>Better</strong> — Adds protection. Hard start kits, extended warranties, surge protectors.</div>
+              </div>
+              <div className="flex items-start gap-2">
+                <Crown className="w-4 h-4 mt-1 flex-shrink-0" style={{ color: GREEN }} />
+                <div><strong>Best</strong> — Full package. Includes membership, tune-ups, maximum warranty, and member discounts.</div>
+              </div>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${WARM}15`, border: `1px solid ${WARM}33` }}>
+              <p className="font-semibold mb-1">💡 Why It Works:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Customers feel in control — they choose, not you</li>
+                <li>• "Best" anchors the price — makes "Better" feel reasonable</li>
+                <li>• Drives membership sign-ups through bundled value</li>
+                <li>• Increases average ticket by 20–35%</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Add-On Components Reference",
+        keywords: "hard start kit surge protector warranty add-on upsell component pricing",
+        content: (
+          <div className="space-y-3">
+            <p>Common add-on components used in "Better" and "Best" tiers:</p>
+            <div className="rounded-xl overflow-hidden" style={{ background: "hsl(0,0%,12%)" }}>
+              <table className="w-full text-sm">
+                <tbody>
+                  <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                    <td className="p-3 font-semibold">Hard Start Kit</td>
+                    <td className="p-3 text-right font-bold" style={{ color: WARM }}>$349</td>
+                  </tr>
+                  <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                    <td className="p-3 font-semibold">HVAC Surge Protector</td>
+                    <td className="p-3 text-right font-bold" style={{ color: WARM }}>$379</td>
+                  </tr>
+                  <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                    <td className="p-3 font-semibold">90-Day Extended Warranty</td>
+                    <td className="p-3 text-right font-bold" style={{ color: GREEN }}>FREE</td>
+                  </tr>
+                  <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                    <td className="p-3 font-semibold">1-Year Comprehensive Warranty</td>
+                    <td className="p-3 text-right font-bold" style={{ color: GREEN }}>FREE</td>
+                  </tr>
+                  <tr style={{ borderBottom: "1px solid hsl(0,0%,18%)" }}>
+                    <td className="p-3 font-semibold">Home+ Membership (Annual)</td>
+                    <td className="p-3 text-right font-bold" style={{ color: GREEN }}>INCLUDED</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-semibold">Complimentary Tune-Up</td>
+                    <td className="p-3 text-right font-bold" style={{ color: GREEN }}>INCLUDED</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm opacity-70">🎯 <strong>Note:</strong> "FREE" and "INCLUDED" items are bundled into the Best package price. They cost the company but drive membership conversions and customer loyalty.</p>
+          </div>
+        ),
+      },
+    ],
+  },
 ];
