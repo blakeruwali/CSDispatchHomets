@@ -5,7 +5,9 @@ import {
   Repeat, Fan, AlertTriangle, DollarSign, Clock, Phone,
   CheckCircle, ChevronRight, Users, Wrench, Shield, Zap,
   Calendar, Star, Heart, Award, BookOpen, Target,
-  TrendingUp, Headphones, Settings, ClipboardList
+  TrendingUp, Headphones, Settings, ClipboardList,
+  Droplets, Wind, Building, Gauge, ShowerHead, PipetteIcon,
+  Leaf, ThermometerSnowflake, CircuitBoard
 } from "lucide-react";
 
 const ORANGE = "hsl(15, 90%, 55%)";
@@ -222,6 +224,83 @@ export const kbSections: KBSectionData[] = [
     ],
   },
   {
+    id: "thermostats",
+    title: "Thermostats & Controls",
+    description: "Types, troubleshooting, smart thermostat guidance",
+    icon: Gauge,
+    iconColor: BLUE,
+    articles: [
+      {
+        title: "Thermostat Types Explained",
+        keywords: "thermostat types smart programmable manual digital nest ecobee honeywell",
+        content: (
+          <div className="space-y-3">
+            <p>Customers often don't know what thermostat they have. Here's a quick ID guide:</p>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2">
+                <Settings className="w-4 h-4 mt-1 flex-shrink-0" style={{ color: ORANGE }} />
+                <div><strong>Manual/Dial</strong> — Older homes, simple on/off. No programming capability.</div>
+              </div>
+              <div className="flex items-start gap-2">
+                <Clock className="w-4 h-4 mt-1 flex-shrink-0" style={{ color: WARM }} />
+                <div><strong>Programmable</strong> — Set schedules (wake, leave, return, sleep). Honeywell, Emerson common brands.</div>
+              </div>
+              <div className="flex items-start gap-2">
+                <Zap className="w-4 h-4 mt-1 flex-shrink-0" style={{ color: GREEN }} />
+                <div><strong>Smart</strong> — Wi-Fi connected, learns habits, remote control via app. Nest, Ecobee, Honeywell T-series.</div>
+              </div>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-1">📋 Key Question:</p>
+              <p className="text-sm opacity-80">"Does your thermostat have a screen? Can you control it from your phone?" — This tells you the type instantly.</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Thermostat Troubleshooting",
+        keywords: "thermostat blank screen not working batteries wiring no display",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">🔍 Common Issues:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Blank screen</strong> — Dead batteries (most common!), tripped breaker, blown fuse</li>
+                <li>• <strong>Not reaching set temp</strong> — Dirty filter, wrong fan setting, system undersized</li>
+                <li>• <strong>Short cycling</strong> — Thermostat placed near heat source (lamp, oven, window)</li>
+                <li>• <strong>Won't switch modes</strong> — Stuck in heat/cool, wiring issue, needs reset</li>
+                <li>• <strong>"Wait" or "Delay" on display</strong> — Normal compressor protection (5-min delay)</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-1">💡 Quick Fix to Suggest:</p>
+              <p className="text-sm opacity-80">"Try replacing the batteries first — that solves about 40% of thermostat issues. If it's still not working after that, we'll send a tech out."</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Smart Thermostat Compatibility",
+        keywords: "smart thermostat compatible install nest ecobee C-wire",
+        content: (
+          <div className="space-y-3">
+            <p>When customers ask about smart thermostat installation:</p>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">Compatibility Checklist:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>C-wire required</strong> — Most smart thermostats need a "common" wire for power. Older homes may not have one.</li>
+                <li>• <strong>System type matters</strong> — Heat pumps need specific thermostat models with auxiliary heat support</li>
+                <li>• <strong>Multi-zone systems</strong> — May need one thermostat per zone</li>
+                <li>• <strong>High-voltage systems</strong> — Baseboard heaters use line-voltage, NOT compatible with most smart thermostats</li>
+              </ul>
+            </div>
+            <p className="text-sm opacity-70">🎯 <strong>Upsell:</strong> "We can install a smart thermostat during a tune-up visit for maximum convenience. Want me to add that to the appointment?"</p>
+          </div>
+        ),
+      },
+    ],
+  },
+  {
     id: "customer-faq",
     title: "Common Customer Questions",
     description: "Ready-to-use answers for the questions customers ask most",
@@ -370,6 +449,64 @@ export const kbSections: KBSectionData[] = [
               </div>
             </div>
             <p className="text-sm opacity-70">🎯 Use this to pitch tune-ups and memberships: "Getting ahead of the season saves you from an emergency repair later!"</p>
+          </div>
+        ),
+      },
+      {
+        title: "Do you offer payment plans?",
+        keywords: "payment plan finance monthly installment credit afford",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Standard answer:</strong> "Yes! We offer flexible financing options for larger repairs and new installations. Our comfort advisor can go over all the details during your visit."</p>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-1">✅ Key Points:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Financing available for installations and major repairs</li>
+                <li>• Quick approval process</li>
+                <li>• Don't quote specific rates on the phone — advisor presents options in person</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Is the estimate really free?",
+        keywords: "free estimate really cost charge hidden replacement",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Standard answer:</strong> "Absolutely — our replacement estimates are 100% free with zero obligation. A comfort advisor visits your home, evaluates your system, and presents options. If you decide not to move forward, there's no charge."</p>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-1">💡 Clarification:</p>
+              <p className="text-sm opacity-80">The FREE estimate applies to <strong>replacement/installation</strong> only. Diagnostic visits for repairs cost $199 (waived if they proceed with repair).</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "What's the difference between a tune-up and a diagnostic?",
+        keywords: "tune-up diagnostic difference maintenance repair inspection",
+        content: (
+          <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+                <p className="font-semibold mb-2" style={{ color: GREEN }}>Tune-Up ($299)</p>
+                <ul className="space-y-1 text-sm opacity-80">
+                  <li>• Preventive maintenance</li>
+                  <li>• System is currently working</li>
+                  <li>• Cleaning, adjustments, safety check</li>
+                  <li>• Improves efficiency</li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+                <p className="font-semibold mb-2" style={{ color: ORANGE }}>Diagnostic ($199)</p>
+                <ul className="space-y-1 text-sm opacity-80">
+                  <li>• Something is wrong/broken</li>
+                  <li>• Find the problem</li>
+                  <li>• Present repair options</li>
+                  <li>• Fee waived if they repair</li>
+                </ul>
+              </div>
+            </div>
           </div>
         ),
       },
@@ -1018,6 +1155,386 @@ export const kbSections: KBSectionData[] = [
               <p className="text-sm opacity-80">"We never charge emergency surcharges or overtime fees. Whether it's 2 PM on a Tuesday or 2 AM on Christmas, you pay the same rate. That's our promise."</p>
             </div>
             <p className="text-sm opacity-70">🎯 This is a GREAT closer when customers are price-shopping or hesitant. Lead with this.</p>
+          </div>
+        ),
+      },
+    ],
+  },
+  {
+    id: "plumbing",
+    title: "Plumbing Services",
+    description: "Plumbing job types, common issues, and booking guidance",
+    icon: Droplets,
+    iconColor: BLUE,
+    articles: [
+      {
+        title: "Plumbing Services We Offer",
+        keywords: "plumbing services offer water heater drain pipe leak faucet",
+        content: (
+          <div className="space-y-3">
+            <p>We offer full residential and commercial plumbing services. Key categories:</p>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Water heater</strong> — repair, replacement, tankless installation</li>
+                <li>• <strong>Drain cleaning</strong> — clogs, slow drains, sewer line issues</li>
+                <li>• <strong>Leak repair</strong> — faucets, pipes, toilets, under-slab</li>
+                <li>• <strong>Fixture installation</strong> — sinks, faucets, toilets, showers</li>
+                <li>• <strong>Sewer & main line</strong> — camera inspection, repair, replacement</li>
+                <li>• <strong>Gas line</strong> — installation, leak detection, repair</li>
+                <li>• <strong>Sump pump</strong> — install, repair, battery backup</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-1">⚠️ Important:</p>
+              <p className="text-sm opacity-80">Plumbing jobs use separate Business Units in ServiceTitan (Plumbing Install or Plumbing Service). Never book under HVAC.</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Water Heater Troubleshooting",
+        keywords: "water heater hot water no hot lukewarm tank tankless",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">🔍 Common Symptoms:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>No hot water</strong> — pilot light out (gas), breaker tripped (electric), thermostat failure</li>
+                <li>• <strong>Lukewarm only</strong> — broken dip tube, undersized unit, sediment buildup</li>
+                <li>• <strong>Water too hot</strong> — thermostat set too high (should be 120°F)</li>
+                <li>• <strong>Leaking from tank</strong> — pressure relief valve, corrosion, tank failure</li>
+                <li>• <strong>Rumbling/popping</strong> — sediment buildup, needs flushing</li>
+                <li>• <strong>Rusty water</strong> — anode rod depleted or tank corroding internally</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-1">📋 Key Questions:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• "Is it a tank or tankless water heater?"</li>
+                <li>• "Gas or electric?"</li>
+                <li>• "How old is it?" (tanks last 8–12 years)</li>
+                <li>• "Is there water pooling around the base?"</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Drain & Sewer Issues",
+        keywords: "drain clog slow backed up sewer smell gurgling toilet",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">🔍 Common Symptoms:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Single slow drain</strong> — localized clog (hair, grease, debris)</li>
+                <li>• <strong>Multiple slow drains</strong> — main sewer line issue</li>
+                <li>• <strong>Gurgling sounds</strong> — venting problem or partial blockage</li>
+                <li>• <strong>Sewage smell</strong> — dry P-trap, cracked sewer line, vent issue</li>
+                <li>• <strong>Water backing up</strong> — serious blockage, may need camera inspection</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-1">⚠️ Emergency Indicators:</p>
+              <p className="text-sm opacity-80">Sewage backing up into home, water coming up through floor drains, or multiple fixtures backing up simultaneously = dispatch ASAP.</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Plumbing Pricing Quick Reference",
+        keywords: "plumbing price cost fee inspection diagnostic water heater",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <ul className="space-y-2 text-sm opacity-80">
+                <li>• <strong>Plumbing Diagnostic:</strong> $199</li>
+                <li>• <strong>Drain Cleaning:</strong> Starts at $199</li>
+                <li>• <strong>Camera Inspection:</strong> $299</li>
+                <li>• <strong>Water Heater Flush:</strong> $199</li>
+                <li>• <strong>Plumbing Labor:</strong> $219/hr</li>
+                <li>• <strong>Estimates for replacement:</strong> Always FREE</li>
+              </ul>
+            </div>
+            <p className="text-sm opacity-70">💡 Same 90-minute guarantee and no emergency surcharge applies to plumbing calls.</p>
+          </div>
+        ),
+      },
+    ],
+  },
+  {
+    id: "iaq",
+    title: "Indoor Air Quality",
+    description: "Air quality products, symptoms, and upsell opportunities",
+    icon: Wind,
+    iconColor: "hsl(180, 60%, 50%)",
+    articles: [
+      {
+        title: "IAQ Products We Offer",
+        keywords: "air quality products purifier humidifier UV filter HEPA",
+        content: (
+          <div className="space-y-3">
+            <p>Indoor Air Quality (IAQ) is a growing category. Products include:</p>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Air Purifiers</strong> — Whole-home units installed in ductwork (HEPA, UV, ionizers)</li>
+                <li>• <strong>UV Germicidal Lights</strong> — Kill mold/bacteria in the air handler</li>
+                <li>• <strong>Humidifiers</strong> — Whole-home units, prevent dry air in winter</li>
+                <li>• <strong>Dehumidifiers</strong> — Whole-home, prevent mold/mildew in summer</li>
+                <li>• <strong>HEPA Filtration</strong> — Hospital-grade air filtering</li>
+                <li>• <strong>Duct Cleaning</strong> — Remove dust, allergens, debris from ductwork</li>
+                <li>• <strong>ERV/HRV</strong> — Energy recovery ventilators for fresh air exchange</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "When to Suggest IAQ Solutions",
+        keywords: "suggest IAQ allergy asthma dust mold smell air quality upsell",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-2">🔔 Listen for These Triggers:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>"We have allergies"</strong> → Air purifier or HEPA filter upgrade</li>
+                <li>• <strong>"The air feels dry"</strong> → Whole-home humidifier</li>
+                <li>• <strong>"There's a musty smell"</strong> → UV light, duct cleaning, dehumidifier</li>
+                <li>• <strong>"Lots of dust in the house"</strong> → Duct cleaning + better filtration</li>
+                <li>• <strong>"Someone in the home has asthma"</strong> → HEPA filtration + UV purifier</li>
+                <li>• <strong>"We just had mold remediation"</strong> → UV light to prevent recurrence</li>
+              </ul>
+            </div>
+            <p className="text-sm opacity-70">🎯 IAQ products are high-margin add-ons. Mention them naturally during tune-up and repair bookings.</p>
+          </div>
+        ),
+      },
+      {
+        title: "Duct Cleaning — What to Tell Customers",
+        keywords: "duct cleaning dusty air vents dirty how long cost",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Standard answer:</strong> "We recommend duct cleaning every 3–5 years, or sooner if you notice excessive dust, musty odors, or have had renovations."</p>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">Signs Ducts Need Cleaning:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Visible dust blowing from vents</li>
+                <li>• Musty or stale smell when system runs</li>
+                <li>• Recent home renovation (drywall dust, paint)</li>
+                <li>• Pest infestation (droppings in ducts)</li>
+                <li>• Increased allergy symptoms indoors</li>
+                <li>• Uneven airflow between rooms</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-1">💡 Combo Upsell:</p>
+              <p className="text-sm opacity-80">"Many customers pair duct cleaning with a UV light installation — it keeps the ducts cleaner longer and kills airborne bacteria."</p>
+            </div>
+          </div>
+        ),
+      },
+    ],
+  },
+  {
+    id: "commercial",
+    title: "Commercial HVAC",
+    description: "Commercial-specific systems, pricing, and booking procedures",
+    icon: Building,
+    iconColor: "hsl(260, 60%, 60%)",
+    articles: [
+      {
+        title: "Commercial vs Residential — Key Differences",
+        keywords: "commercial residential difference business office store",
+        content: (
+          <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+                <p className="font-bold mb-2" style={{ color: GREEN }}>Residential</p>
+                <ul className="space-y-1 text-sm opacity-80">
+                  <li>• Diagnostic: $199</li>
+                  <li>• Labor: $219/hr</li>
+                  <li>• Single-family homes</li>
+                  <li>• Standard systems</li>
+                  <li>• Homeowner decisions</li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+                <p className="font-bold mb-2" style={{ color: ORANGE }}>Commercial</p>
+                <ul className="space-y-1 text-sm opacity-80">
+                  <li>• Standard: $269</li>
+                  <li>• Complex: $499</li>
+                  <li>• Labor: $269/hr</li>
+                  <li>• RTUs, VRFs, chillers</li>
+                  <li>• Property managers/owners</li>
+                </ul>
+              </div>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-1">⚠️ Always ask:</p>
+              <p className="text-sm opacity-80">"Is this for a home or a business?" — It changes pricing, business unit, and tech assignment.</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Commercial System Types",
+        keywords: "commercial RTU rooftop VRF chiller packaged unit AHU",
+        content: (
+          <div className="space-y-3">
+            <p>Commercial systems are more complex. Common types you'll hear about:</p>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <ul className="space-y-2 text-sm opacity-80">
+                <li>• <strong>RTU (Rooftop Unit)</strong> — All-in-one heating/cooling on the roof. Most common for retail, restaurants, small offices.</li>
+                <li>• <strong>VRF (Variable Refrigerant Flow)</strong> — Multi-zone system with individual control. Office buildings, hotels.</li>
+                <li>• <strong>Split Systems</strong> — Same concept as residential but larger capacity.</li>
+                <li>• <strong>Chiller Systems</strong> — Large buildings, uses chilled water. We service some, not all.</li>
+                <li>• <strong>AHU (Air Handling Unit)</strong> — Distributes conditioned air through large ductwork.</li>
+                <li>• <strong>Make-Up Air Units</strong> — Restaurants, kitchens — brings in fresh air to replace exhausted air.</li>
+              </ul>
+            </div>
+            <p className="text-sm opacity-70">💡 You don't need to know the system type to book — just note what the customer describes and the tech will identify it on-site.</p>
+          </div>
+        ),
+      },
+      {
+        title: "Booking Commercial Jobs",
+        keywords: "commercial booking job business property manager contact",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 Additional Info to Collect:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Business name</strong> and type (restaurant, office, retail, etc.)</li>
+                <li>• <strong>Contact person</strong> — who will meet the tech on-site?</li>
+                <li>• <strong>Property manager</strong> — are they the decision maker or a tenant?</li>
+                <li>• <strong>Access info</strong> — roof access, keys, alarm codes, building hours</li>
+                <li>• <strong>Number of units</strong> — commercial properties often have multiple systems</li>
+                <li>• <strong>PO or authorization</strong> — some businesses require purchase orders</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${WARM}15`, border: `1px solid ${WARM}33` }}>
+              <p className="font-semibold mb-1">💡 Pro Tip:</p>
+              <p className="text-sm opacity-80">Commercial customers are often repeat/high-value. Always pitch the Business+ membership. A single commercial repair can easily exceed $1,000.</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Commercial Emergency Priorities",
+        keywords: "commercial emergency restaurant walk-in cooler server room data center",
+        content: (
+          <div className="space-y-3">
+            <p>Commercial emergencies can mean revenue loss for the business. Treat with urgency:</p>
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-2">🚨 High-Priority Commercial:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Restaurant with no AC/heat</strong> — Health code risk, may need to close</li>
+                <li>• <strong>Server room/data center overheating</strong> — Equipment damage risk</li>
+                <li>• <strong>Medical office</strong> — Patient comfort, medication storage</li>
+                <li>• <strong>Retail during business hours</strong> — Customer experience, employee safety</li>
+                <li>• <strong>Walk-in cooler/freezer failure</strong> — Food spoilage risk (refer to refrigeration if needed)</li>
+              </ul>
+            </div>
+            <p className="text-sm opacity-70">🎯 For commercial emergencies, always escalate to dispatch manager for fastest tech assignment.</p>
+          </div>
+        ),
+      },
+    ],
+  },
+  {
+    id: "new-installs",
+    title: "New Installation & Replacement",
+    description: "Replacement guidance, financing, and estimate booking",
+    icon: Wrench,
+    iconColor: ORANGE,
+    articles: [
+      {
+        title: "When to Book a Free Estimate",
+        keywords: "free estimate replacement new system install when book",
+        content: (
+          <div className="space-y-3">
+            <div className="p-4 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-bold text-lg mb-2" style={{ color: GREEN }}>💰 Replacement Estimates Are Always FREE</p>
+              <p className="text-sm opacity-80">No diagnostic fee. A comfort advisor visits, evaluates the home, and presents options with pricing. Zero obligation.</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">Book a Free Estimate When:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• System is 12+ years old and customer mentions replacement</li>
+                <li>• Tech previously recommended replacement</li>
+                <li>• Customer says "I just want a new system"</li>
+                <li>• Repair cost would exceed 50% of replacement cost</li>
+                <li>• Customer is renovating or adding to their home</li>
+                <li>• Customer mentions wanting better efficiency or lower bills</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Financing Options",
+        keywords: "financing payment plan monthly credit approval 0% interest",
+        content: (
+          <div className="space-y-3">
+            <p><strong>Standard answer:</strong> "We offer flexible financing options so you don't have to pay everything upfront. Our comfort advisor will go over all the options during the estimate."</p>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">What to Tell Customers:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Financing available through approved partners</li>
+                <li>• Quick approval process (often same-day)</li>
+                <li>• Low monthly payments available</li>
+                <li>• No prepayment penalties</li>
+                <li>• The comfort advisor handles all financing paperwork on-site</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${WARM}15`, border: `1px solid ${WARM}33` }}>
+              <p className="font-semibold mb-1">💡 Don't Quote Specifics:</p>
+              <p className="text-sm opacity-80">Never quote specific interest rates or monthly amounts over the phone. Financing details are presented in person during the estimate visit.</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "What Happens During an Estimate Visit",
+        keywords: "estimate visit what happens process comfort advisor how long",
+        content: (
+          <div className="space-y-3">
+            <p>Help customers know what to expect:</p>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 The Process:</p>
+              <ol className="space-y-1 text-sm opacity-80 list-decimal list-inside">
+                <li>Comfort advisor arrives and inspects current system</li>
+                <li>Evaluates home (square footage, insulation, ductwork)</li>
+                <li>Discusses customer preferences (efficiency, budget, features)</li>
+                <li>Presents 2–3 system options with transparent pricing</li>
+                <li>Reviews financing options if needed</li>
+                <li>If approved, installation can often be scheduled within days</li>
+              </ol>
+            </div>
+            <p className="text-sm opacity-70">⏱️ Typical estimate visit: 60–90 minutes. Customer should have all decision-makers present.</p>
+          </div>
+        ),
+      },
+      {
+        title: "Installation Timeline & What to Expect",
+        keywords: "installation timeline how long days schedule what expect",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">Typical Timelines:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Standard AC or furnace:</strong> 1 day</li>
+                <li>• <strong>AC + furnace combo:</strong> 1–2 days</li>
+                <li>• <strong>Boiler replacement:</strong> 1–2 days</li>
+                <li>• <strong>Mini split (single zone):</strong> 1 day</li>
+                <li>• <strong>Multi-zone mini split:</strong> 2–3 days</li>
+                <li>• <strong>Full ductwork + system:</strong> 3–5 days</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-1">✅ Reassure Customers:</p>
+              <p className="text-sm opacity-80">"Our install team cleans up after every job. We treat your home like our own — booties, drop cloths, and a final walkthrough to make sure you're happy."</p>
+            </div>
           </div>
         ),
       },
