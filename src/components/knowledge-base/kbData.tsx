@@ -1973,4 +1973,278 @@ export const kbSections: KBSectionData[] = [
       },
     ],
   },
+  {
+    id: "dispatch-scenarios",
+    title: "Dispatch Scenarios & Protocols",
+    description: "Tech routing, job reassignment, emergency dispatch, capacity management & reschedules",
+    icon: MapPin,
+    iconColor: BLUE,
+    articles: [
+      {
+        title: "Tech Routing & Assignment Rules",
+        keywords: "dispatch routing assign technician skills location zone availability",
+        content: (
+          <div className="space-y-3">
+            <p><strong>How to choose the right tech for each job:</strong></p>
+            <div className="p-3 rounded-lg" style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}33` }}>
+              <p className="font-semibold mb-2">📋 Assignment Priority (in order):</p>
+              <ol className="space-y-1 text-sm opacity-80 list-decimal pl-4">
+                <li><strong>Skill match</strong> — Tech must be certified for the job type (HVAC install vs. repair vs. plumbing)</li>
+                <li><strong>Zone/proximity</strong> — Assign the closest available tech to minimize drive time</li>
+                <li><strong>Availability</strong> — Check the tech's board in ServiceTitan for open time slots</li>
+                <li><strong>Workload balance</strong> — Don't overload one tech while others have gaps</li>
+                <li><strong>Customer history</strong> — If the customer had a specific tech before, try to send the same one</li>
+              </ol>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">🔧 Skill Categories in ServiceTitan:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>HVAC Repair</strong> — Diagnose & fix, all system types</li>
+                <li>• <strong>HVAC Install</strong> — Full system changeouts, ductwork</li>
+                <li>• <strong>HVAC Maintenance</strong> — Tune-ups, filter changes, clean & checks</li>
+                <li>• <strong>Plumbing Service</strong> — Drain cleaning, water heaters, faucets, toilets</li>
+                <li>• <strong>Plumbing Install</strong> — Re-pipes, fixture installs, gas lines</li>
+                <li>• <strong>Sales</strong> — Comfort advisors for replacement estimates</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-1">💡 Pro Tip:</p>
+              <p className="text-sm opacity-80">When in doubt about skill match, check the tech's profile in ServiceTitan → "Skills & Certifications" tab. Never send an HVAC-only tech on a plumbing call.</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Job Reassignment & Reschedules",
+        keywords: "reassign reschedule move job swap tech change appointment",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-2">🔄 When to Reassign a Job:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Tech is running behind and will miss the arrival window</li>
+                <li>• Job requires skills the assigned tech doesn't have</li>
+                <li>• Tech calls out sick or has a vehicle breakdown</li>
+                <li>• Customer specifically requests a different technician</li>
+                <li>• Emergency call takes priority and pulls the tech away</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 Reassignment Steps:</p>
+              <ol className="space-y-1 text-sm opacity-80 list-decimal pl-4">
+                <li>Identify an available tech with the right skills & proximity</li>
+                <li>Contact the new tech to confirm they can take the job</li>
+                <li>Update the dispatch board in ServiceTitan (drag & drop or reassign)</li>
+                <li>Call the customer to inform them: <span className="italic">"Hi [Name], I wanted to let you know [New Tech] will be coming out today instead. They're fully qualified and will take great care of you."</span></li>
+                <li>Add a note to the job explaining the reassignment reason</li>
+              </ol>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}33` }}>
+              <p className="font-semibold mb-2">📅 Customer Reschedule Protocol:</p>
+              <div className="text-sm opacity-80 space-y-1">
+                <p><strong>Customer calls to reschedule:</strong></p>
+                <p className="italic">"Absolutely, let me find a new time for you. Do you prefer morning or afternoon?"</p>
+                <p><strong>We need to reschedule (our side):</strong></p>
+                <p className="italic">"Hi [Name], I'm calling because we need to adjust your appointment. I apologize for the inconvenience — I have [alternative times] available. Which works best for you?"</p>
+                <p className="mt-1"><strong>Always offer the next available slot</strong> and compensate with priority if we caused the reschedule.</p>
+              </div>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Emergency Dispatch Protocols",
+        keywords: "emergency urgent priority dispatch same-day gas leak no heat flood",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-2">🚨 Priority 1 — Immediate Dispatch (within 1 hour):</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Gas leak</strong> — Customer smells gas (call 911 first, then dispatch)</li>
+                <li>• <strong>CO alarm sounding</strong> — Evacuate first, then dispatch</li>
+                <li>• <strong>Flooding/active water leak</strong> — Major property damage risk</li>
+                <li>• <strong>No heat below 32°F</strong> — Freeze risk to pipes and occupants</li>
+                <li>• <strong>Electrical burning smell from HVAC</strong> — Fire risk</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-2">⚡ Priority 2 — Same-Day Dispatch:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• No AC above 90°F with elderly, infants, or medical conditions</li>
+                <li>• No heat below 40°F (not an immediate safety threat but urgent)</li>
+                <li>• Sewage backup or main drain clog</li>
+                <li>• Water heater leaking (not flooding but needs attention)</li>
+                <li>• Complete system failure (no cool/no heat, functioning unit stopped)</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 Emergency Dispatch Checklist:</p>
+              <ol className="space-y-1 text-sm opacity-80 list-decimal pl-4">
+                <li>Confirm the emergency type and severity</li>
+                <li>Check safety — advise customer to evacuate if needed (gas, CO)</li>
+                <li>Pull the nearest available tech from current job (if Priority 1)</li>
+                <li>Notify the pulled tech's current customer about the delay</li>
+                <li>Assign the emergency job in ServiceTitan with "Emergency" tag</li>
+                <li>Call customer with ETA: <span className="italic">"Our tech [Name] is on the way. ETA is approximately [X] minutes."</span></li>
+                <li>Follow up within 1 hour to confirm tech arrived</li>
+              </ol>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${WARM}15`, border: `1px solid ${WARM}33` }}>
+              <p className="font-semibold mb-1">⚠️ Pulling a Tech from Another Job:</p>
+              <p className="text-sm opacity-80">Only for Priority 1. Call the current customer: <span className="italic">"Hi [Name], our technician has been called to a safety emergency. We'll have [another tech / reschedule] to complete your service as soon as possible. I sincerely apologize."</span></p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Capacity Management & Squeeze-Ins",
+        keywords: "capacity full board overbooked squeeze-in same day overflow waitlist",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}33` }}>
+              <p className="font-semibold mb-2">📊 When the Board Is Full:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Check for cancellations</strong> — Gaps may open up throughout the day</li>
+                <li>• <strong>Look for short jobs finishing early</strong> — Maintenance calls often wrap up ahead of schedule</li>
+                <li>• <strong>Assess urgency</strong> — Can the new call wait until tomorrow, or is it same-day priority?</li>
+                <li>• <strong>Consider overtime</strong> — With manager approval, extend a tech's day for urgent calls</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-2">📥 Squeeze-In Protocol:</p>
+              <ol className="space-y-1 text-sm opacity-80 list-decimal pl-4">
+                <li>Identify the tech with the lightest remaining workload</li>
+                <li>Call or text the tech: <span className="italic">"Can you fit in one more call? It's a [job type] at [address], about [estimated time]."</span></li>
+                <li>If tech agrees, add to the board and note it as "Squeeze-In"</li>
+                <li>Give customer a wider arrival window: <span className="italic">"We can get to you today, but the arrival window will be between [X] and [Y]."</span></li>
+                <li>If no tech available, offer first slot tomorrow or add to waitlist</li>
+              </ol>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 Waitlist Script:</p>
+              <p className="text-sm opacity-80 italic">"We're fully booked today, but I can put you on our priority waitlist. If anything opens up, you'll be the first call. Otherwise, I have [next available slot] — would you like to secure that spot?"</p>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-1">⚠️ Member Priority:</p>
+              <p className="text-sm opacity-80">Maintenance members get <strong>priority squeeze-in</strong> over non-members. Always check membership status in ServiceTitan before saying the board is full.</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Multi-Day & Complex Job Scheduling",
+        keywords: "multi-day install complex schedule two day three day project",
+        content: (
+          <div className="space-y-3">
+            <p><strong>For installs and large projects requiring multiple days:</strong></p>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 Multi-Day Job Types:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Full HVAC system replacement:</strong> 1–2 days</li>
+                <li>• <strong>Ductwork replacement/install:</strong> 2–3 days</li>
+                <li>• <strong>Multi-zone mini split:</strong> 2–3 days</li>
+                <li>• <strong>Full re-pipe (plumbing):</strong> 2–4 days</li>
+                <li>• <strong>Whole-home IAQ retrofit:</strong> 1–2 days</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}33` }}>
+              <p className="font-semibold mb-2">📅 Scheduling Protocol:</p>
+              <ol className="space-y-1 text-sm opacity-80 list-decimal pl-4">
+                <li>Block <strong>consecutive days</strong> on the board for the same crew</li>
+                <li>Assign <strong>lead installer + helper</strong> — keep the same team all days</li>
+                <li>Confirm all equipment/materials are ordered and on-site before Day 1</li>
+                <li>Set customer expectations: <span className="italic">"The install will take [X] days. The crew will arrive at [time] each day and wrap up by [time]."</span></li>
+                <li>Add a note on each day's job with the project scope and progress tracker</li>
+              </ol>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-1">💡 End-of-Day Customer Update:</p>
+              <p className="text-sm opacity-80">Call the customer at end of each day: <span className="italic">"Hi [Name], just wanted to update you — the crew completed [work done today]. They'll be back tomorrow at [time] to continue with [next steps]. Everything is on track!"</span></p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Tech Running Late — Communication Protocol",
+        keywords: "late running behind delay arrival window eta customer notification",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
+              <p className="font-semibold mb-2">⏰ When a Tech Is Running Late:</p>
+              <ol className="space-y-1 text-sm opacity-80 list-decimal pl-4">
+                <li><strong>15+ minutes late</strong> — Proactively call the customer (don't wait for them to call us)</li>
+                <li><strong>Apologize + give new ETA:</strong> <span className="italic">"Hi [Name], this is [Your Name] from [Company]. I wanted to let you know that [Tech] is running a bit behind from a previous appointment. Their new ETA is [time]. I apologize for the delay."</span></li>
+                <li>Offer alternatives if delay is 30+ minutes: <span className="italic">"Would you prefer to wait, or would you like me to reschedule for a time that works better?"</span></li>
+                <li>Update the job in ServiceTitan with a note about the delay and new ETA</li>
+              </ol>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📋 Threshold Guidelines:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>5–15 min:</strong> No call needed — within normal window</li>
+                <li>• <strong>15–30 min:</strong> Proactive call with apology + new ETA</li>
+                <li>• <strong>30–60 min:</strong> Call + offer to reschedule or send different tech</li>
+                <li>• <strong>60+ min:</strong> Manager notified, offer reschedule + compensation (discount/priority)</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${RED}15`, border: `1px solid ${RED}33` }}>
+              <p className="font-semibold mb-1">🚫 Never Say:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• "They're on their way" when you don't know the actual ETA</li>
+                <li>• "The last job took longer than expected" — too much detail, sounds like excuses</li>
+                <li>• Nothing at all — silence is worse than a delay call</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: "Dispatch Board Best Practices",
+        keywords: "dispatch board servicetitan organize daily setup morning routine",
+        content: (
+          <div className="space-y-3">
+            <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+              <p className="font-semibold mb-2">🌅 Morning Board Setup (Daily Routine):</p>
+              <ol className="space-y-1 text-sm opacity-80 list-decimal pl-4">
+                <li>Review all scheduled jobs for the day — confirm no cancellations overnight</li>
+                <li>Check tech availability — call-outs, vacations, vehicle issues</li>
+                <li>Reassign any orphaned jobs from absent techs</li>
+                <li>Verify all install jobs have materials confirmed</li>
+                <li>Identify open slots for same-day callers</li>
+                <li>Review high-priority/VIP jobs and ensure best tech assigned</li>
+              </ol>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
+              <p className="font-semibold mb-2">📊 Throughout the Day:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Monitor tech progress — are they on schedule or falling behind?</li>
+                <li>• Watch for completed jobs → check if tech can take a squeeze-in</li>
+                <li>• Communicate with techs via text/chat for quick updates</li>
+                <li>• Flag any jobs that are taking longer than estimated</li>
+                <li>• Keep the waitlist updated — call waitlisted customers when slots open</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}33` }}>
+              <p className="font-semibold mb-2">🏁 End-of-Day Wrap-Up:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• Confirm all jobs are marked complete or rescheduled</li>
+                <li>• Review any callbacks or follow-ups needed for tomorrow</li>
+                <li>• Check tomorrow's board — any gaps to fill? Any heavy days to balance?</li>
+                <li>• Note any recurring issues (tech consistently late, jobs underestimated, etc.)</li>
+              </ul>
+            </div>
+            <div className="p-3 rounded-lg" style={{ background: `${WARM}15`, border: `1px solid ${WARM}33` }}>
+              <p className="font-semibold mb-1">💡 Golden Rules of Dispatch:</p>
+              <ul className="space-y-1 text-sm opacity-80">
+                <li>• <strong>Communicate early</strong> — customers forgive delays, not silence</li>
+                <li>• <strong>Members first</strong> — always check membership before scheduling decisions</li>
+                <li>• <strong>Right tech, right job</strong> — skill match over speed</li>
+                <li>• <strong>Document everything</strong> — notes in ServiceTitan are your safety net</li>
+              </ul>
+            </div>
+          </div>
+        ),
+      },
+    ],
+  },
 ];
