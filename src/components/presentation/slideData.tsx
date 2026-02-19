@@ -2539,7 +2539,239 @@ const MultipleEmergenciesSlide = () => (
   </div>
 );
 
-/* ── Export slide list (22 slides: Customer Service & Dispatch Guide) ── */
+/* ── Slide 23: Scope Escalation — Job Larger Than Expected ── */
+const ScopeEscalationSlide = () => (
+  <div className="flex flex-col gap-6 h-full px-16 py-10" style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-4 mb-2">
+      <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: `${ORANGE}18`, border: `1px solid ${ORANGE}30` }}>
+        <AlertTriangle className="w-6 h-6" style={{ color: ORANGE }} />
+      </div>
+      <div>
+        <h2 className="text-2xl font-bold text-white">Scope Escalation — Job Larger Than Expected</h2>
+        <p className="text-sm text-white/50">When a tech discovers the repair is actually a replacement or major project</p>
+      </div>
+    </div>
+
+    {/* 3-step protocol */}
+    <div className="grid grid-cols-3 gap-4">
+      {/* Step 1 */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${ORANGE}22`, color: ORANGE }}>1</div>
+          <h3 className="text-sm font-bold text-white">Tech Reports Scope Change</h3>
+        </div>
+        <div className="space-y-2">
+          <div className="flex items-start gap-2">
+            <Phone className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60">Tech calls dispatch with findings — <span className="text-white/80 font-semibold">what they found</span> and <span className="text-white/80 font-semibold">what's actually needed</span></p>
+          </div>
+          <div className="flex items-start gap-2">
+            <ClipboardList className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60">Dispatch documents: original scope vs. new scope in ServiceTitan notes</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <Clock className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60">Get time estimate for new scope — will it take hours or a return trip?</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${ORANGE}22`, color: ORANGE }}>2</div>
+          <h3 className="text-sm font-bold text-white">CS Calls Customer On-Site</h3>
+        </div>
+        <div className="space-y-2">
+          <div className="rounded-lg p-3" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+            <p className="text-[10px] uppercase tracking-wider font-bold mb-1" style={{ color: ORANGE }}>Script — Scope Change</p>
+            <p className="text-xs text-white/50 italic">"Our tech has completed the diagnostic and found that a [repair/part swap] won't fully resolve the issue. They're recommending [new scope]. We'd like to have our comfort advisor come out to go over your options — there's no additional charge for the estimate."</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <DollarSign className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
+            <p className="text-xs text-white/60"><span className="text-white/80 font-semibold">Never quote replacement pricing over the phone</span> — schedule the comfort advisor visit</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${ORANGE}22`, color: ORANGE }}>3</div>
+          <h3 className="text-sm font-bold text-white">Dispatch & Board Adjustments</h3>
+        </div>
+        <div className="space-y-2">
+          <div className="flex items-start gap-2">
+            <Calendar className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60"><span className="text-white/80 font-semibold">If tech stays on-site longer:</span> Follow "Repair Running Long" protocol for remaining jobs</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <ArrowRight className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60"><span className="text-white/80 font-semibold">If tech wraps up diagnostic only:</span> Move to next job; schedule advisor for customer</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <FileText className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60">Convert job type in ServiceTitan from Repair → Estimate / Replacement lead</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Decision helper */}
+    <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+      <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+        <HelpCircle className="w-4 h-4" style={{ color: WARM }} />
+        Quick Decision: Repair or Replace?
+      </h3>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-1.5">
+          <p className="text-[10px] uppercase tracking-wider font-bold" style={{ color: GREEN }}>Tech Should Repair If:</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Part is available and fix takes &lt; 2 hours</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />System is under 10 years old</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Customer approves repair cost on-site</p>
+        </div>
+        <div className="space-y-1.5">
+          <p className="text-[10px] uppercase tracking-wider font-bold" style={{ color: ORANGE }}>Schedule Advisor If:</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: ORANGE }} />Repair cost exceeds 50% of replacement value</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: ORANGE }} />System is 15+ years old with recurring failures</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: ORANGE }} />Major component failure (compressor, heat exchanger)</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4 mt-auto">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Frame it as "good news — we caught something bigger before it got worse"</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Get the advisor scheduled before the tech leaves</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Thank the customer for their patience and trust</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Quote replacement prices over the phone or on-site without advisor</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Let the tech leave without dispatch knowing the scope changed</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Tell the customer their system is "dead" — keep it solution-focused</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Slide 24: Customer Requests Specific Tech ── */
+const SpecificTechRequestSlide = () => (
+  <div className="flex flex-col gap-6 h-full px-16 py-10" style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-4 mb-2">
+      <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: `${WARM}18`, border: `1px solid ${WARM}30` }}>
+        <User className="w-6 h-6" style={{ color: WARM }} />
+      </div>
+      <div>
+        <h2 className="text-2xl font-bold text-white">Customer Requests Specific Tech</h2>
+        <p className="text-sm text-white/50">When the requested technician is already fully booked</p>
+      </div>
+    </div>
+
+    {/* Decision tree */}
+    <div className="grid grid-cols-3 gap-4">
+      {/* Option A */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: `1px solid ${GREEN}22` }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${GREEN}22`, color: GREEN }}>A</div>
+          <h3 className="text-sm font-bold text-white">Accommodate — Move Things Around</h3>
+        </div>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-2" style={{ color: GREEN }}>When to use:</p>
+        <div className="space-y-1.5 mb-3">
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />VIP / high-value membership customer</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Callback or warranty follow-up (same tech needed)</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />A non-urgent job on the tech's board can be swapped</p>
+        </div>
+        <div className="rounded-lg p-2.5" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}15` }}>
+          <p className="text-[10px] uppercase tracking-wider font-bold mb-1" style={{ color: GREEN }}>Action</p>
+          <p className="text-xs text-white/50">Check tech's board for a maintenance or low-priority job that can be moved to another tech. Swap and slot this customer in.</p>
+        </div>
+      </div>
+
+      {/* Option B */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: `1px solid ${ORANGE}22` }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${ORANGE}22`, color: ORANGE }}>B</div>
+          <h3 className="text-sm font-bold text-white">Offer Next Available Day</h3>
+        </div>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-2" style={{ color: ORANGE }}>When to use:</p>
+        <div className="space-y-1.5 mb-3">
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><Clock className="w-3 h-3 flex-shrink-0" style={{ color: ORANGE }} />Customer prefers to wait for their tech</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><Clock className="w-3 h-3 flex-shrink-0" style={{ color: ORANGE }} />Job is not urgent or time-sensitive</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><Clock className="w-3 h-3 flex-shrink-0" style={{ color: ORANGE }} />No board changes are practical today</p>
+        </div>
+        <div className="rounded-lg p-2.5" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+          <p className="text-[10px] uppercase tracking-wider font-bold mb-1" style={{ color: ORANGE }}>Script</p>
+          <p className="text-xs text-white/50 italic">"[Tech name] is fully booked today, but I can get you on their schedule on [next date]. Would [morning/afternoon] work best for you?"</p>
+        </div>
+      </div>
+
+      {/* Option C */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: `1px solid ${WARM}22` }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${WARM}22`, color: WARM }}>C</div>
+          <h3 className="text-sm font-bold text-white">Redirect to Another Tech</h3>
+        </div>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-2" style={{ color: WARM }}>When to use:</p>
+        <div className="space-y-1.5 mb-3">
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><ArrowRight className="w-3 h-3 flex-shrink-0" style={{ color: WARM }} />Job is time-sensitive (no heat, no AC, leak)</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><ArrowRight className="w-3 h-3 flex-shrink-0" style={{ color: WARM }} />Customer is open to another tech if framed well</p>
+          <p className="text-xs text-white/50 flex items-center gap-1.5"><ArrowRight className="w-3 h-3 flex-shrink-0" style={{ color: WARM }} />Another equally qualified tech is available sooner</p>
+        </div>
+        <div className="rounded-lg p-2.5" style={{ background: `${WARM}08`, border: `1px solid ${WARM}15` }}>
+          <p className="text-[10px] uppercase tracking-wider font-bold mb-1" style={{ color: WARM }}>Script</p>
+          <p className="text-xs text-white/50 italic">"I completely understand wanting [Tech name] — they're great. I also have [Other tech], who specializes in [relevant skill] and can be there [sooner window]. Would you like me to get you taken care of today?"</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Escalation note */}
+    <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+      <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+        <ShieldAlert className="w-4 h-4" style={{ color: RED }} />
+        Escalation — Customer Insists & Won't Accept Alternatives
+      </h3>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <p className="text-xs text-white/60"><span className="text-white/80 font-semibold">1.</span> Acknowledge their loyalty: <span className="italic text-white/50">"I can tell [Tech] made a great impression — that says a lot about our team."</span></p>
+          <p className="text-xs text-white/60"><span className="text-white/80 font-semibold">2.</span> Offer to add them to a priority waitlist if a cancellation opens up on that tech's board today.</p>
+        </div>
+        <div className="space-y-2">
+          <p className="text-xs text-white/60"><span className="text-white/80 font-semibold">3.</span> Book the next available slot with that tech as a confirmed backup.</p>
+          <p className="text-xs text-white/60"><span className="text-white/80 font-semibold">4.</span> If still unresolved, offer to have dispatch manager call them back within 30 minutes.</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4 mt-auto">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Compliment their tech choice — it validates the team</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Present alternatives as equally skilled, not "lesser"</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Note the preference in ServiceTitan for future scheduling</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Say "that tech isn't available" without offering options</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Bump another customer's confirmed appointment to accommodate</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Badmouth or compare techs — "he's just as good" sounds dismissive</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (24 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -2563,4 +2795,6 @@ export const slides = [
   { title: "Tech Calls Out Sick", component: TechCalloutSlide, keywords: "tech sick callout mid-day redistribute reassign jobs board capacity zone priority protocol" },
   { title: "Last-Minute Cancellation", component: LastMinuteCancelSlide, keywords: "cancel last minute open slot fill waiting list pull ahead maintenance blitz reschedule" },
   { title: "Multiple Emergencies", component: MultipleEmergenciesSlide, keywords: "multiple emergencies triage surge priority p1 p2 p3 p4 gas leak safety dispatch all techs backup" },
+  { title: "Scope Escalation", component: ScopeEscalationSlide, keywords: "scope escalation larger than expected replacement repair diagnostic advisor comfort system upgrade convert job" },
+  { title: "Specific Tech Request", component: SpecificTechRequestSlide, keywords: "specific tech request customer preference booked full schedule accommodate redirect waitlist loyalty" },
 ];
