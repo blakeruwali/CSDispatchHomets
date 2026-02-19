@@ -1,54 +1,44 @@
 
 
-# Add Knowledge Base & Objection Handling to Mobile View
+# Add Missing 5% — Phone Scripts & Protocols to Knowledge Base
 
 ## Overview
-The mobile view (`MobilePresentation.tsx`) currently only shows the dispatch guide. This update adds a sticky tab bar at the top so mobile users can switch between three views: **Guide**, **Knowledge Base**, and **Objections** -- giving team members full access to everything on their phones.
+Add **2 new comprehensive KB sections** to `kbData.tsx` covering all the identified gaps. This brings the Knowledge Base to **13 sections** and approximately **80+ articles** — completing the 100% coverage for CS and Dispatch teams.
 
-## What Changes
+## New Sections & Articles
 
-### 1. Sticky Tab Bar (top of mobile view)
-Three tabs replace the current static hero: **Guide** | **Knowledge Base** | **Objections**. The tabs stick to the top while scrolling so switching is always one tap away. The hero section (logo, phone number) stays but moves below the tabs in the Guide view.
+### Section 12: "Phone Scripts & Call Protocols"
+Icon: Phone (already imported), Color: GREEN
 
-### 2. Knowledge Base on Mobile
-- Imports the existing `kbSections` data from `kbData.tsx`
-- Renders each of the 7 KB sections as collapsible accordions styled to match the dark mobile theme
-- Each section shows its icon, title, and article count
-- Tapping a section expands it to reveal its articles as nested accordions
-- Article content renders inline with the same styling (bullet points, highlight boxes, tips)
+**Articles (7):**
+1. **Opening Greeting Script** — Verbatim script for answering calls: "Thank you for calling [Company], this is [Name], how can I help you today?" with tone/pacing notes and variations for returning customers
+2. **Call Closing & Confirmation Script** — Recap template: confirm appointment date/time, service address, job type, pricing expectations, tech arrival window, and "Is there anything else I can help with?"
+3. **Voicemail Scripts** — Word-for-word voicemail for: missed customer calls, appointment confirmations, follow-up after no-show, and after-hours greeting
+4. **Hold & Transfer Protocols** — How to properly place on hold ("May I place you on a brief hold?"), max hold time (90 seconds), check-back etiquette, warm vs. cold transfers, and manager escalation steps
+5. **Non-English Caller Handling** — Step-by-step: identify language, use language line/interpreter service, key Spanish phrases for HVAC emergencies, and how to book through a translator
+6. **After-Hours & Overflow Call Handling** — What qualifies as after-hours emergency vs. next-day, on-call tech dispatch rules, pricing for after-hours, and how to set expectations
 
-### 3. Objection Handling on Mobile
-- Imports the `objectionCategories` data from `slideData.tsx` (needs to be exported)
-- Adds a search bar at the very top of the Objections tab for real-time filtering
-- All 9 categories with 46 objections render as expandable cards
-- Each card shows: trigger phrase, recommended response, and tip
-- Search filters across triggers, responses, and tips instantly
+### Section 13: "Post-Service & Customer Retention"
+Icon: Star (already imported), Color: WARM
 
-### 4. Sticky CTA Update
-The "Call Now" sticky button at the bottom remains on all three tabs.
+**Articles (6):**
+1. **Post-Service Follow-Up Script** — 24-hour callback template: "Hi [Name], this is [Agent] from [Company]. I'm calling to make sure everything is working well after yesterday's visit..." with branching for satisfied vs. unsatisfied
+2. **Google Review Request Script** — Natural ask: timing (right after positive feedback), verbatim script, how to text/email the review link, and what NOT to say (no incentives)
+3. **Referral Program Script** — How to mention the referral program, what the reward is, and a natural transition: "By the way, if you know anyone who needs..."
+4. **Handling Negative Feedback Post-Service** — De-escalation script for unhappy post-service calls, when to offer a callback visit vs. refund, and manager escalation criteria
+5. **Membership Retention Calls** — Script for calling expiring members, renewal benefits pitch, and how to handle "I want to cancel"
+6. **Seasonal Outreach Scripts** — Pre-summer and pre-winter proactive call templates for tune-up reminders to existing customers
 
 ## Technical Details
 
-### Files to Modify
+### File Modified
+**`src/components/knowledge-base/kbData.tsx`**
+- Append 2 new section objects to the `kbSections` array (after line 1542, before the closing `];`)
+- No new icon imports needed — `Phone`, `Star`, `Clock`, `Heart`, `Users`, `CheckCircle`, `MessageCircleQuestion`, `Shield`, `AlertTriangle` are all already imported
+- Import `Globe` from lucide-react for the non-English caller article
+- All articles follow the exact same JSX structure as existing articles (colored info boxes, bullet lists, tip callouts)
+- Total addition: ~13 articles across 2 sections
 
-**`src/components/presentation/slideData.tsx`**
-- Export `objectionCategories` so the mobile component can import it
-
-**`src/components/presentation/MobilePresentation.tsx`**
-- Add `useState` for active tab (`"guide" | "kb" | "objections"`)
-- Add `useState` for objection search query
-- Add sticky tab bar with three buttons at the top of the page
-- Wrap existing guide content in a conditional render (`activeTab === "guide"`)
-- Add KB view: import `kbSections`, render accordion sections using the existing `Section`/`SectionTitle` helper components and Radix accordion primitives
-- Add Objections view: import `objectionCategories`, render search input + filterable objection cards
-- All new views use the same color constants (ORANGE, RED, SURFACE2, etc.) already defined in the file
-
-### New imports needed in MobilePresentation.tsx
-- `kbSections` from `kbData.tsx`
-- `objectionCategories` from `slideData.tsx`
-- `useState`, `useMemo` from React
-- Additional Lucide icons for KB section headers (Thermometer, MessageCircleQuestion, ShieldAlert, Monitor, Crown, FileCheck, Search, X, BookOpen, Presentation, Shield)
-
-### No new files needed
-Everything builds on existing data and components, just rendered in a mobile-optimized layout.
+### No other files need changes
+The `KBSection`, `KnowledgeBase`, `MobileKBView`, and search functionality all dynamically render from `kbSections` — new sections appear automatically everywhere.
 
