@@ -2290,7 +2290,256 @@ const TechCalloutSlide = () => (
   </div>
 );
 
-/* ── Export slide list (20 slides: Customer Service & Dispatch Guide) ── */
+/* ── Slide 21: Last-Minute Cancellation — Fill the Open Slot ── */
+const LastMinuteCancelSlide = () => (
+  <div className="flex flex-col gap-6 h-full px-16 py-10" style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-4 mb-2">
+      <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: `${WARM}18`, border: `1px solid ${WARM}30` }}>
+        <UserX className="w-6 h-6" style={{ color: WARM }} />
+      </div>
+      <div>
+        <h2 className="text-2xl font-bold text-white">Last-Minute Cancellation — Fill the Slot</h2>
+        <p className="text-sm text-white/50">When a customer cancels and the tech has an open window</p>
+      </div>
+    </div>
+
+    {/* 3-step flow */}
+    <div className="grid grid-cols-3 gap-4">
+      {/* Step 1 */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <span className="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold" style={{ background: `${ORANGE}22`, color: ORANGE }}>1</span>
+          <h3 className="text-sm font-bold text-white">Confirm & Document</h3>
+        </div>
+        <div className="space-y-2">
+          <div className="flex items-start gap-2">
+            <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60">Ask reason for cancellation — log in ServiceTitan</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <Calendar className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60">Offer to reschedule before hanging up</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <FileText className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60">Note cancellation reason &amp; whether rescheduled</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 2 */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <span className="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold" style={{ background: `${GREEN}22`, color: GREEN }}>2</span>
+          <h3 className="text-sm font-bold text-white">Fill the Slot</h3>
+        </div>
+        <p className="text-[10px] uppercase tracking-wider text-white/30 mb-2">Check in this order:</p>
+        <div className="space-y-2">
+          <div className="flex items-start gap-2">
+            <span className="w-4 h-4 rounded flex items-center justify-center text-[9px] font-bold flex-shrink-0" style={{ background: `${GREEN}22`, color: GREEN }}>A</span>
+            <p className="text-xs text-white/60"><span className="font-semibold text-white/80">Waiting list</span> — customers who wanted an earlier slot</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="w-4 h-4 rounded flex items-center justify-center text-[9px] font-bold flex-shrink-0" style={{ background: `${GREEN}22`, color: GREEN }}>B</span>
+            <p className="text-xs text-white/60"><span className="font-semibold text-white/80">Unbooked estimates</span> — open quotes that need follow-up</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="w-4 h-4 rounded flex items-center justify-center text-[9px] font-bold flex-shrink-0" style={{ background: `${GREEN}22`, color: GREEN }}>C</span>
+            <p className="text-xs text-white/60"><span className="font-semibold text-white/80">Pull-ahead</span> — move a later job on same tech's board forward</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="w-4 h-4 rounded flex items-center justify-center text-[9px] font-bold flex-shrink-0" style={{ background: `${GREEN}22`, color: GREEN }}>D</span>
+            <p className="text-xs text-white/60"><span className="font-semibold text-white/80">Maintenance blitz</span> — overdue membership tune-ups in the zone</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <span className="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold" style={{ background: `${WARM}22`, color: WARM }}>3</span>
+          <h3 className="text-sm font-bold text-white">Notify & Dispatch</h3>
+        </div>
+        <div className="space-y-2">
+          <div className="flex items-start gap-2">
+            <User className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
+            <p className="text-xs text-white/60">Call replacement customer: <em className="text-white/40">"Great news — we had an opening and can get to you today!"</em></p>
+          </div>
+          <div className="flex items-start gap-2">
+            <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
+            <p className="text-xs text-white/60">Confirm address and provide updated arrival window</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <ArrowRight className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
+            <p className="text-xs text-white/60">Update tech's board and send dispatch notification</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Script box */}
+    <div className="rounded-xl p-4" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+      <p className="text-xs font-bold mb-2 flex items-center gap-2" style={{ color: GREEN }}>
+        <Phone className="w-3.5 h-3.5" />
+        Cancellation Save Script
+      </p>
+      <p className="text-xs text-white/50 italic leading-relaxed">
+        "I understand — before I cancel, I want to make sure: is there anything we can do to keep this appointment? We have a tech already in your area today and we'd hate for you to have to wait for another opening."
+      </p>
+    </div>
+
+    {/* Do / Don't footer */}
+    <div className="grid grid-cols-2 gap-4 mt-auto">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Try to save the appointment first</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Fill the slot within 10 minutes</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Notify the tech immediately of the change</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Leave the slot empty without trying to fill it</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Send the tech home early without dispatch approval</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Skip logging the cancellation reason</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Slide 22: Multiple Emergencies — Triage Protocol ── */
+const MultipleEmergenciesSlide = () => (
+  <div className="flex flex-col gap-6 h-full px-16 py-10" style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-4 mb-2">
+      <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: `${RED}18`, border: `1px solid ${RED}30` }}>
+        <Siren className="w-6 h-6" style={{ color: RED }} />
+      </div>
+      <div>
+        <h2 className="text-2xl font-bold text-white">Multiple Emergencies — Triage Protocol</h2>
+        <p className="text-sm text-white/50">When several emergency calls come in at once</p>
+      </div>
+    </div>
+
+    {/* Triage matrix */}
+    <div className="grid grid-cols-2 gap-4">
+      {/* Priority ranking */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+        <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+          <AlertOctagon className="w-4 h-4" style={{ color: RED }} />
+          Step 1: Rank by Severity
+        </h3>
+        <div className="space-y-2">
+          <div className="flex items-center gap-3 p-2 rounded-lg" style={{ background: `${RED}12`, border: `1px solid ${RED}18` }}>
+            <span className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${RED}22`, color: RED }}>P1</span>
+            <div>
+              <p className="text-xs font-semibold text-white/80">Life Safety</p>
+              <p className="text-[10px] text-white/40">Gas leak, CO alarm, electrical fire risk</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 p-2 rounded-lg" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}15` }}>
+            <span className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${ORANGE}22`, color: ORANGE }}>P2</span>
+            <div>
+              <p className="text-xs font-semibold text-white/80">Property Damage Risk</p>
+              <p className="text-[10px] text-white/40">Active flooding, burst pipe, system sparking</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 p-2 rounded-lg" style={{ background: `${WARM}08`, border: `1px solid ${WARM}12` }}>
+            <span className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${WARM}22`, color: WARM }}>P3</span>
+            <div>
+              <p className="text-xs font-semibold text-white/80">Comfort Emergency</p>
+              <p className="text-[10px] text-white/40">No heat (below 32°F), no AC (above 95°F), elderly/infant in home</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 p-2 rounded-lg" style={{ background: `${MUTED}08`, border: `1px solid ${MUTED}12` }}>
+            <span className="w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold" style={{ background: `${MUTED}22`, color: MUTED }}>P4</span>
+            <div>
+              <p className="text-xs font-semibold text-white/80">Urgent but Not Emergency</p>
+              <p className="text-[10px] text-white/40">System down but no safety/damage risk, mild weather</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Dispatch actions */}
+      <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+        <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+          <Users className="w-4 h-4" style={{ color: ORANGE }} />
+          Step 2: Assign Across All Techs
+        </h3>
+        <div className="space-y-3">
+          <div className="flex items-start gap-2">
+            <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60"><span className="font-semibold text-white/80">Map proximity</span> — which tech is closest to each emergency?</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <Clock className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60"><span className="font-semibold text-white/80">Check current job status</span> — who's wrapping up vs. mid-repair?</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <Wrench className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60"><span className="font-semibold text-white/80">Skill match</span> — gas leak needs gas-certified tech; electrical needs qualified tech</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <ArrowRight className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60"><span className="font-semibold text-white/80">Pull from non-urgent</span> — bump maintenance/tune-ups to free up techs for emergencies</p>
+          </div>
+          <div className="flex items-start gap-2">
+            <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <p className="text-xs text-white/60"><span className="font-semibold text-white/80">Call for backup</span> — if all techs committed, contact on-call or partner company</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Customer communication */}
+    <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,100%,0.08)" }}>
+      <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+        <Headphones className="w-4 h-4" style={{ color: GREEN }} />
+        Step 3: Customer Communication During Triage
+      </h3>
+      <div className="grid grid-cols-3 gap-4">
+        <div className="space-y-2">
+          <p className="text-[10px] uppercase tracking-wider font-bold" style={{ color: RED }}>P1 Customers</p>
+          <p className="text-xs text-white/50 italic">"Stay safe — keep everyone out of the area. A tech is being dispatched to you right now."</p>
+          <p className="text-[10px] text-white/30">Call 911 if gas/CO. Tech dispatched immediately.</p>
+        </div>
+        <div className="space-y-2">
+          <p className="text-[10px] uppercase tracking-wider font-bold" style={{ color: ORANGE }}>P2-P3 Customers</p>
+          <p className="text-xs text-white/50 italic">"We're handling multiple emergencies right now and you're our priority. A tech will be with you within [window]. I'll call you with an update in 30 minutes."</p>
+        </div>
+        <div className="space-y-2">
+          <p className="text-[10px] uppercase tracking-wider font-bold" style={{ color: MUTED }}>Bumped Non-Urgent Customers</p>
+          <p className="text-xs text-white/50 italic">"We've had several emergency calls come in and need to prioritize safety situations. We'd like to reschedule you to [next available]. I'm sorry for the inconvenience."</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Do / Don't footer */}
+    <div className="grid grid-cols-2 gap-4 mt-auto">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Rank all emergencies before dispatching any</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Set a callback timer for every waiting customer</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Log all triage decisions for post-day review</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Dispatch first-come-first-served during a surge</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Leave bumped customers without a call</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Send unqualified techs to gas or electrical emergencies</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (22 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -2312,4 +2561,6 @@ export const slides = [
   { title: "Dispatch Flowchart", component: DispatchFlowchartSlide, keywords: "dispatch flowchart routing assign tech priority emergency capacity squeeze-in board decision" },
   { title: "Repair Running Long", component: RepairRunningLongSlide, keywords: "repair running long delay late tech over estimate update customer reassign dispatch protocol threshold" },
   { title: "Tech Calls Out Sick", component: TechCalloutSlide, keywords: "tech sick callout mid-day redistribute reassign jobs board capacity zone priority protocol" },
+  { title: "Last-Minute Cancellation", component: LastMinuteCancelSlide, keywords: "cancel last minute open slot fill waiting list pull ahead maintenance blitz reschedule" },
+  { title: "Multiple Emergencies", component: MultipleEmergenciesSlide, keywords: "multiple emergencies triage surge priority p1 p2 p3 p4 gas leak safety dispatch all techs backup" },
 ];
