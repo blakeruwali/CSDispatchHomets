@@ -1474,7 +1474,7 @@ export const EmergencyProtocolSlide = () => (
 
 /* ── Slide 17: Comprehensive Objection Handling ── */
 
-const objectionCategories = [
+export const objectionCategories = [
   {
     category: "Price Objections",
     icon: DollarSign,
