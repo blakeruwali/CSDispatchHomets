@@ -2012,7 +2012,146 @@ export const DispatchFlowchartSlide = () => (
   </div>
 );
 
-/* ── Export slide list (18 slides: Customer Service & Dispatch Guide) ── */
+/* ── Slide 19: Repair Running Long ── */
+export const RepairRunningLongSlide = () => (
+  <div className="flex flex-col gap-6 px-20 py-12" style={{ background: "hsl(0,0%,7%)" }}>
+    <div>
+      <p className="text-lg font-semibold uppercase tracking-widest mb-2" style={{ color: ORANGE }}>
+        Dispatch Scenario
+      </p>
+      <h2 className="text-4xl font-bold text-white">Repair Running Long — Update &amp; Dispatch Protocol</h2>
+      <p className="text-base text-white/50 mt-2">When a tech needs more time on-site, follow these escalating thresholds</p>
+    </div>
+
+    {/* Timeline thresholds */}
+    <div className="grid grid-cols-3 gap-5">
+      {/* Threshold 1 */}
+      <div className="rounded-2xl p-6 flex flex-col" style={{ background: `${WARM}12`, border: `1px solid ${WARM}33` }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${WARM}25` }}>
+            <Clock className="w-5 h-5" style={{ color: WARM }} />
+          </div>
+          <div>
+            <p className="text-sm font-bold" style={{ color: WARM }}>+30 Minutes</p>
+            <p className="text-xs text-white/40">Over Estimate</p>
+          </div>
+        </div>
+        <div className="space-y-3 flex-1">
+          <div className="flex items-start gap-2">
+            <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
+            <div>
+              <p className="text-xs font-semibold text-white/80 mb-1">CS → Current Customer</p>
+              <p className="text-xs text-white/50 italic">"Our tech wants to make sure the job is done right — they need about 30 more minutes. Thank you for your patience."</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <Calendar className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: WARM }} />
+            <div>
+              <p className="text-xs font-semibold text-white/80 mb-1">Dispatch</p>
+              <p className="text-xs text-white/50">Flag next job on board — no changes yet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Threshold 2 */}
+      <div className="rounded-2xl p-6 flex flex-col" style={{ background: `${ORANGE}12`, border: `1px solid ${ORANGE}33` }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${ORANGE}25` }}>
+            <AlertTriangle className="w-5 h-5" style={{ color: ORANGE }} />
+          </div>
+          <div>
+            <p className="text-sm font-bold" style={{ color: ORANGE }}>+1 Hour</p>
+            <p className="text-xs text-white/40">Over Estimate</p>
+          </div>
+        </div>
+        <div className="space-y-3 flex-1">
+          <div className="flex items-start gap-2">
+            <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <div>
+              <p className="text-xs font-semibold text-white/80 mb-1">CS → Current Customer</p>
+              <p className="text-xs text-white/50">Update with new ETA and reassure quality</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <Users className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <div>
+              <p className="text-xs font-semibold text-white/80 mb-1">Dispatch</p>
+              <p className="text-xs text-white/50">Can another tech absorb the next job?</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <PhoneCall className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+            <div>
+              <p className="text-xs font-semibold text-white/80 mb-1">CS → Next Customer</p>
+              <p className="text-xs text-white/50 italic">"We want to give you a heads up — your tech is finishing a complex repair. We can offer a new window or send a different tech."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Threshold 3 */}
+      <div className="rounded-2xl p-6 flex flex-col" style={{ background: `${RED}12`, border: `1px solid ${RED}33` }}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${RED}25` }}>
+            <Siren className="w-5 h-5" style={{ color: RED }} />
+          </div>
+          <div>
+            <p className="text-sm font-bold" style={{ color: RED }}>+2 Hours / Next Window</p>
+            <p className="text-xs text-white/40">Major Delay</p>
+          </div>
+        </div>
+        <div className="space-y-3 flex-1">
+          <div className="flex items-start gap-2">
+            <Calendar className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: RED }} />
+            <div>
+              <p className="text-xs font-semibold text-white/80 mb-1">Dispatch</p>
+              <p className="text-xs text-white/50">Reassign ALL remaining jobs on that tech's board</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: RED }} />
+            <div>
+              <p className="text-xs font-semibold text-white/80 mb-1">CS → All Affected Customers</p>
+              <p className="text-xs text-white/50">Call each with new tech info and updated ETA</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-2">
+            <FileText className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: RED }} />
+            <div>
+              <p className="text-xs font-semibold text-white/80 mb-1">Documentation</p>
+              <p className="text-xs text-white/50">Log delay reason in ServiceTitan for reporting</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Do / Don't footer */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-4 flex items-start gap-3" style={{ background: `${GREEN}12`, border: `1px solid ${GREEN}33` }}>
+        <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />
+        <div className="space-y-1">
+          <p className="text-sm font-bold" style={{ color: GREEN }}>DO</p>
+          <p className="text-xs text-white/60">Call before the customer calls you</p>
+          <p className="text-xs text-white/60">Offer options: new window or different tech</p>
+          <p className="text-xs text-white/60">Log every delay with a reason code</p>
+        </div>
+      </div>
+      <div className="rounded-xl p-4 flex items-start gap-3" style={{ background: `${RED}12`, border: `1px solid ${RED}33` }}>
+        <X className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: RED }} />
+        <div className="space-y-1">
+          <p className="text-sm font-bold" style={{ color: RED }}>DON'T</p>
+          <p className="text-xs text-white/60">Promise exact arrival times — use windows</p>
+          <p className="text-xs text-white/60">Wait for the customer to call and complain</p>
+          <p className="text-xs text-white/60">Leave jobs unassigned — always reassign</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (19 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -2032,4 +2171,5 @@ export const slides = [
   { title: "Scripts Cheat Sheet", component: ScriptsCheatSheetSlide, keywords: "cheat sheet quick reference scripts summary objections" },
   { title: "Objection Handling", component: ObjectionHandlingSlide, keywords: "objection handling price expensive refund angry competitor discount rebuttal de-escalation trust credibility timing urgency spouse landlord guarantee" },
   { title: "Dispatch Flowchart", component: DispatchFlowchartSlide, keywords: "dispatch flowchart routing assign tech priority emergency capacity squeeze-in board decision" },
+  { title: "Repair Running Long", component: RepairRunningLongSlide, keywords: "repair running long delay late tech over estimate update customer reassign dispatch protocol threshold" },
 ];
