@@ -3102,7 +3102,203 @@ export const PermitCodeViolationSlide = () => (
   </div>
 );
 
-/* ── Export slide list (27 slides: Customer Service & Dispatch Guide) ── */
+/* ── Dispatch Scenario: Weather Delay ── */
+export const WeatherDelaySlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${WARM}18`, border: `1px solid ${WARM}33` }}>
+        <Snowflake className="w-5 h-5" style={{ color: WARM }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Weather Delay — Mass Reschedule Protocol</h2>
+        <p className="text-sm text-white/50 mt-0.5">When severe weather forces cancellation or delay of outdoor HVAC jobs</p>
+      </div>
+    </div>
+
+    {/* Decision matrix */}
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Severity 1: Advisory */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: WARM, color: "#fff" }}>!</div>
+          <span className="text-sm font-semibold text-white">Advisory — Monitor</span>
+        </div>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-2" style={{ color: WARM }}>Light rain, wind advisory, extreme heat</p>
+        <ul className="space-y-1.5">
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Outdoor jobs proceed with caution</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Clock className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Monitor hourly — be ready to escalate</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Proactive text to afternoon outdoor customers: "We're monitoring weather"</li>
+        </ul>
+      </div>
+
+      {/* Severity 2: Delay */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>!!</div>
+          <span className="text-sm font-semibold text-white">Delay — Partial Reschedule</span>
+        </div>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-2" style={{ color: ORANGE }}>Steady rain, thunderstorms, icy roads</p>
+        <ul className="space-y-1.5">
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Pause outdoor installs & rooftop work</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><ArrowRight className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Redirect techs to indoor jobs: diagnostics, furnace work, plumbing</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Reschedule outdoor jobs to next available clear day</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />CS calls each affected customer with new window</li>
+        </ul>
+      </div>
+
+      {/* Severity 3: Full Cancel */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: `1px solid ${RED}22` }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: RED, color: "#fff" }}>!!!</div>
+          <span className="text-sm font-semibold text-white">Shutdown — Full Day Cancel</span>
+        </div>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-2" style={{ color: RED }}>Blizzard, hurricane, flooding, unsafe roads</p>
+        <ul className="space-y-1.5">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Siren className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />Cancel ALL jobs — tech safety is non-negotiable</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />CS calls every customer on the board — batch outreach</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />Block the day in ServiceTitan, mass-reschedule to next 2-3 days</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Emergency-only exceptions: active gas leaks, no-heat with vulnerable occupants</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Customer script */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}18` }}>
+      <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: ORANGE }}>Weather Reschedule Script</p>
+      <p className="text-xs text-white/70 italic leading-relaxed">
+        "Hi [Name], this is [CS] from Homets. Due to [weather condition], we need to reschedule your [service type] appointment for your technician's safety. We've reserved [new date/window] for you — does that work? We'll make sure you're one of our first calls that day."
+      </p>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Decide early — don't wait until techs are already en route</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Prioritize rescheduling by urgency: no-heat/no-AC customers first</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Use indoor backlog to keep techs productive on delay days</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Send techs onto rooftops or ladders in unsafe conditions</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Let customers find out by no-show — always call proactively</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Overload the next clear day — spread reschedules across 2-3 days</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Dispatch Scenario: Customer Disputes Diagnostic ── */
+export const CustomerDisputeSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${RED}18`, border: `1px solid ${RED}33` }}>
+        <HandCoins className="w-5 h-5" style={{ color: RED }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Customer Disputes Diagnostic — Refusal Protocol</h2>
+        <p className="text-sm text-white/50 mt-0.5">When the customer disagrees with findings or refuses the recommended repair</p>
+      </div>
+    </div>
+
+    {/* 3-step protocol */}
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1: Listen & Acknowledge */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Listen & Acknowledge</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 text-white/50 ml-auto">Tech on-site</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><Headphones className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Let the customer express their concern fully — don't interrupt</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />Acknowledge: <em className="text-white/70">"I completely understand your concern"</em></li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Show evidence: photos, readings, measurements — make it visual</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />If customer remains upset → Tech offers to have CS/manager call</li>
+        </ul>
+      </div>
+
+      {/* Step 2: Offer Options */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">Present Options</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 text-white/50 ml-auto">Tech / CS</span>
+        </div>
+        <div className="space-y-2">
+          {[
+            { label: "Second Opinion", desc: "Offer to send a senior tech or supervisor to re-evaluate at no extra charge", color: GREEN },
+            { label: "Partial Repair", desc: "If applicable, offer a smaller fix that addresses the immediate symptom", color: ORANGE },
+            { label: "Written Report", desc: "Provide a detailed written diagnostic so the customer can compare with another company", color: WARM },
+            { label: "Decline & Close", desc: "Customer declines all options — collect diagnostic fee, close job respectfully", color: MUTED },
+          ].map((opt) => (
+            <div key={opt.label} className="flex items-start gap-2 rounded-lg p-2" style={{ background: `${opt.color}06`, border: `1px solid ${opt.color}15` }}>
+              <ChevronRight className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: opt.color }} />
+              <div>
+                <span className="text-xs font-semibold text-white/80">{opt.label}</span>
+                <p className="text-[11px] text-white/50 leading-snug">{opt.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Step 3: Document & Follow Up */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">Document & Follow Up</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 text-white/50 ml-auto">Dispatch / CS</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Log dispute reason, customer's stated objection, and outcome in ServiceTitan</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Set a <strong className="text-white/70">7-day follow-up</strong> task — many customers reconsider</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />CS follow-up call: "Just checking in — we want to make sure your [system] is running safely"</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Mail className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Send diagnostic summary email with photos for their records</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Safety CYA note */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+      <div className="flex items-center gap-2 mb-2">
+        <ShieldAlert className="w-4 h-4" style={{ color: RED }} />
+        <span className="text-sm font-semibold text-white">Safety Refusal — Special Handling</span>
+      </div>
+      <p className="text-xs text-white/60 leading-relaxed">
+        If the customer refuses a repair that involves a <strong className="text-white/70">safety hazard</strong> (gas leak, carbon monoxide, electrical risk): document that the customer was informed of the danger, have them sign a <strong className="text-white/70">waiver of liability</strong>, and notify a manager. Never leave a known safety hazard undocumented.
+      </p>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Respect the customer's right to decline — never pressure</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Offer the second-opinion option before they walk away</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Follow up in a week — they often come back</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Argue or get defensive — it damages the relationship permanently</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Badmouth competitors they mention getting a second opinion from</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Skip documentation — disputes need a clear paper trail</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (29 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -3131,4 +3327,6 @@ export const slides = [
   { title: "Part Not on Truck", component: PartNotOnTruckSlide, keywords: "part not on truck supply house order return trip special order inventory leave come back reschedule" },
   { title: "Customer No-Show", component: CustomerNoShowSlide, keywords: "no show empty house no answer arrived nobody home reschedule policy contact attempt" },
   { title: "Permit / Code Violation", component: PermitCodeViolationSlide, keywords: "permit code violation stop work unsafe electrical gas zoning previous contractor liability inspection" },
+  { title: "Weather Delay", component: WeatherDelaySlide, keywords: "weather rain snow ice storm cancel delay outdoor rooftop reschedule safety mass cancel blizzard hurricane" },
+  { title: "Customer Disputes Diagnostic", component: CustomerDisputeSlide, keywords: "dispute disagree refuse decline diagnostic findings second opinion argument objection safety waiver follow up" },
 ];
