@@ -2991,7 +2991,118 @@ export const CustomerNoShowSlide = () => (
   </div>
 );
 
-/* ── Export slide list (26 slides: Customer Service & Dispatch Guide) ── */
+/* ── Dispatch Scenario: Permit / Code Violation ── */
+export const PermitCodeViolationSlide = () => (
+  <div className="flex flex-col justify-center h-full px-24"
+    style={{ background: "linear-gradient(135deg, hsl(0,0%,6%) 0%, hsl(0,0%,12%) 100%)" }}>
+    {/* Header */}
+    <div className="flex items-center gap-3 mb-6">
+      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${RED}18`, border: `1px solid ${RED}33` }}>
+        <ShieldAlert className="w-5 h-5" style={{ color: RED }} />
+      </div>
+      <div>
+        <h2 className="text-3xl font-bold text-white">Permit or Code Violation — Stop-Work Protocol</h2>
+        <p className="text-sm text-white/50 mt-0.5">When the tech can't proceed due to permits, code issues, or unsafe conditions</p>
+      </div>
+    </div>
+
+    {/* 3-step protocol */}
+    <div className="grid grid-cols-3 gap-4 mb-5">
+      {/* Step 1: Identify & Document */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>1</div>
+          <span className="text-sm font-semibold text-white">Identify & Document</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 text-white/50 ml-auto">Tech on-site</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><AlertTriangle className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: RED }} />Tech identifies the issue: missing permit, code violation, or unsafe existing work</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><FileText className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Photo-document everything — existing conditions, violations, labels</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Tech calls Dispatch immediately — <strong className="text-white/70">do NOT proceed</strong> with unpermitted work</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Shield className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />If safety hazard: secure the area, advise customer to evacuate if needed</li>
+        </ul>
+      </div>
+
+      {/* Step 2: CS Communication */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>2</div>
+          <span className="text-sm font-semibold text-white">CS Explains to Customer</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 text-white/50 ml-auto">CS / Tech</span>
+        </div>
+        <div className="rounded-lg p-3 mb-3" style={{ background: `${ORANGE}08`, border: `1px solid ${ORANGE}18` }}>
+          <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: ORANGE }}>Code Issue Script</p>
+          <p className="text-xs text-white/70 italic leading-relaxed">
+            "Our technician found [describe issue] that requires a permit / doesn't meet current code. For your safety and to protect your home, we can't proceed until this is resolved. Here's what we recommend…"
+          </p>
+        </div>
+        <ul className="space-y-1.5">
+          <li className="text-xs text-white/60 flex items-center gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Explain <strong className="text-white/70">why</strong> — safety, liability, and homeowner protection</li>
+          <li className="text-xs text-white/60 flex items-center gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Present options: we pull the permit, or customer hires licensed contractor for pre-existing issues</li>
+          <li className="text-xs text-white/60 flex items-center gap-2"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Provide written summary of findings for customer's records</li>
+        </ul>
+      </div>
+
+      {/* Step 3: Dispatch & Next Steps */}
+      <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: ORANGE, color: "#fff" }}>3</div>
+          <span className="text-sm font-semibold text-white">Dispatch & Next Steps</span>
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/10 text-white/50 ml-auto">Dispatch</span>
+        </div>
+        <ul className="space-y-2">
+          <li className="text-xs text-white/60 flex items-start gap-2"><ArrowRight className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Release tech to next job — use freed time productively</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Calendar className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />Tag job as <strong className="text-white/70">"Permit Required"</strong> or <strong className="text-white/70">"Code Violation — Pending"</strong></li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><ClipboardList className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />If we're pulling the permit: create follow-up task with permit timeline</li>
+          <li className="text-xs text-white/60 flex items-start gap-2"><Phone className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: WARM }} />Schedule callback once permit is approved or issue is resolved</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Common scenarios */}
+    <div className="rounded-xl p-4 mb-4" style={{ background: "hsl(0,0%,10%)", border: "1px solid hsl(0,0%,18%)" }}>
+      <div className="flex items-center gap-2 mb-3">
+        <AlertOctagon className="w-4 h-4" style={{ color: WARM }} />
+        <span className="text-sm font-semibold text-white">Common Scenarios</span>
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        {[
+          { label: "No Permit on File", desc: "Previous work done without permits — we can't build on top of it", color: RED },
+          { label: "Electrical Code Issue", desc: "Panel or wiring doesn't meet current NEC — needs electrician first", color: ORANGE },
+          { label: "Gas Line Violation", desc: "Improper gas piping or connections — safety stop, notify utility if needed", color: RED },
+          { label: "Zoning / Setback", desc: "Equipment placement violates local zoning — need variance or relocation plan", color: WARM },
+        ].map((item) => (
+          <div key={item.label} className="rounded-lg p-2.5" style={{ background: `${item.color}06`, border: `1px solid ${item.color}18` }}>
+            <p className="text-xs font-semibold text-white/80 mb-1">{item.label}</p>
+            <p className="text-[11px] text-white/50 leading-snug">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Do / Don't */}
+    <div className="grid grid-cols-2 gap-4">
+      <div className="rounded-xl p-3" style={{ background: `${GREEN}08`, border: `1px solid ${GREEN}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: GREEN }}>Do</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Stop work immediately — never proceed without proper permits</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Frame it as protecting the customer, not creating a roadblock</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: GREEN }} />Offer to handle the permit process when possible</li>
+        </ul>
+      </div>
+      <div className="rounded-xl p-3" style={{ background: `${RED}08`, border: `1px solid ${RED}22` }}>
+        <p className="text-[10px] uppercase tracking-wider font-bold mb-1.5" style={{ color: RED }}>Don't</p>
+        <ul className="space-y-1">
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Blame the customer or previous contractor — stay neutral</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />"Just do it anyway" — liability exposure is not worth it</li>
+          <li className="text-xs text-white/50 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 flex-shrink-0" style={{ color: RED }} />Leave without giving the customer a clear written next step</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (27 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -3019,4 +3130,5 @@ export const slides = [
   { title: "Specific Tech Request", component: SpecificTechRequestSlide, keywords: "specific tech request customer preference booked full schedule accommodate redirect waitlist loyalty" },
   { title: "Part Not on Truck", component: PartNotOnTruckSlide, keywords: "part not on truck supply house order return trip special order inventory leave come back reschedule" },
   { title: "Customer No-Show", component: CustomerNoShowSlide, keywords: "no show empty house no answer arrived nobody home reschedule policy contact attempt" },
+  { title: "Permit / Code Violation", component: PermitCodeViolationSlide, keywords: "permit code violation stop work unsafe electrical gas zoning previous contractor liability inspection" },
 ];
