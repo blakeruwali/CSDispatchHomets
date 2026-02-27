@@ -397,21 +397,21 @@ export const DiagnosticSalesScriptSlide = () => (
             step: "2",
             label: "Present the Diagnostic",
             color: ORANGE,
-            script: "\"We'll send a licensed technician to diagnose exactly what's going on. The diagnostic is $199 for residential, and it covers a full system inspection — not just a quick look. And this amount is credited towards repair if you proceed with the repair.\"",
-            note: "Lead with VALUE, not cost. Say 'investment' not 'fee.'",
+            script: "\"It's $199 for the full diagnostic — that covers the visit, complete safety inspection, and a clear repair estimate before we do anything.\"",
+            note: "Lead with VALUE, not cost. Keep it tight — one sentence.",
           },
           {
             step: "3",
-            label: "Explain What's Included",
+            label: "Pivot to Membership",
             color: GREEN,
-            script: "\"That includes a complete safety check, system performance test, and a written diagnosis with repair options and upfront pricing — no surprises.\"",
-            note: "Stack the value. Make $199 feel like a bargain.",
+            script: "\"Most homeowners choose to enroll in our Home+ Membership instead. That waives the diagnostic entirely, gives you priority scheduling, annual maintenance, and 10% off repairs.\"",
+            note: "Social proof: 'most homeowners choose' — never say 'if you'd like.'",
           },
           {
             step: "4",
             label: "Handle the Price Objection",
             color: RED,
-            script: "\"I totally understand — most companies charge $150 just to show up and then hit you with a separate repair quote. Our $199 covers everything, and if you move forward with the repair, you already know the full cost upfront.\"",
+            script: "\"I totally understand — most companies charge $150 just to show up and then hit you with a separate repair quote. Our $199 covers everything, and the diagnostic fee is credited toward your repair if you move forward.\"",
             note: "Reframe: competitors charge MORE with less transparency.",
           },
           {
@@ -468,7 +468,7 @@ export const DiagnosticSalesScriptSlide = () => (
             {[
               {
                 objection: "\"That's too expensive\"",
-                response: "\"It covers a full inspection, safety check, AND upfront repair pricing. Most companies charge just to walk in the door — we give you a complete answer.\"",
+                response: "\"Most homeowners choose our Home+ Membership — it waives the diagnostic entirely and includes priority scheduling, annual maintenance, and 10% off repairs. Want me to set that up instead?\"",
               },
               {
                 objection: "\"Can you just give me a quote over the phone?\"",
@@ -1124,10 +1124,10 @@ export const ScriptsCheatSheetSlide = () => {
       title: "Diagnostic",
       color: ORANGE,
       icon: Wrench,
-      steps: ["Empathize with issue", "Present $199 diagnostic", "Stack value (safety check + upfront pricing)", "Handle price objection", "Close with 90-min guarantee"],
+      steps: ["Empathize with issue", "Present $199 diagnostic (one tight sentence)", "Pivot to Home+ Membership (social proof)", "Handle price objection", "Close with 90-min guarantee"],
       price: "$199",
       goal: "Book the diagnostic visit",
-      topObjection: "\"Too expensive\" → Competitors charge more with less transparency. $199 credited toward repair.",
+      topObjection: "\"Too expensive\" → Pivot to Home+ Membership: waives diagnostic, adds priority scheduling & 10% off.",
     },
     {
       title: "Estimate",
@@ -1482,8 +1482,8 @@ export const objectionCategories = [
     objections: [
       {
         trigger: "\"That's too expensive.\"",
-        response: "I completely understand — no one wants to overpay. Our diagnostic fee covers a full system inspection by a licensed technician who will explain exactly what's going on before any work is done. There are never hidden fees, and the diagnostic fee is waived if you move forward with the repair.",
-        tip: "Acknowledge → Reframe value → Remove risk",
+        response: "I completely understand. It's $199 for the full diagnostic — that covers the visit, complete safety inspection, and a clear repair estimate before we do anything. Most homeowners choose to enroll in our Home+ Membership instead. That waives the diagnostic entirely, gives you priority scheduling, annual maintenance, and 10% off repairs.",
+        tip: "Acknowledge → One-sentence value → Pivot to membership with social proof",
       },
       {
         trigger: "\"I can get it cheaper somewhere else.\"",
@@ -1492,8 +1492,8 @@ export const objectionCategories = [
       },
       {
         trigger: "\"Why do I have to pay just for someone to come look at it?\"",
-        response: "Great question! The $199 diagnostic covers a full inspection — our tech will diagnose the issue, explain your options, and give you an upfront price before any work begins. If you choose to go ahead with the repair, the diagnostic fee gets applied to the total cost. There's no pressure and no surprises.",
-        tip: "Explain value of diagnosis, mention fee rolls into repair",
+        response: "Great question! It's $199 for the full diagnostic — that covers the visit, complete safety inspection, and a clear repair estimate before we do anything. And most homeowners choose our Home+ Membership, which waives the diagnostic entirely and includes priority scheduling, annual maintenance, and 10% off repairs.",
+        tip: "One-sentence value → Pivot to membership as the better option",
       },
       {
         trigger: "\"Can you give me a price over the phone?\"",

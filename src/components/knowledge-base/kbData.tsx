@@ -417,7 +417,7 @@ export const kbSections: KBSectionData[] = [
                 <li>• System age and condition assessment</li>
               </ul>
             </div>
-            <p className="text-sm opacity-70">💡 The $199 diagnostic fee is waived if the customer proceeds with the repair.</p>
+            <p className="text-sm opacity-70">💡 Most homeowners choose our Home+ Membership — it waives the diagnostic entirely and includes priority scheduling, annual maintenance, and 10% off repairs.</p>
           </div>
         ),
       },
@@ -477,7 +477,7 @@ export const kbSections: KBSectionData[] = [
             <p><strong>Standard answer:</strong> "Absolutely — our replacement estimates are 100% free with zero obligation. A comfort advisor visits your home, evaluates your system, and presents options. If you decide not to move forward, there's no charge."</p>
             <div className="p-3 rounded-lg" style={{ background: `${ORANGE}15`, border: `1px solid ${ORANGE}33` }}>
               <p className="font-semibold mb-1">💡 Clarification:</p>
-              <p className="text-sm opacity-80">The FREE estimate applies to <strong>replacement/installation</strong> only. Diagnostic visits for repairs cost $199 (waived if they proceed with repair).</p>
+              <p className="text-sm opacity-80">The FREE estimate applies to <strong>replacement/installation</strong> only. Diagnostic visits for repairs are $199 — that covers the visit, complete safety inspection, and a clear repair estimate. Most homeowners choose Home+ Membership to waive the diagnostic entirely.</p>
             </div>
           </div>
         ),
@@ -528,9 +528,9 @@ export const kbSections: KBSectionData[] = [
               <p className="font-semibold mb-2">🎯 Response Framework:</p>
               <div className="space-y-2 text-sm opacity-80">
                 <p><strong>1. Acknowledge:</strong> "I completely understand — nobody wants an unexpected expense."</p>
-                <p><strong>2. Reframe value:</strong> "The $199 diagnostic covers a full system inspection by a licensed technician, with upfront pricing before any work begins. There are never surprise charges."</p>
-                <p><strong>3. Compare:</strong> "Many companies charge $89–$150 just to show up, then add diagnostic fees on top. Our $199 covers everything."</p>
-                <p><strong>4. Incentivize:</strong> "And if you move forward with the repair, we apply the diagnostic fee as a credit."</p>
+                <p><strong>2. Present value (one sentence):</strong> "It's $199 for the full diagnostic — that covers the visit, complete safety inspection, and a clear repair estimate before we do anything."</p>
+                <p><strong>3. Pivot to membership (social proof):</strong> "Most homeowners choose to enroll in our Home+ Membership instead. That waives the diagnostic entirely, gives you priority scheduling, annual maintenance, and 10% off repairs."</p>
+                <p><strong>4. Compare:</strong> "Many companies charge $89–$150 just to show up, then add diagnostic fees on top. Our $199 covers everything."</p>
               </div>
             </div>
             <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
