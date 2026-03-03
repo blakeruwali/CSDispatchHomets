@@ -4806,4 +4806,8 @@ export const slides = [
   { title: "Maintenance Upsell", component: MaintenanceUpsellSlide, keywords: "maintenance upsell tune-up found issue additional repair recommend photos educate sell without pressure member discount" },
   { title: "Manufacturer Warranty", component: ManufacturerWarrantySlide, keywords: "manufacturer warranty parts authorization covered labor serial number registration portal dealer claim order OEM" },
   { title: "Outstanding Balance", component: OutstandingBalanceSlide, keywords: "outstanding balance unpaid invoice past due collections owe money account hold payment plan overdue billing dispute" },
+  { title: "Homeowner — Primary Residence", component: HomeownerSlide, keywords: "homeowner primary residence house owner family pets spouse comfort safety membership home+" },
+  { title: "Rental / Investment Property", component: RentalPropertySlide, keywords: "rental investment property landlord tenant authorization access vacant unit owner billing" },
+  { title: "Commercial / Office", component: CommercialOfficeSlide, keywords: "commercial office business restaurant retail medical rooftop after hours PO invoice maintenance contract" },
+  { title: "Property Manager / HOA", component: PropertyManagerSlide, keywords: "property manager HOA management company multiple properties vendor approval invoicing VIP volume dedicated account" },
 ];
