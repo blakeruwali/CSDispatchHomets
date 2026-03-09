@@ -4863,7 +4863,300 @@ export const SiteSurveyScriptSlide = () => (
   </div>
 );
 
-/* ── Export slide list (45 slides: Customer Service & Dispatch Guide) ── */
+/* ── Posh Virtual Receptionist FAQ ── */
+
+const PoshFaqSlide = () => {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      category: "Company Basics",
+      color: ORANGE,
+      items: [
+        {
+          q: "What company am I answering for?",
+          a: "Homets Air & Heat — a licensed HVAC and plumbing company serving Nassau County, Suffolk County, and Long Island, NY. Main number: (516) 259-1191. We handle heating, cooling, air quality, and plumbing for residential and commercial customers."
+        },
+        {
+          q: "What are the hours of operation?",
+          a: "We answer calls 24/7, 365 days a year. During business hours (Mon–Sat, 7 AM – 8 PM), calls are dispatched in real-time. After hours, Sundays, and holidays — take a message for urgent issues and schedule callbacks for non-urgent requests. Emergency calls (gas leaks, no heat in freezing temps, CO alarms) are dispatched immediately regardless of time."
+        },
+        {
+          q: "What is the service area?",
+          a: "Primary: All of Nassau County and Suffolk County, Long Island. Secondary (case-by-case): Queens and Brooklyn. If a caller is outside our area, politely let them know we currently serve Long Island and offer to take their info in case we expand."
+        },
+        {
+          q: "What trades/services does Homets offer?",
+          a: "HVAC (heating, ventilation, air conditioning) and Plumbing. HVAC covers: furnaces, boilers, air conditioners, heat pumps, mini splits, ductwork, thermostats, air quality (purifiers, humidifiers, UV lights). Plumbing covers: water heaters, drain cleaning, leak repair, fixture install, pipe repair. We do NOT do electrical, roofing, or general contracting."
+        },
+      ],
+    },
+    {
+      category: "Pricing & Fees",
+      color: WARM,
+      items: [
+        {
+          q: "How much does a service call / diagnostic cost?",
+          a: "Residential diagnostic: $199. Commercial standard: $269. Commercial complex (rooftop, multi-zone): $499. IMPORTANT: The diagnostic fee is FULLY CREDITED toward the repair if the customer proceeds. So if the repair is $600, they only pay $401 additional. Frame it as: \"There's a $199 diagnostic fee that covers a licensed technician visit and a full written diagnostic report. The best part — if you go ahead with the repair, that $199 is credited right back, so it's essentially free.\""
+        },
+        {
+          q: "How much does an estimate / quote cost?",
+          a: "Estimates for new installations and replacements are ALWAYS FREE. No trip charge, no obligation. Say: \"Great news — estimates for new systems are completely free. We'll send a specialist out to survey your home and give you an exact-to-the-dollar quote on the spot, no obligation.\""
+        },
+        {
+          q: "What are the labor rates?",
+          a: "Residential: $219/hour. Commercial: $269/hour. Do NOT volunteer these rates unless directly asked. If asked, say: \"Our residential rate is $219 per hour. The technician will give you a full breakdown before starting any work — no surprises.\""
+        },
+        {
+          q: "How much is a tune-up / maintenance?",
+          a: "Standard AC or Furnace Tune-Up: $299. Premium Deep-Clean Tune-Up (both systems): $449. Say: \"Our tune-ups start at $299 and include a full system inspection, cleaning, and performance report. Would you like to schedule one?\""
+        },
+        {
+          q: "Can I give a price for a specific repair over the phone?",
+          a: "NO — never quote specific repair prices. Every system is different and requires on-site diagnosis. Say: \"I completely understand wanting to know the cost upfront. The reason we send a technician out is that every system is different — they'll diagnose exactly what's going on, give you a written report, and the full price before any work starts. That way there are zero surprises.\""
+        },
+        {
+          q: "Is there an emergency or after-hours surcharge?",
+          a: "NO. We do NOT charge extra for nights, weekends, holidays, or emergency calls. This is a major selling point. Say: \"No emergency surcharges at all — same rates whether it's 2 PM on a Tuesday or 2 AM on Christmas. We believe emergencies shouldn't cost extra.\""
+        },
+        {
+          q: "Do you offer financing?",
+          a: "Yes, we offer financing options for larger jobs like installations and replacements. The technician or comfort advisor will go over all available financing plans on-site. Say: \"Yes, we do offer financing! Our specialist will walk you through all the options during the visit so you can pick what works best for your budget.\""
+        },
+      ],
+    },
+    {
+      category: "Booking & Scheduling",
+      color: GREEN,
+      items: [
+        {
+          q: "What time windows are available?",
+          a: "Morning: 8 AM – 12 PM. Afternoon: 12 PM – 4 PM. Evening: 4 PM – 8 PM. Emergency: 24/7. Always offer the SOONEST available window. Use a binary choice: \"I have [Day] morning or [Day] afternoon — which works better for you?\" Do not ask open-ended \"when works for you\" questions."
+        },
+        {
+          q: "What information do I need to collect?",
+          a: "Required for EVERY call: (1) Full name, (2) Phone number, (3) Complete service address, (4) Type of system (furnace, AC, boiler, etc.), (5) Brief problem description or service needed, (6) Preferred time window. Also ask if possible: system age/brand, membership status, how they heard about us."
+        },
+        {
+          q: "What if the customer wants a specific day/time that's not available?",
+          a: "Offer the two closest alternatives. Say: \"That window is fully booked, but I can get you [alternative 1] or [alternative 2] — which would you prefer?\" If they insist, take their info and mark as \"preferred [date/time] — requesting accommodation\" so dispatch can try to work them in."
+        },
+        {
+          q: "Can I book a same-day appointment?",
+          a: "Yes, especially for repairs and emergencies. We prioritize same-day and next-day service. Say: \"Let me check our earliest availability — we do our best to get someone out today.\" For emergencies (no heat in freezing weather, gas smell, CO alarm), ALWAYS book same-day or immediate dispatch."
+        },
+        {
+          q: "What if someone needs to reschedule or cancel?",
+          a: "No cancellation fees. Take their info and the original appointment details. Say: \"No problem at all. Would you like to reschedule for another day, or would you prefer we call you when you're ready?\" Always try to rebook before letting them go."
+        },
+      ],
+    },
+    {
+      category: "Emergency Calls — CRITICAL",
+      color: RED,
+      items: [
+        {
+          q: "What counts as an emergency?",
+          a: "LIFE SAFETY (dispatch 911 + our team): Gas smell or CO detector alarm — tell caller to LEAVE THE HOME immediately and call 911 first. URGENT (immediate dispatch): No heat when outdoor temp is below 40°F, active water flooding/leak causing damage, dangerous sounds (banging, screeching) or burning smell from equipment, complete AC failure during extreme heat (90°F+) with elderly/infants/medical conditions."
+        },
+        {
+          q: "What do I say for a gas leak or CO alarm?",
+          a: "EXACT SCRIPT: \"If you smell gas or your CO detector is going off, please leave your home immediately and call 911 from outside. Do NOT turn on/off any switches or appliances. Once you're safe and 911 has been called, call us back or stay on the line and I'll dispatch our emergency team right away.\" This is the #1 priority — safety first, always."
+        },
+        {
+          q: "How do I handle after-hours emergencies?",
+          a: "True emergencies (gas, CO, no heat below 40°F, flooding): Dispatch immediately to the on-call technician. Mark as URGENT. Everything else after hours: Take a detailed message, reassure the caller, and say: \"I'm going to mark this as a priority first-call for tomorrow morning. Our team will reach out to you first thing. Is there anything you can do in the meantime to stay comfortable?\" Offer tips: space heaters for no heat, turning off water main for leaks."
+        },
+        {
+          q: "What if I'm not sure if it's a true emergency?",
+          a: "When in doubt, escalate. Ask: \"Is anyone in the home feeling dizzy, nauseous, or having trouble breathing?\" If yes → treat as emergency. \"Is there visible water actively flooding?\" If yes → emergency. \"What is the temperature outside right now?\" If below 40°F and no heat → emergency. If you're still unsure, take the message and flag it as URGENT for dispatch to triage."
+        },
+      ],
+    },
+    {
+      category: "Common Objections",
+      color: "hsl(270, 50%, 55%)",
+      items: [
+        {
+          q: "\"Can you just give me a ballpark price?\"",
+          a: "\"I totally understand. The reason we don't ballpark is because we've seen too many companies give a low number on the phone and then hit homeowners with surprise charges on-site. Our approach is the opposite — we send a licensed tech who will diagnose the exact issue and give you the complete price before touching anything. Plus, the $199 diagnostic comes with a written report you keep either way, and it's credited if you go ahead with the repair.\""
+        },
+        {
+          q: "\"I'm just shopping around / getting quotes.\"",
+          a: "\"That's really smart — you should compare. Here's what makes us a great baseline to start with: our diagnostic includes a written report with photos, so you'll have documentation to compare apples-to-apples with any other company. A lot of our customers tell us they wished they'd called us first. What does [tomorrow morning / this afternoon] look like?\""
+        },
+        {
+          q: "\"That's too expensive\" (about the $199 diagnostic).",
+          a: "\"I hear you. Here's the thing — that $199 covers a full visit from a licensed technician plus a written diagnostic report. And if you go ahead with the repair, the $199 is credited right back to you — so you're essentially paying nothing for the diagnostic. Most homeowners choose to move forward once they see the report. Would you like to get on the schedule?\""
+        },
+        {
+          q: "\"I need to talk to my spouse / landlord first.\"",
+          a: "\"Of course! Would it help if I scheduled a time when you're both available? That way our technician can walk you both through everything together and answer any questions on the spot. I have [window 1] or [window 2] — would either of those work?\""
+        },
+        {
+          q: "\"I'll call back later.\"",
+          a: "\"Absolutely, happy to help whenever you're ready. Just so I can make a note — is there a specific concern I can address right now? Sometimes I can answer questions that help you decide. And I'd hate for you to lose out on our next available window — they do fill up fast, especially this time of year.\""
+        },
+        {
+          q: "\"Do you do free diagnostics?\"",
+          a: "\"Our diagnostic is $199, but it's genuinely different from a typical service call — you get a licensed technician, a full written report with findings and photos, and here's the key part: that $199 is credited toward the repair if you proceed. So most of our customers end up paying nothing extra for it. Estimates for new system installations are always 100% free.\""
+        },
+      ],
+    },
+    {
+      category: "Membership Plans",
+      color: "hsl(175, 55%, 42%)",
+      items: [
+        {
+          q: "What is the Home+ Membership?",
+          a: "Home+ is our annual maintenance membership at $299/year. It includes: (1) Two annual tune-ups (one heating, one cooling), (2) Priority scheduling — members jump to the front of the line, (3) 15% discount on all repairs, (4) No diagnostic fee on covered visits, (5) Transferable if they sell the home. Say: \"Most homeowners save more than $299 in the first year just from the repair discounts and included tune-ups.\""
+        },
+        {
+          q: "How do I know if a caller is already a member?",
+          a: "Ask: \"Do you happen to have a maintenance plan or membership with us?\" If they say yes, note it. If unsure, say: \"No worries — our technician will look that up when they arrive and make sure any discounts are applied.\" Do NOT promise specific discounts if you can't verify membership status."
+        },
+        {
+          q: "Can they sign up for membership over the phone?",
+          a: "The technician typically enrolls members on-site, but you can express interest. Say: \"Absolutely! I'll make a note that you're interested in our Home+ plan. The technician will have all the details and can get you set up during the visit — there's no pressure, just information.\""
+        },
+      ],
+    },
+    {
+      category: "Plumbing Calls",
+      color: "hsl(200, 80%, 55%)",
+      items: [
+        {
+          q: "Do we handle plumbing?",
+          a: "Yes! Homets does plumbing. Services include: water heater repair/install, drain cleaning, leak detection and repair, fixture installation, pipe repair/replacement. Plumbing diagnostic/inspection: $199 (same credit-toward-repair policy as HVAC)."
+        },
+        {
+          q: "What if the caller has both an HVAC and plumbing issue?",
+          a: "Book them for both! Say: \"Great — we can actually handle both in one visit or schedule them together. Let me get all the details for each issue.\" Collect problem descriptions for both systems separately."
+        },
+        {
+          q: "What plumbing services do we NOT do?",
+          a: "We do NOT do: sewer line replacement, septic systems, well water systems, sprinkler/irrigation systems, or major re-piping of entire homes. If asked about these, say: \"That's outside our scope, but I'd recommend calling a specialty plumber for that particular job. Is there anything else we can help with?\""
+        },
+      ],
+    },
+    {
+      category: "Edge Cases & Misc",
+      color: MUTED,
+      items: [
+        {
+          q: "What if the caller is angry or upset?",
+          a: "Stay calm and empathetic. Use the L.A.S.T. method: Listen (let them vent), Apologize (\"I'm sorry you're dealing with this\"), Solve (\"Here's what I can do right now\"), Thank (\"Thank you for your patience\"). Never argue or get defensive. If they're abusive, say: \"I want to help you — let me connect you with a manager who can resolve this.\" Take a message for the operations team."
+        },
+        {
+          q: "What if the caller asks for a specific technician?",
+          a: "Say: \"I'll make a note that you'd prefer [tech name]. We'll do our best to accommodate that — if they're not available for the time you need, would you rather wait for them or see the next available technician?\" Note the preference clearly."
+        },
+        {
+          q: "What if someone asks about warranties?",
+          a: "\"Our repairs come with a workmanship warranty, and new installations include manufacturer warranties that can cover parts for 5–12 years depending on the equipment. The technician or comfort advisor will go over all warranty details specific to your system during the visit.\""
+        },
+        {
+          q: "What if the caller speaks Spanish (or another language)?",
+          a: "We have bilingual team members. Say: \"Déjeme conectarle con alguien que habla español\" (Let me connect you with someone who speaks Spanish) if you can, or take a message in English noting the language preference and flag for a bilingual callback."
+        },
+        {
+          q: "What if the caller wants to speak to a manager?",
+          a: "\"I understand. Let me take your name and number and I'll have a manager call you back within [1 hour during business hours / first thing tomorrow morning if after hours]. Can I ask what this is regarding so they're prepared when they call?\" Never promise an immediate manager transfer — take a message."
+        },
+        {
+          q: "What if someone calls about a job that was already completed?",
+          a: "Could be a callback/warranty issue or a billing question. Ask: \"Was the work done recently? And is this about the quality of the repair, or a billing/invoice question?\" Take detailed notes and flag for the appropriate team — operations for quality issues, office for billing."
+        },
+        {
+          q: "What if they found us through Google / Local Services Ads?",
+          a: "Note the lead source as 'Google LSA' or 'Google Search.' For LSA leads specifically, we offer a Speed Guarantee — if we can't get there same-day or next business day, the diagnostic is free. Say: \"Thank you for finding us on Google! Let me get you scheduled — we prioritize getting out to you as fast as possible.\""
+        },
+      ],
+    },
+  ];
+
+  return (
+    <div className="flex flex-col h-full p-6 overflow-y-auto" style={{ background: "hsl(0,0%,6%)" }}>
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-1">
+        <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${ORANGE}22`, border: `1px solid ${ORANGE}44` }}>
+          <Headphones className="w-5 h-5" style={{ color: ORANGE }} />
+        </div>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: ORANGE }}>Posh Virtual Receptionist</p>
+          <h2 className="text-2xl font-bold text-white">Comprehensive FAQ & Call Guide</h2>
+        </div>
+      </div>
+      <p className="text-xs text-white/50 mb-4 ml-[52px]">Everything you need to handle every Homets call confidently.</p>
+
+      {/* Category tabs */}
+      <div className="flex flex-wrap gap-1.5 mb-4">
+        {faqs.map((cat, ci) => (
+          <button
+            key={ci}
+            onClick={() => {
+              const el = document.getElementById(`posh-cat-${ci}`);
+              el?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+            className="px-3 py-1 rounded-full text-[10px] font-bold transition-colors"
+            style={{ background: `${cat.color}18`, color: cat.color, border: `1px solid ${cat.color}33` }}
+          >
+            {cat.category}
+          </button>
+        ))}
+      </div>
+
+      {/* FAQ sections */}
+      <div className="flex-1 space-y-4 overflow-y-auto pr-1">
+        {faqs.map((cat, ci) => (
+          <div key={ci} id={`posh-cat-${ci}`}>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-1.5 h-6 rounded-full" style={{ background: cat.color }} />
+              <h3 className="text-sm font-bold" style={{ color: cat.color }}>{cat.category}</h3>
+              <span className="text-[10px] text-white/30">{cat.items.length} items</span>
+            </div>
+            <div className="space-y-1">
+              {cat.items.map((item, ii) => {
+                const globalIdx = faqs.slice(0, ci).reduce((a, c) => a + c.items.length, 0) + ii;
+                const isOpen = openIdx === globalIdx;
+                return (
+                  <div key={ii} className="rounded-lg overflow-hidden" style={{ background: "hsl(0,0%,10%)", border: `1px solid ${isOpen ? cat.color + "44" : "hsl(0,0%,15%)"}` }}>
+                    <button
+                      onClick={() => setOpenIdx(isOpen ? null : globalIdx)}
+                      className="w-full flex items-start gap-2 p-2.5 text-left"
+                    >
+                      <HelpCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: cat.color }} />
+                      <span className="text-xs font-semibold text-white/90 flex-1">{item.q}</span>
+                      <ChevronRight
+                        className="w-3 h-3 mt-0.5 flex-shrink-0 transition-transform"
+                        style={{ color: "hsl(0,0%,40%)", transform: isOpen ? "rotate(90deg)" : "none" }}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className="px-3 pb-3 pt-0 ml-5">
+                        <div className="rounded-lg p-2.5 text-[11px] leading-relaxed text-white/75" style={{ background: "hsl(0,0%,7%)", borderLeft: `2px solid ${cat.color}66` }}>
+                          {item.a}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Footer */}
+      <div className="mt-4 rounded-xl p-3 flex items-center gap-3" style={{ background: `${RED}10`, border: `1px solid ${RED}33` }}>
+        <AlertTriangle className="w-4 h-4 flex-shrink-0" style={{ color: RED }} />
+        <p className="text-[10px] text-white/70"><span className="font-bold" style={{ color: RED }}>Golden Rule:</span> When in doubt, take a detailed message and flag for dispatch. Never guess on pricing, availability, or technical advice. Your job is to capture info and book — the technician handles the rest.</p>
+      </div>
+    </div>
+  );
+};
+
+/* ── Export slide list ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
@@ -4910,4 +5203,5 @@ export const slides = [
   { title: "Rental / Investment Property", component: RentalPropertySlide, keywords: "rental investment property landlord tenant authorization access vacant unit owner billing" },
   { title: "Commercial / Office", component: CommercialOfficeSlide, keywords: "commercial office business restaurant retail medical rooftop after hours PO invoice maintenance contract" },
   { title: "Property Manager / HOA", component: PropertyManagerSlide, keywords: "property manager HOA management company multiple properties vendor approval invoicing VIP volume dedicated account" },
+  { title: "Posh FAQ & Call Guide", component: PoshFaqSlide, keywords: "posh virtual receptionist FAQ frequently asked questions call handling script pricing emergency objection membership plumbing booking scheduling" },
 ];
