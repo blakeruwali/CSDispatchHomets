@@ -4763,8 +4763,107 @@ export const PropertyManagerSlide = () => (
     </div>
   </div>
 );
+/* ── Site Survey Follow-Up Script Slide ── */
+const NAVY = "hsl(215, 60%, 45%)";
 
-/* ── Export slide list (44 slides: Customer Service & Dispatch Guide) ── */
+const surveyObjections = [
+  { trigger: "Can't you just give me a price over the phone?", response: "I wish I could — but two homes on the same street can need completely different setups. We check electrical, ductwork, gas lines, clearances — so the quote you get is the quote you pay. No surprises on install day.", color: RED },
+  { trigger: "I'm getting other quotes first", response: "You absolutely should — that's exactly why you want us out. We itemize everything line by line. Most companies give one lump number then hit you with change orders. Our survey gives you a real number to compare.", color: ORANGE },
+  { trigger: "I need to talk to my spouse first", response: "Totally fair — let's book while schedules are open so they can be there, meet the specialist, and ask questions. No commitment — just information.", color: WARM },
+  { trigger: "I'm not ready to buy yet", response: "That's where most customers start. The survey isn't a commitment — it gives you the info to decide smart when you ARE ready. You won't be scrambling when it breaks in July.", color: GREEN },
+  { trigger: "Can't the tech here now do it?", response: "Great question — our install specialist measures load calcs, checks electrical capacity, evaluates duct runs, and designs the full layout. Different skillset. Free and usually available within a day or two.", color: NAVY },
+  { trigger: "Just email me a quote", response: "I'd love to, but without seeing your panel, ductwork, and access — that number will change. 30–45 min on-site, free, and the quote is locked in. Most homeowners say it's the most thorough estimate they've ever gotten.", color: "hsl(280, 50%, 50%)" },
+];
+
+export const SiteSurveyScriptSlide = () => (
+  <div className="flex flex-col h-full px-16 py-10" style={{ background: "hsl(0,0%,7%)" }}>
+    {/* Header */}
+    <div className="flex items-center gap-4 mb-6">
+      <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: `linear-gradient(135deg, ${NAVY}, ${NAVY}cc)` }}>
+        <ClipboardList className="w-7 h-7 text-white" />
+      </div>
+      <div>
+        <p className="text-lg font-semibold uppercase tracking-widest" style={{ color: NAVY }}>Sales Script</p>
+        <h2 className="text-4xl font-bold text-white">Site Survey Follow-Up — Booking the Free Estimate</h2>
+      </div>
+    </div>
+
+    <div className="flex gap-6 flex-1 min-h-0">
+      {/* Left Column — Script & Value Props */}
+      <div className="flex-1 flex flex-col gap-4">
+        {/* Opening Script */}
+        <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,11%)", border: `1px solid ${NAVY}44` }}>
+          <p className="text-xs uppercase tracking-widest mb-2 font-bold" style={{ color: NAVY }}>📞 Opening Script</p>
+          <p className="text-sm text-white/90 leading-relaxed italic">
+            "Great news, [Name] — based on what we've seen, you're a strong candidate for [system type]. The next step is our <span style={{ color: GREEN }} className="font-bold">complimentary site survey</span>. Our install specialist comes out, takes about 30–45 minutes, and does a full assessment — electrical, ductwork, clearances, everything — so your quote is <span style={{ color: ORANGE }} className="font-bold">accurate down to the dollar</span> with zero surprises on install day."
+          </p>
+          <div className="mt-3 p-2.5 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>
+            <p className="text-xs font-bold" style={{ color: GREEN }}>🎯 Close: "We have openings [Day 1] morning or [Day 2] afternoon — which works better?"</p>
+          </div>
+        </div>
+
+        {/* Value Props */}
+        <div className="rounded-xl p-5" style={{ background: "hsl(0,0%,11%)" }}>
+          <p className="text-xs uppercase tracking-widest mb-3 font-bold" style={{ color: WARM }}>💎 Value Props to Weave In</p>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { prop: "Completely free — no obligation", why: "Removes risk" },
+              { prop: "Quote is exact — no surprise charges", why: "Positions survey as protecting them" },
+              { prop: "We check what most companies skip", why: "Differentiates from competitors" },
+              { prop: "Right-sized system, not too big or small", why: "Implies competitors guess" },
+              { prop: "30–45 min, walk away knowing everything", why: "Respects their time" },
+              { prop: "Written diagnostic report included", why: "Tangible takeaway" },
+            ].map((v, i) => (
+              <div key={i} className="flex items-start gap-2 p-2 rounded-lg" style={{ background: "hsl(0,0%,8%)" }}>
+                <CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: GREEN }} />
+                <div>
+                  <p className="text-xs font-bold text-white/90">{v.prop}</p>
+                  <p className="text-xs text-white/40">{v.why}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Survey Covers */}
+        <div className="rounded-xl p-4" style={{ background: "hsl(0,0%,11%)" }}>
+          <p className="text-xs uppercase tracking-widest mb-2 font-bold" style={{ color: MUTED }}>📋 What the Survey Covers (for CS confidence)</p>
+          <div className="flex flex-wrap gap-1.5">
+            {["Electrical Panel", "Ductwork", "Gas/Fuel Lines", "Refrigerant Lines", "Site Conditions", "Code Compliance", "System Sizing", "Add-On Opps", "Photos & Docs"].map((item, i) => (
+              <span key={i} className="px-2.5 py-1 rounded-full text-xs font-semibold" style={{ background: `${NAVY}22`, color: `${NAVY}`, border: `1px solid ${NAVY}33` }}>{item}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Right Column — Objections */}
+      <div className="w-[520px] flex flex-col gap-2.5">
+        <p className="text-xs uppercase tracking-widest font-bold" style={{ color: RED }}>🛡️ Objection Handling</p>
+        {surveyObjections.map((obj, i) => (
+          <div key={i} className="rounded-xl p-3.5" style={{ background: "hsl(0,0%,11%)" }}>
+            <p className="text-xs font-bold mb-1.5" style={{ color: obj.color }}>❌ "{obj.trigger}"</p>
+            <p className="text-xs text-white/80 leading-relaxed">"{obj.response}"</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Footer — Confirmation Script */}
+    <div className="mt-4 rounded-xl p-4 flex gap-6" style={{ background: `linear-gradient(135deg, ${NAVY}15, ${GREEN}08)`, border: `1px solid ${NAVY}33` }}>
+      <div className="flex-1">
+        <p className="text-xs font-bold mb-1" style={{ color: GREEN }}>✅ Closing Confirmation</p>
+        <p className="text-xs text-white/70 italic">"I've got you for [Day, Window]. Our specialist will check electrical, ductwork, gas, clearances, and go over all options on the spot — efficiency tiers, air quality, financing. About 30–45 min. I'll send a confirmation now."</p>
+      </div>
+      <div className="w-px" style={{ background: "hsl(0,0%,20%)" }} />
+      <div className="flex-1">
+        <p className="text-xs font-bold mb-1" style={{ color: ORANGE }}>⚡ Power Line</p>
+        <p className="text-xs text-white/70 italic">"It's the most thorough free estimate in the industry — that's why our install day goes smooth."</p>
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Export slide list (45 slides: Customer Service & Dispatch Guide) ── */
 export const slides = [
   { title: "Dispatch Guide", component: DispatchTitleSlide, keywords: "cover title homets phone number dispatch guide" },
   { title: "Call Flow / Decision Tree", component: CallFlowSlide, keywords: "call flow decision tree intake answer identify emergency service type book" },
