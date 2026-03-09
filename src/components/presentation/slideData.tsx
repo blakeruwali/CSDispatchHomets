@@ -4880,6 +4880,7 @@ export const slides = [
   { title: "Maintenance Sales Script", component: MaintenanceSalesScriptSlide, keywords: "maintenance tune-up sales script seasonal" },
   { title: "Membership Sales Script", component: MembershipSalesScriptSlide, keywords: "membership service agreement sales script plan discount" },
   { title: "Plumbing Sales Script", component: PlumbingSalesScriptSlide, keywords: "plumbing sales script drain water heater leak" },
+  { title: "Site Survey Script", component: SiteSurveyScriptSlide, keywords: "site survey follow-up free estimate install replacement booking objection ductwork electrical panel assessment" },
   { title: "Scripts Cheat Sheet", component: ScriptsCheatSheetSlide, keywords: "cheat sheet quick reference scripts summary objections" },
   { title: "Objection Handling", component: ObjectionHandlingSlide, keywords: "objection handling price expensive refund angry competitor discount rebuttal de-escalation trust credibility timing urgency spouse landlord guarantee" },
   { title: "Dispatch Flowchart", component: DispatchFlowchartSlide, keywords: "dispatch flowchart routing assign tech priority emergency capacity squeeze-in board decision" },
