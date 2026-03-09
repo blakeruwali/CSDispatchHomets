@@ -5203,4 +5203,5 @@ export const slides = [
   { title: "Rental / Investment Property", component: RentalPropertySlide, keywords: "rental investment property landlord tenant authorization access vacant unit owner billing" },
   { title: "Commercial / Office", component: CommercialOfficeSlide, keywords: "commercial office business restaurant retail medical rooftop after hours PO invoice maintenance contract" },
   { title: "Property Manager / HOA", component: PropertyManagerSlide, keywords: "property manager HOA management company multiple properties vendor approval invoicing VIP volume dedicated account" },
+  { title: "Posh FAQ & Call Guide", component: PoshFaqSlide, keywords: "posh virtual receptionist FAQ frequently asked questions call handling script pricing emergency objection membership plumbing booking scheduling" },
 ];
