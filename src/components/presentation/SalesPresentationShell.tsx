@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { techSalesSlides } from "./techSalesSlides";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Search, X, Sun, Moon, Home, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, X, Sun, Moon, Home, ChevronLeft, ChevronRight, PanelLeftClose, PanelLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export const SalesPresentationShell: React.FC = () => {
@@ -109,6 +109,7 @@ const DesktopSalesPresentation: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [lightMode, setLightMode] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const scrollToSlide = useCallback((i: number) => {
@@ -168,8 +169,8 @@ const DesktopSalesPresentation: React.FC = () => {
   return (
     <div className="flex h-screen w-screen overflow-hidden" style={{ background: bg }}>
       {/* Sidebar */}
-      <div className="w-56 flex-shrink-0 flex flex-col h-full"
-        style={{ background: sidebarBg, borderRight: `1px solid ${borderColor}` }}>
+      <div className={`flex-shrink-0 flex flex-col h-full transition-all duration-300 ${sidebarOpen ? "w-56" : "w-0"} overflow-hidden`}
+        style={{ background: sidebarBg, borderRight: sidebarOpen ? `1px solid ${borderColor}` : "none" }}>
         <div className="h-12 flex items-center justify-between px-4 flex-shrink-0"
           style={{ borderBottom: `1px solid ${borderColor}` }}>
           <span className={`text-xs font-semibold uppercase tracking-wider ${textMuted}`}>Slides</span>
@@ -204,7 +205,15 @@ const DesktopSalesPresentation: React.FC = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         <div className="h-12 flex items-center justify-between px-5 flex-shrink-0 backdrop-blur-md"
           style={{ background: headerBg, borderBottom: `1px solid ${borderColor}` }}>
-          <h1 className={`text-sm font-bold ${textPrimary}`}>HVAC Estimate Sales Guide</h1>
+          <div className="flex items-center gap-2">
+            <button onClick={() => setSidebarOpen((v) => !v)}
+              className={`p-2 rounded-lg transition-all ${textMuted}`}
+              style={{ background: lightMode ? "hsl(0,0%,94%)" : "hsl(0,0%,12%)", border: `1px solid ${borderColor}` }}
+              title={sidebarOpen ? "Hide sidebar" : "Show sidebar"}>
+              {sidebarOpen ? <PanelLeftClose className="w-4 h-4" /> : <PanelLeft className="w-4 h-4" />}
+            </button>
+            <h1 className={`text-sm font-bold ${textPrimary}`}>HVAC Estimate Sales Guide</h1>
+          </div>
           <div className="flex items-center gap-2">
             {searchOpen ? (
               <div className="flex items-center gap-2">
