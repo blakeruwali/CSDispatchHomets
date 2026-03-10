@@ -4912,4 +4912,5 @@ export const slides = [
   { title: "Commercial / Office", component: CommercialOfficeSlide, keywords: "commercial office business restaurant retail medical rooftop after hours PO invoice maintenance contract" },
   { title: "Property Manager / HOA", component: PropertyManagerSlide, keywords: "property manager HOA management company multiple properties vendor approval invoicing VIP volume dedicated account" },
   { title: "Property Manager / HOA", component: PropertyManagerSlide, keywords: "property manager HOA management company multiple properties vendor approval invoicing VIP volume dedicated account" },
+  ...techSalesSlides,
 ];
