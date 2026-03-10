@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { techSalesSlides } from "./techSalesSlides";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Search, X, Sun, Moon, Home } from "lucide-react";
+import { Search, X, Sun, Moon, Home, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export const SalesPresentationShell: React.FC = () => {
@@ -10,31 +10,92 @@ export const SalesPresentationShell: React.FC = () => {
   return <DesktopSalesPresentation />;
 };
 
+/* ── Scaled slide wrapper for mobile ── */
+const MobileScaledSlide: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.2);
+
+  useEffect(() => {
+    const update = () => {
+      if (!containerRef.current) return;
+      const { width } = containerRef.current.getBoundingClientRect();
+      setScale(width / 1920);
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    if (containerRef.current) ro.observe(containerRef.current);
+    return () => ro.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="w-full relative" style={{ paddingBottom: `${(1080 / 1920) * 100}%` }}>
+      <div className="absolute inset-0 overflow-hidden">
+        <div style={{ width: 1920, height: 1080, transform: `scale(${scale})`, transformOrigin: "top left" }}>
+          <div className="slide-content w-full h-full">
+            {children}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 /* ── Mobile ── */
 const MobileSalesPresentation: React.FC = () => {
   const navigate = useNavigate();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const SlideComponent = techSalesSlides[currentSlide].component;
+
   return (
-    <div className="min-h-screen" style={{ background: "hsl(0,0%,5%)" }}>
+    <div className="min-h-screen flex flex-col" style={{ background: "hsl(0,0%,5%)" }}>
+      {/* Header */}
       <div className="sticky top-0 z-30 flex items-center justify-between px-4 py-3 backdrop-blur-md"
-        style={{ background: "hsl(0,0%,7%,0.9)", borderBottom: "1px solid hsl(0,0%,100%,0.1)" }}>
+        style={{ background: "hsl(0,0%,7%,0.95)", borderBottom: "1px solid hsl(0,0%,100%,0.1)" }}>
         <button onClick={() => navigate("/")} className="text-white/50 hover:text-white transition-colors">
           <Home className="w-5 h-5" />
         </button>
-        <h1 className="text-sm font-bold text-white">HVAC Sales Guide</h1>
-        <div className="w-5" />
+        <h1 className="text-xs font-bold text-white truncate max-w-[200px]">{techSalesSlides[currentSlide].title}</h1>
+        <span className="text-[10px] text-white/40">{currentSlide + 1}/{techSalesSlides.length}</span>
       </div>
-      <div className="px-4 py-4 space-y-4">
-        {techSalesSlides.map((slide, i) => {
-          const SlideComponent = slide.component;
-          return (
-            <div key={i} className="rounded-xl overflow-hidden shadow-lg"
-              style={{ background: "hsl(0,0%,8%)", border: "1px solid hsl(0,0%,100%,0.1)" }}>
-              <div className="slide-content p-4">
-                <SlideComponent />
-              </div>
-            </div>
-          );
-        })}
+
+      {/* Slide */}
+      <div className="flex-1 flex items-start justify-center px-2 pt-2">
+        <div className="w-full rounded-xl overflow-hidden shadow-lg"
+          style={{ background: "hsl(0,0%,8%)", border: "1px solid hsl(0,0%,100%,0.1)" }}>
+          <MobileScaledSlide>
+            <SlideComponent />
+          </MobileScaledSlide>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div className="sticky bottom-0 z-30 flex items-center justify-between px-4 py-3 backdrop-blur-md"
+        style={{ background: "hsl(0,0%,7%,0.95)", borderTop: "1px solid hsl(0,0%,100%,0.1)" }}>
+        <button onClick={() => setCurrentSlide(Math.max(0, currentSlide - 1))}
+          disabled={currentSlide === 0}
+          className="flex items-center gap-1 px-3 py-2 rounded-lg text-xs font-bold transition-all disabled:opacity-30"
+          style={{ background: "hsl(0,0%,12%)", color: "white" }}>
+          <ChevronLeft className="w-4 h-4" /> Prev
+        </button>
+
+        {/* Slide dots - show nearby slides */}
+        <div className="flex items-center gap-1">
+          {techSalesSlides.map((_, i) => (
+            <button key={i} onClick={() => setCurrentSlide(i)}
+              className="w-2 h-2 rounded-full transition-all"
+              style={{
+                background: i === currentSlide ? "hsl(15,90%,55%)" : "hsl(0,0%,25%)",
+                transform: i === currentSlide ? "scale(1.3)" : "scale(1)",
+              }} />
+          ))}
+        </div>
+
+        <button onClick={() => setCurrentSlide(Math.min(techSalesSlides.length - 1, currentSlide + 1))}
+          disabled={currentSlide === techSalesSlides.length - 1}
+          className="flex items-center gap-1 px-3 py-2 rounded-lg text-xs font-bold transition-all disabled:opacity-30"
+          style={{ background: "hsl(15,90%,55%)", color: "white" }}>
+          Next <ChevronRight className="w-4 h-4" />
+        </button>
       </div>
     </div>
   );
