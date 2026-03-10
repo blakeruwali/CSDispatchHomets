@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { techSalesSlides } from "./techSalesSlides";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Search, X, Sun, Moon, Home, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, X, Sun, Moon, Home, ChevronLeft, ChevronRight, PanelLeftClose, PanelLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export const SalesPresentationShell: React.FC = () => {
