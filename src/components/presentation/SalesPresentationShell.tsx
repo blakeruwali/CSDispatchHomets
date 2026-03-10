@@ -169,8 +169,8 @@ const DesktopSalesPresentation: React.FC = () => {
   return (
     <div className="flex h-screen w-screen overflow-hidden" style={{ background: bg }}>
       {/* Sidebar */}
-      <div className="w-56 flex-shrink-0 flex flex-col h-full"
-        style={{ background: sidebarBg, borderRight: `1px solid ${borderColor}` }}>
+      <div className={`flex-shrink-0 flex flex-col h-full transition-all duration-300 ${sidebarOpen ? "w-56" : "w-0"} overflow-hidden`}
+        style={{ background: sidebarBg, borderRight: sidebarOpen ? `1px solid ${borderColor}` : "none" }}>
         <div className="h-12 flex items-center justify-between px-4 flex-shrink-0"
           style={{ borderBottom: `1px solid ${borderColor}` }}>
           <span className={`text-xs font-semibold uppercase tracking-wider ${textMuted}`}>Slides</span>
