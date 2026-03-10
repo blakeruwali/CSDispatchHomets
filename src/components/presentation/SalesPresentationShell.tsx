@@ -109,6 +109,7 @@ const DesktopSalesPresentation: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [lightMode, setLightMode] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const scrollToSlide = useCallback((i: number) => {
