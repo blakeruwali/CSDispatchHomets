@@ -205,7 +205,15 @@ const DesktopSalesPresentation: React.FC = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         <div className="h-12 flex items-center justify-between px-5 flex-shrink-0 backdrop-blur-md"
           style={{ background: headerBg, borderBottom: `1px solid ${borderColor}` }}>
-          <h1 className={`text-sm font-bold ${textPrimary}`}>HVAC Estimate Sales Guide</h1>
+          <div className="flex items-center gap-2">
+            <button onClick={() => setSidebarOpen((v) => !v)}
+              className={`p-2 rounded-lg transition-all ${textMuted}`}
+              style={{ background: lightMode ? "hsl(0,0%,94%)" : "hsl(0,0%,12%)", border: `1px solid ${borderColor}` }}
+              title={sidebarOpen ? "Hide sidebar" : "Show sidebar"}>
+              {sidebarOpen ? <PanelLeftClose className="w-4 h-4" /> : <PanelLeft className="w-4 h-4" />}
+            </button>
+            <h1 className={`text-sm font-bold ${textPrimary}`}>HVAC Estimate Sales Guide</h1>
+          </div>
           <div className="flex items-center gap-2">
             {searchOpen ? (
               <div className="flex items-center gap-2">
