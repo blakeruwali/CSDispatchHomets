@@ -1158,8 +1158,8 @@ export const CashVsFinancingSlide = () => {
                 { step: "2", text: "Run credit application (soft pull first)", note: "Use tablet/phone — takes 60 seconds" },
                 { step: "3", text: "Review approval & terms with customer", note: "Show monthly payment, term, APR" },
                 { step: "4", text: "Customer e-signs financing agreement", note: "Digital signature on the spot" },
-                { step: "5", text: "Schedule install — no deposit needed", note: "Financing covers full amount" },
-                { step: "6", text: "Lender pays you after job completion", note: "Typically 3-5 business days" },
+                { step: "5", text: "Collect deposit — $1,000 or 10%, whichever is greater", note: "Receipt required — secures the install date" },
+                { step: "6", text: "Schedule install + lender pays after completion", note: "Typically 3-5 business days" },
               ].map((s, i) => (
                 <div key={i} className="flex items-start gap-3 rounded-xl p-3" style={{ background: SURFACE2 }}>
                   <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
