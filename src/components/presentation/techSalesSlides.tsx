@@ -858,33 +858,33 @@ export const InstallPricingFrameworkSlide = () => {
   const residentialSystems = [
     {
       system: "Central AC + Coil",
-      good: { range: "$5,500 – $7,500", seer: "14–16 SEER2", details: "Single-stage, basic thermostat, standard install" },
-      better: { range: "$8,500 – $12,000", seer: "17–19 SEER2", details: "Two-stage, smart thermostat, hard start kit, surge protector" },
-      best: { range: "$13,000 – $18,000+", seer: "20+ SEER2", details: "Variable speed inverter, zoning, IAQ bundle, premium warranty" },
+      good: { range: "$6,200 – $8,500", seer: "14–16 SEER2", details: "Single-stage, basic thermostat, standard install" },
+      better: { range: "$9,800 – $13,500", seer: "17–19 SEER2", details: "Two-stage, smart thermostat, hard start kit, surge protector" },
+      best: { range: "$15,000 – $20,500+", seer: "20+ SEER2", details: "Variable speed inverter, zoning, IAQ bundle, premium warranty" },
     },
     {
       system: "Gas Furnace + AC",
-      good: { range: "$7,500 – $10,000", seer: "80% AFUE / 14 SEER2", details: "Single-stage both, standard ductwork" },
-      better: { range: "$11,000 – $15,000", seer: "96% AFUE / 17 SEER2", details: "Two-stage furnace, variable blower, smart thermostat" },
-      best: { range: "$16,000 – $22,000+", seer: "98% AFUE / 20+ SEER2", details: "Modulating furnace, inverter AC, zoning, full IAQ" },
+      good: { range: "$8,500 – $11,500", seer: "80% AFUE / 14 SEER2", details: "Single-stage both, standard ductwork" },
+      better: { range: "$12,500 – $17,000", seer: "96% AFUE / 17 SEER2", details: "Two-stage furnace, variable blower, smart thermostat" },
+      best: { range: "$18,500 – $25,000+", seer: "98% AFUE / 20+ SEER2", details: "Modulating furnace, inverter AC, zoning, full IAQ" },
     },
     {
       system: "Heat Pump System",
-      good: { range: "$6,500 – $9,000", seer: "15 SEER2 / 8 HSPF2", details: "Single-stage, electric backup, basic thermostat" },
-      better: { range: "$10,000 – $14,000", seer: "17 SEER2 / 9 HSPF2", details: "Two-stage, smart thermostat, dual fuel option" },
-      best: { range: "$15,000 – $21,000+", seer: "20+ SEER2 / 10+ HSPF2", details: "Variable speed inverter, cold climate rated, full IAQ" },
+      good: { range: "$7,500 – $10,000", seer: "15 SEER2 / 8 HSPF2", details: "Single-stage, electric backup, basic thermostat" },
+      better: { range: "$11,500 – $16,000", seer: "17 SEER2 / 9 HSPF2", details: "Two-stage, smart thermostat, dual fuel option" },
+      best: { range: "$17,000 – $24,000+", seer: "20+ SEER2 / 10+ HSPF2", details: "Variable speed inverter, cold climate rated, full IAQ" },
     },
     {
       system: "Mini Split (per zone)",
-      good: { range: "$3,500 – $5,000", seer: "18 SEER2", details: "Single-zone wall mount, basic remote" },
-      better: { range: "$5,500 – $7,500", seer: "20 SEER2", details: "Single-zone, WiFi control, enhanced filtration" },
-      best: { range: "$8,000 – $12,000+", seer: "22+ SEER2", details: "Multi-zone (2–3 heads), hyper-heating, smart integration" },
+      good: { range: "$4,000 – $5,700", seer: "18 SEER2", details: "Single-zone wall mount, basic remote" },
+      better: { range: "$6,300 – $8,500", seer: "20 SEER2", details: "Single-zone, WiFi control, enhanced filtration" },
+      best: { range: "$9,200 – $13,500+", seer: "22+ SEER2", details: "Multi-zone (2–3 heads), hyper-heating, smart integration" },
     },
     {
       system: "Boiler (Hydronic)",
-      good: { range: "$6,000 – $9,000", seer: "84% AFUE", details: "Standard cast iron, basic controls" },
-      better: { range: "$10,000 – $15,000", seer: "90–95% AFUE", details: "High-efficiency, modulating, indirect water heater option" },
-      best: { range: "$16,000 – $25,000+", seer: "95%+ AFUE", details: "Condensing boiler, smart controls, radiant floor ready" },
+      good: { range: "$6,800 – $10,000", seer: "84% AFUE", details: "Standard cast iron, basic controls" },
+      better: { range: "$11,500 – $17,000", seer: "90–95% AFUE", details: "High-efficiency, modulating, indirect water heater option" },
+      best: { range: "$18,500 – $28,500+", seer: "95%+ AFUE", details: "Condensing boiler, smart controls, radiant floor ready" },
     },
   ];
 
