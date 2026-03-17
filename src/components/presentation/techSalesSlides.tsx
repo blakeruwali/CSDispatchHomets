@@ -1160,8 +1160,8 @@ export const CashVsFinancingSlide = () => {
                 { step: "3", text: "Review approval & terms with customer", note: "Show monthly payment, term, APR" },
                 { step: "4", text: "Customer e-signs financing agreement", note: "Digital signature on the spot" },
                 { step: "5", text: "Collect deposit — $1,000 or 10%, whichever is greater", note: "Receipt required — secures the install date" },
-                { step: "6", text: "50% of total must be collected before install date", note: "Follow up for remaining deposit balance before crew rolls" },
-                { step: "7", text: "Schedule install + lender pays remaining after completion", note: "Typically 3-5 business days" },
+                { step: "6", text: "Collect remaining 90% — 3 days before install", note: "Secures equipment & ensures smooth project completion" },
+                { step: "7", text: "Schedule install + lender pays after completion", note: "Typically 3-5 business days" },
               ].map((s, i) => (
                 <div key={i} className="flex items-start gap-3 rounded-xl p-3" style={{ background: SURFACE2 }}>
                   <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
@@ -1183,7 +1183,7 @@ export const CashVsFinancingSlide = () => {
                   { point: "Dealer fee applies", detail: "Factor into pricing — typically 8-15% depending on promo" },
                   { point: "0% promo options available", detail: "12-18 months same-as-cash on qualifying purchases" },
                   { point: "Extended terms (60-144 mo)", detail: "Lower monthly = easier close, but higher total cost" },
-                  { point: "Deposit + 50% before install", detail: "$1,000 or 10% at signing, then 50% total collected before install day" },
+                  { point: "10% deposit + 90% due 3 days before install", detail: "Secures equipment ordering & guarantees smooth project day" },
                   { point: "Approval not guaranteed", detail: "Have a Plan B ready — co-signer, different lender, or reduced scope" },
                 ].map((p, i) => (
                   <div key={i} className="flex items-start gap-2 rounded-lg p-3" style={{ background: SURFACE2 }}>
@@ -1207,6 +1207,7 @@ export const CashVsFinancingSlide = () => {
                   "\"A lot of our customers go with financing because it lets them get the BEST system now without a big hit to savings.\"",
                   "\"Let me run a quick pre-qualification — it's a soft pull, won't affect your credit score. Takes about 60 seconds.\"",
                   "\"You're approved! Here's what it looks like: [amount]/month for [term] months. That's less than most people's streaming subscriptions combined.\"",
+                  "\"We just need $1,000 or 10% today to lock you in, and then 3 days before your install we collect the remaining balance so we can secure your equipment and make sure everything goes smoothly.\"",
                 ].map((line, i) => (
                   <div key={i} className="flex items-start gap-2 rounded-lg p-2.5" style={{ background: SURFACE2 }}>
                     <MessageSquare className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
