@@ -1013,9 +1013,9 @@ export const InstallPricingFrameworkSlide = () => {
           </p>
           <div className="grid grid-cols-3 gap-4 w-full max-w-[800px]">
             {[
-              { label: "RTU Replacement", range: "$8,000 – $35,000+", note: "Per unit, varies by tonnage & crane needs" },
-              { label: "Split System", range: "$10,000 – $30,000+", note: "Depends on lineset length & electrical" },
-              { label: "VRF / Multi-Zone", range: "$25,000 – $100,000+", note: "Complex design, engineering required" },
+              { label: "RTU Replacement", range: "$9,200 – $40,000+", note: "Per unit, varies by tonnage & crane needs" },
+              { label: "Split System", range: "$11,500 – $34,500+", note: "Depends on lineset length & electrical" },
+              { label: "VRF / Multi-Zone", range: "$28,500 – $115,000+", note: "Complex design, engineering required" },
             ].map((c, i) => (
               <div key={i} className="rounded-xl p-4 text-center" style={{ background: SURFACE2 }}>
                 <p className="text-sm font-bold text-white mb-1">{c.label}</p>
