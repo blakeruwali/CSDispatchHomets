@@ -851,6 +851,160 @@ export const Objection7Slide = () => (
   />
 );
 
+/* ─── Install Pricing Framework ─── */
+export const InstallPricingFrameworkSlide = () => {
+  const [activeTab, setActiveTab] = useState<"residential" | "commercial">("residential");
+
+  const residentialSystems = [
+    {
+      system: "Central AC + Coil",
+      good: { range: "$5,500 – $7,500", seer: "14–16 SEER2", details: "Single-stage, basic thermostat, standard install" },
+      better: { range: "$8,500 – $12,000", seer: "17–19 SEER2", details: "Two-stage, smart thermostat, hard start kit, surge protector" },
+      best: { range: "$13,000 – $18,000+", seer: "20+ SEER2", details: "Variable speed inverter, zoning, IAQ bundle, premium warranty" },
+    },
+    {
+      system: "Gas Furnace + AC",
+      good: { range: "$7,500 – $10,000", seer: "80% AFUE / 14 SEER2", details: "Single-stage both, standard ductwork" },
+      better: { range: "$11,000 – $15,000", seer: "96% AFUE / 17 SEER2", details: "Two-stage furnace, variable blower, smart thermostat" },
+      best: { range: "$16,000 – $22,000+", seer: "98% AFUE / 20+ SEER2", details: "Modulating furnace, inverter AC, zoning, full IAQ" },
+    },
+    {
+      system: "Heat Pump System",
+      good: { range: "$6,500 – $9,000", seer: "15 SEER2 / 8 HSPF2", details: "Single-stage, electric backup, basic thermostat" },
+      better: { range: "$10,000 – $14,000", seer: "17 SEER2 / 9 HSPF2", details: "Two-stage, smart thermostat, dual fuel option" },
+      best: { range: "$15,000 – $21,000+", seer: "20+ SEER2 / 10+ HSPF2", details: "Variable speed inverter, cold climate rated, full IAQ" },
+    },
+    {
+      system: "Mini Split (per zone)",
+      good: { range: "$3,500 – $5,000", seer: "18 SEER2", details: "Single-zone wall mount, basic remote" },
+      better: { range: "$5,500 – $7,500", seer: "20 SEER2", details: "Single-zone, WiFi control, enhanced filtration" },
+      best: { range: "$8,000 – $12,000+", seer: "22+ SEER2", details: "Multi-zone (2–3 heads), hyper-heating, smart integration" },
+    },
+    {
+      system: "Boiler (Hydronic)",
+      good: { range: "$6,000 – $9,000", seer: "84% AFUE", details: "Standard cast iron, basic controls" },
+      better: { range: "$10,000 – $15,000", seer: "90–95% AFUE", details: "High-efficiency, modulating, indirect water heater option" },
+      best: { range: "$16,000 – $25,000+", seer: "95%+ AFUE", details: "Condensing boiler, smart controls, radiant floor ready" },
+    },
+  ];
+
+  const addOns = [
+    { item: "Smart Thermostat", price: "$350 – $600", note: "Included in Better/Best tiers" },
+    { item: "Hard Start Kit", price: "$150 – $250", note: "Protects compressor, included in Better+" },
+    { item: "Surge Protector", price: "$200 – $350", note: "Whole-unit protection" },
+    { item: "UV Air Purifier", price: "$800 – $1,500", note: "Kills mold/bacteria in coil" },
+    { item: "Media Air Cleaner", price: "$600 – $1,200", note: "4\" or 5\" whole-home filtration" },
+    { item: "Humidifier / Dehumidifier", price: "$800 – $1,800", note: "Whole-home comfort control" },
+    { item: "Zoning System (2-zone)", price: "$2,000 – $3,500", note: "Dampers, panel, extra thermostat" },
+    { item: "Duct Modification", price: "$500 – $3,000+", note: "Per area — resize, add runs, seal" },
+    { item: "Electrical Panel Upgrade", price: "$1,800 – $3,500", note: "When panel can't support new equipment" },
+    { item: "Permit & Inspection", price: "$150 – $500", note: "Always included — never skip" },
+  ];
+
+  return (
+    <div className="flex flex-col justify-center h-full px-16" style={{ background: "hsl(0,0%,7%)" }}>
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <p className="text-xl font-semibold mb-2 uppercase tracking-widest" style={{ color: ORANGE }}>Pricing Reference</p>
+          <h2 className="text-4xl font-bold text-white">Installation Pricing Framework</h2>
+        </div>
+        <div className="flex rounded-xl overflow-hidden" style={{ border: `1px solid hsl(0,0%,20%)` }}>
+          {(["residential", "commercial"] as const).map((tab) => (
+            <button key={tab} onClick={() => setActiveTab(tab)}
+              className="px-5 py-2.5 text-sm font-bold uppercase tracking-wider transition-all"
+              style={{
+                background: activeTab === tab ? ORANGE : "transparent",
+                color: activeTab === tab ? "white" : "hsl(0,0%,55%)",
+              }}>
+              {tab}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {activeTab === "residential" ? (
+        <>
+          {/* Systems table */}
+          <div className="rounded-2xl overflow-hidden mb-5" style={{ background: SURFACE, border: `1px solid hsl(0,0%,15%)` }}>
+            <div className="grid grid-cols-[180px_1fr_1fr_1fr] text-xs font-bold uppercase tracking-wider"
+              style={{ background: SURFACE2 }}>
+              <div className="px-4 py-3 text-white/40">System Type</div>
+              <div className="px-4 py-3" style={{ color: MUTED }}>Good</div>
+              <div className="px-4 py-3" style={{ color: ORANGE }}>★ Better</div>
+              <div className="px-4 py-3" style={{ color: GOLD }}>Best</div>
+            </div>
+            {residentialSystems.map((sys, i) => (
+              <div key={i} className="grid grid-cols-[180px_1fr_1fr_1fr]"
+                style={{ borderTop: `1px solid hsl(0,0%,13%)`, background: i % 2 === 0 ? "transparent" : "hsl(0,0%,9%)" }}>
+                <div className="px-4 py-3 flex items-center">
+                  <span className="text-sm font-bold text-white">{sys.system}</span>
+                </div>
+                {([sys.good, sys.better, sys.best] as const).map((tier, j) => (
+                  <div key={j} className="px-4 py-3">
+                    <p className="text-sm font-bold text-white mb-0.5">{tier.range}</p>
+                    <p className="text-[11px] font-semibold mb-0.5" style={{ color: j === 0 ? MUTED : j === 1 ? ORANGE : GOLD }}>{tier.seer}</p>
+                    <p className="text-[10px] text-white/40">{tier.details}</p>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Add-ons */}
+          <div className="rounded-2xl p-5" style={{ background: SURFACE, border: `1px solid hsl(0,0%,15%)` }}>
+            <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+              <CircleDollarSign className="w-5 h-5" style={{ color: GREEN }} />
+              Common Add-Ons & Upgrades
+            </h3>
+            <div className="grid grid-cols-5 gap-2">
+              {addOns.map((a, i) => (
+                <div key={i} className="rounded-lg p-2.5" style={{ background: SURFACE2 }}>
+                  <p className="text-xs font-bold text-white mb-0.5">{a.item}</p>
+                  <p className="text-xs font-semibold" style={{ color: GREEN }}>{a.price}</p>
+                  <p className="text-[10px] text-white/35 mt-0.5">{a.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="flex-1 flex flex-col items-center justify-center rounded-2xl p-12" style={{ background: SURFACE }}>
+          <Calculator className="w-16 h-16 mb-4" style={{ color: ORANGE }} />
+          <h3 className="text-2xl font-bold text-white mb-3">Commercial Pricing</h3>
+          <p className="text-lg text-white/50 text-center max-w-[600px] mb-6">
+            Commercial installs are quoted per-project using site survey data. Use these guidelines:
+          </p>
+          <div className="grid grid-cols-3 gap-4 w-full max-w-[800px]">
+            {[
+              { label: "RTU Replacement", range: "$8,000 – $35,000+", note: "Per unit, varies by tonnage & crane needs" },
+              { label: "Split System", range: "$10,000 – $30,000+", note: "Depends on lineset length & electrical" },
+              { label: "VRF / Multi-Zone", range: "$25,000 – $100,000+", note: "Complex design, engineering required" },
+            ].map((c, i) => (
+              <div key={i} className="rounded-xl p-4 text-center" style={{ background: SURFACE2 }}>
+                <p className="text-sm font-bold text-white mb-1">{c.label}</p>
+                <p className="text-lg font-bold" style={{ color: ORANGE }}>{c.range}</p>
+                <p className="text-[11px] text-white/40 mt-1">{c.note}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 rounded-xl p-4 w-full max-w-[800px]" style={{ background: `${BLUE}12`, border: `1px solid ${BLUE}33` }}>
+            <p className="text-sm text-white/70 text-center">
+              <strong style={{ color: BLUE }}>Reminder:</strong> Commercial labor rate is <strong className="text-white">$269/hr</strong>. Diagnostic fee is <strong className="text-white">$269</strong>. Always include permit costs and crane rental if applicable.
+            </p>
+          </div>
+        </div>
+      )}
+
+      <div className="mt-4 rounded-xl p-3 flex items-center gap-3" style={{ background: `${RED}12`, border: `1px solid ${RED}33` }}>
+        <AlertTriangle className="w-5 h-5 flex-shrink-0" style={{ color: RED }} />
+        <p className="text-xs text-white/70">
+          <strong style={{ color: RED }}>Important:</strong> These are framework ranges. Always use your estimating tool for exact pricing. Factor in: complexity, accessibility, code requirements, ductwork mods, electrical upgrades, and permit fees. Never quote from memory.
+        </p>
+      </div>
+    </div>
+  );
+};
+
 /* ─── Export all tech sales slides ─── */
 export const techSalesSlides = [
   { title: "HVAC Estimate Sales Guide", component: TechSalesCoverSlide, keywords: "tech sales cover estimate hvac guide training" },
@@ -859,6 +1013,7 @@ export const techSalesSlides = [
   { title: "Walk-Around Assessment", component: WalkAroundSlide, keywords: "walk around assessment inspection photos indoor outdoor ductwork" },
   { title: "Identifying Pain Points", component: PainPointsSlide, keywords: "pain points discovery questions comfort bills allergies" },
   { title: "Good / Better / Best", component: GoodBetterBestSlide, keywords: "good better best tiered pricing presentation options seer" },
+  { title: "Install Pricing Framework", component: InstallPricingFrameworkSlide, keywords: "install pricing framework residential commercial add-ons furnace heat pump mini split boiler" },
   { title: "Presenting the Investment", component: PresentingInvestmentSlide, keywords: "investment price presentation language photos recap" },
   { title: "Financing Close", component: FinancingSlide, keywords: "financing monthly payment 0% interest close approval" },
   { title: "Home+ Membership Tie-In", component: MembershipTieInSlide, keywords: "membership home+ tune-up discount bundle included" },
