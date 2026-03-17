@@ -1183,7 +1183,7 @@ export const CashVsFinancingSlide = () => {
                   { point: "Dealer fee applies", detail: "Factor into pricing — typically 8-15% depending on promo" },
                   { point: "0% promo options available", detail: "12-18 months same-as-cash on qualifying purchases" },
                   { point: "Extended terms (60-144 mo)", detail: "Lower monthly = easier close, but higher total cost" },
-                  { point: "Deposit + 50% before install", detail: "$1,000 or 10% at signing, then 50% total collected before install day" },
+                  { point: "10% deposit + 90% due 3 days before install", detail: "Secures equipment ordering & guarantees smooth project day" },
                   { point: "Approval not guaranteed", detail: "Have a Plan B ready — co-signer, different lender, or reduced scope" },
                 ].map((p, i) => (
                   <div key={i} className="flex items-start gap-2 rounded-lg p-3" style={{ background: SURFACE2 }}>
