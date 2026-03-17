@@ -5,7 +5,8 @@ import {
   ThermometerSun, Zap, FileText, MessageSquare, Heart,
   Target, TrendingUp, Award, Handshake, Eye, Lightbulb,
   BadgeCheck, CircleDollarSign, Calculator, Scale, Timer,
-  RefreshCw, Search, ShieldCheck, Gauge, CalendarCheck
+  RefreshCw, Search, ShieldCheck, Gauge, CalendarCheck,
+  Banknote, CreditCard, Percent, ArrowDownUp
 } from "lucide-react";
 
 const ORANGE = "hsl(15, 90%, 55%)";
@@ -1050,6 +1051,175 @@ export const InstallPricingFrameworkSlide = () => {
   );
 };
 
+/* ─── Cash/Check vs Financing Slide ─── */
+export const CashVsFinancingSlide = () => {
+  const [tab, setTab] = useState<"cash" | "financing">("cash");
+  return (
+    <div className="flex flex-col justify-center h-full px-20" style={{ background: "hsl(0,0%,7%)" }}>
+      <p className="text-xl font-semibold mb-3 uppercase tracking-widest" style={{ color: ORANGE }}>Deal Structure</p>
+      <h2 className="text-5xl font-bold text-white mb-4">Cash / Check vs. Financing</h2>
+      <p className="text-lg text-white/55 mb-6">How the deal flows depending on payment method — know the process cold.</p>
+
+      {/* Tab Toggle */}
+      <div className="flex gap-3 mb-6">
+        {([
+          { key: "cash" as const, label: "Cash / Check", icon: Banknote, color: GREEN },
+          { key: "financing" as const, label: "Financing", icon: CreditCard, color: BLUE },
+        ]).map(t => (
+          <button key={t.key} onClick={() => setTab(t.key)}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all"
+            style={{
+              background: tab === t.key ? `${t.color}20` : SURFACE,
+              color: tab === t.key ? t.color : "hsl(0,0%,55%)",
+              border: `1.5px solid ${tab === t.key ? t.color : "transparent"}`,
+            }}>
+            <t.icon className="w-4 h-4" />
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      {tab === "cash" ? (
+        <div className="grid grid-cols-2 gap-6">
+          {/* Left — Flow */}
+          <div className="rounded-2xl p-6" style={{ background: SURFACE }}>
+            <h3 className="text-xl font-bold text-white mb-5 flex items-center gap-2">
+              <Banknote className="w-5 h-5" style={{ color: GREEN }} />
+              Cash / Check Deal Flow
+            </h3>
+            <div className="space-y-3">
+              {[
+                { step: "1", text: "Present Good / Better / Best options", note: "Always show all three" },
+                { step: "2", text: "Customer selects their package", note: "Confirm scope out loud" },
+                { step: "3", text: "Collect 50% deposit (check or cash)", note: "Receipt required — write it up on the spot" },
+                { step: "4", text: "Remaining 50% due at completion", note: "Before crew leaves the job" },
+                { step: "5", text: "Issue final invoice + warranty docs", note: "Email same day" },
+              ].map((s, i) => (
+                <div key={i} className="flex items-start gap-3 rounded-xl p-3" style={{ background: SURFACE2 }}>
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                    style={{ background: `${GREEN}25`, color: GREEN }}>{s.step}</div>
+                  <div>
+                    <p className="text-sm font-semibold text-white/90">{s.text}</p>
+                    <p className="text-xs text-white/50">{s.note}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Right — Advantages & Script */}
+          <div className="space-y-5">
+            <div className="rounded-2xl p-6" style={{ background: SURFACE }}>
+              <h3 className="text-lg font-bold text-white mb-4" style={{ color: GREEN }}>Why Cash/Check Deals Are Great</h3>
+              <div className="space-y-2">
+                {[
+                  { point: "No dealer fees", detail: "You keep 100% of the sale price" },
+                  { point: "Faster funding", detail: "Deposit in hand same day" },
+                  { point: "Simpler paperwork", detail: "No credit apps, no waiting on approvals" },
+                  { point: "Stronger commitment", detail: "Customer who writes a check rarely cancels" },
+                ].map((p, i) => (
+                  <div key={i} className="flex items-center gap-2 rounded-lg p-3" style={{ background: SURFACE2 }}>
+                    <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: GREEN }} />
+                    <div>
+                      <span className="text-sm font-semibold text-white/85">{p.point}</span>
+                      <span className="text-xs text-white/50 ml-2">— {p.detail}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-2xl p-5" style={{ background: SURFACE }}>
+              <h3 className="text-lg font-bold text-white mb-3" style={{ color: ORANGE }}>💬 Script</h3>
+              <div className="space-y-2">
+                {[
+                  "\"For cash or check, we do a 50/50 split — half today to lock in your install date, and the other half when the job's done and you're 100% happy.\"",
+                  "\"A lot of homeowners prefer this because it's straightforward — no interest, no monthly payments, just a clean deal.\"",
+                  "\"I'll write you a receipt right now and we'll get you on the schedule.\"",
+                ].map((line, i) => (
+                  <div key={i} className="flex items-start gap-2 rounded-lg p-2.5" style={{ background: SURFACE2 }}>
+                    <MessageSquare className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+                    <p className="text-xs text-white/70 italic">{line}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 gap-6">
+          {/* Left — Flow */}
+          <div className="rounded-2xl p-6" style={{ background: SURFACE }}>
+            <h3 className="text-xl font-bold text-white mb-5 flex items-center gap-2">
+              <CreditCard className="w-5 h-5" style={{ color: BLUE }} />
+              Financing Deal Flow
+            </h3>
+            <div className="space-y-3">
+              {[
+                { step: "1", text: "Present Good / Better / Best options", note: "Lead with monthly payment on Better/Best" },
+                { step: "2", text: "Run credit application (soft pull first)", note: "Use tablet/phone — takes 60 seconds" },
+                { step: "3", text: "Review approval & terms with customer", note: "Show monthly payment, term, APR" },
+                { step: "4", text: "Customer e-signs financing agreement", note: "Digital signature on the spot" },
+                { step: "5", text: "Schedule install — no deposit needed", note: "Financing covers full amount" },
+                { step: "6", text: "Lender pays you after job completion", note: "Typically 3-5 business days" },
+              ].map((s, i) => (
+                <div key={i} className="flex items-start gap-3 rounded-xl p-3" style={{ background: SURFACE2 }}>
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                    style={{ background: `${BLUE}25`, color: BLUE }}>{s.step}</div>
+                  <div>
+                    <p className="text-sm font-semibold text-white/90">{s.text}</p>
+                    <p className="text-xs text-white/50">{s.note}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Right — Key Details & Script */}
+          <div className="space-y-5">
+            <div className="rounded-2xl p-6" style={{ background: SURFACE }}>
+              <h3 className="text-lg font-bold text-white mb-4" style={{ color: BLUE }}>Financing Key Points</h3>
+              <div className="space-y-2">
+                {[
+                  { point: "Dealer fee applies", detail: "Factor into pricing — typically 8-15% depending on promo" },
+                  { point: "0% promo options available", detail: "12-18 months same-as-cash on qualifying purchases" },
+                  { point: "Extended terms (60-144 mo)", detail: "Lower monthly = easier close, but higher total cost" },
+                  { point: "No money down for customer", detail: "Removes the biggest barrier to closing today" },
+                  { point: "Approval not guaranteed", detail: "Have a Plan B ready — co-signer, different lender, or reduced scope" },
+                ].map((p, i) => (
+                  <div key={i} className="flex items-start gap-2 rounded-lg p-3" style={{ background: SURFACE2 }}>
+                    <CircleDollarSign className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: BLUE }} />
+                    <div>
+                      <span className="text-sm font-semibold text-white/85">{p.point}</span>
+                      <span className="text-xs text-white/50 ml-2">— {p.detail}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-xl p-4" style={{ background: `${GOLD}10`, border: `1px solid ${GOLD}33` }}>
+              <p className="text-sm font-bold mb-1" style={{ color: GOLD }}>⚡ Pro Tip: Lead with the Monthly Payment</p>
+              <p className="text-xs text-white/70">"This system is just $189/month — less than your electric bill savings. And there's zero down, so nothing out of pocket today." Always frame it as affordable, not expensive.</p>
+            </div>
+            <div className="rounded-2xl p-5" style={{ background: SURFACE }}>
+              <h3 className="text-lg font-bold text-white mb-3" style={{ color: ORANGE }}>💬 Script</h3>
+              <div className="space-y-2">
+                {[
+                  "\"A lot of our customers go with financing because it lets them get the BEST system now without a big hit to savings.\"",
+                  "\"Let me run a quick pre-qualification — it's a soft pull, won't affect your credit score. Takes about 60 seconds.\"",
+                  "\"You're approved! Here's what it looks like: [amount]/month for [term] months. That's less than most people's streaming subscriptions combined.\"",
+                ].map((line, i) => (
+                  <div key={i} className="flex items-start gap-2 rounded-lg p-2.5" style={{ background: SURFACE2 }}>
+                    <MessageSquare className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
+                    <p className="text-xs text-white/70 italic">{line}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 /* ─── Export all tech sales slides ─── */
 export const techSalesSlides = [
   { title: "HVAC Estimate Sales Guide", component: TechSalesCoverSlide, keywords: "tech sales cover estimate hvac guide training" },
@@ -1059,6 +1229,7 @@ export const techSalesSlides = [
   { title: "Identifying Pain Points", component: PainPointsSlide, keywords: "pain points discovery questions comfort bills allergies" },
   { title: "Good / Better / Best", component: GoodBetterBestSlide, keywords: "good better best tiered pricing presentation options seer" },
   { title: "Install Pricing Framework", component: InstallPricingFrameworkSlide, keywords: "install pricing framework residential commercial add-ons furnace heat pump mini split boiler" },
+  { title: "Cash / Check vs. Financing", component: CashVsFinancingSlide, keywords: "cash check financing payment deposit deal flow credit monthly" },
   { title: "Presenting the Investment", component: PresentingInvestmentSlide, keywords: "investment price presentation language photos recap" },
   { title: "Financing Close", component: FinancingSlide, keywords: "financing monthly payment 0% interest close approval" },
   { title: "Home+ Membership Tie-In", component: MembershipTieInSlide, keywords: "membership home+ tune-up discount bundle included" },
