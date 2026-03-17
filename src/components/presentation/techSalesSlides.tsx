@@ -1207,6 +1207,7 @@ export const CashVsFinancingSlide = () => {
                   "\"A lot of our customers go with financing because it lets them get the BEST system now without a big hit to savings.\"",
                   "\"Let me run a quick pre-qualification — it's a soft pull, won't affect your credit score. Takes about 60 seconds.\"",
                   "\"You're approved! Here's what it looks like: [amount]/month for [term] months. That's less than most people's streaming subscriptions combined.\"",
+                  "\"We just need $1,000 or 10% today to lock you in, and then 3 days before your install we collect the remaining balance so we can secure your equipment and make sure everything goes smoothly.\"",
                 ].map((line, i) => (
                   <div key={i} className="flex items-start gap-2 rounded-lg p-2.5" style={{ background: SURFACE2 }}>
                     <MessageSquare className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ORANGE }} />
