@@ -1091,8 +1091,8 @@ export const CashVsFinancingSlide = () => {
               {[
                 { step: "1", text: "Present Good / Better / Best options", note: "Always show all three" },
                 { step: "2", text: "Customer selects their package", note: "Confirm scope out loud" },
-                { step: "3", text: "Collect 50% deposit (check or cash)", note: "Receipt required — write it up on the spot" },
-                { step: "4", text: "Remaining 50% due at completion", note: "Before crew leaves the job" },
+                { step: "3", text: "Collect deposit — $1,000 or 10%, whichever is greater", note: "Receipt required — write it up on the spot" },
+                { step: "4", text: "Remaining balance due at completion", note: "Before crew leaves the job" },
                 { step: "5", text: "Issue final invoice + warranty docs", note: "Email same day" },
               ].map((s, i) => (
                 <div key={i} className="flex items-start gap-3 rounded-xl p-3" style={{ background: SURFACE2 }}>
