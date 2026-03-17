@@ -5,7 +5,8 @@ import {
   ThermometerSun, Zap, FileText, MessageSquare, Heart,
   Target, TrendingUp, Award, Handshake, Eye, Lightbulb,
   BadgeCheck, CircleDollarSign, Calculator, Scale, Timer,
-  RefreshCw, Search, ShieldCheck, Gauge, CalendarCheck
+  RefreshCw, Search, ShieldCheck, Gauge, CalendarCheck,
+  Banknote, CreditCard, Percent, ArrowDownUp
 } from "lucide-react";
 
 const ORANGE = "hsl(15, 90%, 55%)";
