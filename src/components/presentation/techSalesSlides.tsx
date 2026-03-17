@@ -1132,8 +1132,8 @@ export const CashVsFinancingSlide = () => {
               <h3 className="text-lg font-bold text-white mb-3" style={{ color: ORANGE }}>💬 Script</h3>
               <div className="space-y-2">
                 {[
-                  "\"For cash or check, we just need $1,000 or 10% — whichever is greater — to lock in your install date. The rest is due when the job's done and you're 100% happy.\"",
-                  "\"A lot of homeowners prefer this because it's straightforward — no interest, no monthly payments, just a clean deal.\"",
+                  "\"For cash or check, we just need $1,000 or 10% — whichever is greater — to lock in your install date. Then we'll need 50% of the total collected before the install, and the remaining balance when the job's done.\"",
+                  "\"Most homeowners prefer this because it's straightforward — no interest, no monthly payments, just a clean deal.\"",
                   "\"I'll write you a receipt right now and we'll get you on the schedule.\"",
                 ].map((line, i) => (
                   <div key={i} className="flex items-start gap-2 rounded-lg p-2.5" style={{ background: SURFACE2 }}>
