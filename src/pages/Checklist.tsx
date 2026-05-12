@@ -59,7 +59,11 @@ export default function Checklist() {
 
   // Load rubrics + most recent open session on mount
   useEffect(() => {
-    if (!auth) return;
+    if (loading) return;
+    if (!auth) {
+      setBootstrapping(false);
+      return;
+    }
     (async () => {
       const { data: rs } = await supabase.from("rubrics").select("id,slug,name").order("name");
       setRubrics(rs ?? []);
@@ -74,7 +78,7 @@ export default function Checklist() {
       setBootstrapping(false);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [auth?.user.id]);
+  }, [loading, auth?.user.id]);
 
   const loadSession = async (s: Session) => {
     setActiveSession(s);
