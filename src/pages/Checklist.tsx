@@ -365,6 +365,26 @@ function LiveSession({
                       value={st?.reflection ?? ""}
                       onChange={(e) => setReflection(item, e.target.value)}
                     />
+                    <div className="mt-2 flex items-center gap-2">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => runCoach(item.id)}
+                        disabled={coachLoading === item.id}
+                      >
+                        {coachLoading === item.id ? (
+                          <Loader2 className="h-3 w-3 mr-1 animate-spin" />
+                        ) : (
+                          <Sparkles className="h-3 w-3 mr-1" />
+                        )}
+                        Coach this item
+                      </Button>
+                    </div>
+                    {coachingByItem[item.id] && (
+                      <div className="mt-2 rounded-md border bg-muted/40 p-3 text-sm prose prose-sm max-w-none dark:prose-invert">
+                        <ReactMarkdown>{coachingByItem[item.id]}</ReactMarkdown>
+                      </div>
+                    )}
                   </div>
                 );
               })}
