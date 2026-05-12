@@ -281,6 +281,27 @@ function LiveSession({
     }, 600);
   };
 
+  const [coachingByItem, setCoachingByItem] = useState<Record<string, string>>({});
+  const [coachingOverall, setCoachingOverall] = useState<string>("");
+  const [coachLoading, setCoachLoading] = useState<string | "overall" | null>(null);
+
+  const runCoach = async (focusItemId?: string) => {
+    setCoachLoading(focusItemId ?? "overall");
+    try {
+      const { data, error } = await supabase.functions.invoke("ai-coach", {
+        body: { session_id: session.id, focus_item_id: focusItemId ?? null },
+      });
+      if (error) throw error;
+      const summary: string = data?.review?.overall_summary ?? "";
+      if (focusItemId) setCoachingByItem((s) => ({ ...s, [focusItemId]: summary }));
+      else setCoachingOverall(summary);
+    } catch (e: any) {
+      toast({ title: "Coaching failed", description: e.message ?? String(e), variant: "destructive" });
+    } finally {
+      setCoachLoading(null);
+    }
+  };
+
   const finalize = async (outcome: string, revenue: string) => {
     const rev = revenue ? Number(revenue) : null;
     const { data, error } = await supabase
