@@ -408,7 +408,7 @@ function LiveSession({
         )}
       </div>
 
-      <div className="md:sticky md:top-4 self-start">
+      <div className="md:sticky md:top-4 self-start space-y-4">
         <Card>
           <CardHeader><CardTitle className="text-base">Live score</CardTitle></CardHeader>
           <CardContent className="space-y-3">
@@ -418,8 +418,29 @@ function LiveSession({
               {score.earned} / {score.possibleAll} pts<br/>
               answered {score.answeredCount}/{score.totalCount}
             </div>
+            <Button
+              size="sm"
+              className="w-full"
+              onClick={() => runCoach()}
+              disabled={coachLoading === "overall"}
+            >
+              {coachLoading === "overall" ? (
+                <Loader2 className="h-3 w-3 mr-1 animate-spin" />
+              ) : (
+                <Sparkles className="h-3 w-3 mr-1" />
+              )}
+              AI coach this session
+            </Button>
           </CardContent>
         </Card>
+        {coachingOverall && (
+          <Card>
+            <CardHeader><CardTitle className="text-base">Coach feedback</CardTitle></CardHeader>
+            <CardContent className="prose prose-sm max-w-none dark:prose-invert text-sm">
+              <ReactMarkdown>{coachingOverall}</ReactMarkdown>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );
