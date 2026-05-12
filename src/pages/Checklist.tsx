@@ -15,6 +15,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
+import ReactMarkdown from "react-markdown";
+import { Sparkles, Loader2 } from "lucide-react";
 
 type Rubric = { id: string; slug: string; name: string };
 type Category = { id: string; rubric_id: string; name: string; sort_order: number; weight: number };
