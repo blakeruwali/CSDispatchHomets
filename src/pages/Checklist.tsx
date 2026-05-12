@@ -15,6 +15,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
+import ReactMarkdown from "react-markdown";
+import { Sparkles, Loader2 } from "lucide-react";
 
 type Rubric = { id: string; slug: string; name: string };
 type Category = { id: string; rubric_id: string; name: string; sort_order: number; weight: number };
@@ -279,6 +281,27 @@ function LiveSession({
     }, 600);
   };
 
+  const [coachingByItem, setCoachingByItem] = useState<Record<string, string>>({});
+  const [coachingOverall, setCoachingOverall] = useState<string>("");
+  const [coachLoading, setCoachLoading] = useState<string | "overall" | null>(null);
+
+  const runCoach = async (focusItemId?: string) => {
+    setCoachLoading(focusItemId ?? "overall");
+    try {
+      const { data, error } = await supabase.functions.invoke("ai-coach", {
+        body: { session_id: session.id, focus_item_id: focusItemId ?? null },
+      });
+      if (error) throw error;
+      const summary: string = data?.review?.overall_summary ?? "";
+      if (focusItemId) setCoachingByItem((s) => ({ ...s, [focusItemId]: summary }));
+      else setCoachingOverall(summary);
+    } catch (e: any) {
+      toast({ title: "Coaching failed", description: e.message ?? String(e), variant: "destructive" });
+    } finally {
+      setCoachLoading(null);
+    }
+  };
+
   const finalize = async (outcome: string, revenue: string) => {
     const rev = revenue ? Number(revenue) : null;
     const { data, error } = await supabase
@@ -342,6 +365,26 @@ function LiveSession({
                       value={st?.reflection ?? ""}
                       onChange={(e) => setReflection(item, e.target.value)}
                     />
+                    <div className="mt-2 flex items-center gap-2">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => runCoach(item.id)}
+                        disabled={coachLoading === item.id}
+                      >
+                        {coachLoading === item.id ? (
+                          <Loader2 className="h-3 w-3 mr-1 animate-spin" />
+                        ) : (
+                          <Sparkles className="h-3 w-3 mr-1" />
+                        )}
+                        Coach this item
+                      </Button>
+                    </div>
+                    {coachingByItem[item.id] && (
+                      <div className="mt-2 rounded-md border bg-muted/40 p-3 text-sm prose prose-sm max-w-none dark:prose-invert">
+                        <ReactMarkdown>{coachingByItem[item.id]}</ReactMarkdown>
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -365,7 +408,7 @@ function LiveSession({
         )}
       </div>
 
-      <div className="md:sticky md:top-4 self-start">
+      <div className="md:sticky md:top-4 self-start space-y-4">
         <Card>
           <CardHeader><CardTitle className="text-base">Live score</CardTitle></CardHeader>
           <CardContent className="space-y-3">
@@ -375,8 +418,29 @@ function LiveSession({
               {score.earned} / {score.possibleAll} pts<br/>
               answered {score.answeredCount}/{score.totalCount}
             </div>
+            <Button
+              size="sm"
+              className="w-full"
+              onClick={() => runCoach()}
+              disabled={coachLoading === "overall"}
+            >
+              {coachLoading === "overall" ? (
+                <Loader2 className="h-3 w-3 mr-1 animate-spin" />
+              ) : (
+                <Sparkles className="h-3 w-3 mr-1" />
+              )}
+              AI coach this session
+            </Button>
           </CardContent>
         </Card>
+        {coachingOverall && (
+          <Card>
+            <CardHeader><CardTitle className="text-base">Coach feedback</CardTitle></CardHeader>
+            <CardContent className="prose prose-sm max-w-none dark:prose-invert text-sm">
+              <ReactMarkdown>{coachingOverall}</ReactMarkdown>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );
