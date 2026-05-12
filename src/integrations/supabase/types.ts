@@ -14,7 +14,261 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      rubric_categories: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          rubric_id: string
+          sort_order: number
+          weight: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          rubric_id: string
+          sort_order: number
+          weight: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          rubric_id?: string
+          sort_order?: number
+          weight?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "rubric_categories_rubric_id_fkey"
+            columns: ["rubric_id"]
+            isOneToOne: false
+            referencedRelation: "rubrics"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      rubric_items: {
+        Row: {
+          category_id: string
+          coaching_hints: string | null
+          created_at: string
+          description: string | null
+          id: string
+          item_type: string
+          label: string
+          max_score: number
+          sort_order: number
+          weight: number
+        }
+        Insert: {
+          category_id: string
+          coaching_hints?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          item_type: string
+          label: string
+          max_score: number
+          sort_order: number
+          weight: number
+        }
+        Update: {
+          category_id?: string
+          coaching_hints?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          item_type?: string
+          label?: string
+          max_score?: number
+          sort_order?: number
+          weight?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "rubric_items_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "rubric_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      rubrics: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          name: string
+          slug: string
+          version: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name: string
+          slug: string
+          version?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name?: string
+          slug?: string
+          version?: number
+        }
+        Relationships: []
+      }
+      session_ai_reviews: {
+        Row: {
+          completion_tokens: number | null
+          created_at: string
+          focus_item_id: string | null
+          id: string
+          model_used: string | null
+          overall_summary: string | null
+          per_item_feedback: Json
+          prompt_tokens: number | null
+          session_id: string
+        }
+        Insert: {
+          completion_tokens?: number | null
+          created_at?: string
+          focus_item_id?: string | null
+          id?: string
+          model_used?: string | null
+          overall_summary?: string | null
+          per_item_feedback: Json
+          prompt_tokens?: number | null
+          session_id: string
+        }
+        Update: {
+          completion_tokens?: number | null
+          created_at?: string
+          focus_item_id?: string | null
+          id?: string
+          model_used?: string | null
+          overall_summary?: string | null
+          per_item_feedback?: Json
+          prompt_tokens?: number | null
+          session_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "session_ai_reviews_focus_item_id_fkey"
+            columns: ["focus_item_id"]
+            isOneToOne: false
+            referencedRelation: "rubric_items"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "session_ai_reviews_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      session_item_states: {
+        Row: {
+          id: string
+          item_id: string
+          reflection: string | null
+          score: number | null
+          scored_at: string | null
+          session_id: string
+        }
+        Insert: {
+          id?: string
+          item_id: string
+          reflection?: string | null
+          score?: number | null
+          scored_at?: string | null
+          session_id: string
+        }
+        Update: {
+          id?: string
+          item_id?: string
+          reflection?: string | null
+          score?: number | null
+          scored_at?: string | null
+          session_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "session_item_states_item_id_fkey"
+            columns: ["item_id"]
+            isOneToOne: false
+            referencedRelation: "rubric_items"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "session_item_states_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sessions: {
+        Row: {
+          created_at: string
+          customer_context: string | null
+          ended_at: string | null
+          id: string
+          notes: string | null
+          outcome: string | null
+          outcome_revenue: number | null
+          owner_id: string
+          rubric_id: string
+          score_cached: number | null
+          started_at: string
+          title: string | null
+        }
+        Insert: {
+          created_at?: string
+          customer_context?: string | null
+          ended_at?: string | null
+          id?: string
+          notes?: string | null
+          outcome?: string | null
+          outcome_revenue?: number | null
+          owner_id: string
+          rubric_id: string
+          score_cached?: number | null
+          started_at?: string
+          title?: string | null
+        }
+        Update: {
+          created_at?: string
+          customer_context?: string | null
+          ended_at?: string | null
+          id?: string
+          notes?: string | null
+          outcome?: string | null
+          outcome_revenue?: number | null
+          owner_id?: string
+          rubric_id?: string
+          score_cached?: number | null
+          started_at?: string
+          title?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sessions_rubric_id_fkey"
+            columns: ["rubric_id"]
+            isOneToOne: false
+            referencedRelation: "rubrics"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
