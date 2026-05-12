@@ -6,6 +6,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Sales from "./pages/Sales";
 import Checklist from "./pages/Checklist";
+import AdminSeed from "./pages/AdminSeed";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
