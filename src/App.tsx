@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Sales from "./pages/Sales";
 import Checklist from "./pages/Checklist";
 import AdminSeed from "./pages/AdminSeed";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
