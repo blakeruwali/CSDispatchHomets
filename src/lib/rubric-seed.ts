@@ -18,7 +18,7 @@ export type SeedCategory = {
 };
 
 export type SeedRubric = {
-  slug: "sales" | "dispatch";
+  slug: "sales" | "dispatch" | "csm";
   name: string;
   categories: SeedCategory[];
 };
