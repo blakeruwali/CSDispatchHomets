@@ -18,7 +18,7 @@ export type SeedCategory = {
 };
 
 export type SeedRubric = {
-  slug: "sales" | "dispatch";
+  slug: "sales" | "dispatch" | "csm";
   name: string;
   categories: SeedCategory[];
 };
@@ -291,4 +291,194 @@ export const dispatchRubric: SeedRubric = {
   ],
 };
 
-export const allRubrics: SeedRubric[] = [salesRubric, dispatchRubric];
+export const csmRubric: SeedRubric = {
+  slug: "csm",
+  name: "CSM — SOP Call Scorecard",
+  categories: [
+    {
+      name: "Greeting & Tone (SOP Part 2)",
+      sort_order: 1,
+      weight: 10,
+      items: [
+        B("Answered within 3 rings (or callback within SLA)", 1, 2),
+        B("Used verbatim greeting: 'Thank you for choosing Home+ Air and Heat, this is [name], how can we serve you today?'", 2, 4),
+        Q(
+          "Warm, unhurried tone — customer felt heard, not processed",
+          3,
+          4,
+          "0 = robotic/rushed; 1 = polite but transactional; 2 = warm, calm, unmistakably human",
+        ),
+      ],
+    },
+    {
+      name: "Customer Interaction (SOP Part 2)",
+      sort_order: 2,
+      weight: 12,
+      items: [
+        Q(
+          "Acknowledged concern BEFORE asking intake questions",
+          1,
+          4,
+          "0 = jumped to form; 1 = brief 'sorry to hear that'; 2 = empathetic reflect-back naming the pain",
+        ),
+        B("No hold longer than 60 seconds without a check-back", 2, 3),
+        Q(
+          "Active listening — repeated key details back to confirm",
+          3,
+          3,
+          "0 = none; 1 = confirmed once; 2 = confirmed address, system, and issue in customer's words",
+        ),
+        B("No jargon dumped on the customer (or explained if used)", 4, 2),
+      ],
+    },
+    {
+      name: "Emergency Screening (SOP Part 3)",
+      sort_order: 3,
+      weight: 10,
+      items: [
+        B("Asked emergency-screening question early (gas smell / CO / no heat in cold / active leak/flood)", 1, 4),
+        Q(
+          "On emergency: gave safety instruction (911 / leave premises / shut main) BEFORE booking",
+          2,
+          4,
+          "0 = booked first; 1 = safety after intake; 2 = safety first, then dispatch/escalate",
+        ),
+        B("Escalated correctly if outside CSM hours or true emergency", 3, 2),
+      ],
+    },
+    {
+      name: "Intake — Required Fields (SOP Part 3)",
+      sort_order: 4,
+      weight: 16,
+      items: [
+        B("Full name (first + last)", 1, 2),
+        B("Primary phone (+ alt if available)", 2, 2),
+        B("Full service address incl. apt/unit #", 3, 3),
+        B("Email captured for confirmation", 4, 2),
+        B("Service type identified (Repair / Install / Maintenance)", 5, 2),
+        B("System type identified (Boiler / Furnace / AC / HP / Mini Split / Plumbing)", 6, 2),
+        B("Residential vs Commercial flagged", 7, 2),
+        B("System age captured", 8, 1),
+      ],
+    },
+    {
+      name: "Diagnosis Detail & Rate Framing (SOP Part 4)",
+      sort_order: 5,
+      weight: 12,
+      items: [
+        Q(
+          "Asked clarifying questions until the ticket was dispatch-ready",
+          1,
+          4,
+          "0 = vague ('AC broken'); 1 = some detail; 2 = tech can arrive with the right parts/skills",
+        ),
+        Q(
+          "Framed diagnostic fee as VALUE, not cost ($199 res / $269 comm)",
+          2,
+          3,
+          "0 = 'it's $X'; 1 = mentioned what's included; 2 = full value frame — visit + safety inspection + written estimate",
+        ),
+        Q(
+          "Stated labor rate correctly when asked ($299/hr res, $349/hr comm)",
+          3,
+          3,
+          "0 = wrong or dodged; 1 = stated but flat; 2 = stated with confidence + value context",
+        ),
+        B("Never quoted a repair price sight-unseen", 4, 2),
+      ],
+    },
+    {
+      name: "Home+ Membership Pivot (SOP Part 4)",
+      sort_order: 6,
+      weight: 10,
+      items: [
+        Q(
+          "Pivoted to Home+ using social proof ('most homeowners choose…')",
+          1,
+          4,
+          "0 = no pivot; 1 = generic mention; 2 = social-proof framing tied to today's call",
+        ),
+        Q(
+          "Tied Home+ ($19.99/mo) to a savings moment on THIS call",
+          2,
+          4,
+          "0 = generic pitch; 1 = mentioned savings; 2 = bundled with today's diag/repair math",
+        ),
+        B("Confirmed existing membership status before pitching", 3, 2),
+      ],
+    },
+    {
+      name: "Booking & 90-Min Guarantee (SOP Part 4)",
+      sort_order: 7,
+      weight: 12,
+      items: [
+        B("Offered a specific time window (not 'sometime tomorrow')", 1, 3),
+        B("Confirmed window verbally with the customer", 2, 2),
+        B("Stated the 90-minute arrival guarantee out loud", 3, 3),
+        Q(
+          "Used the 90-min guarantee as a closing lever",
+          4,
+          4,
+          "0 = never said; 1 = mentioned; 2 = used to close a hesitant customer",
+        ),
+      ],
+    },
+    {
+      name: "Objection Handling (SOP Part 4)",
+      sort_order: 8,
+      weight: 8,
+      items: [
+        Q(
+          "Handled a price/scope objection without conceding the fee",
+          1,
+          5,
+          "0 = caved / waived fee; 1 = deflected; 2 = re-anchored to value + guarantee, held price",
+        ),
+        Q(
+          "Handled 'I'll call around' with confidence, not desperation",
+          2,
+          3,
+          "0 = begged; 1 = neutral; 2 = re-framed on value/response time and offered to hold slot",
+        ),
+      ],
+    },
+    {
+      name: "Channel-Specific SLAs (SOP Part 5)",
+      sort_order: 9,
+      weight: 6,
+      items: [
+        B("LSA lead: callback attempted within 15 minutes", 1, 2),
+        B("Web lead: callback attempted within 5 minutes", 2, 2),
+        B("Posh handoff: reviewed message and returned call within SLA", 3, 2),
+      ],
+    },
+    {
+      name: "Post-Booking / ServiceTitan (SOP Part 6)",
+      sort_order: 10,
+      weight: 8,
+      items: [
+        B("ServiceTitan ticket created with all required fields", 1, 3),
+        B("Correct business unit + job type selected", 2, 2),
+        B("Confirmation text/email sent to customer", 3, 2),
+        B("Notes field written so the tech can act on it (no vague 'not working')", 4, 1),
+      ],
+    },
+    {
+      name: "Wrap-Up",
+      sort_order: 11,
+      weight: 6,
+      items: [
+        B("Asked 'how did you hear about us?'", 1, 2),
+        Q(
+          "Closed warmly — recap booking + thank-you using Home+ language",
+          2,
+          4,
+          "0 = abrupt hangup; 1 = thank-you only; 2 = recap of window + tech + prep, warm close",
+        ),
+      ],
+    },
+  ],
+};
+
+export const allRubrics: SeedRubric[] = [salesRubric, dispatchRubric, csmRubric];
+
