@@ -37,6 +37,7 @@ This folder is the **single source of truth** for all Homets Services operationa
 | `playbooks/`   | Channel-specific handling (LSA, web leads, Posh, referral)                 |
 | `people/`      | HR, onboarding, safety, certifications                                     |
 | `reference/`   | Service scope, membership plans, geographic coverage, equipment supported  |
+| `governance/`  | How the SOP itself is controlled — doc control, QA rubrics, coaching cadence |
 | `_migrated/`   | **TEMPORARY** — raw exports from the old JSX slide/KB files before restructuring. Delete once migrated. |
 
 ## Frontmatter spec
@@ -82,6 +83,13 @@ Our diagnostic fee is {{price:diagnostic_residential}} for residential.
 
 Tokens are defined once in `content/pricing/tokens.md`. Renderer resolves at display time. When the ServiceTitan integration ships, tokens resolve from live pricebook data and any doc contradicting the pricebook becomes a build warning.
 
+## Where to start
+
+- **[`INDEX.md`](INDEX.md)** — the master map: every document the complete company SOP requires, across every department, with status and owner. Start here.
+- **[`_migrated/STATUS.md`](_migrated/STATUS.md)** — migration progress against the source `.tsx` files.
+
 ## Migration status
 
-Phase 1 extracts the ~68 existing slides + KB articles + CSM SOP into this structure. Progress lives in `content/_migrated/STATUS.md`.
+Phase 1 extracts the ~68 existing slides + KB articles + CSM SOP into this structure.
+
+**CSM is complete** — all 38 sections, 42 documents. Dispatch, tech sales, and the KB are pending. Progress lives in `content/_migrated/STATUS.md`; the full company gap analysis lives in `INDEX.md`.
