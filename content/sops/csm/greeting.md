@@ -4,7 +4,7 @@ title: CSM Greeting Standard
 department: csm
 owner: cs-manager
 status: published
-version: 2
+version: 3
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [greeting, script, csm, opening]
@@ -47,6 +47,16 @@ The customer had options. Google showed them five HVAC companies. They picked us
 ### Why "serve" matters
 
 "Help" is transactional. "Serve" is relational. It signals we're here for more than this one call — it's the opening move of a Home+ membership conversation, whether they know it yet or not.
+
+## Returning customers {#returning}
+
+When caller ID matches an existing ServiceTitan record, add one clause — nothing else changes:
+
+> **"Thank you for choosing Home+ Air and Heat, this is [name] — welcome back! How can we serve you today?"**
+
+Recognizing a repeat customer in the first three seconds is the cheapest loyalty we ever buy. Check the screen before you pick up.
+
+If the match is uncertain, use the standard greeting. Greeting a stranger with "welcome back" is worse than not recognizing anyone.
 
 ## Tone {#tone}
 

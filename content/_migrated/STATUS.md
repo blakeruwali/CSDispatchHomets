@@ -11,8 +11,8 @@ Phase 1 goal: extract every piece of hardcoded content from the app into `conten
 | `src/components/csm/csmSopData.tsx` | 873 | CSM SOP v1.0 (7 parts, 38 sections) | `sops/csm/`, `scripts/`, `playbooks/`, `protocols/`, `governance/`, `people/` | ✅ **complete — 38 of 38 sections → 42 docs** |
 | `src/components/presentation/slideData.tsx` | 4,914 | Dispatch tool slides (~48 slides) | `sops/dispatch/`, `protocols/`, `playbooks/`, `reference/` | ⏳ pending |
 | `src/components/presentation/techSalesSlides.tsx` | 1,250 | Sales guide slides (~24 slides) | `sops/sales/`, `pricing/`, `scripts/` | ⏳ pending |
-| `src/components/knowledge-base/kbData.tsx` | 2,250 | KB articles (13 sections, ~80 articles) | `reference/`, `protocols/` | ⏳ pending |
-| **Total** | **9,287** | | | **1 of 4 sources complete (~9% by line)** |
+| `src/components/knowledge-base/kbData.tsx` | 2,250 | KB articles (13 sections, ~80 articles) | `reference/`, `protocols/` | 🟡 **CSM-relevant sections reconciled and migrated** (phone scripts, objections, post-service, policies, service area). Equipment, thermostats, FAQ, commercial, IAQ, plumbing still pending. |
+| **Total** | **9,287** | | | **1 of 4 sources complete; CSM surface area finished across two** |
 
 ## Completed — CSM SOP
 
@@ -34,11 +34,33 @@ All 7 parts migrated. Sections were distributed by taxonomy rather than kept in 
 - **Every price was replaced with a token.** `$199` → `{{price:diagnostic_residential}}` and so on. `pricing/tokens.md` grew from 20 to 32 tokens to absorb operating constants (hold cap, ring target, callback deadlines, service windows) that were previously repeated inline across sections.
 - **`playbooks/referral.md` was created as `draft-needed`.** `sop.csm.lead-source` promises referring customers a credit; no source document defines what that credit is. The gap is now visible rather than implied.
 
+## Completed — CSM knowledge-base reconciliation
+
+The KB sections a CSM uses on a live call were reconciled against the migrated SOP rather than copied. That surfaced **10 contradictions between two sources both live today** — recorded in [`csm-reconciliation.md`](csm-reconciliation.md), 4 of which need an owner decision.
+
+**Gaps the KB filled** — real call scenarios the SOP was silent on:
+
+| New doc | Covers |
+|---|---|
+| `sop.csm.non-english-callers` | Interpreter protocol, Spanish emergency phrases, never use a child to translate |
+| `sop.csm.escalation` | Consolidated escalation triggers + money-back authority limits |
+| `sop.csm.warranty-callback` | Identifying a no-charge callback *before* quoting |
+| `sop.csm.service-area` | Coverage zones, out-of-area, fully-booked days, waitlist |
+| `sop.csm.post-service-followup` | 24h follow-up, negative feedback handling |
+| `sop.csm.membership-retention` | Renewal outreach, cancellation saves |
+| `script.csm.voicemail` | Four voicemail scripts + after-hours attendant |
+| `script.csm.review-request` | Google review ask, and the policy rules around it |
+| `script.csm.seasonal-outreach` | Pre-winter and pre-summer tune-up campaigns |
+| `script.csm.tone-language` | Say-this / avoid-this phrasing |
+| `reference.guarantees` | Arrival, satisfaction, warranty periods, cancellation, refunds |
+
+**Existing docs improved** where the KB was sharper: concrete emergency temperature thresholds in `protocol.emergency.triage` (v2), hold-escalation and cold-transfer fallback in `sop.csm.transfer-hold` (v2), returning-customer greeting in `sop.csm.greeting` (v3), consolidated escalation in `sop.csm.de-escalation` (v2).
+
 ## Not yet started
 
-`slideData.tsx`, `techSalesSlides.tsx`, `kbData.tsx`. Per-document target lists in `INDEX.md` §3–5.
+`slideData.tsx`, `techSalesSlides.tsx`, and the non-CSM half of `kbData.tsx`. Per-document target lists in `INDEX.md` §3–5.
 
-**Before migrating the KB:** three of its sections (objection handling, phone scripts, membership) restate content now published under `sops/csm/` and `scripts/`. Migrating them verbatim would create a second source of truth — the exact thing this repository exists to prevent. Reconcile first.
+**When migrating the rest of the KB:** the reconciled articles must not be copied verbatim — that recreates the contradiction in the place meant to end it. The retire / migrate / hold decision for each is at the bottom of `csm-reconciliation.md`.
 
 ## Extraction process
 
@@ -52,14 +74,17 @@ Each slide/section becomes ONE markdown file with:
 
 ## Verification checklist (Phase 5)
 
-- [x] Every price in every migrated doc uses a token. *(CSM verified — 27 tokens in use)*
-- [x] Every token used exists in `content/pricing/tokens.md`. *(verified — 0 undefined)*
-- [x] No broken `related` ids. *(verified across all 43 docs)*
-- [ ] No orphan docs (every doc surfaces somewhere in the app or is `status: archived`).
-- [ ] Frontmatter validates against schema. *(no validator written — see below)*
+Now enforced by `npm run validate:content` rather than checked by hand:
+
+- [x] Every price in every migrated doc uses a token.
+- [x] Every token used exists in `content/pricing/tokens.md`.
+- [x] No broken `related` or body cross-references.
+- [x] No duplicate ids.
+- [x] Frontmatter present, complete, and using a valid `status`.
+- [x] Staleness surfaced as a warning against `last_reviewed + review_cadence_days`.
+- [ ] No orphan docs (every doc surfaces somewhere in the app or is `status: archived`) — needs the renderer first.
 
 ## Known follow-ups
 
-- **No automated validator exists.** The checks above were run ad hoc against the current tree. A CI script that fails the build on an undefined token, a broken id, or malformed frontmatter would make these guarantees permanent instead of point-in-time.
-- **The app still reads from the `.tsx` files.** Migration produced the markdown; nothing renders from it yet. The build step / edge function described in `content/README.md` is unbuilt, so `/csm` still serves `csmSopData.tsx`. Until that ships, `content/` and the app can drift.
+- **The app still reads from the `.tsx` files.** Migration produced the markdown; nothing renders from it yet. The build step / edge function described in `content/README.md` is unbuilt, so `/csm` still serves `csmSopData.tsx`. **Until that ships, the reconciliation is documented but not delivered** — staff still read the contradicting KB in the app.
 - **`src/lib/rubric-seed.ts` does not reference SOP anchors.** Every rubric category now has a matching doc and anchor — wiring them turns a low score into a link to the standard it failed.

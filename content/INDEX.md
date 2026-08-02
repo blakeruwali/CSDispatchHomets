@@ -10,7 +10,7 @@ Every document the complete company SOP requires, whether or not it exists yet. 
 
 | Department | Docs required | Published | Remaining | Source material |
 |---|---|---|---|---|
-| CSM | 35 | 35 | 0 | ✅ complete |
+| CSM | 46 | 46 | 0 | ✅ complete — SOP + KB reconciled |
 | Dispatch | ~24 | 0 | ~24 | `slideData.tsx` (4,914 lines) |
 | Sales (tech) | ~22 | 0 | ~22 | `techSalesSlides.tsx` (1,250 lines) |
 | Reference / KB | ~30 | 0 | ~30 | `kbData.tsx` (2,250 lines) |
@@ -24,7 +24,7 @@ Every document the complete company SOP requires, whether or not it exists yet. 
 
 ## 1. CSM — Customer Service ✅ complete
 
-The flagship SOP. Fully migrated from `csmSopData.tsx`, all 7 parts, 38 sections.
+The flagship SOP. All 7 parts and 38 sections of `csmSopData.tsx`, **plus** the CSM-relevant knowledge-base material reconciled against it. Conflicts found during that reconciliation are recorded in [`_migrated/csm-reconciliation.md`](_migrated/csm-reconciliation.md) — four still need an owner decision.
 
 ### Foundations
 | Doc | id | Status |
@@ -44,6 +44,8 @@ The flagship SOP. Fully migrated from `csmSopData.tsx`, all 7 parts, 38 sections
 | **Emergency Triage Matrix** | `protocol.emergency.triage` | ✅ |
 | Difficult Customers & De-escalation | `sop.csm.de-escalation` | ✅ |
 | Warm Transfer & Hold | `sop.csm.transfer-hold` | ✅ |
+| **Escalation & Money-Back Authority** | `sop.csm.escalation` | ✅ |
+| **Non-English Caller Handling** | `sop.csm.non-english-callers` | ✅ |
 
 ### Intake
 | Doc | id | Status |
@@ -65,6 +67,7 @@ The flagship SOP. Fully migrated from `csmSopData.tsx`, all 7 parts, 38 sections
 | Confirmation & Expectations Read-Back | `sop.csm.confirmation` | ✅ |
 | Reschedules & Cancellations | `sop.csm.reschedules` | ✅ |
 | No-Show / Ghost Recovery | `sop.csm.no-show-recovery` | ✅ |
+| **Service Area, Out-of-Area & Fully-Booked** | `sop.csm.service-area` | ✅ |
 
 ### Post-booking
 | Doc | id | Status |
@@ -72,15 +75,27 @@ The flagship SOP. Fully migrated from `csmSopData.tsx`, all 7 parts, 38 sections
 | ServiceTitan Ticket Standards | `sop.csm.ticket-standards` | ✅ |
 | Dispatch Handoff Checklist | `sop.csm.dispatch-handoff` | ✅ |
 | Customer Confirmation Cadence | `sop.csm.confirmation-cadence` | ✅ |
+| **Warranty Callback Identification** | `sop.csm.warranty-callback` | ✅ |
+| **Post-Service Follow-Up** | `sop.csm.post-service-followup` | 🟡 in-review — conflict C3 |
+| **Membership Retention & Renewal** | `sop.csm.membership-retention` | ✅ |
 
 ### Scripts
 | Doc | id | Status |
 |---|---|---|
 | Acknowledgement & Empathy Lines | `script.csm.empathy` | ✅ |
+| **Voicemail Scripts** | `script.csm.voicemail` | ✅ |
+| **Tone & Language Standards** | `script.csm.tone-language` | ✅ |
+| **Google Review Request** | `script.csm.review-request` | ✅ |
+| **Seasonal Outreach** | `script.csm.seasonal-outreach` | ✅ |
 | Objection — price | `script.objection.price` | ✅ |
 | Objection — "just a quote" | `script.objection.quote-only` | ✅ |
 | Objection — callback / spouse | `script.objection.callback-spouse` | ✅ |
 | Objection — DIY | `script.objection.diy` | ✅ |
+
+### Reference the CSM relies on
+| Doc | id | Status |
+|---|---|---|
+| **Guarantees, Warranties & Policies** | `reference.guarantees` | 🟡 in-review — conflict C1 |
 
 ### Channel playbooks
 | Doc | id | Status |
@@ -291,6 +306,19 @@ The KB has a plumbing section (services offered, water heater troubleshooting, d
 
 These cannot be answered by migration, research, or an agent. They need the owner.
 
+### 🔴 Live contradictions — two published sources disagree today
+
+Full detail in [`_migrated/csm-reconciliation.md`](_migrated/csm-reconciliation.md).
+
+| # | Question | Blocks |
+|---|---|---|
+| **C1** | **Do we charge extra after hours?** `pricing.tokens` says $299; the KB promises customers "No Emergency Surcharge — Ever" and tells CSMs to lead with it. **Customer-facing and live right now.** | `reference.guarantees`, `diagnostic_after_hours`, every after-hours call |
+| **C2** | **Can a CSM discount or waive anything independently?** SOP says no; KB says up to 10% off the next visit plus a diagnostic waiver. | `sop.csm.escalation`, `csm_credit_authority` |
+| **C3** | **Is post-service follow-up automated or a manual call on every job?** The staffing implication is significant. | `sop.csm.post-service-followup` |
+| **C4** | **Repeat no-shows: 2 strikes and a deposit, or 3 and a confirmation call?** | `sop.csm.no-show-recovery` |
+
+### Missing facts
+
 | # | Question | Blocks |
 |---|---|---|
 | 1 | **What is the Business+ commercial membership price?** | `pricing.tokens` TBD flag, every commercial membership pitch |
@@ -304,8 +332,13 @@ These cannot be answered by migration, research, or an agent. They need the owne
 
 ## Sequencing recommendation
 
-1. **Dispatch migration** — biggest source file, content already battle-tested, pure extraction. Highest value per hour.
-2. **KB reconciliation** — resolve the CSM/KB overlaps *before* migrating them, or the duplication becomes permanent.
+1. **Answer C1.** It is the only item on this page that costs money this week — a customer promised no surcharge and billed $299 leaves a review we can't undo.
+2. **Dispatch migration** — biggest source file, content already battle-tested, pure extraction. Highest value per hour.
 3. **Sales migration** — self-contained, low overlap with what's published.
-4. **Wire the rubric to anchors** — `src/lib/rubric-seed.ts` scores against categories that now have real section anchors. Linking them makes a low score jump straight to the standard it failed.
-5. **Install & People authoring** — needs interviews, not extraction. Schedule it; don't wait for it.
+4. **Remaining KB migration** — the CSM-relevant sections are done and reconciled; what's left is equipment, thermostats, FAQ and commercial reference material.
+5. **Wire the rubric to anchors** — `src/lib/rubric-seed.ts` scores against categories that now have real section anchors. Linking them makes a low score jump straight to the standard it failed.
+6. **Install & People authoring** — needs interviews, not extraction. Schedule it; don't wait for it.
+
+## Validation
+
+`npm run validate:content` checks every document: frontmatter completeness, valid status values, duplicate ids, undefined price tokens, broken cross-references, and staleness. It exits non-zero on error, so it can gate a build.

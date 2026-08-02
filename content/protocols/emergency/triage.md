@@ -4,11 +4,11 @@ title: Emergency Triage Matrix (Safety First)
 department: csm
 owner: cs-manager
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [emergency, triage, safety, gas, carbon-monoxide, leak, flooding, no-heat, no-ac]
-related: [sop.csm.greeting, sop.csm.symptom-clarification, sop.csm.coverage, governance.qa.csm]
+related: [sop.csm.greeting, sop.csm.symptom-clarification, sop.csm.coverage, sop.csm.service-area, sop.csm.non-english-callers, governance.qa.csm]
 surfaces: [csm, checklist]
 ---
 
@@ -27,9 +27,13 @@ These can surface at any point: during the greeting, mid-intake, or buried in a 
 | Smells gas | Tell the customer: **leave the house, call 911 and the utility.** Then dispatch. |
 | CO alarm active | **Leave the house, call 911.** Then dispatch. |
 | Actively flooding water | **Shut the main water valve.** Dispatch same-day priority. |
-| No heat + freezing temps + vulnerable occupant | Same-day priority. Page Dispatch. |
-| No AC + heat advisory + vulnerable occupant | Same-day priority. Page Dispatch. |
+| No heat, outside temperature {{price:emergency_temp_cold}} | Same-day priority. Page Dispatch. |
+| No heat {{price:emergency_temp_cold}} **+ vulnerable occupant** | Same-day priority, escalate ahead of other same-day work. |
+| No AC {{price:emergency_temp_hot}} + vulnerable occupant | Same-day priority. Page Dispatch. |
 | Electrical burning smell / sparks | **Kill the breaker if safe, call 911.** Then dispatch. |
+| Complete electrical failure related to HVAC | Same-day priority. Page Dispatch. |
+
+The temperature thresholds are numbers, not judgement calls, because this matrix is scored pass/fail and a stressed CSM at 2 AM should not have to decide what counts as "cold enough."
 
 ## Step 2 — Get them safe before you get their address {#sequence}
 
@@ -53,6 +57,19 @@ A yes moves a routine no-heat call to same-day priority.
 - **Outside CSM hours** — Posh escalates true emergencies to the on-call tech. See `sop.csm.coverage`.
 
 Tag the ticket priority before you save it. An emergency that reaches Dispatch untagged is an emergency that waits in line.
+
+### After-hours dispatch {#after-hours-dispatch}
+
+1. **Check the on-call schedule** in ServiceTitan before promising anything.
+2. **Contact the on-call tech** and confirm they're available.
+3. **Give a realistic ETA** — {{price:oncall_eta}} after hours. Do not quote a daytime window at 1 AM.
+4. **Tag the ticket "After-Hours."**
+
+Do not quote after-hours pricing — see the unresolved policy conflict in `reference.guarantees`.
+
+## Never say "we're fully booked" to an emergency {#never-full}
+
+The board is not the customer's problem. Emergencies get a slot; freeing one is the dispatch manager's job. See `sop.csm.service-area`.
 
 ## Scoring {#scoring}
 

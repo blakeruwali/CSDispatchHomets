@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [membership, home-plus, business-plus, status, lapsed, servicetitan]
-related: [sop.csm.membership-pivot, sop.csm.diagnostic-fee, sop.csm.tools]
+related: [sop.csm.membership-pivot, sop.csm.membership-retention, sop.csm.diagnostic-fee, sop.csm.tools]
 surfaces: [csm, checklist]
 ---
 
@@ -43,4 +43,5 @@ A lapsed member already bought the value once. Offer reinstatement at the same r
 ## Related
 
 - The non-member pitch: `sop.csm.membership-pivot`
+- Renewals, saves and cancellations: `sop.csm.membership-retention`
 - Fee framing: `sop.csm.diagnostic-fee`

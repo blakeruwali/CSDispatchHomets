@@ -9,7 +9,7 @@ last_reviewed: 2026-08-02
 review_cadence_days: 180
 tags: [role, responsibilities, csm, foundations]
 supersedes: []
-related: [sop.csm.coverage, sop.csm.kpis, sop.csm.dispatch-handoff, people.onboarding.csm]
+related: [sop.csm.coverage, sop.csm.kpis, sop.csm.escalation, sop.csm.dispatch-handoff, people.onboarding.csm]
 surfaces: [csm]
 ---
 

@@ -41,6 +41,8 @@ Rebook cleanly and don't mention what it cost us. Leading with a fee on the reco
 
 This is a Manager-visible flag on the account, not a conversation the CSM improvises. The pattern, not the incident, is what changes the terms.
 
+> ⚠️ **Unconfirmed — conflict C4.** The knowledge base sets this at **3+** no-shows and calls for a **confirmation call** rather than a deposit. This document keeps the SOP's stricter position pending an owner decision. Note that a deposit requirement likely needs a stated customer-facing policy before we can enforce it. See `_migrated/csm-reconciliation.md`.
+
 ## Texting rules apply {#sms}
 
 The rebook-link text counts against the outbound cap in `playbook.sms` — {{price:sms_max_unanswered}} without a reply. Two attempts, then stop.

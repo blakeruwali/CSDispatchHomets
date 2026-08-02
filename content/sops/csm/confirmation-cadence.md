@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [confirmation, cadence, reminder, survey, review, automation]
-related: [sop.csm.confirmation, playbook.sms, sop.csm.tools]
+related: [sop.csm.confirmation, sop.csm.post-service-followup, script.csm.review-request, playbook.sms, sop.csm.tools]
 surfaces: [csm, checklist]
 ---
 
@@ -38,7 +38,13 @@ If a customer says they didn't get a reminder, check the ticket rather than text
 
 Review requests go only to customers who scored 4 or higher on the survey. That gate is deliberate — soliciting a review from an unhappy customer produces exactly the review you'd expect. A low score is a Manager follow-up, not a review request.
 
+## When a manual call is warranted anyway {#manual-call}
+
+Some jobs earn a personal follow-up on top of the automation — large tickets, low survey scores, warranty callbacks, previously escalated customers. Which ones, and the script: `sop.csm.post-service-followup`.
+
 ## Related
 
 - The booking read-back: `sop.csm.confirmation`
+- Manual follow-up calls: `sop.csm.post-service-followup`
+- Review request script: `script.csm.review-request`
 - SMS rules: `playbook.sms`

@@ -4,11 +4,11 @@ title: Difficult Customers & De-escalation
 department: csm
 owner: cs-manager
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [difficult, angry, de-escalation, complaint, escalation, manager]
-related: [sop.csm.transfer-hold, sop.csm.reschedules, script.csm.empathy]
+related: [sop.csm.escalation, sop.csm.transfer-hold, sop.csm.reschedules, script.csm.empathy, script.csm.tone-language]
 surfaces: [csm, checklist]
 ---
 
@@ -29,14 +29,11 @@ Owning the past problem is the Manager's call, not the CSM's. Owning the next st
 
 ## Escalate to Manager immediately {#escalate}
 
-Stop de-escalating and hand off the moment any of these appear:
+Stop de-escalating and hand off the moment any escalation trigger appears — a manager request, a legal or BBB threat, a discrimination claim, **a safety complaint about a technician**, alleged property damage, abusive language, or a third report of the same issue.
 
-- Customer asks for a manager.
-- Customer threatens a review, the BBB, or an attorney.
-- Any discrimination or harassment claim.
-- Repeat caller with a prior complaint on the account.
+**The full list, and what a CSM may offer before escalating, lives in one place: `sop.csm.escalation`.** Don't work from memory on this — it's the document that decides whether you're still handling a call or handing it over.
 
-These are not failures of your handling — they are the defined boundary of the role. See `sop.csm.role`.
+These are not failures of your handling. They are the defined boundary of the role — see `sop.csm.role`.
 
 Hand off warm, never blind: brief the Manager on the customer's name, the issue, and what you've already done. Procedure in `sop.csm.transfer-hold`.
 

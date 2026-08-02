@@ -4,11 +4,11 @@ title: CSM QA Scoring Rubric
 department: csm
 owner: cs-manager
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [qa, scoring, rubric, weights, checklist, coaching]
-related: [governance.coaching, sop.csm.kpis, protocol.emergency.triage]
+related: [governance.coaching, sop.csm.kpis, protocol.emergency.triage, sop.csm.escalation, sop.csm.warranty-callback, sop.csm.non-english-callers]
 surfaces: [csm, checklist]
 ---
 
@@ -48,6 +48,14 @@ A 1 is not a failing grade. It is the most common score and the whole point of c
 - Manager scores **3 calls per CSM per week**.
 - Reviewed in the weekly 1:1 — `governance.coaching`.
 - The AI coach summary at `/checklist` supplements the manager's read; it does not replace it.
+
+## Not scored on a standard call {#not-scored}
+
+Some standards apply only when the situation arises, so they sit outside the weighted categories and are scored when present:
+
+- **Escalation handled correctly** — `sop.csm.escalation`. Getting a safety complaint or legal threat to a Manager promptly is pass/fail in its own right.
+- **Warranty callback identified before quoting** — `sop.csm.warranty-callback`. Quoting a diagnostic on a covered callback is an automatic fail on that call.
+- **Interpreter used rather than a family member** — `sop.csm.non-english-callers`.
 
 ## Every rubric line points at a document {#traceability}
 

@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [availability, window, booking, schedule, same-day, dispatch]
-related: [sop.csm.confirmation, sop.csm.reschedules, sop.csm.dispatch-handoff]
+related: [sop.csm.confirmation, sop.csm.reschedules, sop.csm.service-area, sop.csm.dispatch-handoff]
 surfaces: [csm, checklist]
 ---
 
