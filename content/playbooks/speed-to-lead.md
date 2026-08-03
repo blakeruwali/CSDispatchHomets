@@ -4,11 +4,11 @@ title: Speed to Lead — The Standard
 department: csm
 owner: cs-manager
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-08-03
 review_cadence_days: 90
 tags: [speed-to-lead, outbound, marketplace, angi, thumbtack, yelp, sla, lead-duty]
-related: [playbook.angi, playbook.thumbtack, playbook.yelp, script.csm.marketplace-outreach, playbook.lsa, playbook.web]
+related: [playbook.angi, playbook.thumbtack, playbook.yelp, script.csm.marketplace-outreach, playbook.lsa, playbook.web, sop.csm.tools]
 section: channels
 order: 1
 surfaces: [csm, checklist]
@@ -40,15 +40,15 @@ Inbound volume rose, the phones filled up, and marketplace leads quietly became 
 
 Two things fix it, and both are needed:
 
-1. **A named owner.** Not "the team" — a person, per shift.
-2. **A queue that is visibly late.** A lead that is 14 minutes past its window has to look wrong on a screen someone is already watching.
+1. **A named owner** — not "the team", a person, per shift. That is this document.
+2. **A queue that is visibly late** — a lead 14 minutes past its window has to look wrong on a screen someone is already watching. That is a ServiceTitan requirement, specified below.
 
 ## Lead duty {#lead-duty}
 
 **One CSM per shift owns marketplace leads.** Named on the shift schedule, same as any other assignment.
 
 - Lead duty **outranks the inbound queue** for the first {{price:marketplace_callback_sla}} of a new lead. A ringing phone will ring again; a marketplace lead will not.
-- If the owner is on a call when a lead lands, **any available CSM takes it.** The queue shows who has claimed what, so nobody double-calls.
+- If the owner is on a call when a lead lands, **any available CSM takes it**, and claims it in ServiceTitan so nobody double-calls.
 - If everyone is on a call, the lead still gets its {{price:marketplace_callback_sla}} — the Manager takes it. There is no version of this where the lead waits.
 - **After hours**, marketplace leads go to the next morning's opener as the first task, before the Posh log. See `sop.csm.coverage`.
 
@@ -69,7 +69,7 @@ One call is not an attempt at a lead — it is an attempt at a coincidence. Most
 
 ## Logging outcomes {#outcomes}
 
-Every lead ends in one of these, and the wrong ones cost real money:
+Every lead ends in one of these, **recorded in ServiceTitan** — `sop.csm.tools`:
 
 | Outcome | Use when |
 |---|---|
@@ -78,11 +78,24 @@ Every lead ends in one of these, and the wrong ones cost real money:
 | **Not a lead** | Wrong service, outside our area, spam — **these are disputable with the platform** |
 | **Lost** | We reached them and they went elsewhere |
 
-**"Not a lead" is the one people skip.** Every platform lets you dispute a lead that was never real, and an undisputed bad lead is a bill we chose to pay. Log it accurately the same day.
+**"Not a lead" is the one people skip.** Every platform lets you dispute a lead that was never real, and an undisputed bad lead is a bill we chose to pay. Log it accurately the same day, while the dispute window is open.
+
+## What the tooling has to do {#tooling-requirement}
+
+This is a requirement for whoever configures ServiceTitan and the lead integrations — **not a feature of this SOP app**. ServiceTitan is our system of record; a lead queue anywhere else would be a second one, and `sop.csm.tools` exists to prevent exactly that.
+
+The mechanism must:
+
+1. **Capture every marketplace lead as a ServiceTitan lead or booking** the moment it arrives, tagged with its channel.
+2. **Timestamp the customer's submission**, not our discovery. The whole metric is worthless if the clock starts when we happen to notice.
+3. **Alert the person on lead duty loudly** — an alert that only appears on a screen nobody is watching reproduces the current problem exactly.
+4. **Show the open queue with time elapsed**, so a late lead is visibly late.
+5. **Record first touch automatically** from the call or text, not from someone ticking a box afterwards.
+6. **Report median time to first touch per channel.** Median, not average — one lead found three days later would drag a mean so far that a genuinely fast week would look broken.
+
+Until that exists, lead duty runs manually against the platform notifications. **The standard applies either way** — the tooling changes how reliably it is met, not whether it applies.
 
 ## What gets measured {#measurement}
-
-The console at `/leads` tracks **median time to first touch per channel**, not the average — one lead found three days later would drag a mean so far that a genuinely fast week would look broken.
 
 | Metric | Target |
 |---|---|
@@ -93,8 +106,10 @@ The console at `/leads` tracks **median time to first touch per channel**, not t
 
 "Leads never touched" is the number that matters most right now. It should be zero every single day, and until it is, nothing else on this page is worth reading.
 
+Individual call handling is scored against the **Marketplace Lead — Outbound Response** rubric at `/checklist`, and reviewed in the weekly 1:1 — `governance.coaching`.
+
 ## Related
 
 - Per-platform handling: `playbook.angi`, `playbook.thumbtack`, `playbook.yelp`
 - What to say: `script.csm.marketplace-outreach`
-- The other paid channel with a hard SLA: `playbook.lsa`
+- System of record: `sop.csm.tools`

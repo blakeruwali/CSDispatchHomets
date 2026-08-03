@@ -118,7 +118,7 @@ export default function AdminSeed() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <Button onClick={runSeed} disabled={busy}>
-                  {busy ? "Seeding…" : "Seed / re-seed both rubrics"}
+                  {busy ? "Seeding…" : `Seed / re-seed all ${allRubrics.length} rubrics`}
                 </Button>
                 <Button variant="ghost" onClick={signOut}>Sign out</Button>
               </CardContent>

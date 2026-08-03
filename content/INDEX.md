@@ -121,6 +121,7 @@ The flagship SOP. All 7 parts and 38 sections of `csmSopData.tsx`, **plus** the 
 | Document Control & Change Log | `governance.doc-control` | ✅ |
 | CSM QA Scoring Rubric | `governance.qa.csm` | ✅ |
 | Coaching & Review Cadence | `governance.coaching` | ✅ |
+| **Marketplace outbound rubric** | in `rubric-seed.ts` | ✅ scored at `/checklist` |
 | Dispatch QA rubric | `governance.qa.dispatch` | ⬜ |
 | Tech sales QA rubric | `governance.qa.sales` | ⬜ |
 
@@ -349,6 +350,12 @@ Full detail in [`_migrated/csm-reconciliation.md`](_migrated/csm-reconciliation.
 `/csm` renders these markdown files directly. `src/lib/content.ts` globs `content/**/*.md` at build time, parses frontmatter, resolves `{{price:token}}` against `pricing/tokens.md`, and groups documents into the seven parts using their `section` and `order` fields. Cross-references written as `` `sop.csm.greeting` `` become clickable links to the referenced document — the reason ids exist instead of file paths.
 
 To add a document to the CSM surface: create the markdown with `surfaces: [csm]`, a `section`, and an `order`. Nothing else to wire up.
+
+## Product boundary
+
+This app teaches, documents and **scores** — it is not a system of record. ServiceTitan is, per `sop.csm.tools`. Operational queues, lead capture and customer data belong there; a second copy here would be the exact duplication this repository exists to prevent.
+
+Where an operating problem needs tooling, the SOP states the **requirement** the real system must meet — see the tooling section of `playbook.speed-to-lead` — and this app's contribution is the standard, the scripts, and the rubric that scores the behaviour.
 
 ## Validation
 

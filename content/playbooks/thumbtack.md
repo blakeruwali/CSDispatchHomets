@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-08-03
 review_cadence_days: 90
 tags: [thumbtack, marketplace, lead, channel, playbook, speed-to-lead]
-related: [playbook.speed-to-lead, script.csm.marketplace-outreach, sop.csm.lead-source]
+related: [playbook.speed-to-lead, script.csm.marketplace-outreach, sop.csm.lead-source, sop.csm.tools]
 section: channels
 order: 6
 surfaces: [csm, checklist]
@@ -32,7 +32,7 @@ That changes two things:
 1. **Respond within {{price:marketplace_callback_sla}}** — reply in-platform *and* call.
 2. **Reply in the app first if you can't call immediately.** A message inside two minutes holds the position while you finish the call you're on; a call twenty minutes later does not.
 3. Then work the full cadence — `playbook.speed-to-lead`.
-4. Log the outcome the same day in `/leads`.
+4. Log the outcome in ServiceTitan the same day — `sop.csm.tools`.
 5. Lead source on the ticket: **Thumbtack** — `sop.csm.lead-source`.
 
 ## The in-app reply {#reply}
@@ -49,7 +49,7 @@ Thumbtack charges per lead or contact depending on the setup, so **an unworked T
 
 ## Open question {#open-question}
 
-Same as Angi: shared inbox, personal inbox, or app-only? Thumbtack notifications commonly arrive by both email and push, which usually makes email parsing viable — but it needs confirming before anything is built on it. Until then, **enter these manually as they land**.
+Same as Angi: shared inbox, personal inbox, or app-only? Thumbtack notifications commonly arrive by both email and push, which usually makes an integration viable — but it needs confirming before anything is built on it. Until then, **work these manually as they land**.
 
 ## Related
 

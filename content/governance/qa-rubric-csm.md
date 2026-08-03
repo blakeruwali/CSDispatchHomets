@@ -4,11 +4,11 @@ title: CSM QA Scoring Rubric
 department: csm
 owner: cs-manager
 status: published
-version: 2
-last_reviewed: 2026-08-02
+version: 3
+last_reviewed: 2026-08-03
 review_cadence_days: 90
 tags: [qa, scoring, rubric, weights, checklist, coaching]
-related: [governance.coaching, sop.csm.kpis, protocol.emergency.triage, sop.csm.escalation, sop.csm.warranty-callback, sop.csm.non-english-callers]
+related: [governance.coaching, sop.csm.kpis, protocol.emergency.triage, sop.csm.escalation, sop.csm.warranty-callback, sop.csm.non-english-callers, playbook.speed-to-lead]
 section: governance
 order: 3
 surfaces: [csm, checklist]
@@ -50,6 +50,10 @@ A 1 is not a failing grade. It is the most common score and the whole point of c
 - Manager scores **3 calls per CSM per week**.
 - Reviewed in the weekly 1:1 — `governance.coaching`.
 - The AI coach summary at `/checklist` supplements the manager's read; it does not replace it.
+
+## Separate rubrics {#separate-rubrics}
+
+Outbound marketplace calls are a different job from inbound handling and are scored on their own rubric — **Marketplace Lead — Outbound Response** at `/checklist`, weighted heavily toward speed. Standard: `playbook.speed-to-lead`.
 
 ## Not scored on a standard call {#not-scored}
 

@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-08-03
 review_cadence_days: 90
 tags: [angi, marketplace, lead, channel, playbook, speed-to-lead]
-related: [playbook.speed-to-lead, script.csm.marketplace-outreach, sop.csm.lead-source]
+related: [playbook.speed-to-lead, script.csm.marketplace-outreach, sop.csm.lead-source, sop.csm.tools]
 section: channels
 order: 5
 surfaces: [csm, checklist]
@@ -33,7 +33,7 @@ That means:
 1. **Call within {{price:marketplace_callback_sla}}** — `playbook.speed-to-lead`.
 2. Open with the marketplace script — `script.csm.marketplace-outreach`.
 3. Run standard intake and booking.
-4. **Log the outcome in the console the same day** — `/leads`.
+4. **Log the outcome in ServiceTitan the same day** — `sop.csm.tools`.
 5. Log the lead source as **Angi** on the ServiceTitan ticket — `sop.csm.lead-source`.
 
 ## Disputing bad leads {#disputes}
@@ -54,7 +54,7 @@ Angi promotions surface in the dispatch guide's objection library as *"I saw a d
 
 ## Open question — how do these reach us? {#open-question}
 
-**Blocking for automation.** Right now the console at `/leads` needs someone to enter the lead by hand, which costs about thirty seconds — acceptable, but it still depends on somebody noticing.
+**Blocking for automation.** Until this is answered, lead duty runs manually against the platform notifications — which works, but depends on somebody noticing.
 
 | If leads arrive by… | Then |
 |---|---|
@@ -62,7 +62,7 @@ Angi promotions surface in the dispatch guide's objection library as *"I saw a d
 | Email to a personal inbox | Set up forwarding to a shared address first, then as above. |
 | Only in the Angi app | Automation needs either partner API access or an app-notification forwarding rule. Until then, manual entry with a phone alert. |
 
-Answer this and the ingestion work is small. Until it's answered, **enter Angi leads manually the moment they appear** — the standard applies either way.
+Answer this and the ServiceTitan integration work is small — see the tooling requirement in `playbook.speed-to-lead`. Until then, **work Angi leads manually the moment they appear**; the standard applies either way.
 
 ## Related
 

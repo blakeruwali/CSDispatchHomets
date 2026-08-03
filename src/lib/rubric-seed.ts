@@ -18,7 +18,7 @@ export type SeedCategory = {
 };
 
 export type SeedRubric = {
-  slug: "sales" | "dispatch" | "csm";
+  slug: "sales" | "dispatch" | "csm" | "marketplace";
   name: string;
   categories: SeedCategory[];
 };
@@ -480,5 +480,102 @@ export const csmRubric: SeedRubric = {
   ],
 };
 
-export const allRubrics: SeedRubric[] = [salesRubric, dispatchRubric, csmRubric];
+// Marketplace leads (Angi, Thumbtack, Yelp) are bought and then, too often,
+// not worked. This app's lever on that is not a queue — ServiceTitan owns the
+// queue — it is scoring and coaching the response itself.
+// Scored against `playbook.speed-to-lead` and `script.csm.marketplace-outreach`.
+export const marketplaceRubric: SeedRubric = {
+  slug: "marketplace",
+  name: "Marketplace Lead — Outbound Response",
+  categories: [
+    {
+      name: "Speed",
+      sort_order: 1,
+      weight: 25,
+      items: [
+        B("First touch was a call placed, not just the lead being read", 1, 6),
+        Q(
+          "First touch within 5 minutes of the customer submitting",
+          2,
+          12,
+          "Measured from THEIR submission, not from when we noticed. 0 = over an hour or never; 1 = same day but well past the window; 2 = inside 5 minutes",
+        ),
+        B("Texted within 2 minutes when the first call did not connect", 3, 7),
+      ],
+    },
+    {
+      name: "Opening",
+      sort_order: 2,
+      weight: 15,
+      items: [
+        B("Named the platform they came from (Angi / Thumbtack / Yelp)", 1, 4),
+        Q(
+          "Quoted the customer's own words back rather than a generic opener",
+          2,
+          7,
+          "0 = 'following up on your inquiry'; 1 = named the job type; 2 = used their actual description, proving a human read it",
+        ),
+        B("Closed on time, not on interest ('good time to get you scheduled?')", 3, 4),
+      ],
+    },
+    {
+      name: "Qualification",
+      sort_order: 3,
+      weight: 15,
+      items: [
+        B("Confirmed the address is inside Nassau / Suffolk", 1, 4),
+        B("Identified service type — repair / install / maintenance", 2, 4),
+        B("Identified system type well enough to dispatch", 3, 4),
+        B("Screened for emergency signals", 4, 3),
+      ],
+    },
+    {
+      name: "Booking",
+      sort_order: 4,
+      weight: 20,
+      items: [
+        Q(
+          "Offered two specific windows rather than asking when suits them",
+          1,
+          8,
+          "0 = 'when works for you?'; 1 = one vague offer; 2 = two concrete windows, asked which",
+        ),
+        Q(
+          "Framed the diagnostic fee without apologising or discounting",
+          2,
+          7,
+          "0 = dropped or dodged the fee; 1 = stated flatly; 2 = stated with what it buys, then stopped talking",
+        ),
+        B("Read back name, address, window and fee before ending the call", 3, 5),
+      ],
+    },
+    {
+      name: "Persistence",
+      sort_order: 5,
+      weight: 15,
+      items: [
+        Q(
+          "Worked the attempt cadence rather than stopping after one call",
+          1,
+          9,
+          "Six attempts over 48 hours is the standard. 0 = one call and abandoned; 1 = two or three attempts; 2 = full cadence, or booked before it ran out",
+        ),
+        B("Left a voicemail AND a text, not one or the other", 2, 3),
+        B("Left the door open on a lost lead — no pitch, no undercutting", 3, 3),
+      ],
+    },
+    {
+      name: "Logging",
+      sort_order: 6,
+      weight: 10,
+      items: [
+        B("Outcome recorded in ServiceTitan the same day", 1, 4),
+        B("Lead source logged verbatim (Angi / Thumbtack / Yelp)", 2, 3),
+        B("Bad lead flagged for dispute — wrong service, out of area, spam", 3, 3),
+      ],
+    },
+  ],
+};
+
+export const allRubrics: SeedRubric[] = [salesRubric, dispatchRubric, csmRubric, marketplaceRubric];
 
