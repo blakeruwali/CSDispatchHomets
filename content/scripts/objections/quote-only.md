@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [objection, quote, estimate, phone-quote, script]
 related: [sop.csm.service-type, sop.csm.diagnostic-fee, script.objection.price]
+section: booking
+order: 6
 surfaces: [csm, checklist]
 ---
 

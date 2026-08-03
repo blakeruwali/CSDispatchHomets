@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [kpi, metrics, targets, answer-rate, booking-rate, membership]
 related: [sop.csm.communication, governance.qa.csm, governance.coaching]
+section: foundations
+order: 5
 surfaces: [csm, checklist]
 ---
 

@@ -82,9 +82,11 @@ Now enforced by `npm run validate:content` rather than checked by hand:
 - [x] No duplicate ids.
 - [x] Frontmatter present, complete, and using a valid `status`.
 - [x] Staleness surfaced as a warning against `last_reviewed + review_cadence_days`.
-- [ ] No orphan docs (every doc surfaces somewhere in the app or is `status: archived`) — needs the renderer first.
+- [x] No orphan docs — every CSM doc is grouped into one of the seven parts and rendered. Enforced by `src/lib/content.test.ts`.
 
 ## Known follow-ups
 
-- **The app still reads from the `.tsx` files.** Migration produced the markdown; nothing renders from it yet. The build step / edge function described in `content/README.md` is unbuilt, so `/csm` still serves `csmSopData.tsx`. **Until that ships, the reconciliation is documented but not delivered** — staff still read the contradicting KB in the app.
+- **`/csm` now renders from `content/`.** `src/lib/content.ts` globs the markdown at build time, resolves price tokens, and groups docs by their `section` frontmatter. `csmSopData.tsx` has been deleted — an orphaned second copy is the drift this repo exists to prevent. Covered by `src/lib/content.test.ts`.
+- **The knowledge base still serves the old articles.** `kbData.tsx` renders on the dispatch surface and still contains the contradicting greeting, the 90-second hold cap, and the "No Emergency Surcharge — Ever" promise. **The reconciliation is delivered on `/csm` only** until the KB migration lands. Conflict C1 is still live for anyone reading the KB page.
+- **`slideData.tsx` and `techSalesSlides.tsx` still render from JSX** — they have no markdown equivalent yet.
 - **`src/lib/rubric-seed.ts` does not reference SOP anchors.** Every rubric category now has a matching doc and anchor — wiring them turns a low score into a link to the standard it failed.

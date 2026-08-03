@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [inbound, phone, channel, playbook, answer-rate]
 related: [sop.csm.greeting, sop.csm.intake, sop.csm.availability, sop.csm.kpis]
+section: channels
+order: 1
 surfaces: [csm, checklist]
 ---
 

@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [membership, home-plus, business-plus, pitch, pivot, upsell]
 related: [sop.csm.membership-status, sop.csm.membership-retention, sop.csm.diagnostic-fee, sop.csm.customer-profiles, sop.csm.kpis]
+section: booking
+order: 4
 surfaces: [csm, checklist]
 ---
 

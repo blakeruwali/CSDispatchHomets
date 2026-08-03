@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [reschedule, cancellation, save, retention, manager-review]
 related: [sop.csm.availability, sop.csm.confirmation, sop.csm.de-escalation, sop.csm.no-show-recovery, reference.guarantees]
+section: booking
+order: 10
 surfaces: [csm, checklist]
 ---
 

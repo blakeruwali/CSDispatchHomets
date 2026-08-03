@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [intake, data, fields, required, name, phone, address, access]
 related: [sop.csm.ticket-standards, sop.csm.symptom-clarification, sop.csm.lead-source, sop.csm.dispatch-handoff]
+section: intake
+order: 1
 surfaces: [csm, checklist]
 ---
 

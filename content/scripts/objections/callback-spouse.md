@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [objection, callback, spouse, decision-maker, soft-hold, script]
 related: [sop.csm.availability, sop.csm.reschedules, script.objection.price]
+section: booking
+order: 7
 surfaces: [csm, checklist]
 ---
 

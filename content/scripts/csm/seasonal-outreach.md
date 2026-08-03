@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [seasonal, outreach, outbound, tune-up, campaign, proactive]
 related: [sop.csm.membership-retention, sop.csm.availability, script.csm.voicemail]
+section: post-booking
+order: 8
 surfaces: [csm, checklist]
 ---
 

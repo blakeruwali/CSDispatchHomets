@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [difficult, angry, de-escalation, complaint, escalation, manager]
 related: [sop.csm.escalation, sop.csm.transfer-hold, sop.csm.reschedules, script.csm.empathy, script.csm.tone-language]
+section: interaction
+order: 6
 surfaces: [csm, checklist]
 ---
 

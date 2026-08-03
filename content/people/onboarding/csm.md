@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 180
 tags: [onboarding, training, new-hire, csm, certification, 30-60-90]
 related: [governance.qa.csm, governance.coaching, sop.csm.role, sop.csm.escalation, reference.guarantees, sop.csm.non-english-callers]
+section: governance
+order: 5
 surfaces: [csm]
 ---
 

@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [emergency, triage, safety, gas, carbon-monoxide, leak, flooding, no-heat, no-ac]
 related: [sop.csm.greeting, sop.csm.symptom-clarification, sop.csm.coverage, sop.csm.service-area, sop.csm.non-english-callers, governance.qa.csm]
+section: interaction
+order: 5
 surfaces: [csm, checklist]
 ---
 

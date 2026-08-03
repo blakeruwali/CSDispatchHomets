@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [sms, text, text-back, missed-call, channel, playbook]
 related: [sop.csm.tools, sop.csm.communication, sop.csm.confirmation-cadence]
+section: channels
+order: 5
 surfaces: [csm, checklist]
 ---
 

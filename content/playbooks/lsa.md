@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [lsa, google, local-services-ads, channel, playbook, dispute, callback]
 related: [sop.csm.greeting, sop.csm.lead-source, sop.csm.kpis, playbook.inbound]
+section: channels
+order: 2
 surfaces: [csm, checklist]
 ---
 

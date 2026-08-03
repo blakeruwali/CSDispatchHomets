@@ -14,6 +14,10 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    fs: {
+      // src/lib/content.ts globs content/**/*.md, which lives outside src/.
+      allow: [path.resolve(__dirname)],
+    },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {

@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [qa, scoring, rubric, weights, checklist, coaching]
 related: [governance.coaching, sop.csm.kpis, protocol.emergency.triage, sop.csm.escalation, sop.csm.warranty-callback, sop.csm.non-english-callers]
+section: governance
+order: 3
 surfaces: [csm, checklist]
 ---
 

@@ -112,9 +112,10 @@ for (const file of files) {
   const fm = parseFrontmatter(text);
   const body = fm ? fm._body : text;
 
-  // Price tokens. READMEs, STATUS and tokens.md itself document the
-  // {{price:...}} syntax with placeholder names, so they are not checked.
-  if (base !== "README.md" && base !== "STATUS.md" && base !== "tokens.md") {
+  // These files document the {{price:...}} syntax itself using placeholder
+  // names, so their tokens are illustrative rather than references to resolve.
+  const documentsSyntax = EXEMPT.has(base) || base === "tokens.md";
+  if (!documentsSyntax) {
     for (const [, token] of body.matchAll(TOKEN_PATTERN)) {
       if (!definedTokens.has(token)) {
         errors.push(`${file}: undefined price token '{{price:${token}}}'`);

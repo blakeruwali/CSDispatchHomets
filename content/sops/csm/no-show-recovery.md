@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [no-show, ghost, recovery, missed, rebook, deposit]
 related: [sop.csm.reschedules, sop.csm.greeting, playbook.sms]
+section: booking
+order: 11
 surfaces: [csm, checklist]
 ---
 

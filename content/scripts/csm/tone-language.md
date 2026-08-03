@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [tone, language, phrasing, professionalism, communication]
 related: [sop.csm.communication, script.csm.empathy, sop.csm.de-escalation]
+section: interaction
+order: 10
 surfaces: [csm, checklist]
 ---
 

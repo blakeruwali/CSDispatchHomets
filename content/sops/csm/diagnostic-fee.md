@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [diagnostic, fee, framing, price, objection, waiver]
 related: [sop.csm.membership-pivot, script.objection.price, sop.csm.service-type, sop.csm.membership-status, sop.csm.warranty-callback, sop.csm.escalation]
+section: booking
+order: 3
 surfaces: [csm, checklist]
 ---
 

@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [follow-up, post-service, satisfaction, complaint, retention, callback]
 related: [sop.csm.confirmation-cadence, script.csm.review-request, sop.csm.escalation, sop.csm.warranty-callback]
+section: post-booking
+order: 4
 surfaces: [csm, checklist]
 ---
 

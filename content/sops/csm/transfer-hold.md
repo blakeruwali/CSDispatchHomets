@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [transfer, warm-transfer, cold-transfer, hold, escalation]
 related: [sop.csm.communication, sop.csm.de-escalation, sop.csm.escalation]
+section: interaction
+order: 7
 surfaces: [csm, checklist]
 ---
 

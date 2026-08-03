@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [tone, communication, standards, greeting, hold, callback, sla]
 related: [sop.csm.greeting, sop.csm.transfer-hold, script.csm.tone-language, sop.csm.non-english-callers, sop.csm.kpis]
+section: foundations
+order: 4
 surfaces: [csm, checklist]
 ---
 

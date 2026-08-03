@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [objection, diy, safety, gas, refrigerant, electrical, script]
 related: [protocol.emergency.triage, sop.csm.diagnostic-fee]
+section: booking
+order: 8
 surfaces: [csm, checklist]
 ---
 

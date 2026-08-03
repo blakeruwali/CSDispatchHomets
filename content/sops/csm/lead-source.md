@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [lead-source, attribution, google, lsa, yelp, referral, marketing]
 related: [sop.csm.intake, playbook.lsa, playbook.referral]
+section: intake
+order: 7
 surfaces: [csm, checklist]
 ---
 

@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [profile, homeowner, rental, tenant, commercial, hoa, property-management]
 related: [sop.csm.res-vs-comm, sop.csm.membership-pivot, sop.csm.intake]
+section: interaction
+order: 4
 surfaces: [csm, checklist]
 ---
 

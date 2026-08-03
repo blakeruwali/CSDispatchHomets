@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [symptom, clarify, dispatchable, ticket, diagnosis]
 related: [sop.csm.intake, sop.csm.ticket-standards, protocol.emergency.triage]
+section: intake
+order: 5
 surfaces: [csm, checklist]
 ---
 

@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [membership, home-plus, business-plus, status, lapsed, servicetitan]
 related: [sop.csm.membership-pivot, sop.csm.membership-retention, sop.csm.diagnostic-fee, sop.csm.tools]
+section: intake
+order: 6
 surfaces: [csm, checklist]
 ---
 

@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [system-type, boiler, furnace, ac, heat-pump, mini-split, plumbing, business-unit]
 related: [sop.csm.res-vs-comm, sop.csm.symptom-clarification, sop.csm.intake]
+section: intake
+order: 3
 surfaces: [csm, checklist]
 ---
 

@@ -100,7 +100,7 @@ Concrete numbers, not judgement calls — triage is pass/fail and must be scorea
 
 | Token | Value | Notes |
 |---|---|---|
-| `emergency_temp_cold` | below 40°F outside | No heat at or under this = emergency |
+| `emergency_temp_cold` | below 40°F | No heat at or under this = emergency |
 | `emergency_temp_hot` | above 95°F | No AC at or over this, with a vulnerable occupant = emergency |
 
 ## Guarantees

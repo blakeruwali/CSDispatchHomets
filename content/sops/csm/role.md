@@ -10,6 +10,8 @@ review_cadence_days: 180
 tags: [role, responsibilities, csm, foundations]
 supersedes: []
 related: [sop.csm.coverage, sop.csm.kpis, sop.csm.escalation, sop.csm.dispatch-handoff, people.onboarding.csm]
+section: foundations
+order: 1
 surfaces: [csm]
 ---
 

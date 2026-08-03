@@ -336,8 +336,14 @@ Full detail in [`_migrated/csm-reconciliation.md`](_migrated/csm-reconciliation.
 2. **Dispatch migration** — biggest source file, content already battle-tested, pure extraction. Highest value per hour.
 3. **Sales migration** — self-contained, low overlap with what's published.
 4. **Remaining KB migration** — the CSM-relevant sections are done and reconciled; what's left is equipment, thermostats, FAQ and commercial reference material.
-5. **Wire the rubric to anchors** — `src/lib/rubric-seed.ts` scores against categories that now have real section anchors. Linking them makes a low score jump straight to the standard it failed.
+5. **Wire the rubric to anchors** — `src/lib/rubric-seed.ts` scores against categories that now have real section anchors, and the renderer already assigns each `{#anchor}` a DOM id. Linking them makes a low score jump straight to the standard it failed.
 6. **Install & People authoring** — needs interviews, not extraction. Schedule it; don't wait for it.
+
+## How it reaches staff
+
+`/csm` renders these markdown files directly. `src/lib/content.ts` globs `content/**/*.md` at build time, parses frontmatter, resolves `{{price:token}}` against `pricing/tokens.md`, and groups documents into the seven parts using their `section` and `order` fields. Cross-references written as `` `sop.csm.greeting` `` become clickable links to the referenced document — the reason ids exist instead of file paths.
+
+To add a document to the CSM surface: create the markdown with `surfaces: [csm]`, a `section`, and an `order`. Nothing else to wire up.
 
 ## Validation
 

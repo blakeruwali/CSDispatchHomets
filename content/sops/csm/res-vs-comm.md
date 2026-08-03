@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [residential, commercial, routing, business-unit, rtu, multi-family]
 related: [sop.csm.customer-profiles, sop.csm.system-type, sop.csm.diagnostic-fee]
+section: intake
+order: 4
 surfaces: [csm, checklist]
 ---
 

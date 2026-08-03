@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [greeting, script, csm, opening]
 related: [sop.csm.active-listening, sop.csm.intake, script.csm.empathy]
+section: interaction
+order: 1
 surfaces: [csm, checklist]
 ---
 

@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 180
 tags: [tools, servicetitan, phone, lsa, posh, sms]
 related: [sop.csm.ticket-standards, playbook.lsa, playbook.posh, playbook.sms]
+section: foundations
+order: 3
 surfaces: [csm]
 ---
 

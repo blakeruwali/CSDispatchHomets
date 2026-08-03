@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [posh, after-hours, overnight, handoff, channel, playbook, on-call]
 related: [sop.csm.coverage, protocol.emergency.triage, sop.csm.confirmation]
+section: channels
+order: 4
 surfaces: [csm, checklist]
 ---
 

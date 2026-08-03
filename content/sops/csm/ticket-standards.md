@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [servicetitan, ticket, fields, required, standards, dispatchable]
 related: [sop.csm.intake, sop.csm.dispatch-handoff, sop.csm.tools, sop.csm.lead-source]
+section: post-booking
+order: 1
 surfaces: [csm, checklist]
 ---
 

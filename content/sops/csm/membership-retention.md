@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [membership, retention, renewal, cancellation, save, home-plus]
 related: [sop.csm.membership-status, sop.csm.membership-pivot, script.csm.seasonal-outreach]
+section: post-booking
+order: 7
 surfaces: [csm, checklist]
 ---
 

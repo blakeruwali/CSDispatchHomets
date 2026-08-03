@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [confirmation, read-back, expectations, closing, booking]
 related: [sop.csm.availability, sop.csm.confirmation-cadence, sop.csm.dispatch-handoff]
+section: booking
+order: 9
 surfaces: [csm, checklist]
 ---
 

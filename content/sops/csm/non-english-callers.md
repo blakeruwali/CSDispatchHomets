@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [language, spanish, interpreter, translation, bilingual, accessibility]
 related: [protocol.emergency.triage, sop.csm.intake, sop.csm.transfer-hold]
+section: interaction
+order: 9
 surfaces: [csm, checklist]
 ---
 

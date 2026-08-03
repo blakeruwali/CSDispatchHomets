@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [review, google, reputation, script, feedback]
 related: [sop.csm.post-service-followup, sop.csm.confirmation-cadence, playbook.sms]
+section: post-booking
+order: 5
 surfaces: [csm, checklist]
 ---
 

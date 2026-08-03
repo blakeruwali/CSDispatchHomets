@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [warranty, callback, recall, no-charge, servicetitan]
 related: [reference.guarantees, sop.csm.diagnostic-fee, sop.csm.escalation]
+section: post-booking
+order: 6
 surfaces: [csm, checklist]
 ---
 

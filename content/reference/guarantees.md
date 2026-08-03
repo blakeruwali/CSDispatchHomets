@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [guarantee, warranty, policy, arrival, satisfaction, refund, cancellation]
 related: [sop.csm.warranty-callback, sop.csm.escalation, sop.csm.reschedules, pricing.tokens]
+section: governance
+order: 1
 surfaces: [csm, checklist]
 ---
 

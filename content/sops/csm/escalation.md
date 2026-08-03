@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [escalation, manager, refund, credit, authority, complaint, liability]
 related: [sop.csm.de-escalation, sop.csm.transfer-hold, sop.csm.diagnostic-fee, sop.csm.post-service-followup]
+section: interaction
+order: 8
 surfaces: [csm, checklist]
 ---
 

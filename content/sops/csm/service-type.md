@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [service-type, repair, install, maintenance, estimate, diagnostic]
 related: [sop.csm.diagnostic-fee, sop.csm.system-type, sop.csm.res-vs-comm]
+section: intake
+order: 2
 surfaces: [csm, checklist]
 ---
 

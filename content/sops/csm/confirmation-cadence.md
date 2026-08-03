@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [confirmation, cadence, reminder, survey, review, automation]
 related: [sop.csm.confirmation, sop.csm.post-service-followup, script.csm.review-request, playbook.sms, sop.csm.tools]
+section: post-booking
+order: 3
 surfaces: [csm, checklist]
 ---
 

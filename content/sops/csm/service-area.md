@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [service-area, coverage, nassau, suffolk, out-of-area, fully-booked, waitlist, drive-time]
 related: [sop.csm.availability, protocol.emergency.triage, sop.csm.dispatch-handoff]
+section: booking
+order: 2
 surfaces: [csm, checklist]
 ---
 
@@ -52,7 +54,7 @@ When the answer is genuinely no, be useful rather than abrupt:
 
 > ⚠️ **Never tell an emergency caller "we're fully booked."**
 
-No heat below {{price:emergency_temp_cold}}, a gas leak, or active flooding gets same-day service regardless of what the board looks like. That is a dispatch manager problem to solve, not a CSM sentence to say. See `protocol.emergency.triage`.
+No heat {{price:emergency_temp_cold}}, a gas leak, or active flooding gets same-day service regardless of what the board looks like. That is a dispatch manager problem to solve, not a CSM sentence to say. See `protocol.emergency.triage`.
 
 ## The waitlist is a promise {#waitlist}
 

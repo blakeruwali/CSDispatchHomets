@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [hours, coverage, posh, after-hours, handoff, shift]
 related: [playbook.posh, sop.csm.role, protocol.emergency.triage]
+section: foundations
+order: 2
 surfaces: [csm]
 ---
 

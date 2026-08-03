@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [listening, acknowledgement, empathy, paraphrase]
 related: [sop.csm.greeting, script.csm.empathy, sop.csm.intake]
+section: interaction
+order: 2
 surfaces: [csm, checklist]
 ---
 

@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [objection, price, diagnostic, fee, script]
 related: [sop.csm.diagnostic-fee, sop.csm.membership-pivot, script.objection.quote-only]
+section: booking
+order: 5
 surfaces: [csm, checklist]
 ---
 

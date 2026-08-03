@@ -9,6 +9,8 @@ last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [empathy, acknowledgement, script, listening, de-escalation]
 related: [sop.csm.active-listening, sop.csm.de-escalation, sop.csm.greeting]
+section: interaction
+order: 3
 surfaces: [csm, checklist]
 ---
 
