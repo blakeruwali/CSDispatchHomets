@@ -9,6 +9,7 @@ import Checklist from "./pages/Checklist";
 import AdminSeed from "./pages/AdminSeed";
 import Auth from "./pages/Auth";
 import CSM from "./pages/CSM";
+import Leads from "./pages/Leads";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin/seed" element={<AdminSeed />} />
           <Route path="/csm" element={<CSM />} />
+          <Route path="/leads" element={<Leads />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

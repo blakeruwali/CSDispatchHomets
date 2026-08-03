@@ -87,7 +87,7 @@ function parseTokens(text: string): Record<string, string> {
   for (const match of text.matchAll(rowPattern)) {
     const value = match[2]
       .replace(/\*\*/g, "")
-      .replaceAll("⚠️", "") // warning sign used to flag disputed values
+      .replace(/⚠️/g, "") // warning sign used to flag disputed values
       .trim();
     out[match[1]] = value;
   }

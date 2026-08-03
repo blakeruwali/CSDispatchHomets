@@ -10,7 +10,7 @@ review_cadence_days: 90
 tags: [referral, credit, channel, playbook, word-of-mouth]
 related: [sop.csm.lead-source]
 section: channels
-order: 6
+order: 12
 surfaces: [csm]
 ---
 

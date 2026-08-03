@@ -10,7 +10,7 @@ review_cadence_days: 90
 tags: [voicemail, script, missed-call, callback, after-hours]
 related: [playbook.web, playbook.sms, sop.csm.no-show-recovery, sop.csm.communication]
 section: channels
-order: 7
+order: 11
 surfaces: [csm, checklist]
 ---
 

@@ -10,7 +10,7 @@ review_cadence_days: 90
 tags: [web, form, website, lead, channel, playbook, callback]
 related: [sop.csm.greeting, playbook.sms, sop.csm.kpis]
 section: channels
-order: 3
+order: 8
 surfaces: [csm, checklist]
 ---
 

@@ -10,7 +10,7 @@ Every document the complete company SOP requires, whether or not it exists yet. 
 
 | Department | Docs required | Published | Remaining | Source material |
 |---|---|---|---|---|
-| CSM | 46 | 46 | 0 | ✅ complete — SOP + KB reconciled |
+| CSM | 51 | 51 | 0 | ✅ complete — SOP + KB reconciled, marketplace channels added |
 | Dispatch | ~24 | 0 | ~24 | `slideData.tsx` (4,914 lines) |
 | Sales (tech) | ~22 | 0 | ~22 | `techSalesSlides.tsx` (1,250 lines) |
 | Reference / KB | ~30 | 0 | ~30 | `kbData.tsx` (2,250 lines) |
@@ -100,6 +100,11 @@ The flagship SOP. All 7 parts and 38 sections of `csmSopData.tsx`, **plus** the 
 ### Channel playbooks
 | Doc | id | Status |
 |---|---|---|
+| **Speed to Lead — the standard** | `playbook.speed-to-lead` | ✅ |
+| **Marketplace outreach scripts** | `script.csm.marketplace-outreach` | ✅ |
+| **Angi** | `playbook.angi` | 🟡 in-review — lead intake path unconfirmed |
+| **Thumbtack** | `playbook.thumbtack` | 🟡 in-review — lead intake path unconfirmed |
+| **Yelp** | `playbook.yelp` | 🟡 in-review — lead intake path unconfirmed |
 | Inbound Phone | `playbook.inbound` | ✅ |
 | Google LSA | `playbook.lsa` | ✅ |
 | Website Form | `playbook.web` | ✅ |

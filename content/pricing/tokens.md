@@ -72,6 +72,7 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 
 | Token | Value | Applies to |
 |---|---|---|
+| `marketplace_callback_sla` | 5 minutes | Angi, Thumbtack, Yelp — leads sold to several contractors at once |
 | `lsa_callback_sla` | 15 minutes | Missed Google LSA call |
 | `web_lead_callback_sla` | 5 minutes | Website form submission |
 | `voicemail_callback_sla` | 30 minutes | General inbound voicemail |
@@ -89,6 +90,7 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | `service_windows` | 8–10, 10–12, 12–2, 2–4, 4–6 | The only windows we offer |
 | `same_day_cutoff` | 3:00 PM | After this, same-day needs Dispatch approval |
 | `sms_max_unanswered` | 2 texts per 24h | Outbound SMS cap without a reply |
+| `marketplace_attempts` | 6 attempts over 48 hours | Before a marketplace lead is closed unreachable |
 | `triage_fail_score_cap` | 60% | QA total cap when emergency triage is missed |
 | `manager_callback_sla` | 30 minutes | When the customer asks for a manager and none is available |
 | `oncall_eta` | 60–120 minutes | Realistic after-hours arrival estimate |

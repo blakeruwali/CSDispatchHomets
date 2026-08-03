@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [lead-source, attribution, google, lsa, yelp, referral, marketing]
-related: [sop.csm.intake, playbook.lsa, playbook.referral]
+related: [sop.csm.intake, playbook.lsa, playbook.angi, playbook.thumbtack, playbook.yelp, playbook.referral]
 section: intake
 order: 7
 surfaces: [csm, checklist]
@@ -51,4 +51,5 @@ Ask it at the end of intake, not the start — it's a low-stakes question that c
 
 - Where it lands on the ticket: `sop.csm.ticket-standards`
 - LSA-specific handling: `playbook.lsa`
+- Marketplace channels: `playbook.angi`, `playbook.thumbtack`, `playbook.yelp`
 - Referral credit handling: `playbook.referral`
