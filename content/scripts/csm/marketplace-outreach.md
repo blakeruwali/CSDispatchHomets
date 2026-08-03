@@ -54,7 +54,15 @@ That last clause matters. Giving them permission to close it out gets an honest 
 
 > "Hi [name] — last note from Home+ Air and Heat. If you still need help with the [job type], we're here: [number]. Otherwise, good luck with it!"
 
-Then mark unreachable. See `playbook.speed-to-lead`.
+Then mark unreachable — `playbook.speed-to-lead`.
+
+## In-platform replies {#in-platform}
+
+Thumbtack and Yelp both put the reply in front of the customer next to competitors' replies. Keep it short and specific:
+
+> "Hi [name] — thanks for reaching out about the [job type]. We're licensed and insured and cover all of Nassau and Suffolk. I can get a tech to you [today / tomorrow morning] — what's the best number to confirm a window?"
+
+Do not paste a capability brochure. They are comparing five of those already. Name the job, name a real time, ask one question.
 
 ## If they already booked someone {#lost}
 
@@ -64,7 +72,7 @@ Then mark unreachable. See `playbook.speed-to-lead`.
 
 ## If it isn't a real lead {#not-a-lead}
 
-Wrong service, outside Nassau or Suffolk, or obviously spam — be brief and useful (`sop.csm.service-area`), then **log it as "Not a lead" with the reason the same day** so it can be disputed with the platform. That is money back.
+Wrong service, outside Nassau or Suffolk, or obviously spam — be brief and useful (`sop.csm.service-area`), then **mark it unqualified and file the dispute in the platform the same day**. That is money back.
 
 ## Never do this {#never}
 

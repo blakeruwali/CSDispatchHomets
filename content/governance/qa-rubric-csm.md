@@ -4,8 +4,8 @@ title: CSM QA Scoring Rubric
 department: csm
 owner: cs-manager
 status: published
-version: 3
-last_reviewed: 2026-08-03
+version: 2
+last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [qa, scoring, rubric, weights, checklist, coaching]
 related: [governance.coaching, sop.csm.kpis, protocol.emergency.triage, sop.csm.escalation, sop.csm.warranty-callback, sop.csm.non-english-callers, playbook.speed-to-lead]
@@ -53,7 +53,7 @@ A 1 is not a failing grade. It is the most common score and the whole point of c
 
 ## Separate rubrics {#separate-rubrics}
 
-Outbound marketplace calls are a different job from inbound handling and are scored on their own rubric — **Marketplace Lead — Outbound Response** at `/checklist`, weighted heavily toward speed. Standard: `playbook.speed-to-lead`.
+Outbound marketplace calls are a different job from inbound handling and are scored on their own rubric — **Marketplace Lead — Outbound Response** at `/checklist`, weighted toward speed and toward capturing Thumbtack / Yelp leads in ServiceTitan at first touch. Standard: `playbook.speed-to-lead`.
 
 ## Not scored on a standard call {#not-scored}
 

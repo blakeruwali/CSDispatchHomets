@@ -102,9 +102,9 @@ The flagship SOP. All 7 parts and 38 sections of `csmSopData.tsx`, **plus** the 
 |---|---|---|
 | **Speed to Lead — the standard** | `playbook.speed-to-lead` | ✅ |
 | **Marketplace outreach scripts** | `script.csm.marketplace-outreach` | ✅ |
-| **Angi** | `playbook.angi` | 🟡 in-review — lead intake path unconfirmed |
-| **Thumbtack** | `playbook.thumbtack` | 🟡 in-review — lead intake path unconfirmed |
-| **Yelp** | `playbook.yelp` | 🟡 in-review — lead intake path unconfirmed |
+| **Angi** — flows into ServiceTitan | `playbook.angi` | ✅ |
+| **Thumbtack** — not in ST, manual capture | `playbook.thumbtack` | ✅ |
+| **Yelp** — not in ST, manual capture | `playbook.yelp` | ✅ |
 | Inbound Phone | `playbook.inbound` | ✅ |
 | Google LSA | `playbook.lsa` | ✅ |
 | Website Form | `playbook.web` | ✅ |

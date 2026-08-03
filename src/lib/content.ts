@@ -178,7 +178,7 @@ export const CSM_SECTIONS: { id: string; title: string; description: string }[] 
   { id: "interaction", title: "Part 2 — Customer Interaction", description: "Greeting, listening, profiles, emergency triage, escalation" },
   { id: "intake", title: "Part 3 — Intake", description: "Required data, service and system type, symptoms, lead source" },
   { id: "booking", title: "Part 4 — Booking", description: "Availability, service area, fees, membership, objections" },
-  { id: "channels", title: "Part 5 — Channel Playbooks", description: "Inbound, LSA, web, Posh, SMS, referrals, voicemail" },
+  { id: "channels", title: "Part 5 — Channel Playbooks", description: "Speed to lead, marketplaces, inbound, LSA, web, Posh, SMS" },
   { id: "post-booking", title: "Part 6 — Post-Booking & Retention", description: "Tickets, handoff, follow-up, warranty, retention" },
   { id: "governance", title: "Part 7 — Governance", description: "Guarantees, doc control, QA rubric, coaching, onboarding" },
 ];

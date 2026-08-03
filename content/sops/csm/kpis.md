@@ -38,7 +38,7 @@ Seven numbers. Every one of them is inside the CSM's control — none of them de
 - **Booking rate** is the conversion number. Judge it only against *qualified* callers; an out-of-area caller we correctly turned away is not a miss.
 - **Membership pitch rate** counts the pitch, not the close. We control whether it was offered.
 - **Ticket completeness and Posh callback completion** are 100% targets because they are binary. Either the field is filled or it isn't.
-- **Marketplace first touch** is measured from the customer's submission, not from when we noticed. Leads never touched should be zero every day — see `playbook.speed-to-lead`.
+- **Marketplace first touch** is measured from the customer's submission, not from when we noticed. Only Angi is measurable today — Thumbtack and Yelp never reach ServiceTitan unless a CSM creates the lead. See `playbook.speed-to-lead`.
 
 ## Cadence {#cadence}
 

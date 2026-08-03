@@ -4,10 +4,10 @@ title: Speed to Lead — The Standard
 department: csm
 owner: cs-manager
 status: published
-version: 2
+version: 1
 last_reviewed: 2026-08-03
 review_cadence_days: 90
-tags: [speed-to-lead, outbound, marketplace, angi, thumbtack, yelp, sla, lead-duty]
+tags: [speed-to-lead, outbound, marketplace, angi, thumbtack, yelp, sla, lead-duty, servicetitan]
 related: [playbook.angi, playbook.thumbtack, playbook.yelp, script.csm.marketplace-outreach, playbook.lsa, playbook.web, sop.csm.tools]
 section: channels
 order: 1
@@ -24,15 +24,25 @@ These leads go to several contractors at once. The customer is fielding calls fr
 
 > **{{price:marketplace_callback_sla}} from submission to a human voice. Every marketplace lead, every time.**
 
-| Channel | First touch |
-|---|---|
-| Angi | ≤ {{price:marketplace_callback_sla}} |
-| Thumbtack | ≤ {{price:marketplace_callback_sla}} |
-| Yelp | ≤ {{price:marketplace_callback_sla}} |
-| Google LSA | ≤ {{price:lsa_callback_sla}} — `playbook.lsa` |
-| Website form | ≤ {{price:web_lead_callback_sla}} — `playbook.web` |
+| Channel | First touch | Where the lead lands |
+|---|---|---|
+| Angi | ≤ {{price:marketplace_callback_sla}} | **ServiceTitan, automatically** |
+| Thumbtack | ≤ {{price:marketplace_callback_sla}} | Thumbtack app only — **CSM creates the ST lead** |
+| Yelp | ≤ {{price:marketplace_callback_sla}} | Yelp only — **CSM creates the ST lead** |
+| Google LSA | ≤ {{price:lsa_callback_sla}} | `playbook.lsa` |
+| Website form | ≤ {{price:web_lead_callback_sla}} | `playbook.web` |
 
 **First touch means a call placed, not a lead read.** Opening the notification is not a touch. Adding it to a list is not a touch. Dialling is.
+
+## Two different failure modes {#two-failures}
+
+The three marketplaces are not the same problem, because only one of them reaches our system of record.
+
+**Angi is integrated.** The lead is in ServiceTitan the moment it arrives. It fails by sitting in a queue nobody is watching — a *notification* problem, and a solvable one. It is also the only marketplace channel we can currently measure at all.
+
+**Thumbtack and Yelp are not.** Those leads exist only inside their platforms. Nothing about them is in ServiceTitan unless a CSM types it in, so they fail by being invisible — and it means **we cannot presently say how many we get, how fast we answer, or what a booked job from them costs.** Any figure quoted for those two channels today is a guess.
+
+For those two, **creating the ServiceTitan lead at first touch is a required step of the procedure**, not bookkeeping to catch up on later. See `playbook.thumbtack` and `playbook.yelp`.
 
 ## Why this broke {#why-it-broke}
 
@@ -41,7 +51,7 @@ Inbound volume rose, the phones filled up, and marketplace leads quietly became 
 Two things fix it, and both are needed:
 
 1. **A named owner** — not "the team", a person, per shift. That is this document.
-2. **A queue that is visibly late** — a lead 14 minutes past its window has to look wrong on a screen someone is already watching. That is a ServiceTitan requirement, specified below.
+2. **Something that makes a late lead visible.** For Angi that is a ServiceTitan notification setting. For Thumbtack and Yelp it is currently a person checking two apps, which is exactly as fragile as it sounds.
 
 ## Lead duty {#lead-duty}
 
@@ -69,7 +79,7 @@ One call is not an attempt at a lead — it is an attempt at a coincidence. Most
 
 ## Logging outcomes {#outcomes}
 
-Every lead ends in one of these, **recorded in ServiceTitan** — `sop.csm.tools`:
+Every lead ends in one of these, recorded on the **ServiceTitan lead** — `sop.csm.tools`. For Thumbtack and Yelp that lead only exists because you created it at first touch:
 
 | Outcome | Use when |
 |---|---|
@@ -78,35 +88,41 @@ Every lead ends in one of these, **recorded in ServiceTitan** — `sop.csm.tools
 | **Not a lead** | Wrong service, outside our area, spam — **these are disputable with the platform** |
 | **Lost** | We reached them and they went elsewhere |
 
-**"Not a lead" is the one people skip.** Every platform lets you dispute a lead that was never real, and an undisputed bad lead is a bill we chose to pay. Log it accurately the same day, while the dispute window is open.
+**"Not a lead" is the one people skip.** Every platform lets you dispute a lead that was never real, and an undisputed bad lead is a bill we chose to pay. Disputes are filed in the platform's own portal on all three channels — the Angi integration brings leads in, it does not push disputes back out.
 
 ## What the tooling has to do {#tooling-requirement}
 
-This is a requirement for whoever configures ServiceTitan and the lead integrations — **not a feature of this SOP app**. ServiceTitan is our system of record; a lead queue anywhere else would be a second one, and `sop.csm.tools` exists to prevent exactly that.
+A requirement for whoever configures ServiceTitan and the lead integrations — **not a feature of this app**. ServiceTitan is our system of record; a lead queue anywhere else would be a second one, and `sop.csm.tools` exists to prevent exactly that.
 
-The mechanism must:
+### Angi — integrated already, needs alerting
 
-1. **Capture every marketplace lead as a ServiceTitan lead or booking** the moment it arrives, tagged with its channel.
-2. **Timestamp the customer's submission**, not our discovery. The whole metric is worthless if the clock starts when we happen to notice.
-3. **Alert the person on lead duty loudly** — an alert that only appears on a screen nobody is watching reproduces the current problem exactly.
-4. **Show the open queue with time elapsed**, so a late lead is visibly late.
-5. **Record first touch automatically** from the call or text, not from someone ticking a box afterwards.
-6. **Report median time to first touch per channel.** Median, not average — one lead found three days later would drag a mean so far that a genuinely fast week would look broken.
+1. **Notify the person on lead duty when a new Angi lead lands.** Not a dashboard they have to remember to open.
+2. **Show the open lead queue with time elapsed**, so a late lead is visibly late.
+3. **Report median time to first touch.** Median, not average — one lead found three days later would drag a mean so far that a genuinely fast week would look broken.
 
-Until that exists, lead duty runs manually against the platform notifications. **The standard applies either way** — the tooling changes how reliably it is met, not whether it applies.
+All three are achievable today, because the data is already in ServiceTitan.
+
+### Thumbtack and Yelp — not integrated
+
+The open decision is whether to connect them, via a lead integration, a connector, or an email parser into the ServiceTitan API. Connected, they inherit everything above and become measurable for the first time.
+
+Not connected, **manual ST lead creation at first touch is permanent and mandatory**, and the alerting problem stays a human one: somebody has to be watching two apps.
+
+**The standard applies either way.** Tooling changes how reliably it is met, not whether it applies.
 
 ## What gets measured {#measurement}
 
-| Metric | Target |
-|---|---|
-| Median first touch, marketplace | ≤ {{price:marketplace_callback_sla}} |
-| Leads within SLA | ≥ 80% |
-| Leads never touched | **0** |
-| Bad leads disputed | ≥ 80% |
+| Metric | Target | Measurable today? |
+|---|---|---|
+| Median first touch, Angi | ≤ {{price:marketplace_callback_sla}} | **Yes** — ST holds the data |
+| Median first touch, Thumbtack / Yelp | ≤ {{price:marketplace_callback_sla}} | Only once ST leads are created at first touch |
+| Leads within SLA | ≥ 80% | Angi now; the others follow capture |
+| Leads never touched | **0** | Angi now; the others follow capture |
+| Bad leads disputed | ≥ 80% | Manual on all three |
 
 "Leads never touched" is the number that matters most right now. It should be zero every single day, and until it is, nothing else on this page is worth reading.
 
-Individual call handling is scored against the **Marketplace Lead — Outbound Response** rubric at `/checklist`, and reviewed in the weekly 1:1 — `governance.coaching`.
+Individual call handling is scored against the **Marketplace Lead — Outbound Response** rubric at `/checklist` and reviewed in the weekly 1:1 — `governance.coaching`.
 
 ## Related
 

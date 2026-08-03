@@ -483,6 +483,9 @@ export const csmRubric: SeedRubric = {
 // Marketplace leads (Angi, Thumbtack, Yelp) are bought and then, too often,
 // not worked. This app's lever on that is not a queue — ServiceTitan owns the
 // queue — it is scoring and coaching the response itself.
+//
+// Angi flows into ServiceTitan automatically; Thumbtack and Yelp do not, so
+// "Capture" below is a real scored step for those two rather than paperwork.
 // Scored against `playbook.speed-to-lead` and `script.csm.marketplace-outreach`.
 export const marketplaceRubric: SeedRubric = {
   slug: "marketplace",
@@ -504,11 +507,26 @@ export const marketplaceRubric: SeedRubric = {
       ],
     },
     {
-      name: "Opening",
+      name: "Capture in ServiceTitan",
       sort_order: 2,
       weight: 15,
       items: [
-        B("Named the platform they came from (Angi / Thumbtack / Yelp)", 1, 4),
+        Q(
+          "Thumbtack / Yelp lead created in ServiceTitan at first touch",
+          1,
+          9,
+          "Angi arrives in ST automatically — score N/A. For Thumbtack and Yelp: 0 = never created, or only after it booked; 1 = created later the same day; 2 = created at first touch, before the outcome was known",
+        ),
+        B("Lead source tagged verbatim (Angi / Thumbtack / Yelp)", 2, 3),
+        B("Replied inside the platform as well as calling (Thumbtack / Yelp)", 3, 3),
+      ],
+    },
+    {
+      name: "Opening",
+      sort_order: 3,
+      weight: 15,
+      items: [
+        B("Named the platform they came from", 1, 4),
         Q(
           "Quoted the customer's own words back rather than a generic opener",
           2,
@@ -520,30 +538,30 @@ export const marketplaceRubric: SeedRubric = {
     },
     {
       name: "Qualification",
-      sort_order: 3,
-      weight: 15,
+      sort_order: 4,
+      weight: 12,
       items: [
-        B("Confirmed the address is inside Nassau / Suffolk", 1, 4),
-        B("Identified service type — repair / install / maintenance", 2, 4),
-        B("Identified system type well enough to dispatch", 3, 4),
+        B("Confirmed the address is inside Nassau / Suffolk", 1, 3),
+        B("Identified service type — repair / install / maintenance", 2, 3),
+        B("Identified system type well enough to dispatch", 3, 3),
         B("Screened for emergency signals", 4, 3),
       ],
     },
     {
       name: "Booking",
-      sort_order: 4,
-      weight: 20,
+      sort_order: 5,
+      weight: 18,
       items: [
         Q(
           "Offered two specific windows rather than asking when suits them",
           1,
-          8,
+          7,
           "0 = 'when works for you?'; 1 = one vague offer; 2 = two concrete windows, asked which",
         ),
         Q(
           "Framed the diagnostic fee without apologising or discounting",
           2,
-          7,
+          6,
           "0 = dropped or dodged the fee; 1 = stated flatly; 2 = stated with what it buys, then stopped talking",
         ),
         B("Read back name, address, window and fee before ending the call", 3, 5),
@@ -551,7 +569,7 @@ export const marketplaceRubric: SeedRubric = {
     },
     {
       name: "Persistence",
-      sort_order: 5,
+      sort_order: 6,
       weight: 15,
       items: [
         Q(
@@ -562,16 +580,6 @@ export const marketplaceRubric: SeedRubric = {
         ),
         B("Left a voicemail AND a text, not one or the other", 2, 3),
         B("Left the door open on a lost lead — no pitch, no undercutting", 3, 3),
-      ],
-    },
-    {
-      name: "Logging",
-      sort_order: 6,
-      weight: 10,
-      items: [
-        B("Outcome recorded in ServiceTitan the same day", 1, 4),
-        B("Lead source logged verbatim (Angi / Thumbtack / Yelp)", 2, 3),
-        B("Bad lead flagged for dispute — wrong service, out of area, spam", 3, 3),
       ],
     },
   ],
