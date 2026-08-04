@@ -5,8 +5,10 @@ import {
 } from "lucide-react";
 import { MarkdownBody } from "./MarkdownBody";
 import { SuggestEditDialog } from "./SuggestEditDialog";
+import { DocHeader } from "./DocHeader";
 import {
-  flattenDocs, headings, type ContentDoc, type ContentSection,
+  flattenDocs, headings, clauseNumbers, docNumbers, numberSections,
+  type ContentDoc, type ContentSection,
 } from "@/lib/content";
 
 const STATUS_BADGE: Record<string, { label: string; color: string } | null> = {
@@ -63,9 +65,14 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
   shortTitle, title, icon: TitleIcon, accent, sections, sectionStyle,
 }) => {
   const ordered = useMemo(() => flattenDocs(sections), [sections]);
+  const numbered = useMemo(() => numberSections(sections), [sections]);
+  const numbers = useMemo(() => docNumbers(sections), [sections]);
   const [activeId, setActiveId] = useState<string | null>(ordered[0]?.id ?? null);
   const [query, setQuery] = useState("");
-  const [lightMode, setLightMode] = useState(false);
+  // Documentation defaults to light. A governing document should read like a
+  // document, not like app furniture; the toggle is still there for anyone who
+  // prefers dark.
+  const [lightMode, setLightMode] = useState(true);
   const [navOpen, setNavOpen] = useState(false);
   const [suggesting, setSuggesting] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -76,6 +83,10 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
   );
 
   const toc = useMemo(() => (doc ? headings(doc) : []), [doc]);
+  const clauses = useMemo(
+    () => (doc ? clauseNumbers(doc, numbers[doc.id] ?? "") : {}),
+    [doc, numbers],
+  );
   const tocIds = useMemo(() => toc.map((h) => h.id), [toc]);
   const activeHeading = useActiveHeading(tocIds, Boolean(doc));
 
@@ -148,6 +159,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                 <NavItem
                   key={d.id}
                   doc={d}
+                  number={numbers[d.id]}
                   active={d.id === doc.id}
                   accent={accent}
                   textMuted={textMuted}
@@ -161,7 +173,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
               )}
             </>
           ) : (
-            sections.map((section) => {
+            numbered.map((section) => {
               const style = sectionStyle[section.id];
               const Icon = style?.icon;
               return (
@@ -174,10 +186,11 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                       {section.title}
                     </p>
                   </div>
-                  {section.docs.map((d) => (
+                  {section.numbered.map(({ doc: d, number }) => (
                     <NavItem
                       key={d.id}
                       doc={d}
+                      number={number}
                       active={d.id === doc.id}
                       accent={accent}
                       textMuted={textMuted}
@@ -256,47 +269,19 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
           <div className="mx-auto flex max-w-[78rem] gap-10 px-5 py-10 md:px-10">
             {/* ------------------------------------------------- document */}
             <article className="doc-article min-w-0 flex-1 max-w-[46rem]">
-              <p className={`mb-2 text-[11px] font-medium uppercase tracking-[0.14em] ${textFaint}`}>
-                {sections.find((s) => s.docs.some((d) => d.id === doc.id))?.title}
-              </p>
+              <DocHeader
+                doc={doc}
+                number={numbers[doc.id] ?? ""}
+                partTitle={sections.find((s) => s.docs.some((d) => d.id === doc.id))?.title ?? ""}
+                lightMode={lightMode}
+              />
 
-              <h1
-                className={`text-[2.1rem] font-bold leading-tight tracking-tight ${textStrong}`}
-                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-              >
-                {doc.title}
-              </h1>
-
-              <div className={`mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] ${textFaint}`}>
-                <span>v{doc.version}</span>
-                <span>·</span>
-                <span>Owner: {doc.owner}</span>
-                <span>·</span>
-                <span>Reviewed {doc.lastReviewed}</span>
-                {badge && (
-                  <span
-                    className="rounded px-1.5 py-0.5 font-semibold uppercase tracking-wide"
-                    style={{ background: `${badge.color}22`, color: badge.color }}
-                  >
-                    {badge.label}
-                  </span>
-                )}
-                {doc.stale && (
-                  <span
-                    className="flex items-center gap-1 font-medium"
-                    style={{ color: "hsl(40,90%,55%)" }}
-                    title={`Past its ${doc.reviewCadenceDays}-day review cadence`}
-                  >
-                    <AlertTriangle className="h-3 w-3" />
-                    Stale
-                  </span>
-                )}
-
+              <div className="-mt-4 mb-8 flex justify-end print:hidden">
                 {/* The person who just found the script wrong is the person on
                     the call. Catch it here, or it never gets filed. */}
                 <button
                   onClick={() => setSuggesting(true)}
-                  className={`ml-auto flex items-center gap-1.5 rounded-md px-2 py-1 font-medium transition-colors print:hidden ${textMuted} ${hover}`}
+                  className={`flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-[12px] font-medium transition-colors ${textMuted} ${hover}`}
                   style={{ border: `1px solid ${border}` }}
                 >
                   <PencilLine className="h-3 w-3" />
@@ -305,7 +290,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
               </div>
 
               <div className="mt-8">
-                <MarkdownBody markdown={doc.body} lightMode={lightMode} onNavigate={openDoc} />
+                <MarkdownBody markdown={doc.body} lightMode={lightMode} clauses={clauses} onNavigate={openDoc} />
               </div>
 
               {/* --------------------------------------------- prev / next */}
@@ -377,6 +362,11 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                               color: isActive ? accent : undefined,
                             }}
                           >
+                            {h.clause && clauses[h.id] && (
+                              <span style={{ fontVariantNumeric: "tabular-nums" }}>
+                                {clauses[h.id]}{" "}
+                              </span>
+                            )}
                             {h.text}
                           </a>
                         </li>
@@ -406,6 +396,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
 
 interface NavItemProps {
   doc: ContentDoc;
+  number?: string;
   active: boolean;
   accent: string;
   textMuted: string;
@@ -415,7 +406,7 @@ interface NavItemProps {
 }
 
 const NavItem: React.FC<NavItemProps> = ({
-  doc, active, accent, textMuted, textStrong, hover, onClick,
+  doc, number, active, accent, textMuted, textStrong, hover, onClick,
 }) => (
   <button
     onClick={onClick}
@@ -424,6 +415,9 @@ const NavItem: React.FC<NavItemProps> = ({
     }`}
     style={active ? { background: `${accent}1a`, color: accent } : undefined}
   >
+    {number && (
+      <span className="flex-shrink-0 tabular-nums opacity-50">{number}</span>
+    )}
     {/* Wraps rather than truncates — several SOP titles are long, and a
         half-shown title is harder to scan than a two-line one. */}
     <span className="min-w-0 flex-1 line-clamp-2">{doc.title}</span>

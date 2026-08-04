@@ -8,6 +8,11 @@ import {
   sectionsForSurface,
   flattenDocs,
   headings,
+  clauseNumbers,
+  docNumbers,
+  numberSections,
+  reviewDue,
+  inForce,
   priceTokens,
   CSM_SECTIONS,
   FIELD_SECTIONS,
@@ -164,5 +169,49 @@ describe("sectionsForSurface", () => {
     const flat = flattenDocs(csmSections());
     expect(flat.length).toBe(new Set(flat.map((d) => d.id)).size);
     expect(flat[0].id).toBe("sop.csm.role");
+  });
+});
+
+describe("citation numbering", () => {
+  it("numbers parts and documents by position", () => {
+    const ns = numberSections(csmSections());
+    expect(ns[0].number).toBe(1);
+    expect(ns[0].numbered[0].number).toBe("1.1");
+    expect(ns[1].numbered[0].number).toBe("2.1");
+  });
+
+  it("gives every document on a surface a unique citation", () => {
+    const nums = Object.values(docNumbers(csmSections()));
+    expect(new Set(nums).size).toBe(nums.length);
+  });
+
+  it("numbers clauses beneath the document number", () => {
+    const doc = docsById["protocol.emergency.triage"];
+    const clauses = clauseNumbers(doc, "2.5");
+    const values = Object.values(clauses);
+    expect(values[0]).toBe("2.5.1");
+    expect(values[1]).toBe("2.5.2");
+  });
+
+  it("numbers only H2s — an H3 is a sub-point, not a clause", () => {
+    const doc = { ...docsById["sop.csm.greeting"], body: "## A {#a}\n\n### B {#b}\n\n## C {#c}" };
+    expect(clauseNumbers(doc, "1.1")).toEqual({ a: "1.1.1", c: "1.1.2" });
+  });
+});
+
+describe("document control", () => {
+  it("derives the review due date from the cadence", () => {
+    const doc = { ...docsById["sop.csm.greeting"], lastReviewed: "2026-01-01", reviewCadenceDays: 90 };
+    expect(reviewDue(doc)).toBe("2026-04-01");
+  });
+
+  it("returns nothing when there is no cadence to derive from", () => {
+    expect(reviewDue({ ...docsById["sop.csm.greeting"], reviewCadenceDays: 0 })).toBe("");
+  });
+
+  it("treats only published documents as in force", () => {
+    expect(inForce(docsById["sop.csm.greeting"])).toBe(true);
+    expect(inForce(docsById["playbook.referral"])).toBe(false);
+    expect(inForce(docsById["reference.guarantees"])).toBe(false);
   });
 });

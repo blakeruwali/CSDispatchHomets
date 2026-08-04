@@ -35,6 +35,8 @@ function textOf(node: React.ReactNode): string {
 interface MarkdownBodyProps {
   markdown: string;
   lightMode: boolean;
+  /** Clause number per heading anchor, e.g. { signals: "2.5.1" }. */
+  clauses?: Record<string, string>;
   /** Called when the reader follows a cross-reference to another doc id. */
   onNavigate?: (id: string) => void;
 }
@@ -51,6 +53,7 @@ interface MarkdownBodyProps {
 export const MarkdownBody: React.FC<MarkdownBodyProps> = ({
   markdown,
   lightMode,
+  clauses,
   onNavigate,
 }) => {
   const border = lightMode ? "hsl(0,0%,88%)" : "hsl(0,0%,100%,0.13)";
@@ -68,12 +71,20 @@ export const MarkdownBody: React.FC<MarkdownBodyProps> = ({
 
     h2: ({ children }) => {
       const { text, id } = splitAnchor(children);
+      const clause = id ? clauses?.[id] : undefined;
       return (
         <h2
           id={id}
           className={`scroll-mt-24 text-[1.35rem] font-semibold tracking-tight mt-12 mb-3 pb-2 ${strong}`}
           style={{ borderBottom: `1px solid ${border}` }}
         >
+          {clause && (
+            // The number is what makes a clause quotable in a coaching
+            // conversation — "you missed §2.5.1", not "the triage bit".
+            <span className={muted} style={{ fontVariantNumeric: "tabular-nums" }}>
+              {clause}{" "}
+            </span>
+          )}
           {text}
         </h2>
       );
@@ -206,7 +217,7 @@ export const MarkdownBody: React.FC<MarkdownBodyProps> = ({
   };
 
   return (
-    <div className="text-[1.0625rem]">
+    <div className="doc-prose">
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
         {markdown}
       </ReactMarkdown>

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
 
 @layer base {
   :root {
@@ -175,4 +175,31 @@
   .doc-article a {
     text-decoration: underline;
   }
+}
+
+
+/* ---------------------------------------------------------------------------
+   Documentation type.
+
+   SOP prose is set in a text serif. These documents are meant to read as
+   binding company procedure, and a serif at a comfortable measure carries that
+   weight in a way a UI sans does not. Chrome, tables and code stay sans —
+   tables are scanned rather than read, and mixing the two is normal in
+   published standards.
+   --------------------------------------------------------------------------- */
+.doc-prose {
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.doc-prose table,
+.doc-prose code,
+.doc-prose pre {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.doc-prose code,
+.doc-prose pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }

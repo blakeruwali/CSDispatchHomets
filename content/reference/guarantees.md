@@ -27,7 +27,7 @@ What we promise customers. A CSM should be able to state any of these from memor
 - Applies to all service types — repair, maintenance, diagnostic.
 - Weather and natural disaster exceptions apply.
 
-Token: {{price:arrival_guarantee}}.
+The guarantee in full: **{{price:arrival_guarantee}}**.
 
 ## Satisfaction guarantee {#satisfaction}
 

@@ -172,6 +172,10 @@ export interface Heading {
   id: string;
   text: string;
   level: 2 | 3;
+  /** Clause number within the document, e.g. "3" — prefixed by the doc number
+   *  to form a full citation like §2.5.3. Only H2s are numbered; an H3 is a
+   *  sub-point of the clause above it, not a clause in its own right. */
+  clause?: number;
 }
 
 /**
@@ -184,14 +188,45 @@ export interface Heading {
 export function headings(doc: ContentDoc): Heading[] {
   const out: Heading[] = [];
   const pattern = /^(##|###)\s+(.+?)\s*$/gm;
+  let clause = 0;
   for (const match of doc.body.matchAll(pattern)) {
     const level = match[1].length as 2 | 3;
     const anchor = /\{#([a-z0-9-]+)\}\s*$/.exec(match[2]);
     const text = match[2].replace(/\s*\{#[a-z0-9-]+\}\s*$/, "").trim();
     if (!anchor || !text) continue; // unanchored headings can't be linked
-    out.push({ id: anchor[1], text, level });
+    if (level === 2) clause += 1;
+    out.push({ id: anchor[1], text, level, clause: level === 2 ? clause : undefined });
   }
   return out;
+}
+
+/**
+ * Clause numbers for a document's headings, keyed by anchor.
+ * `docNumber` is the part.document prefix, e.g. "2.5" → clauses "2.5.1", "2.5.2".
+ */
+export function clauseNumbers(doc: ContentDoc, docNumber: string): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const h of headings(doc)) {
+    if (h.clause) out[h.id] = `${docNumber}.${h.clause}`;
+  }
+  return out;
+}
+
+/**
+ * The date a document falls due for re-verification.
+ * Derived rather than stored, so it can never disagree with the cadence.
+ */
+export function reviewDue(doc: ContentDoc): string {
+  if (!doc.lastReviewed || !doc.reviewCadenceDays) return "";
+  const due = new Date(doc.lastReviewed);
+  if (Number.isNaN(due.getTime())) return "";
+  due.setDate(due.getDate() + doc.reviewCadenceDays);
+  return due.toISOString().slice(0, 10);
+}
+
+/** Published documents are in force; everything else explicitly is not. */
+export function inForce(doc: ContentDoc): boolean {
+  return doc.status === "published";
 }
 
 // ------------------------------------------------------------------ surfaces
@@ -216,6 +251,38 @@ export function sectionsForSurface(surface: string, defs: SectionDef[]): Content
         .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title)),
     }))
     .filter((s) => s.docs.length > 0);
+}
+
+export interface NumberedSection extends ContentSection {
+  /** 1-based part number, e.g. 2 */
+  number: number;
+  /** Documents with their "part.doc" number attached, e.g. "2.5" */
+  numbered: { doc: ContentDoc; number: string }[];
+}
+
+/**
+ * Attaches citation numbers to a surface's parts and documents.
+ *
+ * Numbers come from position, not from frontmatter, so they cannot drift out
+ * of sync with the order a reader actually sees. The consequence is that
+ * inserting a document renumbers the ones after it — acceptable while the SOP
+ * is still being built out, and the stable `id` remains the durable reference.
+ */
+export function numberSections(sections: ContentSection[]): NumberedSection[] {
+  return sections.map((section, i) => ({
+    ...section,
+    number: i + 1,
+    numbered: section.docs.map((doc, j) => ({ doc, number: `${i + 1}.${j + 1}` })),
+  }));
+}
+
+/** Every document's citation number on a surface, keyed by doc id. */
+export function docNumbers(sections: ContentSection[]): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const section of numberSections(sections)) {
+    for (const { doc, number } of section.numbered) out[doc.id] = number;
+  }
+  return out;
 }
 
 /** Reading order across every part — drives prev/next paging. */
