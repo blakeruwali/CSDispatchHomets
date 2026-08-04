@@ -8,7 +8,7 @@ version: 2
 last_reviewed: 2026-08-02
 review_cadence_days: 30
 tags: [pricing, tokens, reference]
-surfaces: [all]
+surfaces: []   # definitions file — machine-read, values appear resolved inside other docs
 ---
 
 # Price Tokens

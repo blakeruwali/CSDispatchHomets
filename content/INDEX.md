@@ -140,7 +140,7 @@ Procedures that apply to a technician on **every** visit, whatever the job type.
 | Truck stock & parts | `sop.field.truck-stock` | ❌ |
 | Job site safety | `people.safety.job-site` | ❌ |
 
-> ⚠️ **Not yet visible in the app.** `/csm` is the only surface rendering from `content/`. `sop.field.equipment-capture` declares `surfaces: [field, checklist]`, so it will appear the moment a field surface exists — the renderer is generic and needs only a page plus section labels.
+Renders at **`/field`**. Parts are declared in `FIELD_SECTIONS` (`src/lib/content.ts`); a doc joins the surface by setting `surfaces: [field]` plus a `section` and `order`.
 
 ---
 
@@ -364,9 +364,9 @@ Full detail in [`_migrated/csm-reconciliation.md`](_migrated/csm-reconciliation.
 
 ## How it reaches staff
 
-`/csm` renders these markdown files directly. `src/lib/content.ts` globs `content/**/*.md` at build time, parses frontmatter, resolves `{{price:token}}` against `pricing/tokens.md`, and groups documents into the seven parts using their `section` and `order` fields. Cross-references written as `` `sop.csm.greeting` `` become clickable links to the referenced document — the reason ids exist instead of file paths.
+`/csm` and `/field` render these markdown files directly, through one shared documentation layout — persistent contents sidebar, a single document on a readable measure, an on-page contents rail tracking your scroll position, and prev/next paging. Printing drops the app chrome and prints the open document alone. `src/lib/content.ts` globs `content/**/*.md` at build time, parses frontmatter, resolves `{{price:token}}` against `pricing/tokens.md`, and groups documents into the seven parts using their `section` and `order` fields. Cross-references written as `` `sop.csm.greeting` `` become clickable links to the referenced document — the reason ids exist instead of file paths.
 
-To add a document to the CSM surface: create the markdown with `surfaces: [csm]`, a `section`, and an `order`. Nothing else to wire up.
+Adding a document to an existing surface is frontmatter only — `surfaces`, `section`, `order`. Adding a whole new surface is a `SectionDef[]` and a five-line page.
 
 ## Product boundary
 

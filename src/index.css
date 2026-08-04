@@ -117,3 +117,62 @@
 .slide-content .text-7xl { font-size: 50px !important; line-height: 1 !important; }
 .slide-content .text-8xl { font-size: 56px !important; line-height: 1 !important; }
 .slide-content .text-9xl { font-size: 62px !important; line-height: 1 !important; }
+
+/* ---------------------------------------------------------------------------
+   Documentation print styles.
+
+   SOPs get printed and pinned up — a technician in a basement is not reading a
+   phone. Printing drops the app chrome and renders the open document alone, in
+   black on white, with tables and headings kept intact across pages.
+   --------------------------------------------------------------------------- */
+@media print {
+  aside,
+  header,
+  nav {
+    display: none !important;
+  }
+
+  html,
+  body,
+  #root {
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+
+  /* Unwind the flex/scroll shell so the article flows down the page. */
+  body * {
+    overflow: visible !important;
+  }
+
+  .doc-article {
+    max-width: none !important;
+    flex: none !important;
+    color: #000 !important;
+  }
+
+  .doc-article *,
+  .doc-article h1,
+  .doc-article h2,
+  .doc-article h3 {
+    color: #000 !important;
+    background: transparent !important;
+  }
+
+  .doc-article h1,
+  .doc-article h2,
+  .doc-article h3 {
+    break-after: avoid-page;
+  }
+
+  .doc-article table,
+  .doc-article blockquote,
+  .doc-article pre {
+    break-inside: avoid;
+    border: 1px solid #bbb !important;
+  }
+
+  .doc-article a {
+    text-decoration: underline;
+  }
+}

@@ -18,10 +18,18 @@ function splitAnchor(children: React.ReactNode): { text: React.ReactNode; id?: s
 
   const trimmed = match[1];
   const rest = nodes.slice(0, -1);
-  return {
-    text: trimmed ? [...rest, trimmed] : rest,
-    id: match[2],
-  };
+  return { text: trimmed ? [...rest, trimmed] : rest, id: match[2] };
+}
+
+/** Plain text of a node tree, for detecting callout markers. */
+function textOf(node: React.ReactNode): string {
+  return React.Children.toArray(node)
+    .map((child) => {
+      if (typeof child === "string" || typeof child === "number") return String(child);
+      if (React.isValidElement(child)) return textOf((child.props as { children?: React.ReactNode }).children);
+      return "";
+    })
+    .join("");
 }
 
 interface MarkdownBodyProps {
@@ -32,85 +40,119 @@ interface MarkdownBodyProps {
 }
 
 /**
- * Renders SOP markdown with the app's styling.
+ * Long-form rendering for SOP documents.
  *
- * Docs cross-reference each other by id in backticks (`sop.csm.greeting`).
- * Those are turned into working links — that indirection is the whole reason
- * the content layer uses ids instead of file paths.
+ * Tuned for sustained reading rather than scanning: a wider type size than the
+ * surrounding app, generous line-height, and vertical rhythm that gives each
+ * heading room. Blockquotes carry most of the weight in these documents —
+ * verbatim scripts and hard warnings — so they get real treatment rather than
+ * a thin left border.
  */
 export const MarkdownBody: React.FC<MarkdownBodyProps> = ({
   markdown,
   lightMode,
   onNavigate,
 }) => {
-  const border = lightMode ? "hsl(0,0%,88%)" : "hsl(0,0%,100%,0.14)";
-  const subtleBg = lightMode ? "hsl(0,0%,97%)" : "hsl(0,0%,100%,0.04)";
-  const codeBg = lightMode ? "hsl(0,0%,94%)" : "hsl(0,0%,100%,0.08)";
+  const border = lightMode ? "hsl(0,0%,88%)" : "hsl(0,0%,100%,0.13)";
+  const subtleBg = lightMode ? "hsl(0,0%,97%)" : "hsl(0,0%,100%,0.035)";
+  const codeBg = lightMode ? "hsl(0,0%,93%)" : "hsl(0,0%,100%,0.08)";
   const accent = "hsl(15,90%,55%)";
-  const strongText = lightMode ? "text-gray-900" : "text-white";
-  const bodyText = lightMode ? "text-gray-700" : "text-white/75";
-  const mutedText = lightMode ? "text-gray-500" : "text-white/55";
+  const warn = "hsl(40,90%,55%)";
+  const strong = lightMode ? "text-gray-900" : "text-white";
+  const body = lightMode ? "text-gray-700" : "text-white/80";
+  const muted = lightMode ? "text-gray-500" : "text-white/50";
 
   const components: Components = {
-    // The doc title is rendered by the accordion trigger, so H1 is redundant.
+    // The document title is rendered by the layout header.
     h1: () => null,
+
     h2: ({ children }) => {
       const { text, id } = splitAnchor(children);
       return (
-        <h3 id={id} className={`text-sm font-semibold mt-5 mb-2 scroll-mt-20 ${strongText}`}>
+        <h2
+          id={id}
+          className={`scroll-mt-24 text-[1.35rem] font-semibold tracking-tight mt-12 mb-3 pb-2 ${strong}`}
+          style={{ borderBottom: `1px solid ${border}` }}
+        >
+          {text}
+        </h2>
+      );
+    },
+
+    h3: ({ children }) => {
+      const { text, id } = splitAnchor(children);
+      return (
+        <h3 id={id} className={`scroll-mt-24 text-[1.05rem] font-semibold mt-8 mb-2 ${strong}`}>
           {text}
         </h3>
       );
     },
-    h3: ({ children }) => {
-      const { text, id } = splitAnchor(children);
-      return (
-        <h4
-          id={id}
-          className={`text-xs font-semibold uppercase tracking-wide mt-4 mb-1.5 scroll-mt-20 ${mutedText}`}
-        >
-          {text}
-        </h4>
-      );
-    },
-    p: ({ children }) => <p className={`my-2 ${bodyText}`}>{children}</p>,
+
+    p: ({ children }) => <p className={`my-4 leading-[1.75] ${body}`}>{children}</p>,
+
     ul: ({ children }) => (
-      <ul className={`list-disc pl-5 space-y-1 my-2 ${bodyText}`}>{children}</ul>
+      <ul className={`list-disc pl-6 space-y-2 my-4 leading-[1.7] marker:text-current/40 ${body}`}>
+        {children}
+      </ul>
     ),
     ol: ({ children }) => (
-      <ol className={`list-decimal pl-5 space-y-1 my-2 ${bodyText}`}>{children}</ol>
-    ),
-    strong: ({ children }) => (
-      <strong className={`font-semibold ${strongText}`}>{children}</strong>
-    ),
-    blockquote: ({ children }) => (
-      <blockquote
-        className="my-3 pl-3 py-1 italic"
-        style={{ borderLeft: `2px solid ${accent}` }}
-      >
+      <ol className={`list-decimal pl-6 space-y-2 my-4 leading-[1.7] marker:font-medium ${body}`}>
         {children}
-      </blockquote>
+      </ol>
     ),
-    hr: () => <hr className="my-4" style={{ borderColor: border }} />,
+    li: ({ children }) => <li className="pl-1">{children}</li>,
+
+    strong: ({ children }) => <strong className={`font-semibold ${strong}`}>{children}</strong>,
+    em: ({ children }) => <em className="italic">{children}</em>,
+
+    /**
+     * Two kinds of quote in these documents, and they should not look alike:
+     * a warning that stops the reader, and a verbatim script they must say.
+     */
+    blockquote: ({ children }) => {
+      const isWarning = /⚠️|never|do not|stop —/i.test(textOf(children).slice(0, 160));
+      const tone = isWarning ? warn : accent;
+      return (
+        <blockquote
+          className="my-6 rounded-r-lg py-3 pl-5 pr-4"
+          style={{
+            borderLeft: `3px solid ${tone}`,
+            background: lightMode ? `${tone}0f` : `${tone}14`,
+          }}
+        >
+          <div className={`[&>p]:my-1.5 [&>p]:leading-[1.7] ${body}`}>{children}</div>
+        </blockquote>
+      );
+    },
+
+    hr: () => <hr className="my-10" style={{ borderColor: border }} />,
+
     a: ({ href, children }) => (
       <a
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="underline underline-offset-2"
+        className="underline underline-offset-2 decoration-1"
         style={{ color: accent }}
       >
         {children}
       </a>
     ),
+
     table: ({ children }) => (
-      <div className="overflow-x-auto my-3">
-        <table className="w-full text-xs border-collapse">{children}</table>
+      <div
+        className="my-6 overflow-x-auto rounded-lg"
+        style={{ border: `1px solid ${border}` }}
+      >
+        <table className="w-full border-collapse text-[0.9rem]">{children}</table>
       </div>
+    ),
+    thead: ({ children }) => (
+      <thead style={{ background: subtleBg }}>{children}</thead>
     ),
     th: ({ children }) => (
       <th
-        className={`text-left font-semibold py-1.5 pr-3 ${strongText}`}
+        className={`text-left font-semibold px-4 py-2.5 ${strong}`}
         style={{ borderBottom: `1px solid ${border}` }}
       >
         {children}
@@ -118,24 +160,25 @@ export const MarkdownBody: React.FC<MarkdownBodyProps> = ({
     ),
     td: ({ children }) => (
       <td
-        className={`py-1.5 pr-3 align-top ${bodyText}`}
-        style={{ borderBottom: `1px solid ${border}` }}
+        className={`px-4 py-2.5 align-top leading-[1.6] ${body}`}
+        style={{ borderTop: `1px solid ${border}` }}
       >
         {children}
       </td>
     ),
+
     code: ({ children }) => {
       const text = String(children);
       const target = docsById[text];
 
-      // A cross-reference to a real document becomes a link.
-      if (target) {
+      // A cross-reference to a real document becomes a link to it.
+      if (target && onNavigate) {
         return (
           <button
-            onClick={() => onNavigate?.(target.id)}
-            className="rounded px-1 py-0.5 text-[11px] font-medium transition-opacity hover:opacity-70"
-            style={{ background: `${accent}22`, color: accent }}
-            title={target.title}
+            onClick={() => onNavigate(target.id)}
+            className="rounded px-1.5 py-0.5 text-[0.85em] font-medium transition-opacity hover:opacity-70"
+            style={{ background: `${accent}1f`, color: accent }}
+            title={`Go to ${target.title}`}
           >
             {target.title}
           </button>
@@ -144,16 +187,17 @@ export const MarkdownBody: React.FC<MarkdownBodyProps> = ({
 
       return (
         <code
-          className="rounded px-1 py-0.5 text-[11px]"
+          className={`rounded px-1.5 py-0.5 text-[0.85em] ${muted}`}
           style={{ background: codeBg }}
         >
           {children}
         </code>
       );
     },
+
     pre: ({ children }) => (
       <pre
-        className="rounded-lg p-3 my-3 overflow-x-auto text-xs"
+        className="my-6 overflow-x-auto rounded-lg p-4 text-[0.85rem] leading-relaxed"
         style={{ background: subtleBg, border: `1px solid ${border}` }}
       >
         {children}
@@ -162,7 +206,7 @@ export const MarkdownBody: React.FC<MarkdownBodyProps> = ({
   };
 
   return (
-    <div className="text-sm leading-relaxed">
+    <div className="text-[1.0625rem]">
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
         {markdown}
       </ReactMarkdown>

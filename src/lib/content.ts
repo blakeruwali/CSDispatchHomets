@@ -166,6 +166,63 @@ export function docsForSurface(surface: string): ContentDoc[] {
   );
 }
 
+// ------------------------------------------------------------------ headings
+
+export interface Heading {
+  id: string;
+  text: string;
+  level: 2 | 3;
+}
+
+/**
+ * H2/H3 headings, for a document's on-page table of contents.
+ *
+ * Authors write `## Section title {#anchor}` so the QA rubric can deep-link to
+ * an exact standard. The same anchors drive the contents list here — one
+ * convention, two uses.
+ */
+export function headings(doc: ContentDoc): Heading[] {
+  const out: Heading[] = [];
+  const pattern = /^(##|###)\s+(.+?)\s*$/gm;
+  for (const match of doc.body.matchAll(pattern)) {
+    const level = match[1].length as 2 | 3;
+    const anchor = /\{#([a-z0-9-]+)\}\s*$/.exec(match[2]);
+    const text = match[2].replace(/\s*\{#[a-z0-9-]+\}\s*$/, "").trim();
+    if (!anchor || !text) continue; // unanchored headings can't be linked
+    out.push({ id: anchor[1], text, level });
+  }
+  return out;
+}
+
+// ------------------------------------------------------------------ surfaces
+
+export interface SectionDef {
+  id: string;
+  title: string;
+  description: string;
+}
+
+/**
+ * Groups a surface's documents into its declared parts, in order.
+ * Parts with no documents are dropped so an empty heading never renders.
+ */
+export function sectionsForSurface(surface: string, defs: SectionDef[]): ContentSection[] {
+  const surfaced = docsForSurface(surface);
+  return defs
+    .map((section) => ({
+      ...section,
+      docs: surfaced
+        .filter((d) => d.section === section.id)
+        .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title)),
+    }))
+    .filter((s) => s.docs.length > 0);
+}
+
+/** Reading order across every part — drives prev/next paging. */
+export function flattenDocs(sections: ContentSection[]): ContentDoc[] {
+  return sections.flatMap((s) => s.docs);
+}
+
 // ---------------------------------------------------------------- CSM sections
 
 /**
@@ -173,7 +230,7 @@ export function docsForSurface(surface: string): ContentDoc[] {
  * via `section` in frontmatter; this supplies the labels and the order of the
  * parts themselves.
  */
-export const CSM_SECTIONS: { id: string; title: string; description: string }[] = [
+export const CSM_SECTIONS: SectionDef[] = [
   { id: "foundations", title: "Part 1 — Foundations", description: "Role, coverage, tools, communication standards, KPIs" },
   { id: "interaction", title: "Part 2 — Customer Interaction", description: "Greeting, listening, profiles, emergency triage, escalation" },
   { id: "intake", title: "Part 3 — Intake", description: "Required data, service and system type, symptoms, lead source" },
@@ -184,11 +241,33 @@ export const CSM_SECTIONS: { id: string; title: string; description: string }[] 
 ];
 
 export function csmSections(): ContentSection[] {
-  const surfaced = docsForSurface("csm");
-  return CSM_SECTIONS.map((section) => ({
-    ...section,
-    docs: surfaced
-      .filter((d) => d.section === section.id)
-      .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title)),
-  })).filter((s) => s.docs.length > 0);
+  return sectionsForSurface("csm", CSM_SECTIONS);
+}
+
+// -------------------------------------------------------------- field sections
+
+/**
+ * Technician procedures that apply on every visit, whatever the job type.
+ * Distinct from the sales surface, which is the in-home sales process only.
+ */
+export const FIELD_SECTIONS: SectionDef[] = [
+  {
+    id: "field-standards",
+    title: "Part 1 — On Every Job",
+    description: "What happens on every visit, before and regardless of the work itself",
+  },
+  {
+    id: "field-safety",
+    title: "Part 2 — Safety",
+    description: "Job site safety, PPE, hazard handling",
+  },
+  {
+    id: "field-documentation",
+    title: "Part 3 — Documentation",
+    description: "Photos, notes, and what has to be in ServiceTitan before a job closes",
+  },
+];
+
+export function fieldSections(): ContentSection[] {
+  return sectionsForSurface("field", FIELD_SECTIONS);
 }

@@ -4,8 +4,13 @@ import {
   docsById,
   docsForSurface,
   csmSections,
+  fieldSections,
+  sectionsForSurface,
+  flattenDocs,
+  headings,
   priceTokens,
   CSM_SECTIONS,
+  FIELD_SECTIONS,
 } from "./content";
 
 describe("content loader", () => {
@@ -38,9 +43,10 @@ describe("price tokens", () => {
   it("resolves every token in every rendered body", () => {
     const unresolved: string[] = [];
     for (const doc of allDocs) {
+      // tokens.md documents the syntax itself; everything else must resolve.
+      if (doc.id === "pricing.tokens") continue;
       for (const match of doc.body.matchAll(/\{\{price:([a-z0-9_]+)\}\}/g)) {
-        // tokens.md documents the syntax itself; everything else must resolve.
-        if (doc.id !== "pricing.tokens") unresolved.push(`${doc.id}: ${match[1]}`);
+        unresolved.push(`${doc.id}: ${match[1]}`);
       }
     }
     expect(unresolved).toEqual([]);
@@ -68,9 +74,7 @@ describe("cross-references", () => {
 describe("CSM surface", () => {
   it("groups every CSM document into a known section", () => {
     const known = new Set(CSM_SECTIONS.map((s) => s.id));
-    const orphans = docsForSurface("csm")
-      .filter((d) => d.id !== "pricing.tokens")
-      .filter((d) => !d.section || !known.has(d.section));
+    const orphans = docsForSurface("csm").filter((d) => !d.section || !known.has(d.section));
     expect(orphans.map((d) => d.id)).toEqual([]);
   });
 
@@ -102,5 +106,63 @@ describe("CSM surface", () => {
 
   it("never surfaces archived documents", () => {
     expect(docsForSurface("csm").every((d) => d.status !== "archived")).toBe(true);
+  });
+});
+
+describe("headings", () => {
+  it("extracts anchored headings for the contents rail", () => {
+    const hs = headings(docsById["sop.field.equipment-capture"]);
+    expect(hs.length).toBeGreaterThan(3);
+    expect(hs.every((h) => h.id && h.text)).toBe(true);
+  });
+
+  it("strips the anchor marker from the visible text", () => {
+    for (const h of headings(docsById["sop.csm.greeting"])) {
+      expect(h.text).not.toContain("{#");
+    }
+  });
+
+  it("skips unanchored headings, which cannot be linked", () => {
+    const doc = { ...docsById["sop.csm.greeting"], body: "## No anchor here\n\n## Anchored {#yes}" };
+    expect(headings(doc).map((h) => h.id)).toEqual(["yes"]);
+  });
+
+  it("records heading depth", () => {
+    const doc = { ...docsById["sop.csm.greeting"], body: "## Two {#a}\n\n### Three {#b}" };
+    expect(headings(doc).map((h) => h.level)).toEqual([2, 3]);
+  });
+});
+
+describe("field surface", () => {
+  it("renders the technician SOP", () => {
+    const ids = flattenDocs(fieldSections()).map((d) => d.id);
+    expect(ids).toContain("sop.field.equipment-capture");
+  });
+
+  it("keeps CSM documents off the field surface", () => {
+    const ids = flattenDocs(fieldSections()).map((d) => d.id);
+    expect(ids).not.toContain("sop.csm.greeting");
+  });
+
+  it("groups every field document into a known part", () => {
+    const known = new Set(FIELD_SECTIONS.map((s) => s.id));
+    const orphans = docsForSurface("field").filter((d) => !d.section || !known.has(d.section));
+    expect(orphans.map((d) => d.id)).toEqual([]);
+  });
+});
+
+describe("sectionsForSurface", () => {
+  it("drops parts that have no documents", () => {
+    expect(sectionsForSurface("csm", CSM_SECTIONS).every((s) => s.docs.length > 0)).toBe(true);
+  });
+
+  it("returns nothing for a surface with no documents", () => {
+    expect(sectionsForSurface("nonexistent", CSM_SECTIONS)).toEqual([]);
+  });
+
+  it("flattens into a stable reading order for prev/next paging", () => {
+    const flat = flattenDocs(csmSections());
+    expect(flat.length).toBe(new Set(flat.map((d) => d.id)).size);
+    expect(flat[0].id).toBe("sop.csm.role");
   });
 });
