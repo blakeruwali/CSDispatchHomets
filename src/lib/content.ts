@@ -241,6 +241,9 @@ export function inForce(doc: ContentDoc): boolean {
 
 export interface SectionDef {
   id: string;
+  /** Bare name, e.g. "Foundations". The "Part N" prefix is derived from
+   *  position by `numberSections`, so it cannot disagree with the document
+   *  numbers beneath it when an unwritten part is dropped from a surface. */
   title: string;
   description: string;
 }
@@ -306,13 +309,13 @@ export function flattenDocs(sections: ContentSection[]): ContentDoc[] {
  * parts themselves.
  */
 export const CSM_SECTIONS: SectionDef[] = [
-  { id: "foundations", title: "Part 1 — Foundations", description: "Role, coverage, tools, communication standards, KPIs" },
-  { id: "interaction", title: "Part 2 — Customer Interaction", description: "Greeting, listening, profiles, emergency triage, escalation" },
-  { id: "intake", title: "Part 3 — Intake", description: "Required data, service and system type, symptoms, lead source" },
-  { id: "booking", title: "Part 4 — Booking", description: "Availability, service area, fees, membership, objections" },
-  { id: "channels", title: "Part 5 — Channel Playbooks", description: "Speed to lead, marketplaces, inbound, LSA, web, Posh, SMS" },
-  { id: "post-booking", title: "Part 6 — Post-Booking & Retention", description: "Tickets, handoff, follow-up, warranty, retention" },
-  { id: "governance", title: "Part 7 — Governance", description: "Guarantees, doc control, QA rubric, coaching, onboarding" },
+  { id: "foundations", title: "Foundations", description: "Role, coverage, tools, communication standards, KPIs" },
+  { id: "interaction", title: "Customer Interaction", description: "Greeting, listening, profiles, emergency triage, escalation" },
+  { id: "intake", title: "Intake", description: "Required data, service and system type, symptoms, lead source" },
+  { id: "booking", title: "Booking", description: "Availability, service area, fees, membership, objections" },
+  { id: "channels", title: "Channel Playbooks", description: "Speed to lead, marketplaces, inbound, LSA, web, Posh, SMS" },
+  { id: "post-booking", title: "Post-Booking & Retention", description: "Tickets, handoff, follow-up, warranty, retention" },
+  { id: "governance", title: "Governance", description: "Guarantees, doc control, QA rubric, coaching, onboarding" },
 ];
 
 export function csmSections(): ContentSection[] {
@@ -328,17 +331,17 @@ export function csmSections(): ContentSection[] {
 export const FIELD_SECTIONS: SectionDef[] = [
   {
     id: "field-standards",
-    title: "Part 1 — On Every Job",
+    title: "On Every Job",
     description: "What happens on every visit, before and regardless of the work itself",
   },
   {
     id: "field-safety",
-    title: "Part 2 — Safety",
+    title: "Safety",
     description: "Job site safety, PPE, hazard handling",
   },
   {
     id: "field-documentation",
-    title: "Part 3 — Documentation",
+    title: "Documentation",
     description: "Photos, notes, and what has to be in ServiceTitan before a job closes",
   },
   // Shares the id `governance` with the CSM surface's Part 7, so a single
@@ -346,7 +349,7 @@ export const FIELD_SECTIONS: SectionDef[] = [
   // duplicated or orphaned.
   {
     id: "governance",
-    title: "Part 4 — Governance",
+    title: "Governance",
     description: "How these documents are issued, acknowledged, and changed",
   },
 ];

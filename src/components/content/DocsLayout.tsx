@@ -232,7 +232,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                       <Icon className="h-3 w-3 flex-shrink-0" style={{ color: style.color }} />
                     )}
                     <p className={`text-[11px] font-semibold uppercase tracking-wider ${textFaint}`}>
-                      {section.title}
+                      Part {section.number} — {section.title}
                     </p>
                   </div>
                   {section.numbered.map(({ doc: d, number }) => (

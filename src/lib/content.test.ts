@@ -150,6 +150,18 @@ describe("field surface", () => {
     expect(ids).not.toContain("sop.csm.greeting");
   });
 
+  it("names parts by position, so a dropped part cannot mislabel the rest", () => {
+    // Titles are bare; "Part N" comes from numberSections. The field surface
+    // has unwritten parts that get dropped, and this is what keeps its
+    // headings agreeing with the document numbers beneath them.
+    const ns = numberSections(fieldSections());
+    expect(ns.every((s) => !s.title.startsWith("Part"))).toBe(true);
+    expect(ns.map((s) => `Part ${s.number} — ${s.title}`)).toEqual([
+      "Part 1 — On Every Job",
+      "Part 2 — Governance",
+    ]);
+  });
+
   it("groups every field document into a known part", () => {
     const known = new Set(FIELD_SECTIONS.map((s) => s.id));
     const orphans = docsForSurface("field").filter((d) => !d.section || !known.has(d.section));
