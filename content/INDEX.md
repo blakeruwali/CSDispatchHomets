@@ -11,6 +11,7 @@ Every document the complete company SOP requires, whether or not it exists yet. 
 | Department | Docs required | Published | Remaining | Source material |
 |---|---|---|---|---|
 | CSM | 51 | 51 | 0 | ✅ complete — SOP + KB reconciled, marketplace channels added |
+| Field (technician) | ~5 | 1 | ~4 | ❌ none — authored |
 | Dispatch | ~24 | 0 | ~24 | `slideData.tsx` (4,914 lines) |
 | Sales (tech) | ~22 | 0 | ~22 | `techSalesSlides.tsx` (1,250 lines) |
 | Reference / KB | ~30 | 0 | ~30 | `kbData.tsx` (2,250 lines) |
@@ -127,7 +128,23 @@ The flagship SOP. All 7 parts and 38 sections of `csmSopData.tsx`, **plus** the 
 
 ---
 
-## 3. Dispatch ⬜ next up
+## 3. Field — Technician ✅ started
+
+Procedures that apply to a technician on **every** visit, whatever the job type. Distinct from §4 Sales, which is the in-home sales process only.
+
+| Doc | id | Status |
+|---|---|---|
+| **Equipment Capture in ServiceTitan** | `sop.field.equipment-capture` | ✅ |
+| Arrival & site conduct | `sop.field.arrival` | ❌ |
+| Job documentation & photos | `sop.field.documentation` | ❌ |
+| Truck stock & parts | `sop.field.truck-stock` | ❌ |
+| Job site safety | `people.safety.job-site` | ❌ |
+
+> ⚠️ **Not yet visible in the app.** `/csm` is the only surface rendering from `content/`. `sop.field.equipment-capture` declares `surfaces: [field, checklist]`, so it will appear the moment a field surface exists — the renderer is generic and needs only a page plus section labels.
+
+---
+
+## 4. Dispatch ⬜ next up
 
 Source: `src/components/presentation/slideData.tsx` — 4,914 lines, ~48 slides, already written and in daily use as the dispatch training deck. This is migration work, not authoring work.
 
@@ -177,7 +194,7 @@ Source: `src/components/presentation/slideData.tsx` — 4,914 lines, ~48 slides,
 
 ---
 
-## 4. Sales — Technician ⬜
+## 5. Sales — Technician ⬜
 
 Source: `src/components/presentation/techSalesSlides.tsx` — 1,250 lines, ~24 slides.
 
@@ -201,7 +218,7 @@ Source: `src/components/presentation/techSalesSlides.tsx` — 1,250 lines, ~24 s
 
 ---
 
-## 5. Reference / Knowledge Base ⬜
+## 6. Reference / Knowledge Base ⬜
 
 Source: `src/components/knowledge-base/kbData.tsx` — 2,250 lines, 13 sections, ~80 articles. Mostly *reference* rather than *procedure* — the material scripts point at when a customer asks a factual question.
 
@@ -226,7 +243,7 @@ Source: `src/components/knowledge-base/kbData.tsx` — 2,250 lines, 13 sections,
 
 ---
 
-## 6. Install ❌ no source material
+## 7. Install ❌ no source material
 
 Nothing exists to migrate. Every doc here must be authored from scratch with the install team.
 
@@ -245,7 +262,7 @@ Nothing exists to migrate. Every doc here must be authored from scratch with the
 
 ---
 
-## 7. Plumbing ❌ mostly missing
+## 8. Plumbing ❌ mostly missing
 
 The KB has a plumbing section (services offered, water heater troubleshooting, drain & sewer, pricing quick reference) — that's reference material, not procedure. The procedures don't exist.
 
@@ -262,7 +279,7 @@ The KB has a plumbing section (services offered, water heater troubleshooting, d
 
 ---
 
-## 8. People / HR ❌ almost entirely missing
+## 9. People / HR ❌ almost entirely missing
 
 | Doc | id | Status |
 |---|---|---|
@@ -283,7 +300,7 @@ The KB has a plumbing section (services offered, water heater troubleshooting, d
 
 ---
 
-## 9. Reference — company facts ⬜
+## 10. Reference — company facts ⬜
 
 | Doc | id | Status |
 |---|---|---|
@@ -296,7 +313,7 @@ The KB has a plumbing section (services offered, water heater troubleshooting, d
 
 ---
 
-## 10. Pricing
+## 11. Pricing
 
 | Doc | id | Status |
 |---|---|---|

@@ -50,7 +50,7 @@ Every `.md` file starts with YAML frontmatter:
 ---
 id: sop.csm.greeting                # stable dotted id — used by app + tokens
 title: CSM Greeting Standard
-department: csm                      # csm | dispatch | sales | install | plumbing | ops | hr
+department: csm                      # csm | dispatch | field | sales | install | plumbing | ops | hr
 owner: cs-manager                    # role responsible for accuracy
 status: published                    # draft | draft-needed | in-review | published | archived
 version: 1                           # bumped on each published change
