@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      content_suggestions: {
+        Row: {
+          anchor: string | null
+          doc_id: string
+          doc_path: string
+          id: string
+          rationale: string | null
+          review_note: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: string
+          submitted_at: string
+          submitted_by: string | null
+          suggestion: string
+        }
+        Insert: {
+          anchor?: string | null
+          doc_id: string
+          doc_path: string
+          id?: string
+          rationale?: string | null
+          review_note?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          submitted_at?: string
+          submitted_by?: string | null
+          suggestion: string
+        }
+        Update: {
+          anchor?: string | null
+          doc_id?: string
+          doc_path?: string
+          id?: string
+          rationale?: string | null
+          review_note?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          submitted_at?: string
+          submitted_by?: string | null
+          suggestion?: string
+        }
+        Relationships: []
+      }
       rubric_categories: {
         Row: {
           created_at: string
