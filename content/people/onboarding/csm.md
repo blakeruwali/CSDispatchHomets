@@ -10,7 +10,7 @@ review_cadence_days: 180
 tags: [onboarding, training, new-hire, csm, certification, 30-60-90]
 related: [governance.qa.csm, governance.coaching, sop.csm.role, sop.csm.escalation, reference.guarantees, sop.csm.non-english-callers]
 section: governance
-order: 5
+order: 6
 surfaces: [csm]
 ---
 
@@ -22,7 +22,7 @@ surfaces: [csm]
 - Shadow **3 live calls** with a senior CSM.
 - Tour the tools: ServiceTitan, phone system, LSA dashboard, Posh log — `sop.csm.tools`.
 - Set up accounts and phone extension.
-- **Sign the SOP acknowledgment.**
+- **Acknowledge the documents for this role.** At the foot of every binding document there is a signature block; the contents list marks the ones still outstanding with **Sign**. Day 1 is not complete until none are (`governance.acknowledgement`).
 
 ## Week 1 {#week-1}
 

@@ -5,9 +5,14 @@ import {
 } from "lucide-react";
 import { MarkdownBody } from "./MarkdownBody";
 import { SuggestEditDialog } from "./SuggestEditDialog";
+import { AcknowledgePanel } from "./AcknowledgePanel";
 import { DocHeader } from "./DocHeader";
+import { useAuth } from "@/hooks/useAuth";
 import {
-  flattenDocs, headings, clauseNumbers, docNumbers, numberSections,
+  ackState, myAcknowledgements, type AcknowledgementRecord,
+} from "@/lib/acknowledgements";
+import {
+  flattenDocs, headings, clauseNumbers, docNumbers, numberSections, inForce,
   type ContentDoc, type ContentSection,
 } from "@/lib/content";
 
@@ -77,6 +82,41 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
   const [suggesting, setSuggesting] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Held here rather than in the panel so the sidebar can mark, at a glance,
+  // which binding documents this reader still owes an acknowledgement on.
+  const { user, loading: authLoading } = useAuth();
+  const [acks, setAcks] = useState<Record<string, AcknowledgementRecord>>({});
+  const [acksLoading, setAcksLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    if (authLoading) return;
+    if (!user) {
+      setAcks({});
+      setAcksLoading(false);
+      return;
+    }
+    setAcksLoading(true);
+    void myAcknowledgements().then((all) => {
+      if (cancelled) return;
+      setAcks(all);
+      setAcksLoading(false);
+    });
+    return () => { cancelled = true; };
+  }, [user, authLoading]);
+
+  const recordAck = useCallback((record: AcknowledgementRecord) => {
+    setAcks((prev) => ({ ...prev, [record.docId]: record }));
+  }, []);
+
+  /** True when a document binds the reader and they have not signed this
+   *  version of it — an outstanding obligation, not merely an unread page. */
+  const outstanding = useCallback(
+    (d: ContentDoc) =>
+      Boolean(user) && d.requiresAck && inForce(d) && ackState(d, acks[d.id]) !== "current",
+    [user, acks],
+  );
+
   const doc = useMemo(
     () => ordered.find((d) => d.id === activeId) ?? ordered[0],
     [ordered, activeId],
@@ -101,11 +141,19 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
   const next = index >= 0 && index < ordered.length - 1 ? ordered[index + 1] : null;
 
   const openDoc = useCallback((id: string) => {
+    // A cross-reference can point at a document that lives on another surface;
+    // following it here would silently dump the reader on document 1.
+    if (!ordered.some((d) => d.id === id)) return;
     setActiveId(id);
     setNavOpen(false);
     // A new document always starts at its beginning, never mid-scroll.
     requestAnimationFrame(() => scrollRef.current?.scrollTo({ top: 0 }));
-  }, []);
+  }, [ordered]);
+
+  const onThisSurface = useCallback(
+    (id: string) => ordered.some((d) => d.id === id),
+    [ordered],
+  );
 
   const bg = lightMode ? "hsl(0,0%,98%)" : "hsl(0,0%,6%)";
   const railBg = lightMode ? "hsl(0,0%,100%)" : "hsl(0,0%,8%)";
@@ -161,6 +209,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                   doc={d}
                   number={numbers[d.id]}
                   active={d.id === doc.id}
+                  needsAck={outstanding(d)}
                   accent={accent}
                   textMuted={textMuted}
                   textStrong={textStrong}
@@ -192,6 +241,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                       doc={d}
                       number={number}
                       active={d.id === doc.id}
+                      needsAck={outstanding(d)}
                       accent={accent}
                       textMuted={textMuted}
                       textStrong={textStrong}
@@ -290,8 +340,29 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
               </div>
 
               <div className="mt-8">
-                <MarkdownBody markdown={doc.body} lightMode={lightMode} clauses={clauses} onNavigate={openDoc} />
+                <MarkdownBody
+                  markdown={doc.body}
+                  lightMode={lightMode}
+                  clauses={clauses}
+                  onNavigate={openDoc}
+                  canNavigate={onThisSurface}
+                />
               </div>
+
+              {/* Only documents that impose a duty ask to be signed. Asking on
+                  a reference table would train people to click past it. */}
+              {doc.requiresAck && inForce(doc) && (
+                <AcknowledgePanel
+                  key={doc.id}
+                  doc={doc}
+                  number={numbers[doc.id] ?? ""}
+                  record={acks[doc.id]}
+                  loading={acksLoading && Boolean(user)}
+                  onAcknowledged={recordAck}
+                  lightMode={lightMode}
+                  accent={accent}
+                />
+              )}
 
               {/* --------------------------------------------- prev / next */}
               <nav
@@ -398,6 +469,8 @@ interface NavItemProps {
   doc: ContentDoc;
   number?: string;
   active: boolean;
+  /** Binding on this reader and not yet acknowledged at this version. */
+  needsAck?: boolean;
   accent: string;
   textMuted: string;
   textStrong: string;
@@ -406,7 +479,7 @@ interface NavItemProps {
 }
 
 const NavItem: React.FC<NavItemProps> = ({
-  doc, number, active, accent, textMuted, textStrong, hover, onClick,
+  doc, number, active, needsAck, accent, textMuted, textStrong, hover, onClick,
 }) => (
   <button
     onClick={onClick}
@@ -421,6 +494,15 @@ const NavItem: React.FC<NavItemProps> = ({
     {/* Wraps rather than truncates — several SOP titles are long, and a
         half-shown title is harder to scan than a two-line one. */}
     <span className="min-w-0 flex-1 line-clamp-2">{doc.title}</span>
+    {needsAck && (
+      <span
+        title="Needs your acknowledgement"
+        className="flex-shrink-0 rounded-sm px-1 py-px text-[9px] font-bold uppercase tracking-wide"
+        style={{ background: "hsl(38,92%,45%,0.18)", color: "hsl(38,92%,38%)" }}
+      >
+        Sign
+      </span>
+    )}
     {doc.status === "draft-needed" && (
       <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: "hsl(0,78%,55%)" }} />
     )}

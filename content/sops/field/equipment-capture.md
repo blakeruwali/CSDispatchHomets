@@ -8,10 +8,11 @@ version: 2
 last_reviewed: 2026-08-04
 review_cadence_days: 90
 tags: [equipment, servicetitan, data-plate, serial, model, warranty, technician, field, capture]
-related: [sop.csm.warranty-callback, reference.guarantees, sop.csm.system-type, sop.csm.tools]
+related: [sop.csm.warranty-callback, reference.guarantees, sop.csm.system-type, sop.csm.tools, governance.acknowledgement]
 section: field-standards
 order: 1
 surfaces: [field, checklist]
+acknowledgement: required
 ---
 
 # Equipment Capture in ServiceTitan — Before Any Work
@@ -129,6 +130,7 @@ So this is not a rule that only exists on paper:
 - **Dispatch checks it at close.** A job closed with work performed and no equipment attached to the location gets sent back to the technician who closed it.
 - **It is reviewed in the weekly one-to-one**, alongside callback rate — the two are related, and the connection is the point.
 - **A genuine exception is fine when it is written down.** No access to the unit, customer refused the attic, locked crawlspace — say so in the notes. An explained gap is a record. A silent gap is a defect.
+- **This document is signed for.** There is an acknowledgement block at the foot of this page. Once you have signed it, "nobody told me" is off the table — and so is the reverse: if you were never asked to sign, that is on us and not on you (`governance.acknowledgement`).
 
 ## Why before, and not after {#why-before}
 

@@ -10,7 +10,7 @@ review_cadence_days: 180
 tags: [coaching, cadence, 1:1, weekly, monthly, quarterly, review]
 related: [governance.qa.csm, governance.doc-control, sop.csm.kpis]
 section: governance
-order: 4
+order: 5
 surfaces: [csm]
 ---
 

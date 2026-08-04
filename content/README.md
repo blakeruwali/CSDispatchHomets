@@ -25,6 +25,7 @@ This folder is the **single source of truth** for all Homets Services operationa
 **Implemented today:** `/csm` renders directly from these files via `src/lib/content.ts` — Vite bundles the markdown at build time and resolves `{{price:token}}` on load, so there is no sync job and no way for the app to drift from the repository. The Supabase mirror in the diagram above is a later phase, needed only for in-app suggestions and cross-surface search.
 
 - **Authoring:** you (editor-in-chief) + AI agents propose changes as git commits/PRs.
+- **Acknowledgements:** documents marked `acknowledgement: required` carry a signature block, written to `document_acknowledgements` in Supabase. **Implemented** — it sits in `DocsLayout`, so it is present on every documentation surface, and the contents list marks unsigned documents with **Sign**. Version-scoped and insert-only; see the frontmatter spec below.
 - **Staff edits:** the in-app **"Suggest an edit"** button writes to `content_suggestions` in Supabase. **Implemented** — it sits in `DocsLayout`, so it is present on every documentation surface, and pre-fills the document id, source path and the section you were reading. Suggestions are immutable once submitted (a database trigger rejects edits to the original text). Approved suggestions become git commits; the table never stores document content.
 - **Pricing:** never hardcoded in a doc. Reference via `{{price:token_id}}` tokens defined in `content/pricing/tokens.md`. Later phase: tokens resolve from ServiceTitan pricebook export instead of the markdown file.
 
@@ -60,8 +61,27 @@ tags: [greeting, script, csm]        # freeform for search
 supersedes: []                       # ids of docs this replaces
 related: [script.csm.objections]     # ids of related docs
 surfaces: [csm, checklist]           # which app surfaces render this doc
+section: interaction                 # which part of the book this belongs to
+order: 3                             # position within that part
+acknowledgement: required            # optional — reader must sign for this doc
 ---
 ```
+
+### Acknowledgement
+
+`acknowledgement: required` puts a signature block at the foot of the document.
+Signing writes one row to `document_acknowledgements` — who, which document,
+**which version**, the date, and the exact statement they were shown. Records
+are insert-only: nothing can amend or withdraw one after the fact.
+
+Scoped to the version deliberately. Bumping `version` invalidates every prior
+acknowledgement of that document and asks each reader to sign again, so a
+signature never stands behind text its signer did not see.
+
+Reserve it for documents that **impose a duty on the reader**. Reference
+tables and price lists do not ask for a signature — a document that asks on
+every page trains people to click past it. The policy itself is
+`governance.acknowledgement`.
 
 ### Status meanings
 

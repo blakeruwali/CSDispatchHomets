@@ -39,6 +39,8 @@ interface MarkdownBodyProps {
   clauses?: Record<string, string>;
   /** Called when the reader follows a cross-reference to another doc id. */
   onNavigate?: (id: string) => void;
+  /** Whether a referenced document exists on the surface being read. */
+  canNavigate?: (id: string) => boolean;
 }
 
 /**
@@ -55,6 +57,7 @@ export const MarkdownBody: React.FC<MarkdownBodyProps> = ({
   lightMode,
   clauses,
   onNavigate,
+  canNavigate,
 }) => {
   const border = lightMode ? "hsl(0,0%,88%)" : "hsl(0,0%,100%,0.13)";
   const subtleBg = lightMode ? "hsl(0,0%,97%)" : "hsl(0,0%,100%,0.035)";
@@ -181,6 +184,20 @@ export const MarkdownBody: React.FC<MarkdownBodyProps> = ({
     code: ({ children }) => {
       const text = String(children);
       const target = docsById[text];
+
+      // A real document that this book does not contain: name it, but do not
+      // offer a link that would land the reader somewhere else entirely.
+      if (target && canNavigate && !canNavigate(target.id)) {
+        return (
+          <span
+            className={`rounded px-1.5 py-0.5 text-[0.85em] font-medium ${muted}`}
+            style={{ background: codeBg }}
+            title="In another part of the company SOP"
+          >
+            {target.title}
+          </span>
+        );
+      }
 
       // A cross-reference to a real document becomes a link to it.
       if (target && onNavigate) {

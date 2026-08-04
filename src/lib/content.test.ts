@@ -17,6 +17,7 @@ import {
   CSM_SECTIONS,
   FIELD_SECTIONS,
 } from "./content";
+import { ackState, acknowledgementStatement } from "./acknowledgements";
 
 describe("content loader", () => {
   it("loads documents from content/", () => {
@@ -196,6 +197,51 @@ describe("citation numbering", () => {
   it("numbers only H2s — an H3 is a sub-point, not a clause", () => {
     const doc = { ...docsById["sop.csm.greeting"], body: "## A {#a}\n\n### B {#b}\n\n## C {#c}" };
     expect(clauseNumbers(doc, "1.1")).toEqual({ a: "1.1.1", c: "1.1.2" });
+  });
+});
+
+describe("acknowledgement", () => {
+  it("marks a document that binds the reader", () => {
+    expect(docsById["sop.field.equipment-capture"].requiresAck).toBe(true);
+  });
+
+  it("leaves reference material unsigned — asking on every page trains people to click past it", () => {
+    expect(docsById["reference.guarantees"].requiresAck).toBe(false);
+    expect(docsById["sop.csm.greeting"].requiresAck).toBe(false);
+  });
+
+  it("publishes the acknowledgement policy to everyone it applies to", () => {
+    const policy = docsById["governance.acknowledgement"];
+    expect(policy.status).toBe("published");
+    expect(policy.surfaces).toEqual(expect.arrayContaining(["csm", "field"]));
+  });
+
+  it("places the policy in a part on both books", () => {
+    for (const sections of [csmSections(), fieldSections()]) {
+      expect(flattenDocs(sections).map((d) => d.id)).toContain("governance.acknowledgement");
+    }
+  });
+
+  it("counts a signature only against the version it was made on", () => {
+    const doc = { ...docsById["sop.field.equipment-capture"], version: "2" };
+    const at = "2026-08-04";
+    expect(ackState(doc, undefined)).toBe("none");
+    expect(ackState(doc, { docId: doc.id, docVersion: "2", acknowledgedAt: at })).toBe("current");
+    expect(ackState(doc, { docId: doc.id, docVersion: "1", acknowledgedAt: at })).toBe("superseded");
+  });
+
+  it("names the document, its version and its citation in the statement", () => {
+    const doc = docsById["sop.field.equipment-capture"];
+    const statement = acknowledgementStatement(doc, "1.1");
+    expect(statement).toContain("§1.1");
+    expect(statement).toContain(doc.title);
+    expect(statement).toContain(`v${doc.version}`);
+    // The escape hatch is the point: signing is not a waiver of judgment.
+    expect(statement).toContain("I will say so at the time");
+  });
+
+  it("omits the citation when the document has no number on this surface", () => {
+    expect(acknowledgementStatement(docsById["sop.csm.greeting"], "")).not.toContain("§");
   });
 });
 

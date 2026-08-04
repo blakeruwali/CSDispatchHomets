@@ -26,6 +26,13 @@ export interface ContentDoc {
   surfaces: string[];
   section?: string;
   order: number;
+  /**
+   * Whether a reader has to record, by name and date, that they have read this
+   * document. Set with `acknowledgement: required` in frontmatter. Reserved for
+   * documents that impose a duty on the reader — a reference table does not
+   * need signing, a procedure that lands on a technician does.
+   */
+  requiresAck: boolean;
   /** Markdown body with {{price:...}} tokens already resolved. */
   body: string;
   /** Lowercased title + tags + body, for search. */
@@ -142,6 +149,7 @@ function buildDocs(): ContentDoc[] {
       surfaces: list(fm.surfaces),
       section: fm.section,
       order: Number(fm.order ?? 999),
+      requiresAck: fm.acknowledgement === "required",
       body,
       haystack: `${fm.title ?? ""} ${tags.join(" ")} ${body}`.toLowerCase(),
       path: path.replace(/^\//, ""),
@@ -332,6 +340,14 @@ export const FIELD_SECTIONS: SectionDef[] = [
     id: "field-documentation",
     title: "Part 3 — Documentation",
     description: "Photos, notes, and what has to be in ServiceTitan before a job closes",
+  },
+  // Shares the id `governance` with the CSM surface's Part 7, so a single
+  // company-wide governance document can appear in both books without being
+  // duplicated or orphaned.
+  {
+    id: "governance",
+    title: "Part 4 — Governance",
+    description: "How these documents are issued, acknowledged, and changed",
   },
 ];
 
