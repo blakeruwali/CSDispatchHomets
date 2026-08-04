@@ -59,6 +59,39 @@ export type Database = {
         }
         Relationships: []
       }
+      document_acknowledgements: {
+        Row: {
+          acknowledged_at: string
+          acknowledged_by: string
+          doc_id: string
+          doc_path: string
+          doc_title: string
+          doc_version: string
+          id: string
+          statement: string
+        }
+        Insert: {
+          acknowledged_at?: string
+          acknowledged_by: string
+          doc_id: string
+          doc_path: string
+          doc_title: string
+          doc_version: string
+          id?: string
+          statement: string
+        }
+        Update: {
+          acknowledged_at?: string
+          acknowledged_by?: string
+          doc_id?: string
+          doc_path?: string
+          doc_title?: string
+          doc_version?: string
+          id?: string
+          statement?: string
+        }
+        Relationships: []
+      }
       rubric_categories: {
         Row: {
           created_at: string
