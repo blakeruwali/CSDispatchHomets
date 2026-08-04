@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
 import { useAuth, ALLOWED_EMAIL_DOMAIN, isAllowedEmail } from "@/hooks/useAuth";
@@ -11,12 +11,15 @@ import { toast } from "@/hooks/use-toast";
 export default function Auth() {
   const { session, loading, domainBlocked } = useAuth();
   const nav = useNavigate();
+  const location = useLocation();
+  const from = (location.state as { from?: string } | null)?.from;
+  const dest = from && from !== "/auth" ? from : "/checklist";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
 
   if (loading) return null;
-  if (session) return <Navigate to="/checklist" replace />;
+  if (session) return <Navigate to={dest} replace />;
 
   const domainError = () =>
     toast({
@@ -38,7 +41,7 @@ export default function Auth() {
     }
     if (result.redirected) return;
     setBusy(false);
-    nav("/checklist");
+    nav(dest);
   };
 
   const signInEmail = async () => {
@@ -47,7 +50,7 @@ export default function Auth() {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setBusy(false);
     if (error) toast({ title: "Sign-in failed", description: error.message, variant: "destructive" });
-    else nav("/checklist");
+    else nav(dest);
   };
 
   return (
