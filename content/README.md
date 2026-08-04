@@ -25,7 +25,7 @@ This folder is the **single source of truth** for all Homets Services operationa
 **Implemented today:** `/csm` renders directly from these files via `src/lib/content.ts` — Vite bundles the markdown at build time and resolves `{{price:token}}` on load, so there is no sync job and no way for the app to drift from the repository. The Supabase mirror in the diagram above is a later phase, needed only for in-app suggestions and cross-surface search.
 
 - **Authoring:** you (editor-in-chief) + AI agents propose changes as git commits/PRs.
-- **Staff edits:** in-app **"Suggest edit"** button writes to `content_suggestions` in Supabase. Approved suggestions become git commits.
+- **Staff edits:** the in-app **"Suggest an edit"** button writes to `content_suggestions` in Supabase. **Implemented** — it sits in `DocsLayout`, so it is present on every documentation surface, and pre-fills the document id, source path and the section you were reading. Suggestions are immutable once submitted (a database trigger rejects edits to the original text). Approved suggestions become git commits; the table never stores document content.
 - **Pricing:** never hardcoded in a doc. Reference via `{{price:token_id}}` tokens defined in `content/pricing/tokens.md`. Later phase: tokens resolve from ServiceTitan pricebook export instead of the markdown file.
 
 ## Folder taxonomy

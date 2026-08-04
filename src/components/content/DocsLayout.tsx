@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Search, X, Sun, Moon, ArrowLeft, ArrowRight, AlertTriangle, Menu,
+  Search, X, Sun, Moon, ArrowLeft, ArrowRight, AlertTriangle, Menu, PencilLine,
 } from "lucide-react";
 import { MarkdownBody } from "./MarkdownBody";
+import { SuggestEditDialog } from "./SuggestEditDialog";
 import {
   flattenDocs, headings, type ContentDoc, type ContentSection,
 } from "@/lib/content";
@@ -66,6 +67,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
   const [query, setQuery] = useState("");
   const [lightMode, setLightMode] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  const [suggesting, setSuggesting] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const doc = useMemo(
@@ -289,6 +291,17 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                     Stale
                   </span>
                 )}
+
+                {/* The person who just found the script wrong is the person on
+                    the call. Catch it here, or it never gets filed. */}
+                <button
+                  onClick={() => setSuggesting(true)}
+                  className={`ml-auto flex items-center gap-1.5 rounded-md px-2 py-1 font-medium transition-colors print:hidden ${textMuted} ${hover}`}
+                  style={{ border: `1px solid ${border}` }}
+                >
+                  <PencilLine className="h-3 w-3" />
+                  Suggest an edit
+                </button>
               </div>
 
               <div className="mt-8">
@@ -376,6 +389,17 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
           </div>
         </div>
       </div>
+
+      {suggesting && (
+        <SuggestEditDialog
+          doc={doc}
+          headings={toc}
+          activeHeading={activeHeading}
+          lightMode={lightMode}
+          accent={accent}
+          onClose={() => setSuggesting(false)}
+        />
+      )}
     </div>
   );
 };
