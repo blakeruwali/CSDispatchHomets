@@ -189,8 +189,6 @@ function buildDocs(): ContentDoc[] {
   }
   return docs;
 }
-  return docs;
-}
 
 export const allDocs: ContentDoc[] = buildDocs();
 
