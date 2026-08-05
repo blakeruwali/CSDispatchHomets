@@ -1,9 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Search, X, Sun, Moon, ArrowLeft, ArrowRight, AlertTriangle, Menu, PencilLine,
+  Search, X, Sun, Moon, ArrowLeft, ArrowRight, AlertTriangle, Menu, PencilLine, Languages,
 } from "lucide-react";
 import { MarkdownBody } from "./MarkdownBody";
+import { BrandMark, BrandFooter } from "./BrandMark";
+import { LOCALE_LABEL, translateDoc, type Locale, type TranslationSource } from "@/lib/translate";
+import { t, sectionTitle } from "@/lib/i18n";
 import { SuggestEditDialog } from "./SuggestEditDialog";
 import { AcknowledgePanel } from "./AcknowledgePanel";
 import { DocHeader } from "./DocHeader";
@@ -80,6 +83,20 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
   const [lightMode, setLightMode] = useState(true);
   const [navOpen, setNavOpen] = useState(false);
   const [suggesting, setSuggesting] = useState(false);
+  // Field crews read these documents in Spanish. English remains the governing
+  // text, so the toggle changes the reading language, never the record.
+  const [locale, setLocale] = useState<Locale>(() => {
+    try {
+      return (window.localStorage.getItem("homets.locale") as Locale) ?? "en";
+    } catch {
+      return "en";
+    }
+  });
+  const [translated, setTranslated] = useState<string | null>(null);
+  const [translationSource, setTranslationSource] = useState<TranslationSource | null>(null);
+  const [translating, setTranslating] = useState(false);
+  const [translationError, setTranslationError] = useState<string | null>(null);
+  const [translateNonce, setTranslateNonce] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Held here rather than in the panel so the sidebar can mark, at a glance,
@@ -121,6 +138,42 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
     () => ordered.find((d) => d.id === activeId) ?? ordered[0],
     [ordered, activeId],
   );
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem("homets.locale", locale);
+    } catch {
+      // Preference is a convenience; failing to persist it is not an error.
+    }
+  }, [locale]);
+
+  useEffect(() => {
+    let cancelled = false;
+    setTranslationError(null);
+    if (!doc || locale === "en") {
+      setTranslated(null);
+      setTranslationSource(null);
+      setTranslating(false);
+      return;
+    }
+    setTranslating(true);
+    void translateDoc(doc, locale)
+      .then((result) => {
+        if (cancelled) return;
+        setTranslated(result.markdown);
+        setTranslationSource(result.source);
+      })
+      .catch((error: Error) => {
+        if (cancelled) return;
+        setTranslated(null);
+        setTranslationSource(null);
+        setTranslationError(error.message);
+      })
+      .finally(() => {
+        if (!cancelled) setTranslating(false);
+      });
+    return () => { cancelled = true; };
+  }, [doc, locale, translateNonce]);
 
   const toc = useMemo(() => (doc ? headings(doc) : []), [doc]);
   const clauses = useMemo(
@@ -181,27 +234,31 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
         className={`${navOpen ? "flex" : "hidden"} md:flex absolute md:relative z-30 h-full w-72 flex-shrink-0 flex-col`}
         style={{ background: railBg, borderRight: `1px solid ${border}` }}
       >
-        <div
-          className="flex h-14 flex-shrink-0 items-center gap-2 px-5"
-          style={{ borderBottom: `1px solid ${border}` }}
-        >
-          <TitleIcon className="h-4 w-4" style={{ color: accent }} />
-          <span className={`text-xs font-semibold uppercase tracking-[0.12em] ${textStrong}`}>
-            {shortTitle}
-          </span>
+        <div className="relative flex-shrink-0">
+          <BrandMark accent={accent} subtitle={shortTitle} />
           <button
             onClick={() => setNavOpen(false)}
-            className={`ml-auto md:hidden ${textMuted}`}
+            className="absolute right-3 top-3 text-white/60 md:hidden"
+            aria-label="Close"
           >
             <X className="h-4 w-4" />
           </button>
+        </div>
+        <div
+          className="flex flex-shrink-0 items-center gap-2 px-5 py-2"
+          style={{ borderBottom: `1px solid ${border}` }}
+        >
+          <TitleIcon className="h-3.5 w-3.5" style={{ color: accent }} />
+          <span className={`text-[11px] font-semibold uppercase tracking-[0.12em] ${textMuted}`}>
+            {locale === "es" ? "Manual Operativo" : "Operations Manual"}
+          </span>
         </div>
 
         <nav className="flex-1 overflow-y-auto px-3 py-4">
           {matches ? (
             <>
               <p className={`px-2 pb-2 text-[11px] uppercase tracking-wider ${textFaint}`}>
-                {matches.length} result{matches.length === 1 ? "" : "s"}
+                {matches.length} {matches.length === 1 ? t("result", locale) : t("results", locale)}
               </p>
               {matches.map((d) => (
                 <NavItem
@@ -218,7 +275,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                 />
               ))}
               {matches.length === 0 && (
-                <p className={`px-2 py-3 text-xs ${textMuted}`}>No matching documents</p>
+                <p className={`px-2 py-3 text-xs ${textMuted}`}>{t("noMatches", locale)}</p>
               )}
             </>
           ) : (
@@ -232,7 +289,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                       <Icon className="h-3 w-3 flex-shrink-0" style={{ color: style.color }} />
                     )}
                     <p className={`text-[11px] font-semibold uppercase tracking-wider ${textFaint}`}>
-                      Part {section.number} — {section.title}
+                      {t("part", locale)} {section.number} — {sectionTitle(section.id, section.title, locale)}
                     </p>
                   </div>
                   {section.numbered.map(({ doc: d, number }) => (
@@ -275,7 +332,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
               className={`hidden items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium sm:flex ${textMuted} ${hover}`}
             >
               <ArrowLeft className="h-3.5 w-3.5" />
-              Dispatch Guide
+              {t("backToGuide", locale)}
             </Link>
             <h1 className={`truncate text-sm font-semibold ${textStrong}`}>{title}</h1>
           </div>
@@ -292,7 +349,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search…"
+                placeholder={t("search", locale)}
                 className={`w-28 bg-transparent text-sm outline-none sm:w-48 ${textStrong}`}
               />
               {query && (
@@ -301,6 +358,31 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                 </button>
               )}
             </div>
+            <div
+              className="flex items-center gap-0.5 rounded-lg p-0.5"
+              style={{
+                background: lightMode ? "hsl(0,0%,95%)" : "hsl(0,0%,12%)",
+                border: `1px solid ${border}`,
+              }}
+              title={t("language", locale)}
+            >
+              {(["en", "es"] as Locale[]).map((code) => (
+                <button
+                  key={code}
+                  onClick={() => setLocale(code)}
+                  className={`rounded-md px-2 py-1 text-[11px] font-semibold uppercase tracking-wide transition-colors ${
+                    code === locale ? "" : textMuted
+                  }`}
+                  style={
+                    code === locale
+                      ? { background: accent, color: "hsl(0,0%,100%)" }
+                      : undefined
+                  }
+                >
+                  {code === "en" ? "EN" : "ES"}
+                </button>
+              ))}
+            </div>
             <button
               onClick={() => setLightMode((v) => !v)}
               className={`rounded-lg p-2 ${textMuted}`}
@@ -308,7 +390,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                 background: lightMode ? "hsl(0,0%,95%)" : "hsl(0,0%,12%)",
                 border: `1px solid ${border}`,
               }}
-              title={lightMode ? "Dark mode" : "Light mode"}
+              title={lightMode ? t("darkMode", locale) : t("lightMode", locale)}
             >
               {lightMode ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
             </button>
@@ -335,13 +417,43 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                   style={{ border: `1px solid ${border}` }}
                 >
                   <PencilLine className="h-3 w-3" />
-                  Suggest an edit
+                  {t("suggestEdit", locale)}
                 </button>
               </div>
 
               <div className="mt-8">
+                {locale !== "en" && (
+                  <div
+                    className="mb-6 flex flex-wrap items-center gap-2 rounded-lg px-3 py-2 text-[12px]"
+                    style={{
+                      background: lightMode ? "hsl(200,60%,96%)" : "hsl(200,60%,12%)",
+                      border: `1px solid ${border}`,
+                    }}
+                  >
+                    <Languages className="h-3.5 w-3.5" style={{ color: accent }} />
+                    <span className={textMuted}>
+                      {translating
+                        ? t("translating", locale)
+                        : translationError
+                          ? t("translationFailed", locale)
+                          : translationSource === "authored"
+                            ? `${LOCALE_LABEL[locale]} · ${doc.version ? `v${doc.version}` : ""}`
+                            : t("machineNotice", locale)}
+                    </span>
+                    {translationError && (
+                      <button
+                        onClick={() => setTranslateNonce((n) => n + 1)}
+                        className="font-semibold underline"
+                        style={{ color: accent }}
+                      >
+                        {t("retry", locale)}
+                      </button>
+                    )}
+                  </div>
+                )}
+
                 <MarkdownBody
-                  markdown={doc.body}
+                  markdown={translated ?? doc.body}
                   lightMode={lightMode}
                   clauses={clauses}
                   onNavigate={openDoc}
@@ -376,7 +488,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                     style={{ border: `1px solid ${border}` }}
                   >
                     <span className={`flex items-center gap-1 text-[11px] ${textFaint}`}>
-                      <ArrowLeft className="h-3 w-3" /> Previous
+                      <ArrowLeft className="h-3 w-3" /> {t("previous", locale)}
                     </span>
                     <span className={`mt-0.5 block text-sm font-medium ${textStrong}`}>
                       {prev.title}
@@ -392,7 +504,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                     style={{ border: `1px solid ${border}` }}
                   >
                     <span className={`flex items-center justify-end gap-1 text-[11px] ${textFaint}`}>
-                      Next <ArrowRight className="h-3 w-3" />
+                      {t("next", locale)} <ArrowRight className="h-3 w-3" />
                     </span>
                     <span className={`mt-0.5 block text-sm font-medium ${textStrong}`}>
                       {next.title}
@@ -401,7 +513,9 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                 )}
               </nav>
 
-              <p className={`mt-8 text-[11px] ${textFaint}`}>
+              <BrandFooter lightMode={lightMode} />
+
+              <p className={`mt-4 text-[11px] ${textFaint}`}>
                 {doc.id} · {doc.path}
               </p>
             </article>
@@ -411,7 +525,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
               <aside className="hidden w-56 flex-shrink-0 xl:block print:hidden">
                 <div className="sticky top-4">
                   <p className={`mb-3 text-[11px] font-semibold uppercase tracking-wider ${textFaint}`}>
-                    On this page
+                    {t("onThisPage", locale)}
                   </p>
                   <ul className="space-y-1.5" style={{ borderLeft: `1px solid ${border}` }}>
                     {toc.map((h) => {
