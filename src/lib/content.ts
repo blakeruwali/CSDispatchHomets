@@ -130,9 +130,33 @@ function isStale(lastReviewed: string, cadenceDays: number): boolean {
   return due < new Date();
 }
 
+/** Locale suffix on a translated sibling, e.g. `greeting.es.md`. */
+const LOCALE_FILE = /\.([a-z]{2})\.md$/;
+
+/**
+ * Hand-authored translations, keyed by the English file they translate.
+ * A translated file needs no frontmatter — it inherits the governing
+ * document's control block so the two can never disagree about version,
+ * owner, or review date.
+ */
+function buildTranslations(): Record<string, Record<string, string>> {
+  const out: Record<string, Record<string, string>> = {};
+  for (const [path, text] of Object.entries(raw)) {
+    const match = LOCALE_FILE.exec(path);
+    if (!match) continue;
+    const base = path.replace(LOCALE_FILE, ".md");
+    const parsed = splitFrontmatter(text);
+    out[base] = out[base] ?? {};
+    out[base][match[1]] = resolveTokens(parsed ? parsed.body : text);
+  }
+  return out;
+}
+
 function buildDocs(): ContentDoc[] {
+  const translations = buildTranslations();
   const docs: ContentDoc[] = [];
   for (const [path, text] of Object.entries(raw)) {
+    if (LOCALE_FILE.test(path)) continue; // handled as a translation, not a doc
     const parsed = splitFrontmatter(text);
     // READMEs, INDEX and the migration notes have no frontmatter by design.
     if (!parsed || !parsed.fm.id) continue;
@@ -157,11 +181,14 @@ function buildDocs(): ContentDoc[] {
       order: Number(fm.order ?? 999),
       requiresAck: fm.acknowledgement === "required",
       body,
+      translations: translations[path] ?? {},
       haystack: `${fm.title ?? ""} ${tags.join(" ")} ${body}`.toLowerCase(),
       path: path.replace(/^\//, ""),
       stale: isStale(fm.last_reviewed ?? "", Number(fm.review_cadence_days ?? 0)),
     });
   }
+  return docs;
+}
   return docs;
 }
 
