@@ -35,6 +35,12 @@ export interface ContentDoc {
   requiresAck: boolean;
   /** Markdown body with {{price:...}} tokens already resolved. */
   body: string;
+  /**
+   * Hand-authored translations, keyed by locale, from `*.<locale>.md` siblings.
+   * Absent locales are machine-translated on demand at read time — see
+   * `src/lib/translate.ts`. English remains the governing text either way.
+   */
+  translations: Record<string, string>;
   /** Lowercased title + tags + body, for search. */
   haystack: string;
   path: string;
