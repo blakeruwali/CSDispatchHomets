@@ -25,6 +25,9 @@ const EXEMPT = new Set(["README.md", "INDEX.md"]);
  */
 const isWorkingNote = (file) => file.includes("/_migrated/");
 
+/** A translated sibling, e.g. `diagnostics.es.md`. */
+const LOCALE_FILE = /\.([a-z]{2})\.md$/;
+
 const REQUIRED_FRONTMATTER = [
   "id", "title", "department", "owner",
   "status", "version", "last_reviewed", "review_cadence_days",
@@ -75,10 +78,31 @@ const definedTokens = new Set(
 
 // ---- 2. Collect declared doc ids ------------------------------------------
 const docs = new Map(); // id -> path
+const docVersions = new Map(); // id -> declared version, for translation drift
+/**
+ * Translations are authored once, when the English is written or revised, and
+ * committed — nothing translates at read time. That only works if a revision
+ * cannot quietly leave the Spanish behind, so a translated file declares the
+ * English version it was made from and this check enforces the match.
+ */
+const translations = [];
+
 for (const file of files) {
   const base = file.split("/").pop();
   const text = readFileSync(file, "utf8");
   const fm = parseFrontmatter(text);
+
+  if (LOCALE_FILE.test(file)) {
+    const locale = LOCALE_FILE.exec(file)[1];
+    if (!fm) {
+      errors.push(`${file}: a translation must declare 'translation_of' and 'source_version'`);
+    } else if (!fm.translation_of || !fm.source_version) {
+      errors.push(`${file}: translation missing 'translation_of' or 'source_version'`);
+    } else {
+      translations.push({ file, locale, of: fm.translation_of, from: String(fm.source_version) });
+    }
+    continue;
+  }
 
   if (!fm) {
     if (!EXEMPT.has(base) && !isWorkingNote(file)) {
@@ -98,6 +122,7 @@ for (const file of files) {
       errors.push(`${file}: duplicate id '${fm.id}' (also in ${docs.get(fm.id)})`);
     }
     docs.set(fm.id, file);
+    docVersions.set(fm.id, String(fm.version ?? ""));
   }
 
   // Staleness is a warning, never an error.
@@ -153,6 +178,23 @@ const unusedTokens = [...definedTokens].filter((t) => {
   return !files.some((f) => readFileSync(f, "utf8").includes(`{{price:${t}}}`));
 });
 for (const t of unusedTokens) warnings.push(`pricing/tokens.md: token '${t}' is defined but never used`);
+
+// Translations are checked once every document is known, so the English
+// version a translation claims can be compared against the English document.
+for (const tr of translations) {
+  if (!docs.has(tr.of)) {
+    errors.push(`${tr.file}: 'translation_of' points at unknown id '${tr.of}'`);
+    continue;
+  }
+  const current = docVersions.get(tr.of);
+  if (current !== tr.from) {
+    errors.push(
+      `${tr.file}: translated from v${tr.from}, but ${tr.of} is now v${current}. ` +
+        `Re-translate and update 'source_version' — a stale translation of a ` +
+        `governing document is never shown to readers.`,
+    );
+  }
+}
 
 console.log(`Checked ${files.length} files — ${docs.size} documents, ${definedTokens.size} price tokens.\n`);
 

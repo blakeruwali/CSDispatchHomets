@@ -41,7 +41,15 @@ The signature design is right, and it is the part most worth protecting:
 
 ---
 
-## D5 — Which family wins? *(owner decision)*
+## ✅ DECIDED — 2026-08-10
+
+**D5, D6 and D7 all answered as recommended.** The three "Full System Evaluation" forms are retired; customer signatures are optional everywhere. What follows is the reasoning as it was put to the owner, kept because the reasoning is the part worth re-reading if anyone reopens it.
+
+**These are ServiceTitan changes and they are not done by editing this repository.** The action list is at the foot of this document.
+
+---
+
+## D5 — Which family wins? *(decided: point inspections)*
 
 You cannot run both. Two forms for the same job is not redundancy, it is a coin flip on what gets recorded.
 
@@ -49,7 +57,7 @@ You cannot run both. Two forms for the same job is not redundancy, it is a coin 
 
 ---
 
-## D6 — The Full System forms contain sales scripting *(owner decision)*
+## D6 — The Full System forms contain sales scripting *(decided: delete)*
 
 This is the substantive concern, and it is why D5 is not merely tidying up. Quoting the form definitions verbatim:
 
@@ -83,7 +91,7 @@ None of this appears anywhere in the point-inspection family. That family recomm
 
 ---
 
-## D7 — Required customer signatures *(owner decision)*
+## D7 — Required customer signatures *(decided: optional everywhere)*
 
 | Family | Customer signature |
 |---|---|
@@ -135,3 +143,39 @@ The thresholds in `reference.diagnostic-readings` were rewritten to match these 
 | Thermostat calibration | Within 2°F |
 
 `sop.field.diagnostics` now names the form per system type, states that working the form *is* the diagnosis, requires both the grade and the number, protects "UNABLE TO TEST" as a legitimate answer, and separates the two signatures.
+
+
+---
+
+## Action list — ServiceTitan
+
+Nothing below can be done from this repository. Each item is a change in the ServiceTitan forms UI, and each should be done by someone who can confirm it took effect.
+
+### Retire (D5, D6)
+
+| Form | ID | Action |
+|---|---|---|
+| IAQ Assessment – Full System Evaluation | 149 | Deactivate. Replaced by **18-Point Indoor Air Quality Assessment**. |
+| Ductwork Evaluation – Full System Assessment | 150 | Deactivate. Replaced by **18-Point Ductwork Evaluation**. |
+| Heat Pump – Full System Evaluation | 156 | Deactivate. Replaced by **22-Point Ducted Heat Pump Inspection**. |
+
+**Deactivate rather than delete.** Submitted forms are job records; a customer's IAQ report from March should still open in June. Deactivating removes it from the list a technician picks from without erasing what was already filed.
+
+**Check before deactivating #156:** it is assigned to three business units including Home+ Plumbing Service, so confirm nothing on the plumbing side depends on it.
+
+### Fix (defects)
+
+| # | Form | Fix |
+|---|---|---|
+| 1 | Complete Furnace Inspection | Technician signature reads *"all **0** inspection points"*. Reword to "all inspection points recorded above", or give the form a point count and use it. |
+| 2 | Complete Boiler Inspection | Same defect, same fix. |
+| 3 | — | Confirm no remaining active form requires a customer signature to submit (D7). The point-inspection wording is the standard: *"acknowledges receipt only — it does not authorize any repair."* |
+
+### Verify
+
+- **Form/definition id collision.** All seven point-inspection exports carry `form.id=144, definition.id=80`. Confirm against the live tenant whether that is real or an export artefact **before importing any of these anywhere** — a re-import against a colliding id can overwrite a different form.
+- **#149 has no business unit assigned.** Moot once it is deactivated, but worth understanding in case other forms share the problem.
+
+### Then
+
+Once the three are deactivated, the ⚠️ note in `sop.field.diagnostics` §which-form can come out. It currently tells technicians that if they still see an old form, the retirement has not happened yet and to say so — which is the right instruction until someone confirms it is done.

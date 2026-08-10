@@ -36,15 +36,22 @@ export interface ContentDoc {
   /** Markdown body with {{price:...}} tokens already resolved. */
   body: string;
   /**
-   * Hand-authored translations, keyed by locale, from `*.<locale>.md` siblings.
-   * Absent locales are machine-translated on demand at read time — see
-   * `src/lib/translate.ts`. English remains the governing text either way.
+   * Authored translations, keyed by locale, from `*.<locale>.md` siblings.
+   * Each carries the English version it was made from, so a translation left
+   * behind by a revision can be detected rather than silently served. English
+   * is the governing text; see `src/lib/translate.ts`.
    */
-  translations: Record<string, string>;
+  translations: Record<string, DocTranslation>;
   /** Lowercased title + tags + body, for search. */
   haystack: string;
   path: string;
   stale: boolean;
+}
+
+export interface DocTranslation {
+  markdown: string;
+  /** The `version` of the English document this was translated from. */
+  sourceVersion: string;
 }
 
 export interface ContentSection {
@@ -134,20 +141,26 @@ function isStale(lastReviewed: string, cadenceDays: number): boolean {
 const LOCALE_FILE = /\.([a-z]{2})\.md$/;
 
 /**
- * Hand-authored translations, keyed by the English file they translate.
- * A translated file needs no frontmatter — it inherits the governing
- * document's control block so the two can never disagree about version,
- * owner, or review date.
+ * Authored translations, keyed by the English file they translate.
+ *
+ * A translated file carries only `translation_of` and `source_version` in its
+ * frontmatter — it inherits everything else from the governing document, so
+ * the two can never disagree about owner, status or review date. What it does
+ * declare is which English version it was made from, which is the one fact
+ * that cannot be inherited and the one that goes stale.
  */
-function buildTranslations(): Record<string, Record<string, string>> {
-  const out: Record<string, Record<string, string>> = {};
+function buildTranslations(): Record<string, Record<string, DocTranslation>> {
+  const out: Record<string, Record<string, DocTranslation>> = {};
   for (const [path, text] of Object.entries(raw)) {
     const match = LOCALE_FILE.exec(path);
     if (!match) continue;
     const base = path.replace(LOCALE_FILE, ".md");
     const parsed = splitFrontmatter(text);
     out[base] = out[base] ?? {};
-    out[base][match[1]] = resolveTokens(parsed ? parsed.body : text);
+    out[base][match[1]] = {
+      markdown: resolveTokens(parsed ? parsed.body : text),
+      sourceVersion: parsed?.fm.source_version ?? "",
+    };
   }
   return out;
 }

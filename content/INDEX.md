@@ -135,8 +135,8 @@ Procedures that apply to a technician on **every** visit, whatever the job type.
 | Doc | id | Status |
 |---|---|---|
 | **Equipment Capture in ServiceTitan** | `sop.field.equipment-capture` | ✅ |
-| **Diagnostics — proving the cause before you quote** | `sop.field.diagnostics` | 🟡 in review — D1–D3, D5–D7 open |
-| **Diagnostic thresholds behind the forms** | `reference.diagnostic-readings` | 🟡 in review — thresholds now match the ServiceTitan forms (D4 closed) |
+| **Diagnostics — proving the cause before you quote** | `sop.field.diagnostics` | ✅ published — D1–D7 all decided |
+| **Diagnostic thresholds behind the forms** | `reference.diagnostic-readings` | ✅ published — thresholds match the ServiceTitan forms |
 | Arrival & site conduct | `sop.field.arrival` | ❌ |
 | Job documentation & photos | `sop.field.documentation` | ❌ |
 | Truck stock & parts | `sop.field.truck-stock` | ❌ |
@@ -353,26 +353,26 @@ Full detail in [`_migrated/csm-reconciliation.md`](_migrated/csm-reconciliation.
 | 5 | **Which wins on overlap** — the CSM SOP or the dispatch deck — where the two say different things about the same call? | Dispatch migration reconciliation |
 | 6 | **Is the flat maintenance price defined?** `sop.csm.service-type` currently says "flat maintenance price" with no number. | `pricing.tokens`, maintenance bookings |
 
-### Field diagnostics decisions
+### Field diagnostics decisions — ✅ all decided 2026-08-10
 
-Raised by `sop.field.diagnostics`, which is held at **in-review** until they are answered. Each one is written into the draft as a proposal, so answering is a yes/no rather than an authoring job.
+Raised by `sop.field.diagnostics` and answered as recommended. The document is now **published and in force**, which also activates its acknowledgement block.
 
-| # | Question | Proposed in the draft | Blocks |
+| # | Question | Decision |
+|---|---|---|
+| **D1** | Second opinion before condemning a compressor, heat exchanger, coil or tank? | **Required** — a call to the Service Manager from the driveway |
+| **D2** | Is there a time budget for a diagnostic? | **25–45 minutes stated as reality, not as a target.** If dispatch is booking shorter, dispatch is what changes |
+| **D3** | Do we charge the diagnostic on a genuine no-fault-found? | **Yes**, and the technician has the words for it |
+| **D4** | Are the reference thresholds right? | **Closed** — the ServiceTitan forms already carried our thresholds; `reference.diagnostic-readings` was rewritten to match them |
+
+### Diagnostic form decisions — ✅ all decided 2026-08-10
+
+From the review of twelve exported ServiceTitan forms in [`_migrated/diagnostic-forms-review.md`](_migrated/diagnostic-forms-review.md), answered as recommended. **These are ServiceTitan changes, not repository changes** — the action list is at the foot of that document and someone with tenant access has to do them.
+
+| # | Question | Decision | Blocks |
 |---|---|---|---|
-| **D1** | **Must a tech get a second opinion before condemning a compressor, heat exchanger, coil or tank?** The draft says yes — a call to the Service Manager from the driveway. It is the right practice and it is also a real constraint on a tech's autonomy and on the Service Manager's phone. | Required | `sop.field.diagnostics` §condemn |
-| **D2** | **Is there a time budget for a diagnostic?** The draft says 25–45 minutes on a straightforward call, which is honest but is currently my estimate, not a measured one. If dispatch is booking on a shorter assumption, the two need reconciling before this is published. | 25–45 min stated as reality, not as a target | `sop.field.diagnostics` §field-card, dispatch scheduling |
-| **D3** | **Do we charge the diagnostic on a genuine no-fault-found?** The draft says yes and gives the tech the words. It follows from `reference.guarantees` — non-refundable once the visit happened — but it is the sharpest customer conversation in the document and the owner should confirm it deliberately. | Charged | `sop.field.diagnostics` §no-fault, `reference.guarantees` |
-| **D4** | ~~Are the reference thresholds right for our equipment mix?~~ **Closed.** The ServiceTitan point-inspection forms already carry our thresholds; `reference.diagnostic-readings` v2 was rewritten to match them exactly rather than compete with them. | — | Closed 2026-08-10 |
-
-### Diagnostic form decisions
-
-Raised by the review of twelve exported ServiceTitan forms in [`_migrated/diagnostic-forms-review.md`](_migrated/diagnostic-forms-review.md). **Two families of diagnostic form are live at once and three of them duplicate each other head to head.**
-
-| # | Question | Recommendation | Blocks |
-|---|---|---|---|
-| **D5** | **Which family of diagnostic form wins?** The seven numbered point inspections, or the three "Full System Evaluation" forms? All three of the latter duplicate a point inspection exactly — IAQ, ductwork, heat pump — so a tech opening a heat pump job sees two forms and picks one. | **Retire the three Full System forms.** The point inspections are better documents, consistent across seven system types, and their signature model is defensible. | `sop.field.diagnostics`, every diagnostic visit |
-| **D6** | **The Full System forms contain sales scripting.** A section titled "Revenue Triggers", field descriptions reading "soft close: shifts conversation from fear to aspiration" and "converts one-time filter sale into recurring revenue", a mold banner declaring two named products "mandatory recommendations" and asserting legal liability, and a technician-graded "Indoor Air Health Risk Level". | **Delete rather than edit.** The equivalent point inspection already exists for all three. | Reputational and licensing exposure — the word "fear" is in the form definition |
-| **D7** | **Should a customer signature ever be required to close a job?** Point inspections make it optional and receipt-only; #149, #150 and #156 require it, and #156 frames it as acknowledging *risk*. | **Optional everywhere**, with the point-inspection wording. Keep #156's documented-refusal path. | Customer trust, and the evidential value of the signature itself |
+| **D5** | ~~Which family of diagnostic form wins?~~ **Point inspections.** The seven numbered point inspections, or the three "Full System Evaluation" forms? All three of the latter duplicate a point inspection exactly — IAQ, ductwork, heat pump — so a tech opening a heat pump job sees two forms and picks one. | **Retire the three Full System forms.** The point inspections are better documents, consistent across seven system types, and their signature model is defensible. | `sop.field.diagnostics`, every diagnostic visit |
+| **D6** | ~~The Full System forms contain sales scripting.~~ **Delete, don't edit.** A section titled "Revenue Triggers", field descriptions reading "soft close: shifts conversation from fear to aspiration" and "converts one-time filter sale into recurring revenue", a mold banner declaring two named products "mandatory recommendations" and asserting legal liability, and a technician-graded "Indoor Air Health Risk Level". | **Delete rather than edit.** The equivalent point inspection already exists for all three. | Reputational and licensing exposure — the word "fear" is in the form definition |
+| **D7** | ~~Should a customer signature ever be required to close a job?~~ **Never.** Point inspections make it optional and receipt-only; #149, #150 and #156 require it, and #156 frames it as acknowledging *risk*. | **Optional everywhere**, with the point-inspection wording. Keep #156's documented-refusal path. | Customer trust, and the evidential value of the signature itself |
 
 **Defects with no decision attached** (detail in the review): the Complete Furnace and Complete Boiler technician signatures both read *"I performed and documented all **0** inspection points"*; #149 has no business unit assigned; #156 is assigned to Home+ Plumbing Service; and every point-inspection export carries the same form/definition id, which should be verified against the live tenant before any re-import.
 
@@ -380,7 +380,7 @@ Raised by the review of twelve exported ServiceTitan forms in [`_migrated/diagno
 
 ## Sequencing recommendation
 
-1. ~~Answer C1.~~ **Done 2026-08-10 — no surcharge.** Next most valuable: **D5–D7**, the diagnostic form decisions, because two families of form are live at once and one of them carries sales scripting.
+1. ~~Answer C1.~~ ~~D1–D7.~~ **All decided 2026-08-10.** The remaining diagnostic work is in ServiceTitan, not here: deactivate forms 149/150/156 and fix the "all 0 inspection points" signature on the furnace and boiler forms.
 2. **Dispatch migration** — biggest source file, content already battle-tested, pure extraction. Highest value per hour.
 3. **Sales migration** — self-contained, low overlap with what's published.
 4. **Remaining KB migration** — the CSM-relevant sections are done and reconciled; what's left is equipment, thermostats, FAQ and commercial reference material.

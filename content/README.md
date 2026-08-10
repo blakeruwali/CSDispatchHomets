@@ -67,6 +67,36 @@ acknowledgement: required            # optional — reader must sign for this do
 ---
 ```
 
+### Translations
+
+Spanish lives in a `*.es.md` sibling beside the English — `diagnostics.md` and
+`diagnostics.es.md`. It is written **once, when the English is written or
+revised**, reviewed like any other content, and committed. Nothing translates
+at read time.
+
+A translated file carries only two frontmatter keys and inherits everything
+else from the governing document:
+
+```yaml
+---
+translation_of: sop.field.diagnostics
+source_version: 2
+---
+```
+
+`source_version` is the English `version` it was made from, and
+`npm run validate:content` **fails** when the two drift apart. Bumping a
+document's version without re-translating is therefore a build error rather
+than a silent problem, which is the whole point: a translation of v1 shown
+under a v2 document is text nobody wrote and nobody reviewed.
+
+Until a translation is written or brought up to date, Spanish readers get the
+English with a line saying why. **English is always the governing text** — a
+translation is a reading aid, never the standard itself.
+
+Price tokens resolve inside translations exactly as they do in English, so a
+number is never hardcoded in one language and tokenised in the other.
+
 ### Acknowledgement
 
 `acknowledgement: required` puts a signature block at the foot of the document.

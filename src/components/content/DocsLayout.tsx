@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { MarkdownBody } from "./MarkdownBody";
 import { BrandMark, BrandFooter } from "./BrandMark";
-import { LOCALE_LABEL, translateDoc, type Locale, type TranslationSource } from "@/lib/translate";
+import { LOCALE_LABEL, resolveDoc, type Locale } from "@/lib/translate";
 import { t, sectionTitle } from "@/lib/i18n";
 import { SuggestEditDialog } from "./SuggestEditDialog";
 import { AcknowledgePanel } from "./AcknowledgePanel";
@@ -92,11 +92,6 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
       return "en";
     }
   });
-  const [translated, setTranslated] = useState<string | null>(null);
-  const [translationSource, setTranslationSource] = useState<TranslationSource | null>(null);
-  const [translating, setTranslating] = useState(false);
-  const [translationError, setTranslationError] = useState<string | null>(null);
-  const [translateNonce, setTranslateNonce] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Held here rather than in the panel so the sidebar can mark, at a glance,
@@ -147,33 +142,12 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
     }
   }, [locale]);
 
-  useEffect(() => {
-    let cancelled = false;
-    setTranslationError(null);
-    if (!doc || locale === "en") {
-      setTranslated(null);
-      setTranslationSource(null);
-      setTranslating(false);
-      return;
-    }
-    setTranslating(true);
-    void translateDoc(doc, locale)
-      .then((result) => {
-        if (cancelled) return;
-        setTranslated(result.markdown);
-        setTranslationSource(result.source);
-      })
-      .catch((error: Error) => {
-        if (cancelled) return;
-        setTranslated(null);
-        setTranslationSource(null);
-        setTranslationError(error.message);
-      })
-      .finally(() => {
-        if (!cancelled) setTranslating(false);
-      });
-    return () => { cancelled = true; };
-  }, [doc, locale, translateNonce]);
+  // Translations are bundled, so this is a lookup rather than a request.
+  // Nothing to await, nothing to fail, nothing to retry.
+  const reading = useMemo(
+    () => (doc ? resolveDoc(doc, locale) : null),
+    [doc, locale],
+  );
 
   const toc = useMemo(() => (doc ? headings(doc) : []), [doc]);
   const clauses = useMemo(
@@ -432,28 +406,17 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                   >
                     <Languages className="h-3.5 w-3.5" style={{ color: accent }} />
                     <span className={textMuted}>
-                      {translating
-                        ? t("translating", locale)
-                        : translationError
-                          ? t("translationFailed", locale)
-                          : translationSource === "authored"
-                            ? `${LOCALE_LABEL[locale]} · ${doc.version ? `v${doc.version}` : ""}`
-                            : t("machineNotice", locale)}
+                      {reading?.state === "authored"
+                        ? `${LOCALE_LABEL[locale]} · v${doc.version}`
+                        : reading?.state === "stale"
+                          ? t("translationStale", locale)
+                          : t("translationMissing", locale)}
                     </span>
-                    {translationError && (
-                      <button
-                        onClick={() => setTranslateNonce((n) => n + 1)}
-                        className="font-semibold underline"
-                        style={{ color: accent }}
-                      >
-                        {t("retry", locale)}
-                      </button>
-                    )}
                   </div>
                 )}
 
                 <MarkdownBody
-                  markdown={translated ?? doc.body}
+                  markdown={reading?.markdown ?? doc.body}
                   lightMode={lightMode}
                   clauses={clauses}
                   onNavigate={openDoc}
@@ -471,6 +434,7 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
                   record={acks[doc.id]}
                   loading={acksLoading && Boolean(user)}
                   onAcknowledged={recordAck}
+                  locale={locale}
                   lightMode={lightMode}
                   accent={accent}
                 />

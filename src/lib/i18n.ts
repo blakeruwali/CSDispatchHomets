@@ -2,7 +2,8 @@ import type { Locale } from "@/lib/translate";
 
 /**
  * Interface copy for the documentation surfaces. Document *content* is
- * translated at read time; this is only the furniture around it.
+ * translated at authoring time into committed `*.es.md` files; this is only
+ * the furniture around it.
  */
 const STRINGS = {
   search: { en: "Search…", es: "Buscar…" },
@@ -19,20 +20,69 @@ const STRINGS = {
   backToGuide: { en: "Dispatch Guide", es: "Guía de Despacho" },
   darkMode: { en: "Dark mode", es: "Modo oscuro" },
   lightMode: { en: "Light mode", es: "Modo claro" },
-  translating: { en: "Translating…", es: "Traduciendo…" },
-  machineNotice: {
-    en: "Spanish translation generated from the English document. English is the governing version.",
-    es: "Traducción al español generada del documento en inglés. La versión en inglés es la que rige.",
+  translationMissing: {
+    en: "No Spanish translation has been written for this document yet — showing English.",
+    es: "Todavía no se ha escrito una traducción al español de este documento — mostrando la versión en inglés.",
   },
-  translationFailed: {
-    en: "Translation unavailable — showing the English document.",
-    es: "Traducción no disponible — mostrando el documento en inglés.",
+  translationStale: {
+    en: "This document was revised after its Spanish translation was written — showing English until the translation is updated.",
+    es: "Este documento se revisó después de escribirse su traducción al español — mostrando la versión en inglés hasta que se actualice la traducción.",
   },
-  retry: { en: "Try again", es: "Reintentar" },
   language: { en: "Language", es: "Idioma" },
+  ackHeading: { en: "Acknowledgement", es: "Confirmación de lectura" },
+  ackChecking: { en: "Checking your record…", es: "Consultando tu registro…" },
+  ackDone: { en: "Acknowledged", es: "Confirmado" },
+  ackOnRecord: {
+    en: "On record against your name. If this document is revised, the version you signed no longer covers you and you will be asked again here.",
+    es: "Queda registrado a tu nombre. Si se revisa este documento, la versión que firmaste deja de cubrirte y se te pedirá firmar de nuevo aquí.",
+  },
+  ackWhy: {
+    en: "This document sets a standard you are expected to work to. Recording that you have read it is how we know the standard reached you — and it is the reason nobody has to be asked twice whether they were told.",
+    es: "Este documento fija un estándar según el cual se espera que trabajes. Registrar que lo has leído es como sabemos que el estándar llegó hasta ti — y es la razón por la que a nadie hay que preguntarle dos veces si se le informó.",
+  },
+  ackSignIn: {
+    en: "to acknowledge — a signature has to carry a name.",
+    es: "para confirmar — una firma tiene que llevar un nombre.",
+  },
+  ackSignInLink: { en: "Sign in", es: "Inicia sesión" },
+  ackButton: { en: "Acknowledge", es: "Confirmar lectura" },
+  ackButtonAgain: { en: "Re-acknowledge", es: "Confirmar de nuevo" },
+  ackSaving: { en: "Recording…", es: "Registrando…" },
+  ackFinePrint: {
+    en: "Recorded with your name, the version, and today's date. It cannot be edited or removed afterwards.",
+    es: "Se registra con tu nombre, la versión y la fecha de hoy. No se puede editar ni eliminar después.",
+  },
+  ackUnavailable: {
+    en: "Acknowledgements aren't available in this build.",
+    es: "Las confirmaciones no están disponibles en esta versión.",
+  },
+  ackNeedSignIn: {
+    en: "Sign in first — an acknowledgement has to carry a name.",
+    es: "Inicia sesión primero — una confirmación tiene que llevar un nombre.",
+  },
+  ackFailed: {
+    en: "Could not record the acknowledgement.",
+    es: "No se pudo registrar la confirmación.",
+  },
 } as const;
 
 export type StringKey = keyof typeof STRINGS;
+
+/**
+ * The re-acknowledgement notice, which has to interpolate two versions and a
+ * date and so cannot live in the flat string table.
+ */
+export function ackSupersededNotice(
+  signedVersion: string,
+  signedOn: string,
+  currentVersion: string,
+  locale: Locale,
+): string {
+  if (locale === "es") {
+    return `Confirmaste la v${signedVersion} el ${signedOn}. Esta es la v${currentVersion} — ha cambiado desde entonces, así que léela de nuevo y vuelve a confirmar.`;
+  }
+  return `You acknowledged v${signedVersion} on ${signedOn}. This is v${currentVersion} — it has changed since, so please read it again and re-acknowledge.`;
+}
 
 export function t(key: StringKey, locale: Locale): string {
   return STRINGS[key][locale] ?? STRINGS[key].en;

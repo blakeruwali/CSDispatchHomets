@@ -3,7 +3,7 @@ id: reference.diagnostic-readings
 title: Diagnostic Thresholds — The Numbers Behind the Forms
 department: field
 owner: service-manager
-status: in-review
+status: published
 version: 2
 last_reviewed: 2026-08-10
 review_cadence_days: 90

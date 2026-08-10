@@ -1,6 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import { isSupabaseConfigured } from "@/lib/suggestions";
 import type { ContentDoc } from "@/lib/content";
+import type { Locale } from "@/lib/translate";
 
 /**
  * Records that a named person read a specific version of a specific document.
@@ -55,9 +56,25 @@ async function withTimeout<T>(work: PromiseLike<T>): Promise<T> {
  * Stored verbatim rather than regenerated at read time, because the point of
  * the record is what this person was shown on the day they signed. If this
  * wording is ever changed, old records keep the wording they were made under.
+ *
+ * Written in the language the reader is reading. A technician working through
+ * the Spanish text should not be asked to sign an English sentence — an
+ * acknowledgement is worth exactly as much as the signer's understanding of
+ * it, and the record stores what was actually on screen either way.
  */
-export function acknowledgementStatement(doc: ContentDoc, number: string): string {
+export function acknowledgementStatement(
+  doc: ContentDoc,
+  number: string,
+  locale: Locale = "en",
+): string {
   const citation = number ? `§${number} ` : "";
+  if (locale === "es") {
+    return [
+      `He leído ${citation}${doc.title} (v${doc.version}) en su totalidad.`,
+      `Entiendo lo que exige de mí y que se aplica a mi trabajo a partir de hoy.`,
+      `Si no puedo cumplirlo en un trabajo, lo diré en el momento en lugar de buscar una alternativa por mi cuenta.`,
+    ].join(" ");
+  }
   return [
     `I have read ${citation}${doc.title} (v${doc.version}) in full.`,
     `I understand what it requires of me and that it applies to my work from today.`,

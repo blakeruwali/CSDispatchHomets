@@ -18,6 +18,7 @@ import {
   FIELD_SECTIONS,
 } from "./content";
 import { ackState, acknowledgementStatement } from "./acknowledgements";
+import { resolveDoc } from "./translate";
 
 describe("content loader", () => {
   it("loads documents from content/", () => {
@@ -215,6 +216,50 @@ describe("citation numbering", () => {
   });
 });
 
+describe("translations", () => {
+  it("carries authored Spanish for every document on the field surface", () => {
+    const missing = flattenDocs(fieldSections()).filter((d) => !d.translations.es);
+    expect(missing.map((d) => d.id)).toEqual([]);
+  });
+
+  it("records the English version each translation was made from", () => {
+    for (const doc of allDocs) {
+      const es = doc.translations.es;
+      if (!es) continue;
+      expect(es.sourceVersion).toBe(doc.version);
+    }
+  });
+
+  it("serves the Spanish when it matches the current version", () => {
+    const doc = docsById["sop.field.diagnostics"];
+    const reading = resolveDoc(doc, "es");
+    expect(reading.state).toBe("authored");
+    expect(reading.markdown).toContain("Comprobar la Causa Antes de Cotizar");
+  });
+
+  it("falls back to English when a revision has left the translation behind", () => {
+    const doc = docsById["sop.field.diagnostics"];
+    const bumped = { ...doc, version: "99" };
+    const reading = resolveDoc(bumped, "es");
+    expect(reading.state).toBe("stale");
+    expect(reading.translatedFrom).toBe(doc.version);
+    // The governing text, never a translation of text that no longer exists.
+    expect(reading.markdown).toBe(doc.body);
+  });
+
+  it("falls back to English when nothing has been translated", () => {
+    const reading = resolveDoc(docsById["sop.csm.greeting"], "es");
+    expect(reading.state).toBe("missing");
+    expect(reading.markdown).toBe(docsById["sop.csm.greeting"].body);
+  });
+
+  it("resolves price tokens inside translations too", () => {
+    const es = docsById["sop.field.diagnostics"].translations.es;
+    expect(es.markdown).toContain("$199");
+    expect(es.markdown).not.toContain("{{price:");
+  });
+});
+
 describe("acknowledgement", () => {
   it("marks a document that binds the reader", () => {
     expect(docsById["sop.field.equipment-capture"].requiresAck).toBe(true);
@@ -258,6 +303,15 @@ describe("acknowledgement", () => {
   it("omits the citation when the document has no number on this surface", () => {
     expect(acknowledgementStatement(docsById["sop.csm.greeting"], "")).not.toContain("§");
   });
+
+  it("writes the statement in the language being read", () => {
+    const doc = docsById["sop.field.diagnostics"];
+    const es = acknowledgementStatement(doc, "1.2", "es");
+    // Signing an English sentence you were not reading is a weaker record.
+    expect(es).toContain("He leído");
+    expect(es).toContain(`v${doc.version}`);
+    expect(es).not.toContain("I have read");
+  });
 });
 
 describe("document control", () => {
@@ -274,15 +328,10 @@ describe("document control", () => {
     expect(inForce(docsById["sop.csm.greeting"])).toBe(true);
     // Published once C1 was answered — the no-surcharge promise is in force.
     expect(inForce(docsById["reference.guarantees"])).toBe(true);
+    // Published once D1–D7 were decided, which is what activates its
+    // acknowledgement block.
+    expect(inForce(docsById["sop.field.diagnostics"])).toBe(true);
+    expect(docsById["sop.field.diagnostics"].requiresAck).toBe(true);
     expect(inForce(docsById["playbook.referral"])).toBe(false);
-    expect(inForce(docsById["sop.field.diagnostics"])).toBe(false);
-  });
-
-  it("keeps a document with open owner decisions out of force", () => {
-    // in-review, so no acknowledgement is requested for it yet even though
-    // the document asks for one.
-    const diag = docsById["sop.field.diagnostics"];
-    expect(diag.requiresAck).toBe(true);
-    expect(diag.status).toBe("in-review");
   });
 });

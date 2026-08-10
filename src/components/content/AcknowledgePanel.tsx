@@ -9,6 +9,8 @@ import {
 } from "@/lib/acknowledgements";
 import { isSupabaseConfigured } from "@/lib/suggestions";
 import { useAuth } from "@/hooks/useAuth";
+import { t, ackSupersededNotice } from "@/lib/i18n";
+import type { Locale } from "@/lib/translate";
 import type { ContentDoc } from "@/lib/content";
 
 interface AcknowledgePanelProps {
@@ -20,6 +22,9 @@ interface AcknowledgePanelProps {
   /** True while the layout is still fetching records. */
   loading: boolean;
   onAcknowledged: (record: AcknowledgementRecord) => void;
+  /** The language being read — the statement is signed in it, not translated
+   *  out of it after the fact. */
+  locale: Locale;
   lightMode: boolean;
   accent: string;
 }
@@ -36,7 +41,7 @@ interface AcknowledgePanelProps {
  * date, which is what makes "nobody told me" stop being available afterwards.
  */
 export const AcknowledgePanel: React.FC<AcknowledgePanelProps> = ({
-  doc, number, record, loading, onAcknowledged, lightMode, accent,
+  doc, number, record, loading, onAcknowledged, locale, lightMode, accent,
 }) => {
   const { user } = useAuth();
   const [checked, setChecked] = useState(false);
@@ -45,7 +50,7 @@ export const AcknowledgePanel: React.FC<AcknowledgePanelProps> = ({
   const [error, setError] = useState<string | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  const statement = acknowledgementStatement(doc, number);
+  const statement = acknowledgementStatement(doc, number, locale);
   const state = ackState(doc, record);
   const signedIn = Boolean(user);
 
@@ -78,12 +83,12 @@ export const AcknowledgePanel: React.FC<AcknowledgePanelProps> = ({
     }
     setError(
       result.status === "unauthenticated"
-        ? "Sign in first — an acknowledgement has to carry a name."
+        ? t("ackNeedSignIn", locale)
         : result.status === "unconfigured"
-          ? "Acknowledgements aren't available in this build."
-          : result.message || "Could not record the acknowledgement.",
+          ? t("ackUnavailable", locale)
+          : result.message || t("ackFailed", locale),
     );
-  }, [doc, statement, onAcknowledged]);
+  }, [doc, statement, onAcknowledged, locale]);
 
   const border = lightMode ? "hsl(0,0%,85%)" : "hsl(0,0%,100%,0.15)";
   const panel = lightMode ? "hsl(0,0%,99%)" : "hsl(0,0%,100%,0.03)";
@@ -100,7 +105,7 @@ export const AcknowledgePanel: React.FC<AcknowledgePanelProps> = ({
         className={`text-[13px] font-semibold uppercase tracking-[0.14em] ${strong}`}
         style={{ fontFamily: "inherit" }}
       >
-        Acknowledgement
+        {t("ackHeading", locale)}
       </h2>
     </div>
   );
@@ -115,16 +120,15 @@ export const AcknowledgePanel: React.FC<AcknowledgePanelProps> = ({
 
       {loading ? (
         <p className={`flex items-center gap-2 text-sm ${muted}`}>
-          <Loader2 className="h-3.5 w-3.5 animate-spin" /> Checking your record…
+          <Loader2 className="h-3.5 w-3.5 animate-spin" /> {t("ackChecking", locale)}
         </p>
       ) : state === "current" ? (
         <div>
           <p className="text-sm font-semibold" style={{ color: green }}>
-            Acknowledged — v{record.docVersion}, {record.acknowledgedAt}
+            {t("ackDone", locale)} — v{record.docVersion}, {record.acknowledgedAt}
           </p>
           <p className={`mt-1.5 text-[13px] leading-relaxed ${muted}`}>
-            On record against your name. If this document is revised, the version
-            you signed no longer covers you and you will be asked again here.
+            {t("ackOnRecord", locale)}
           </p>
         </div>
       ) : (
@@ -136,31 +140,29 @@ export const AcknowledgePanel: React.FC<AcknowledgePanelProps> = ({
             >
               <AlertTriangle className="mt-0.5 h-4 w-4 flex-shrink-0" />
               <span>
-                You acknowledged <strong>v{record.docVersion}</strong> on {record.acknowledgedAt}.
-                This is <strong>v{doc.version}</strong> — it has changed since, so please read it
-                again and re-acknowledge.
+                {ackSupersededNotice(
+                  record.docVersion, record.acknowledgedAt, doc.version, locale,
+                )}
               </span>
             </p>
           )}
 
           <p className={`mb-4 text-[13px] leading-relaxed ${muted}`}>
-            This document sets a standard you are expected to work to. Recording that
-            you have read it is how we know the standard reached you — and it is the
-            reason nobody has to be asked twice whether they were told.
+            {t("ackWhy", locale)}
           </p>
 
           {!isSupabaseConfigured() ? (
             <p className={`text-[13px] ${muted}`}>
-              Acknowledgements aren't available in this build.
+              {t("ackUnavailable", locale)}
             </p>
           ) : !signedIn ? (
             <p className={`flex items-center gap-2 text-[13px] ${body}`}>
               <Lock className="h-3.5 w-3.5 flex-shrink-0" />
               <span>
                 <Link to="/auth" className="font-semibold underline" style={{ color: accent }}>
-                  Sign in
+                  {t("ackSignInLink", locale)}
                 </Link>{" "}
-                to acknowledge — a signature has to carry a name.
+                {t("ackSignIn", locale)}
               </span>
             </p>
           ) : (
@@ -199,14 +201,11 @@ export const AcknowledgePanel: React.FC<AcknowledgePanelProps> = ({
                   style={{ background: accent }}
                 >
                   {saving
-                    ? "Recording…"
-                    : state === "superseded"
-                      ? `Re-acknowledge v${doc.version}`
-                      : `Acknowledge v${doc.version}`}
+                    ? t("ackSaving", locale)
+                    : `${t(state === "superseded" ? "ackButtonAgain" : "ackButton", locale)} v${doc.version}`}
                 </button>
                 <span className={`text-[11px] ${muted}`}>
-                  Recorded with your name, the version, and today's date. It cannot be
-                  edited or removed afterwards.
+                  {t("ackFinePrint", locale)}
                 </span>
               </div>
             </>

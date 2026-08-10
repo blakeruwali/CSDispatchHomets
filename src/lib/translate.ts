@@ -1,4 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
 import type { ContentDoc } from "@/lib/content";
 
 export type Locale = "en" | "es";
@@ -9,66 +8,57 @@ export const LOCALE_LABEL: Record<Locale, string> = {
 };
 
 /**
- * Cached against the document version, so a translation is discarded the
- * moment the English clause it was made from changes. A stale translation of a
- * governing document is worse than no translation.
+ * Translations are authored, reviewed and committed — never generated at read
+ * time.
+ *
+ * A governing document translated on demand is a different document for every
+ * reader: nobody reviewed the Spanish, two technicians can be shown different
+ * wording of the same clause, and a translation of a safety table can be wrong
+ * with nobody in a position to notice. So Spanish lives in `*.es.md` files
+ * beside the English, is produced once when the English is written or revised,
+ * and goes through the same review as anything else here.
+ *
+ * The consequence is that a translation can be *missing*, and that is a state
+ * this module reports honestly rather than papering over.
  */
-function cacheKey(doc: ContentDoc, locale: Locale): string {
-  return `homets.translation.${locale}.${doc.id}.v${doc.version}`;
-}
 
-function readCache(doc: ContentDoc, locale: Locale): string | null {
-  try {
-    return window.localStorage.getItem(cacheKey(doc, locale));
-  } catch {
-    return null;
-  }
-}
-
-function writeCache(doc: ContentDoc, locale: Locale, markdown: string) {
-  try {
-    window.localStorage.setItem(cacheKey(doc, locale), markdown);
-  } catch {
-    // Storage full or blocked — translation still shows for this session.
-  }
-}
-
-export type TranslationSource = "authored" | "cache" | "machine";
+export type TranslationState =
+  /** An authored, current translation for this version of the document. */
+  | "authored"
+  /** A translation exists but was made from an earlier version — not shown. */
+  | "stale"
+  /** No translation has been written yet. */
+  | "missing"
+  /** Reading in English; nothing to resolve. */
+  | "source";
 
 export interface Translation {
+  /** The markdown to render — always English when the state is not "authored". */
   markdown: string;
-  source: TranslationSource;
+  state: TranslationState;
+  /** The English version a stale translation was made from, e.g. "1". */
+  translatedFrom?: string;
 }
 
 /**
- * Resolution order: a hand-authored `*.es.md` sibling, then a cached machine
- * translation, then the AI gateway. Authored files always win — once a human
- * has signed off on the Spanish, nothing regenerates it.
+ * Resolve a document into the reading language.
+ *
+ * Synchronous by design. There is no network call, no cache and no fallback
+ * chain — either the reviewed Spanish for this exact version is bundled, or
+ * the reader gets English and is told why.
  */
-export async function translateDoc(doc: ContentDoc, locale: Locale): Promise<Translation> {
-  if (locale === "en") return { markdown: doc.body, source: "authored" };
+export function resolveDoc(doc: ContentDoc, locale: Locale): Translation {
+  if (locale === "en") return { markdown: doc.body, state: "source" };
 
   const authored = doc.translations[locale];
-  if (authored) return { markdown: authored, source: "authored" };
+  if (!authored) return { markdown: doc.body, state: "missing" };
 
-  const cached = readCache(doc, locale);
-  if (cached) return { markdown: cached, source: "cache" };
-
-  const { data, error } = await supabase.functions.invoke("translate-doc", {
-    body: { markdown: doc.body, title: doc.title, target: locale },
-  });
-
-  if (error) {
-    const details =
-      typeof (error as { context?: { text?: () => Promise<string> } }).context?.text === "function"
-        ? await (error as { context: { text: () => Promise<string> } }).context.text()
-        : error.message;
-    throw new Error(details || "Translation failed");
+  // Version-scoped for the same reason acknowledgements are: a translation of
+  // v1 says nothing about v2, and showing it would be showing text that no
+  // longer matches the document it claims to be.
+  if (authored.sourceVersion !== doc.version) {
+    return { markdown: doc.body, state: "stale", translatedFrom: authored.sourceVersion };
   }
 
-  const markdown = (data as { markdown?: string } | null)?.markdown;
-  if (!markdown) throw new Error("Translation returned nothing");
-
-  writeCache(doc, locale, markdown);
-  return { markdown, source: "machine" };
+  return { markdown: authored.markdown, state: "authored" };
 }

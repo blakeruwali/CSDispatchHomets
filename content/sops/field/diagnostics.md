@@ -3,7 +3,7 @@ id: sop.field.diagnostics
 title: Diagnostics — Proving the Cause Before You Quote
 department: field
 owner: service-manager
-status: in-review
+status: published
 version: 2
 last_reviewed: 2026-08-10
 review_cadence_days: 90
@@ -127,7 +127,7 @@ One form per system, chosen by what you are standing in front of:
 
 **Two systems at the location means two forms**, the same way it means two equipment records. The furnace form does not cover the condenser.
 
-> ⚠️ **There are older "Full System Evaluation" forms still live in ServiceTitan covering heat pump, ductwork and IAQ.** They overlap these directly. Until that is resolved, use the numbered point-inspection form above. See `_migrated/diagnostic-forms-review` for what is outstanding.
+> ⚠️ **The "Full System Evaluation" forms are retired.** Three of them — heat pump, ductwork and IAQ — duplicated the numbered inspections above. If one is still visible to you in ServiceTitan, it has not been removed yet: **use the numbered form and tell the Service Manager the old one is still showing.**
 
 ### 6. Name the cause and prove it with a number {#prove}
 
