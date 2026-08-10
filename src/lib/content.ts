@@ -384,6 +384,11 @@ export const FIELD_SECTIONS: SectionDef[] = [
     description: "Job site safety, PPE, hazard handling",
   },
   {
+    id: "field-diagnostics",
+    title: "Diagnosing by Complaint",
+    description: "Where to start on the calls that actually come in, and the wrong turns each one invites",
+  },
+  {
     id: "field-documentation",
     title: "Documentation",
     description: "Photos, notes, and what has to be in ServiceTitan before a job closes",

@@ -161,8 +161,9 @@ describe("field surface", () => {
       "Part 1 — On Every Job",
       // Safety is declared but unwritten, so it is dropped and the parts
       // after it close the gap rather than keeping a hardcoded number.
-      "Part 2 — Documentation",
-      "Part 3 — Governance",
+      "Part 2 — Diagnosing by Complaint",
+      "Part 3 — Documentation",
+      "Part 4 — Governance",
     ]);
   });
 
@@ -217,9 +218,26 @@ describe("citation numbering", () => {
 });
 
 describe("translations", () => {
-  it("carries authored Spanish for every document on the field surface", () => {
-    const missing = flattenDocs(fieldSections()).filter((d) => !d.translations.es);
+  it("carries authored Spanish for every field document that is in force", () => {
+    // A document a technician can actually act on has to be readable in the
+    // language they read. A draft-needed placeholder has no content to
+    // translate and is marked "not yet written" in every language.
+    const missing = flattenDocs(fieldSections())
+      .filter(inForce)
+      .filter((d) => !d.translations.es);
     expect(missing.map((d) => d.id)).toEqual([]);
+  });
+
+  it("names the complaint documents still to be written", () => {
+    const planned = flattenDocs(fieldSections())
+      .filter((d) => d.status === "draft-needed")
+      .map((d) => d.id);
+    // Visible gaps rather than silent ones — they render as "Not yet written".
+    expect(planned).toEqual([
+      "sop.field.water-leak",
+      "sop.field.electrical",
+      "sop.field.noise",
+    ]);
   });
 
   it("records the English version each translation was made from", () => {

@@ -137,6 +137,12 @@ Procedures that apply to a technician on **every** visit, whatever the job type.
 | **Equipment Capture in ServiceTitan** | `sop.field.equipment-capture` | ✅ |
 | **Diagnostics — proving the cause before you quote** | `sop.field.diagnostics` | ✅ published — D1–D7 all decided |
 | **Diagnostic thresholds behind the forms** | `reference.diagnostic-readings` | ✅ published — thresholds match the ServiceTitan forms |
+| **Complaint: Not Cooling** | `sop.field.no-cooling` | ✅ published · 🇪🇸 |
+| **Complaint: No Heat** | `sop.field.no-heat` | ✅ published · 🇪🇸 |
+| **Complaint: Ice on the System** | `sop.field.frozen-coil` | ✅ published · 🇪🇸 |
+| Complaint: Water Leaking | `sop.field.water-leak` | ❌ placeholder |
+| Complaint: Breaker Tripping / Short Cycling | `sop.field.electrical` | ❌ placeholder |
+| Complaint: Noise | `sop.field.noise` | ❌ placeholder |
 | Arrival & site conduct | `sop.field.arrival` | ❌ |
 | Job documentation & photos | `sop.field.documentation` | ❌ |
 | Truck stock & parts | `sop.field.truck-stock` | ❌ |
