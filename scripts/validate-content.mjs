@@ -15,7 +15,15 @@ const CONTENT = "content";
 const TOKENS_FILE = join(CONTENT, "pricing", "tokens.md");
 
 // Files that describe the system rather than being SOP docs.
-const EXEMPT = new Set(["README.md", "INDEX.md", "STATUS.md", "csm-reconciliation.md"]);
+const EXEMPT = new Set(["README.md", "INDEX.md"]);
+
+/**
+ * Notes about the migration itself — reconciliation registers, status, form
+ * reviews. They are working documents for whoever is building the SOP, never
+ * rendered to staff, so they carry no frontmatter by design. A rule rather
+ * than a list, so adding the next register does not mean editing this file.
+ */
+const isWorkingNote = (file) => file.includes("/_migrated/");
 
 const REQUIRED_FRONTMATTER = [
   "id", "title", "department", "owner",
@@ -73,7 +81,7 @@ for (const file of files) {
   const fm = parseFrontmatter(text);
 
   if (!fm) {
-    if (!EXEMPT.has(base)) {
+    if (!EXEMPT.has(base) && !isWorkingNote(file)) {
       errors.push(`${file}: missing YAML frontmatter`);
     }
     continue;
@@ -114,7 +122,7 @@ for (const file of files) {
 
   // These files document the {{price:...}} syntax itself using placeholder
   // names, so their tokens are illustrative rather than references to resolve.
-  const documentsSyntax = EXEMPT.has(base) || base === "tokens.md";
+  const documentsSyntax = EXEMPT.has(base) || isWorkingNote(file) || base === "tokens.md";
   if (!documentsSyntax) {
     for (const [, token] of body.matchAll(TOKEN_PATTERN)) {
       if (!definedTokens.has(token)) {
@@ -124,7 +132,7 @@ for (const file of files) {
   }
 
   // Cross-references in the body.
-  if (!PLANNED_OK.has(base) && !EXEMPT.has(base)) {
+  if (!PLANNED_OK.has(base) && !EXEMPT.has(base) && !isWorkingNote(file)) {
     for (const [, id] of body.matchAll(ID_PATTERN)) {
       if (!docs.has(id)) errors.push(`${file}: broken reference to '${id}'`);
     }

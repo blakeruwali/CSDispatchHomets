@@ -135,8 +135,8 @@ Procedures that apply to a technician on **every** visit, whatever the job type.
 | Doc | id | Status |
 |---|---|---|
 | **Equipment Capture in ServiceTitan** | `sop.field.equipment-capture` | ✅ |
-| **Diagnostics — proving the cause before you quote** | `sop.field.diagnostics` | 🟡 in review — 3 owner decisions open (D1–D3) |
-| **Required readings by system type** | `reference.diagnostic-readings` | 🟡 in review — thresholds need Service Manager sign-off |
+| **Diagnostics — proving the cause before you quote** | `sop.field.diagnostics` | 🟡 in review — D1–D3, D5–D7 open |
+| **Diagnostic thresholds behind the forms** | `reference.diagnostic-readings` | 🟡 in review — thresholds now match the ServiceTitan forms (D4 closed) |
 | Arrival & site conduct | `sop.field.arrival` | ❌ |
 | Job documentation & photos | `sop.field.documentation` | ❌ |
 | Truck stock & parts | `sop.field.truck-stock` | ❌ |
@@ -362,7 +362,19 @@ Raised by `sop.field.diagnostics`, which is held at **in-review** until they are
 | **D1** | **Must a tech get a second opinion before condemning a compressor, heat exchanger, coil or tank?** The draft says yes — a call to the Service Manager from the driveway. It is the right practice and it is also a real constraint on a tech's autonomy and on the Service Manager's phone. | Required | `sop.field.diagnostics` §condemn |
 | **D2** | **Is there a time budget for a diagnostic?** The draft says 25–45 minutes on a straightforward call, which is honest but is currently my estimate, not a measured one. If dispatch is booking on a shorter assumption, the two need reconciling before this is published. | 25–45 min stated as reality, not as a target | `sop.field.diagnostics` §field-card, dispatch scheduling |
 | **D3** | **Do we charge the diagnostic on a genuine no-fault-found?** The draft says yes and gives the tech the words. It follows from `reference.guarantees` — non-refundable once the visit happened — but it is the sharpest customer conversation in the document and the owner should confirm it deliberately. | Charged | `sop.field.diagnostics` §no-fault, `reference.guarantees` |
-| **D4** | **Are the reference thresholds right for our equipment mix?** Capacitor ±6%, delta-T 16–22°F, TESP 0.5" WC, flue CO under 100 ppm air-free. These are standard practice, not Homets policy, and the Service Manager should confirm each before technicians are asked to sign for them. | Standard-of-practice values, plate always wins | `reference.diagnostic-readings` |
+| **D4** | ~~Are the reference thresholds right for our equipment mix?~~ **Closed.** The ServiceTitan point-inspection forms already carry our thresholds; `reference.diagnostic-readings` v2 was rewritten to match them exactly rather than compete with them. | — | Closed 2026-08-10 |
+
+### Diagnostic form decisions
+
+Raised by the review of twelve exported ServiceTitan forms in [`_migrated/diagnostic-forms-review.md`](_migrated/diagnostic-forms-review.md). **Two families of diagnostic form are live at once and three of them duplicate each other head to head.**
+
+| # | Question | Recommendation | Blocks |
+|---|---|---|---|
+| **D5** | **Which family of diagnostic form wins?** The seven numbered point inspections, or the three "Full System Evaluation" forms? All three of the latter duplicate a point inspection exactly — IAQ, ductwork, heat pump — so a tech opening a heat pump job sees two forms and picks one. | **Retire the three Full System forms.** The point inspections are better documents, consistent across seven system types, and their signature model is defensible. | `sop.field.diagnostics`, every diagnostic visit |
+| **D6** | **The Full System forms contain sales scripting.** A section titled "Revenue Triggers", field descriptions reading "soft close: shifts conversation from fear to aspiration" and "converts one-time filter sale into recurring revenue", a mold banner declaring two named products "mandatory recommendations" and asserting legal liability, and a technician-graded "Indoor Air Health Risk Level". | **Delete rather than edit.** The equivalent point inspection already exists for all three. | Reputational and licensing exposure — the word "fear" is in the form definition |
+| **D7** | **Should a customer signature ever be required to close a job?** Point inspections make it optional and receipt-only; #149, #150 and #156 require it, and #156 frames it as acknowledging *risk*. | **Optional everywhere**, with the point-inspection wording. Keep #156's documented-refusal path. | Customer trust, and the evidential value of the signature itself |
+
+**Defects with no decision attached** (detail in the review): the Complete Furnace and Complete Boiler technician signatures both read *"I performed and documented all **0** inspection points"*; #149 has no business unit assigned; #156 is assigned to Home+ Plumbing Service; and every point-inspection export carries the same form/definition id, which should be verified against the live tenant before any re-import.
 
 ---
 

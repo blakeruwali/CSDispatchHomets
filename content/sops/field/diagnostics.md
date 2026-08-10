@@ -4,11 +4,11 @@ title: Diagnostics — Proving the Cause Before You Quote
 department: field
 owner: service-manager
 status: in-review
-version: 1
-last_reviewed: 2026-08-04
+version: 2
+last_reviewed: 2026-08-10
 review_cadence_days: 90
 tags: [diagnostics, diagnosis, root-cause, readings, measurement, technician, field, callback, servicetitan]
-related: [sop.field.equipment-capture, reference.diagnostic-readings, sop.csm.diagnostic-fee, sop.csm.symptom-clarification, reference.guarantees, sop.csm.warranty-callback, governance.acknowledgement]
+related: [sop.field.equipment-capture, reference.diagnostic-readings, sop.csm.tools, sop.csm.diagnostic-fee, sop.csm.symptom-clarification, reference.guarantees, sop.csm.warranty-callback, governance.acknowledgement]
 section: field-standards
 order: 2
 surfaces: [field, checklist]
@@ -24,7 +24,7 @@ acknowledgement: required
 1. **Ask the customer, then verify it yourself.** Never diagnose someone else's description.
 2. **Safety first.** Gas, CO, water, scorched wiring — stop, make safe, escalate. Nothing below matters more than this.
 3. **Capture the equipment** before you touch a tool (`sop.field.equipment-capture`).
-4. **Take the full reading set** for that system type — not just the one you suspect (`reference.diagnostic-readings`).
+4. **Open the point-inspection form for that system** and work every point — not just the one you suspect (`#which-form`).
 5. **Name the cause and prove it with a number.** "Capacitor reads 21.4 µF, rated 45 — failed."
 6. **Ask why it failed.** The part is the symptom; something killed it.
 7. **Write the price in ServiceTitan.** Always, even when the answer is "no fault found."
@@ -97,13 +97,37 @@ Every unit at the location, plate photographed, before you start work. That proc
 
 The diagnosis needs it anyway. Model and serial are how you know the design temperature rise, the correct refrigerant charge method, the rated amps you are measuring against, and whether the part is still under manufacturer warranty — which changes the price you are about to quote.
 
-### 5. Take the whole reading set {#readings}
+### 5. Work every point on the form {#readings}
 
-Not just the reading for the part you already suspect.
+Not just the point covering the part you already suspect.
 
-The required readings by system type are in `reference.diagnostic-readings`. Take all of them, including the ones that come back normal. **A normal reading is evidence** — it is how you rule things out, and it is what proves, later, that the rest of the system was healthy when you left it.
+**The ServiceTitan point-inspection form is the diagnostic record.** It is not paperwork that runs alongside the diagnosis — working it *is* the diagnosis, and it prints as the customer's report. Which form goes with which system is in `#which-form`; the thresholds behind the grades are in `reference.diagnostic-readings`.
 
-This is the step people cut when they are running late, and it is the step that pays for itself. The reading you skipped is the one that explained the failure.
+Grade every point, including the ones that come back **PASS**. A passing point is evidence — it is how you rule a cause out, and it is what proves, later, that the rest of the system was healthy when you left it.
+
+**Where a point has both a grade and a number, fill both.** The grade is what the customer reads. The number is what a manager, a manufacturer or the next technician can actually check, and it is the difference between a report and a receipt.
+
+**"UNABLE TO TEST" is a real answer.** A system that will not run cannot be measured, and saying so costs you nothing. Grading a point PASS because you could not test it is the one thing here that is genuinely dishonest — it puts your signature behind a test you did not perform.
+
+This is the step people cut when they are running late, and it is the step that pays for itself. The point you skipped is the one that explained the failure.
+
+### Which form {#which-form}
+
+One form per system, chosen by what you are standing in front of:
+
+| System | Form |
+|---|---|
+| Ducted air conditioner | **18-Point Ducted Air Conditioner Inspection** |
+| Ducted heat pump | **22-Point Ducted Heat Pump Inspection** |
+| Ductless mini split | **18-Point Ductless Mini Split Inspection** |
+| Gas or oil furnace | **Complete Furnace Inspection** |
+| Boiler | **Complete Boiler Inspection** |
+| Ductwork, as the subject of the visit | **18-Point Ductwork Evaluation** |
+| Indoor air quality, as the subject of the visit | **18-Point Indoor Air Quality Assessment** |
+
+**Two systems at the location means two forms**, the same way it means two equipment records. The furnace form does not cover the condenser.
+
+> ⚠️ **There are older "Full System Evaluation" forms still live in ServiceTitan covering heat pump, ductwork and IAQ.** They overlap these directly. Until that is resolved, use the numbered point-inspection form above. See `_migrated/diagnostic-forms-review` for what is outstanding.
 
 ### 6. Name the cause and prove it with a number {#prove}
 
@@ -148,6 +172,13 @@ The customer paid **{{price:diagnostic_residential}}** residential or **{{price:
 - **Customer declines everything** → the price stays on the job. It is what the next tech, and the next conversation, starts from.
 
 A diagnostic that ends with a verbal "it's gonna be about six hundred" has not delivered what was sold. The fee bought a written price.
+
+The form closes this out for you, and every one of these is required:
+
+- **Overall Result** — passed / minor items / repairs recommended / repairs required / unsafe, system shut down
+- **Urgency** — no action / monitor / within 30 days / priority / emergency
+- **Technician Summary for the Homeowner** — plain language, and **it prints on their report**. Write it to the person, not to the office.
+- **Repair Options Presented Today**, and **Return Visit Needed** with what it will cover
 
 **The diagnostic is credited toward the repair if they approve it today, and it is not refundable once the visit has happened** (`reference.guarantees`). Both halves of that are yours to say plainly and without apology — you did the work.
 
@@ -234,6 +265,16 @@ So this is not a rule that only lives on paper:
 - **Reviewed in the weekly one-to-one against your callback rate.** The connection between the two is the whole point of this document, and if the numbers show it does not hold for you, bring that to the meeting — it is a fair argument to make with evidence.
 - **A genuine exception is fine when it is written down.** No access, customer refused, unsafe to run, gauge failure. Say so in the notes.
 - **This document is signed for.** There is an acknowledgement block at the foot of this page (`governance.acknowledgement`).
+
+## Two signatures, and the difference between them {#signatures}
+
+The form ends with both. They are not the same thing and should never be presented as if they were.
+
+**Your signature is required**, and it says: *"I performed and documented all 18 inspection points recorded above."* That is an attestation about your own work. Do not sign it for points you graded without testing.
+
+**The homeowner's is optional**, and it says: *"I received and reviewed this written diagnostic report with the technician. Signing acknowledges receipt only — it does not authorize any repair."*
+
+Offer it, explain it in exactly those terms, and take no for an answer. A customer who declines to sign has still received the report, and the record shows they declined. **Nobody is ever pressed for a signature at the door** — the value of an acknowledgement is that it was freely given, and a signature obtained by pressure is worth less than none at all.
 
 ## Related
 
