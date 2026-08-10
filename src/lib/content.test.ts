@@ -158,7 +158,10 @@ describe("field surface", () => {
     expect(ns.every((s) => !s.title.startsWith("Part"))).toBe(true);
     expect(ns.map((s) => `Part ${s.number} — ${s.title}`)).toEqual([
       "Part 1 — On Every Job",
-      "Part 2 — Governance",
+      // Safety is declared but unwritten, so it is dropped and the parts
+      // after it close the gap rather than keeping a hardcoded number.
+      "Part 2 — Documentation",
+      "Part 3 — Governance",
     ]);
   });
 

@@ -135,6 +135,8 @@ Procedures that apply to a technician on **every** visit, whatever the job type.
 | Doc | id | Status |
 |---|---|---|
 | **Equipment Capture in ServiceTitan** | `sop.field.equipment-capture` | ✅ |
+| **Diagnostics — proving the cause before you quote** | `sop.field.diagnostics` | 🟡 in review — 3 owner decisions open (D1–D3) |
+| **Required readings by system type** | `reference.diagnostic-readings` | 🟡 in review — thresholds need Service Manager sign-off |
 | Arrival & site conduct | `sop.field.arrival` | ❌ |
 | Job documentation & photos | `sop.field.documentation` | ❌ |
 | Truck stock & parts | `sop.field.truck-stock` | ❌ |
@@ -350,6 +352,17 @@ Full detail in [`_migrated/csm-reconciliation.md`](_migrated/csm-reconciliation.
 | 4 | **Who owns the Install SOP** — is there a lead installer who can sit for the authoring sessions? | All 10 `install/` docs |
 | 5 | **Which wins on overlap** — the CSM SOP or the dispatch deck — where the two say different things about the same call? | Dispatch migration reconciliation |
 | 6 | **Is the flat maintenance price defined?** `sop.csm.service-type` currently says "flat maintenance price" with no number. | `pricing.tokens`, maintenance bookings |
+
+### Field diagnostics decisions
+
+Raised by `sop.field.diagnostics`, which is held at **in-review** until they are answered. Each one is written into the draft as a proposal, so answering is a yes/no rather than an authoring job.
+
+| # | Question | Proposed in the draft | Blocks |
+|---|---|---|---|
+| **D1** | **Must a tech get a second opinion before condemning a compressor, heat exchanger, coil or tank?** The draft says yes — a call to the Service Manager from the driveway. It is the right practice and it is also a real constraint on a tech's autonomy and on the Service Manager's phone. | Required | `sop.field.diagnostics` §condemn |
+| **D2** | **Is there a time budget for a diagnostic?** The draft says 25–45 minutes on a straightforward call, which is honest but is currently my estimate, not a measured one. If dispatch is booking on a shorter assumption, the two need reconciling before this is published. | 25–45 min stated as reality, not as a target | `sop.field.diagnostics` §field-card, dispatch scheduling |
+| **D3** | **Do we charge the diagnostic on a genuine no-fault-found?** The draft says yes and gives the tech the words. It follows from `reference.guarantees` — non-refundable once the visit happened — but it is the sharpest customer conversation in the document and the owner should confirm it deliberately. | Charged | `sop.field.diagnostics` §no-fault, `reference.guarantees` |
+| **D4** | **Are the reference thresholds right for our equipment mix?** Capacitor ±6%, delta-T 16–22°F, TESP 0.5" WC, flue CO under 100 ppm air-free. These are standard practice, not Homets policy, and the Service Manager should confirm each before technicians are asked to sign for them. | Standard-of-practice values, plate always wins | `reference.diagnostic-readings` |
 
 ---
 
