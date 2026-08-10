@@ -337,7 +337,7 @@ Full detail in [`_migrated/csm-reconciliation.md`](_migrated/csm-reconciliation.
 
 | # | Question | Blocks |
 |---|---|---|
-| **C1** | **Do we charge extra after hours?** `pricing.tokens` says $299; the KB promises customers "No Emergency Surcharge — Ever" and tells CSMs to lead with it. **Customer-facing and live right now.** | `reference.guarantees`, `diagnostic_after_hours`, every after-hours call |
+| ~~**C1**~~ | ~~Do we charge extra after hours?~~ **✅ RESOLVED 2026-08-10 — there is no after-hours or emergency surcharge.** The $299 is retired, `reference.guarantees` is now published and carries it as a customer promise, and the KB page that instructed CSMs to quote a fee has been corrected. | Closed |
 | **C2** | **Can a CSM discount or waive anything independently?** SOP says no; KB says up to 10% off the next visit plus a diagnostic waiver. | `sop.csm.escalation`, `csm_credit_authority` |
 | **C3** | **Is post-service follow-up automated or a manual call on every job?** The staffing implication is significant. | `sop.csm.post-service-followup` |
 | **C4** | **Repeat no-shows: 2 strikes and a deposit, or 3 and a confirmation call?** | `sop.csm.no-show-recovery` |
@@ -380,7 +380,7 @@ Raised by the review of twelve exported ServiceTitan forms in [`_migrated/diagno
 
 ## Sequencing recommendation
 
-1. **Answer C1.** It is the only item on this page that costs money this week — a customer promised no surcharge and billed $299 leaves a review we can't undo.
+1. ~~Answer C1.~~ **Done 2026-08-10 — no surcharge.** Next most valuable: **D5–D7**, the diagnostic form decisions, because two families of form are live at once and one of them carries sales scripting.
 2. **Dispatch migration** — biggest source file, content already battle-tested, pure extraction. Highest value per hour.
 3. **Sales migration** — self-contained, low overlap with what's published.
 4. **Remaining KB migration** — the CSM-relevant sections are done and reconciled; what's left is equipment, thermostats, FAQ and commercial reference material.

@@ -272,7 +272,17 @@ describe("document control", () => {
 
   it("treats only published documents as in force", () => {
     expect(inForce(docsById["sop.csm.greeting"])).toBe(true);
+    // Published once C1 was answered — the no-surcharge promise is in force.
+    expect(inForce(docsById["reference.guarantees"])).toBe(true);
     expect(inForce(docsById["playbook.referral"])).toBe(false);
-    expect(inForce(docsById["reference.guarantees"])).toBe(false);
+    expect(inForce(docsById["sop.field.diagnostics"])).toBe(false);
+  });
+
+  it("keeps a document with open owner decisions out of force", () => {
+    // in-review, so no acknowledgement is requested for it yet even though
+    // the document asks for one.
+    const diag = docsById["sop.field.diagnostics"];
+    expect(diag.requiresAck).toBe(true);
+    expect(diag.status).toBe("in-review");
   });
 });

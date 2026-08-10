@@ -20,15 +20,21 @@ Both sources are live. Where they disagree, a CSM's answer depends on which scre
 
 The third is not a footnote — the KB calls it "one of our biggest competitive advantages" and instructs CSMs to "lead with this" when a customer is price-shopping.
 
-**Why this is urgent.** A CSM who read the policies page tells a 2 AM caller there is no surcharge. A CSM who read the pricing page quotes $299. The customer who was promised no surcharge and then billed one leaves a one-star review, and they are right to.
+**Why this was urgent.** A CSM who read the policies page told a 2 AM caller there was no surcharge. A CSM who read the pricing page quoted $299. The customer who was promised no surcharge and then billed one leaves a one-star review, and they are right to.
 
-**What only the owner can answer:**
+## ✅ RESOLVED — 2026-08-10
 
-1. Do we charge anything extra after hours — yes or no?
-2. If **no**: `diagnostic_after_hours` must be deleted from `pricing.tokens`, and "no emergency surcharge" becomes a published guarantee and an objection-handling asset.
-3. If **yes**: the No-Emergency-Surcharge page must be retired from the KB before another customer is promised it, and $299 needs stating as a flat fee rather than "1.5x–2x."
+**Owner decision: there is no after-hours or emergency surcharge.** The $299 figure was never in effect and is retired.
 
-**Interim handling — in effect until this is answered:** do not quote after-hours pricing on the phone and do not promise the no-surcharge guarantee. Book the call and tell the customer a manager will confirm the after-hours rate. See `reference.guarantees`.
+The knowledge base was right. Actions taken:
+
+1. `diagnostic_after_hours` in `pricing.tokens` now reads **"Same as standard — no surcharge."**
+2. `reference.guarantees` carries it as a **published guarantee** rather than an unresolved warning, and that document moved from `in-review` to `published` — C1 was the only thing holding it back.
+3. `protocol.emergency.triage` no longer tells CSMs to avoid quoting after-hours pricing. It tells them the price is the same and to say so, because at 2 AM that is a reason to say yes.
+4. The live KB page **"After-Hours & Overflow Call Handling"** was corrected. It had been instructing CSMs: *"After-hours dispatch fee: typically 1.5x–2x regular rate… Always state upfront: 'Our after-hours dispatch fee is [$XX].'"* That was the single most damaging line in the system — a direct instruction to quote a fee that does not exist, on the page a CSM opens at 2 AM. It now says there is no fee and to lead with it.
+5. The KB closing script's *"The dispatch fee is [$XX]"* placeholder was replaced with the real diagnostic and its credit-toward-repair wording.
+
+**This stopped being a liability and became an asset.** Competitors charge $150–$300 for an after-hours visit. Ours is the same price at 2 AM on Christmas as at 2 PM on a Tuesday, it needs no approval and no membership check, and CSMs are now told to lead with it instead of avoiding the subject.
 
 ---
 
@@ -150,7 +156,7 @@ A safety complaint about a tech is not a de-escalation problem — it is a liabi
 | 🟢 Resolved in favour of the SOP | 3 — C5, C6, C10 |
 | 🔵 Resolved in favour of the KB (SOP updated) | 3 — C7, C8, C9 |
 
-**C1 is the one that costs money this week.** The other three can wait for the next SOP review; a customer promised no surcharge and billed $299 cannot.
+**C1 is resolved (2026-08-10) — no surcharge.** C2, C3 and C4 remain open and can wait for the next SOP review.
 
 ## What happens to the KB articles
 
@@ -158,4 +164,4 @@ The reconciled KB articles must not be migrated verbatim into `content/` — tha
 
 - **Retire** (SOP already covers it, better): Opening Greeting, Call Closing, Hold & Transfer, the three objection articles.
 - **Migrate** (genuine gaps, now published): Voicemail Scripts, Non-English Caller Handling, Refund & Credit, When to Escalate, Tone & Language, post-service and retention articles, guarantees, service-area handling.
-- **Hold** pending C1: After-Hours & Overflow, No Emergency Surcharge, After-Hours & Holiday Policies.
+- **Released by C1:** After-Hours & Overflow (corrected in place), No Emergency Surcharge, After-Hours & Holiday Policies. All three now agree — no surcharge, at any hour.

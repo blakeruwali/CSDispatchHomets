@@ -1593,7 +1593,7 @@ export const kbSections: KBSectionData[] = [
                 <p>"Great, let me confirm everything for you:"</p>
                 <p>"We have you scheduled for [Job Type] on [Date] between [Time Window]."</p>
                 <p>"Our technician will arrive at [Service Address]."</p>
-                <p>"The dispatch fee is [$XX], which goes toward any repair."</p>
+                <p>"The diagnostic is $199 for residential, and it's credited toward the repair if you approve it today."</p>
                 <p>"You'll receive a text with your tech's photo and ETA on the day of service."</p>
                 <p>"Is there anything else I can help you with today?"</p>
               </div>
@@ -1747,9 +1747,9 @@ export const kbSections: KBSectionData[] = [
             <div className="p-3 rounded-lg" style={{ background: "hsl(0,0%,15%)" }}>
               <p className="font-semibold mb-2">💰 After-Hours Pricing:</p>
               <ul className="space-y-1 text-sm opacity-80">
-                <li>• <strong>After-hours dispatch fee:</strong> Typically 1.5x–2x regular rate</li>
-                <li>• <strong>Always state upfront:</strong> <span className="italic">"Our after-hours dispatch fee is [$XX]. Would you like to proceed, or would you prefer first available tomorrow morning?"</span></li>
-                <li>• <strong>Members:</strong> May receive discounted or waived after-hours fees — check membership status</li>
+                <li>• <strong>There is no after-hours fee.</strong> Same rate at every hour — no overtime, no weekend, no holiday surcharge</li>
+                <li>• <strong>Lead with it:</strong> <span className="italic">"And there's no after-hours charge — you pay the same as you would on a Tuesday afternoon."</span></li>
+                <li>• <strong>Everyone gets it</strong> — it is not a member benefit, so you never need to check anything first</li>
               </ul>
             </div>
             <div className="p-3 rounded-lg" style={{ background: `${GREEN}15`, border: `1px solid ${GREEN}33` }}>

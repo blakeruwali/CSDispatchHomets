@@ -3,9 +3,9 @@ id: reference.guarantees
 title: Guarantees, Warranties & Policies
 department: ops
 owner: owner
-status: in-review
-version: 1
-last_reviewed: 2026-08-02
+status: published
+version: 2
+last_reviewed: 2026-08-10
 review_cadence_days: 90
 tags: [guarantee, warranty, policy, arrival, satisfaction, refund, cancellation]
 related: [sop.csm.warranty-callback, sop.csm.escalation, sop.csm.reschedules, pricing.tokens]
@@ -64,24 +64,21 @@ The guarantee in full: **{{price:arrival_guarantee}}**.
 
 Authority limits: `sop.csm.escalation`.
 
-## ⚠️ After-hours pricing — UNRESOLVED {#after-hours}
+## No emergency or after-hours surcharge {#after-hours}
 
-**Do not quote after-hours pricing and do not promise a no-surcharge guarantee until this is settled.**
+> **"We never charge emergency surcharges or overtime fees. Whether it's 2 PM on a Tuesday or 2 AM on Christmas, you pay the same rate. That's our promise."**
 
-Two published positions currently contradict each other:
+**{{price:diagnostic_after_hours}}** — evenings, weekends and holidays are billed at the standard diagnostic, {{price:diagnostic_residential}} residential and {{price:diagnostic_commercial}} commercial.
 
-- `pricing.tokens` carries `diagnostic_after_hours` at $299.
-- The knowledge base promises customers: *"We never charge emergency surcharges or overtime fees. Whether it's 2 PM on a Tuesday or 2 AM on Christmas, you pay the same rate."* — and instructs CSMs to lead with it as a competitive advantage.
+This is one of the strongest things we have to say on a price-shopping call, and it is worth leading with rather than waiting to be asked. Many competitors charge $150–$300 extra for an emergency or after-hours visit. **Say it before the customer asks what a 2 AM call costs** — it converts a nervous question into a reason to choose us.
 
-Both are live today. Full detail and the owner decision required: conflict **C1** in `_migrated/csm-reconciliation.md`.
-
-**Interim handling.** Book the call normally. If the customer asks what after-hours costs:
-
-> "Let me get you booked, and I'll have a manager confirm the after-hours rate with you before the tech heads out — I don't want to quote you something and have it change."
-
-This section moves to `published` the moment C1 is answered. Until then this document stays `in-review`.
+- **No overtime fee. No holiday fee. No weekend fee.** There is no hour of the year at which our price changes.
+- **It applies to every trade** — HVAC and plumbing alike.
+- **It is not a member benefit.** Everyone gets it, which is exactly why it can be said without checking anything first.
+- **Nobody needs manager approval to state it**, because there is no discretion in it.
 
 ## Related
 
+- After-hours coverage and handoff: `playbook.posh`
 - Warranty callback identification: `sop.csm.warranty-callback`
 - Escalation and refund authority: `sop.csm.escalation`

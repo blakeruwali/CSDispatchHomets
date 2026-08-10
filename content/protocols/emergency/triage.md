@@ -67,7 +67,7 @@ Tag the ticket priority before you save it. An emergency that reaches Dispatch u
 3. **Give a realistic ETA** — {{price:oncall_eta}} after hours. Do not quote a daytime window at 1 AM.
 4. **Tag the ticket "After-Hours."**
 
-Do not quote after-hours pricing — see the unresolved policy conflict in `reference.guarantees`.
+**After-hours costs the same as any other hour** — quote the standard diagnostic and say so plainly, it is a reason to say yes at 2 AM (`reference.guarantees`).
 
 ## Never say "we're fully booked" to an emergency {#never-full}
 

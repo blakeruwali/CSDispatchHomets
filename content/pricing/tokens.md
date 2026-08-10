@@ -25,7 +25,7 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 |---|---|---|
 | `diagnostic_residential` | $199 | Standard residential diagnostic |
 | `diagnostic_commercial`  | $269 | Standard commercial diagnostic |
-| `diagnostic_after_hours` | ⚠️ **DISPUTED — $299** | After 5pm, weekends, holidays. **The knowledge base simultaneously promises customers "No Emergency Surcharge — Ever."** Both are live. Do not quote this on the phone until resolved — see conflict C1 in `_migrated/csm-reconciliation.md`. |
+| `diagnostic_after_hours` | **Same as standard — no surcharge** | Evenings, weekends, holidays. **We do not charge an emergency or after-hours surcharge.** Resolved by the owner 2026-08-10, closing conflict C1. Quote the standard diagnostic at any hour. |
 
 ## Labor rates
 
@@ -131,6 +131,7 @@ Concrete numbers, not judgement calls — triage is pass/fail and must be scorea
 - `membership_business_plus_monthly` — Business+ pricing not yet set in source docs.
 - `maintenance_flat_price` — `sop.csm.service-type` says "flat maintenance price" with no number defined anywhere.
 
+**RESOLVED:** `diagnostic_after_hours` — C1 closed 2026-08-10. No after-hours or emergency surcharge; the standard diagnostic applies at every hour.
+
 **DISPUTED flags** (two live sources disagree — see `_migrated/csm-reconciliation.md`):
-- `diagnostic_after_hours` — C1. $299 vs. a published "no emergency surcharge" promise. **Customer-facing and live.**
 - `csm_credit_authority` — C2. No authority vs. 10% off the next visit.
