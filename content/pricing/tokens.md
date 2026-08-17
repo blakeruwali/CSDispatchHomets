@@ -45,10 +45,23 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | Token | Amount | Notes |
 |---|---|---|
 | `membership_home_plus_monthly`      | $19.99/mo | Home+ residential membership |
-| `membership_business_plus_monthly`  | TBD       | Business+ commercial — needs confirmation |
 | `membership_home_plus_tuneups`      | 2 per year | Included tune-ups, Home+ |
 | `membership_home_plus_repair_discount` | 15% | Discount on repairs for active members |
 | `membership_diagnostic_posture`     | Waived | Diagnostic fee for an active member |
+
+### Business+ (light commercial, priced per qualifying rooftop unit)
+
+| Token | Amount | Notes |
+|---|---|---|
+| `membership_business_plus_essential_initial`  | $249.50 | Essential — initial term, first year, one RTU |
+| `membership_business_plus_essential_renewal`  | $499/year | Essential — renewal |
+| `membership_business_plus_essential_visits`   | 2 | Scheduled maintenance visits per membership year |
+| `membership_business_plus_essential_discount` | 10% | Discount on eligible approved repairs |
+| `membership_business_plus_premier_initial`    | $499 | Premier — initial term, first year |
+| `membership_business_plus_premier_renewal`    | $998/year | Premier — renewal |
+| `membership_business_plus_premier_visits`     | 4 | Scheduled visit allocations per membership year |
+| `membership_business_plus_premier_discount`   | 12% | Discount on eligible approved repairs |
+| `membership_business_plus_enterprise`         | Written quote required | Enterprise — custom fleet/multi-location scope; renewal defined in the proposal |
 
 ## Deposits & payment flow
 
@@ -128,10 +141,11 @@ Concrete numbers, not judgement calls — triage is pass/fail and must be scorea
 ---
 
 **TBD flags** (block finalization — need owner confirmation):
-- `membership_business_plus_monthly` — Business+ pricing not yet set in source docs.
 - `maintenance_flat_price` — `sop.csm.service-type` says "flat maintenance price" with no number defined anywhere.
 
 **RESOLVED:** `diagnostic_after_hours` — C1 closed 2026-08-10. No after-hours or emergency surcharge; the standard diagnostic applies at every hour.
+
+**RESOLVED:** Business+ pricing — set by the owner 2026-08-17. Three tiers (Essential / Premier / Enterprise), priced per qualifying rooftop unit; the old single `membership_business_plus_monthly` token is retired.
 
 **DISPUTED flags** (two live sources disagree — see `_migrated/csm-reconciliation.md`):
 - `csm_credit_authority` — C2. No authority vs. 10% off the next visit.
