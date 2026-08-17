@@ -3,6 +3,13 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Pages deployment can fail for reasons that have nothing to do with the
+  # build — it returned a 503 outage on 2026-08-17 with the artifact already
+  # uploaded. Re-running the failed job is not the fix: it re-runs the upload
+  # step too, leaving two artifacts named "github-pages" in the same run, and
+  # deploy-pages then refuses to choose between them. A manual trigger gives a
+  # clean new run without inventing an empty commit.
+  workflow_dispatch:
 
 permissions:
   contents: read
