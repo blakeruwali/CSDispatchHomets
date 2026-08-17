@@ -30,19 +30,23 @@ export default function Auth() {
 
   const signInGoogle = async () => {
     setBusy(true);
+    // No `hd` hint: it silently breaks sign-in when the account isn't on a
+    // Google Workspace domain. The @hometsair.com rule is enforced in useAuth.
     const result = await lovable.auth.signInWithOAuth("google", {
       redirect_uri: window.location.origin,
-      extraParams: { hd: ALLOWED_EMAIL_DOMAIN, prompt: "select_account" },
+      extraParams: { prompt: "select_account" },
     });
     if (result.error) {
       setBusy(false);
-      toast({ title: "Sign-in failed", description: String(result.error), variant: "destructive" });
+      const msg = result.error instanceof Error ? result.error.message : String(result.error);
+      toast({ title: "Sign-in failed", description: msg, variant: "destructive" });
       return;
     }
     if (result.redirected) return;
     setBusy(false);
     nav(dest);
   };
+
 
   const signInEmail = async () => {
     if (!isAllowedEmail(email)) return domainError();
