@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable/index";
 import { useAuth, ALLOWED_EMAIL_DOMAIN, isAllowedEmail } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,6 +17,15 @@ export default function Auth() {
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
 
+  // main.tsx routes a failed OAuth round trip back here with the reason
+  // attached, rather than bouncing the user to a page they cannot reach.
+  useEffect(() => {
+    const reason = new URLSearchParams(location.search).get("error");
+    if (!reason) return;
+    toast({ title: "Sign-in failed", description: reason, variant: "destructive" });
+    nav("/auth", { replace: true });
+  }, [location.search, nav]);
+
   if (loading) return null;
   if (session) return <Navigate to={dest} replace />;
 
@@ -30,21 +38,31 @@ export default function Auth() {
 
   const signInGoogle = async () => {
     setBusy(true);
+    // Google goes through Supabase rather than the Lovable broker. The broker
+    // is a server endpoint (`/~oauth/initiate`) served by Lovable's hosting;
+    // this app is also deployed to GitHub Pages, which is static files only
+    // and cannot answer it at any path. Supabase hosts its own callback, so
+    // one code path works from both deployments.
+    //
+    // `redirectTo` must carry BASE_URL: on Pages the app lives under
+    // /CSDispatchHomets/, and returning to the bare origin lands on a 404.
+    //
     // No `hd` hint: it silently breaks sign-in when the account isn't on a
     // Google Workspace domain. The @hometsair.com rule is enforced in useAuth.
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
-      extraParams: { prompt: "select_account" },
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}`,
+        queryParams: { prompt: "select_account" },
+      },
     });
-    if (result.error) {
+    if (error) {
       setBusy(false);
-      const msg = result.error instanceof Error ? result.error.message : String(result.error);
-      toast({ title: "Sign-in failed", description: msg, variant: "destructive" });
+      toast({ title: "Sign-in failed", description: error.message, variant: "destructive" });
       return;
     }
-    if (result.redirected) return;
-    setBusy(false);
-    nav(dest);
+    // On success the browser is navigating away to Google; leave `busy` set so
+    // the button cannot be pressed twice while the redirect is in flight.
   };
 
 
