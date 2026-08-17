@@ -4,7 +4,9 @@ Non-procedural material — the *what* rather than the *how*.
 
 - `service-scope.md` — HVAC & plumbing systems we service (residential/commercial).
 - `service-area.md` — Nassau & Suffolk county coverage map, boundary rules.
-- `membership-plans.md` — Home+ and Business+ tier details, benefits, exclusions.
+- `membership-plans.md` — Home+ and Business+ (Essential / Premier / Enterprise) benefits, pricing, exclusions.
+- `guarantees.md` — arrival, satisfaction, warranty, refund and cancellation policy.
+- `diagnostic-readings.md` — expected readings by system type.
 - `equipment-supported.md` — brands and system types we install/service.
 - `business-units.md` — ServiceTitan job type → business unit mapping (all 6 units).
 - `company.md` — Homets Services LLC contact info, licenses, insurance.
