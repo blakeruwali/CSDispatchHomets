@@ -7,7 +7,8 @@ One folder per department. Each SOP is a self-contained Markdown doc with frontm
 - `csm/` — Customer Service Manager team (call handling, intake, booking). Source: `Homets_CSM_SOP_v1.0_Master.md`.
 - `dispatch/` — Dispatcher team (job assignment, routing, tech coordination). Source: current dispatch tool slides.
 - `sales/` — Technician sales process (in-home diagnostic → quote → close). Source: `techSalesSlides.tsx`.
-- `field/` — Technician procedures that apply on **every** visit regardless of job type (equipment capture, site conduct, documentation). Distinct from `sales/`, which covers the in-home sales process only.
+- `field/` — Technician procedures that apply on **every** visit regardless of job type (membership check, equipment capture, diagnostics, documentation). Distinct from `sales/`, which covers the in-home sales process only.
+  - `membership.md` — check membership before the knock and tailor the visit to it. Acknowledgement required.
 - `install/` — Install team SOPs. **Status: draft-needed** (Phase 2).
 - `plumbing/` — Plumbing-specific procedures. **Status: draft-needed** (Phase 2).
 

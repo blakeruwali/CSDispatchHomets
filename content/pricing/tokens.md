@@ -141,10 +141,11 @@ Concrete numbers, not judgement calls — triage is pass/fail and must be scorea
 ---
 
 **TBD flags** (block finalization — need owner confirmation):
-- `membership_business_plus_monthly` — Business+ pricing not yet set in source docs.
 - `maintenance_flat_price` — `sop.csm.service-type` says "flat maintenance price" with no number defined anywhere.
 
 **RESOLVED:** `diagnostic_after_hours` — C1 closed 2026-08-10. No after-hours or emergency surcharge; the standard diagnostic applies at every hour.
+
+**RESOLVED:** Business+ pricing — set by the owner 2026-08-17. Three tiers (Essential / Premier / Enterprise), priced per qualifying rooftop unit; the old single `membership_business_plus_monthly` token is retired.
 
 **DISPUTED flags** (two live sources disagree — see `_migrated/csm-reconciliation.md`):
 - `csm_credit_authority` — C2. No authority vs. 10% off the next visit.
