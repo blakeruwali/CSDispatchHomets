@@ -45,10 +45,23 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | Token | Amount | Notes |
 |---|---|---|
 | `membership_home_plus_monthly`      | $19.99/mo | Home+ residential membership |
-| `membership_business_plus_monthly`  | TBD       | Business+ commercial — needs confirmation |
 | `membership_home_plus_tuneups`      | 2 per year | Included tune-ups, Home+ |
 | `membership_home_plus_repair_discount` | 15% | Discount on repairs for active members |
 | `membership_diagnostic_posture`     | Waived | Diagnostic fee for an active member |
+
+### Business+ (light commercial, priced per qualifying rooftop unit)
+
+| Token | Amount | Notes |
+|---|---|---|
+| `membership_business_plus_essential_initial`  | $249.50 | Essential — initial term, first year, one RTU |
+| `membership_business_plus_essential_renewal`  | $499/year | Essential — renewal |
+| `membership_business_plus_essential_visits`   | 2 | Scheduled maintenance visits per membership year |
+| `membership_business_plus_essential_discount` | 10% | Discount on eligible approved repairs |
+| `membership_business_plus_premier_initial`    | $499 | Premier — initial term, first year |
+| `membership_business_plus_premier_renewal`    | $998/year | Premier — renewal |
+| `membership_business_plus_premier_visits`     | 4 | Scheduled visit allocations per membership year |
+| `membership_business_plus_premier_discount`   | 12% | Discount on eligible approved repairs |
+| `membership_business_plus_enterprise`         | Written quote required | Enterprise — custom fleet/multi-location scope; renewal defined in the proposal |
 
 ## Deposits & payment flow
 
