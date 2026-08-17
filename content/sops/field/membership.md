@@ -10,7 +10,7 @@ review_cadence_days: 90
 tags: [membership, home-plus, business-plus, technician, field, servicetitan, discount, enrollment]
 related: [reference.membership-plans, script.sales.membership-enroll, sop.csm.membership-status, sop.csm.membership-pivot, sop.field.diagnostics, sop.field.equipment-capture, pricing.tokens]
 section: field-standards
-order: 1
+order: 0
 surfaces: [field, checklist]
 acknowledgement: required
 ---
