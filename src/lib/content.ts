@@ -406,3 +406,26 @@ export const FIELD_SECTIONS: SectionDef[] = [
 export function fieldSections(): ContentSection[] {
   return sectionsForSurface("field", FIELD_SECTIONS);
 }
+
+// -------------------------------------------------------------- sales sections
+
+/**
+ * The in-home sales visit, start to finish. Distinct from the field surface,
+ * which is what happens on every service call whatever the job — this is the
+ * replacement/estimate conversation only, and a technician doing both reads
+ * both books.
+ */
+export const SALES_SECTIONS: SectionDef[] = [
+  { id: "sales-foundations", title: "Foundations", description: "What the job actually is, and the posture that sells" },
+  { id: "sales-visit", title: "In the Home", description: "Arrival, the walk-around, and finding what they actually care about" },
+  { id: "sales-presenting", title: "Presenting the Options", description: "Good/Better/Best, the investment conversation, financing, membership" },
+  { id: "sales-closing", title: "Closing and After", description: "Urgency, closes, paperwork, and the follow-up that wins the ones you did not close" },
+  { id: "sales-objections", title: "Objection Playbook", description: "The seven you will hear, what each one really means, and what never to say" },
+  { id: "sales-reference", title: "Reference", description: "Pricing framework and payment terms" },
+  // Shared with the CSM and field surfaces.
+  { id: "governance", title: "Governance", description: "How these documents are issued, acknowledged, and changed" },
+];
+
+export function salesSections(): ContentSection[] {
+  return sectionsForSurface("sales", SALES_SECTIONS);
+}

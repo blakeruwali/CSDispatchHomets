@@ -202,27 +202,37 @@ Source: `src/components/presentation/slideData.tsx` — 4,914 lines, ~48 slides,
 
 ---
 
-## 5. Sales — Technician ⬜
+## 5. Sales — Technician ✅ migrated
 
-Source: `src/components/presentation/techSalesSlides.tsx` — 1,250 lines, ~24 slides.
+Source: `src/components/presentation/techSalesSlides.tsx` — 22 slides. Renders at **`/sales`**; the original deck is kept at `/sales/deck` for training sessions, and the book is the governing text.
 
 | Doc | id | Status |
 |---|---|---|
-| Sales mindset | `sop.sales.mindset` | ⬜ |
-| Arrival protocol | `sop.sales.arrival` | ⬜ |
-| Walk-around | `sop.sales.walk-around` | ⬜ |
-| Pain points discovery | `sop.sales.pain-points` | ⬜ |
-| Good / Better / Best presentation | `sop.sales.good-better-best` | ⬜ |
-| Presenting the investment | `sop.sales.presenting-investment` | ⬜ |
-| Financing | `sop.sales.financing` | ⬜ |
-| Membership tie-in | `sop.sales.membership` | ⬜ |
-| Creating urgency | `sop.sales.urgency` | ⬜ |
-| Closing techniques | `sop.sales.closing` | ⬜ |
-| Paperwork | `sop.sales.paperwork` | ⬜ |
-| Follow-up | `sop.sales.follow-up` | ⬜ |
-| Install pricing framework | `pricing.install-framework` | ⬜ |
-| Cash vs financing | `pricing.cash-vs-financing` | ⬜ |
-| Objections 1–7 | `script.objection.sales.*` | ⬜ (7 docs) |
+| What the job is | `sop.sales.mindset` | ✅ published · signed |
+| Arrival | `sop.sales.arrival` | ✅ published |
+| The walk-around | `sop.sales.walk-around` | ✅ published |
+| Finding what they care about | `sop.sales.pain-points` | ✅ published |
+| Good / Better / Best | `sop.sales.good-better-best` | ✅ published · signed |
+| Presenting the investment | `sop.sales.presenting-investment` | ✅ published |
+| Financing | `sop.sales.financing` | ✅ published |
+| Membership in the package | `sop.sales.membership` | ✅ published |
+| Urgency — real and manufactured | `sop.sales.urgency` | 🟡 in review — **S1 open** |
+| Closing | `sop.sales.closing` | ✅ published |
+| Paperwork and next steps | `sop.sales.paperwork` | ✅ published · signed |
+| Follow-up | `sop.sales.follow-up` | ✅ published |
+| The seven objections | `script.objection.sales` | ✅ published |
+| Install pricing framework | `reference.install-pricing` | ✅ published |
+| Payment terms — cash and financing | `reference.payment-terms` | ✅ published |
+
+Two items did not migrate cleanly and are in
+[`_migrated/sales-reconciliation.md`](_migrated/sales-reconciliation.md):
+
+| # | Question | Recommendation |
+|---|---|---|
+| **S1** | **Five manufactured-urgency tactics** in the live deck — unverified stock shortages, install dates "released to the next customer", a discount that expires at the door, speculation about interest rates, and naming a neighbour's purchase by street. | **Confirm removal.** The genuine triggers are stronger because the customer can check them. Same instinct as D6. |
+| **S2** | **Three live sources disagree about Home+** — $19.99/mo with 15% off (tokens, published plan page) vs $299/yr with 10% off (knowledge base) vs "$299 value" with 15% (sales deck), and a single plan vs a Comfort/Infinite two-tier structure. | Owner supplies the real price, discount and structure; `pricing.tokens` and the KB article are corrected in one pass, as C1 was. |
+
+**Corrected during migration, no decision needed:** the deck sold *"no overtime charges"* as a membership benefit. Nobody pays an after-hours surcharge, member or not (C1), so that clause and its "$150+ savings/call" figure are gone.
 
 ---
 

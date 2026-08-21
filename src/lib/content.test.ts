@@ -16,6 +16,8 @@ import {
   priceTokens,
   CSM_SECTIONS,
   FIELD_SECTIONS,
+  salesSections,
+  SALES_SECTIONS,
 } from "./content";
 import { ackState, acknowledgementStatement } from "./acknowledgements";
 import { resolveDoc } from "./translate";
@@ -171,6 +173,40 @@ describe("field surface", () => {
     const known = new Set(FIELD_SECTIONS.map((s) => s.id));
     const orphans = docsForSurface("field").filter((d) => !d.section || !known.has(d.section));
     expect(orphans.map((d) => d.id)).toEqual([]);
+  });
+});
+
+describe("sales surface", () => {
+  it("renders the in-home sales book", () => {
+    const ids = flattenDocs(salesSections()).map((d) => d.id);
+    expect(ids).toContain("sop.sales.mindset");
+    expect(ids).toContain("script.objection.sales");
+  });
+
+  it("groups every sales document into a known part", () => {
+    const known = new Set(SALES_SECTIONS.map((s) => s.id));
+    const orphans = docsForSurface("sales").filter((d) => !d.section || !known.has(d.section));
+    expect(orphans.map((d) => d.id)).toEqual([]);
+  });
+
+  it("opens with what the job is, before any technique", () => {
+    expect(flattenDocs(salesSections())[0].id).toBe("sop.sales.mindset");
+  });
+
+  it("keeps the urgency document out of force until the owner rules on it", () => {
+    // It names five manufactured-urgency tactics from the source deck as not
+    // approved; removing them from a live deck is the owner's call.
+    const urgency = docsById["sop.sales.urgency"];
+    expect(urgency.status).toBe("in-review");
+    expect(inForce(urgency)).toBe(false);
+  });
+
+  it("does not put sales documents on the field or CSM surfaces", () => {
+    const sales = new Set(docsForSurface("sales").map((d) => d.id));
+    for (const d of [...docsForSurface("field"), ...docsForSurface("csm")]) {
+      if (d.section === "governance") continue; // governance is shared by design
+      expect(sales.has(d.id)).toBe(false);
+    }
   });
 });
 

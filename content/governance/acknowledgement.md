@@ -11,7 +11,7 @@ tags: [governance, acknowledgement, sign-off, training, compliance, version]
 related: [governance.doc-control, sop.field.equipment-capture, people.onboarding.csm]
 section: governance
 order: 3
-surfaces: [csm, field]
+surfaces: [csm, field, sales]
 ---
 
 # Reading and Acknowledging an SOP

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import RequireAuth from "./components/RequireAuth";
 import Index from "./pages/Index";
+import SalesSOP from "./pages/SalesSOP";
 import Sales from "./pages/Sales";
 import Checklist from "./pages/Checklist";
 import AdminSeed from "./pages/AdminSeed";
@@ -26,7 +27,10 @@ const App = () => (
         <Routes>
           <Route path="/auth" element={<Auth />} />
           <Route path="/" element={gated(<Index />)} />
-          <Route path="/sales" element={gated(<Sales />)} />
+          <Route path="/sales" element={gated(<SalesSOP />)} />
+          {/* The slide deck this SOP was migrated from. Kept for training
+              sessions; the book at /sales is the governing text. */}
+          <Route path="/sales/deck" element={gated(<Sales />)} />
           <Route path="/checklist" element={gated(<Checklist />)} />
           <Route path="/admin/seed" element={gated(<AdminSeed />)} />
           <Route path="/csm" element={gated(<CSM />)} />
