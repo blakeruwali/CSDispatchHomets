@@ -40,8 +40,10 @@ This is the hour the day is either saved or lost.
 1. **Re-forecast every remaining job** against actual finish times, not scheduled ones.
 2. **Identify at-risk windows** — the afternoon jobs that will not be met if nothing changes.
 3. **Call those customers before their window opens.** Every time, with a specific time. A moved appointment we called about is a non-event; a missed window we did not call about is a review.
-4. **Move the flexible layer first** — tune-ups and maintenance, never callbacks or members in distress.
-5. **Check {{price:same_day_cutoff}}.** After it, same-day bookings are Dispatch's call only.
+4. **Pick one outcome per at-risk job** — keep it later today, subcontract, diagnose today and repair later, or rebook to a named window with {{price:bump_diagnostic_credit}}. The decision table is `sop.dispatch.job-duration`.
+5. **Move the flexible layer first** — tune-ups and maintenance, never callbacks or members in distress.
+6. **Check {{price:same_day_cutoff}}.** After it, same-day bookings are Dispatch's call only.
+
 
 ## Afternoon — closing the loop {#afternoon}
 
