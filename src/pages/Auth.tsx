@@ -6,8 +6,11 @@ import { useAuth, ALLOWED_EMAIL_DOMAIN, isAllowedEmail } from "@/hooks/useAuth";
 import { GOOGLE_SIGN_IN_ENABLED } from "@/lib/oauthHandoff";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
+import logo from "@/assets/homets-logo-white.png";
+import { ShieldCheck, ClipboardCheck, BookOpen, Loader2, Mail, KeyRound } from "lucide-react";
+
 
 export default function Auth() {
   const { session, loading, domainBlocked, blockedEmail } = useAuth();
