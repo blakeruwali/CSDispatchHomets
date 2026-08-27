@@ -69,7 +69,7 @@ We tell every customer: **approve the work today and the diagnostic comes off.**
 - Replacement approved on this visit → same, the diagnostic is credited onto the replacement.
 - Customer declines everything → the diagnostic stands, in full, as quoted.
 
-The credit happens on the invoice at the door, not "on the next one." A customer who is billed a fee we said we would waive will call, and they will be right.
+The credit happens on the invoice at the door, not "on the next one" — {{price:diagnostic_credit_on_sale}}. A customer who is billed a fee we said we would waive will call, and they will be right.
 
 ## Old systems and the non-repairable finding {#non-repairable}
 
