@@ -1,0 +1,1 @@
+revoke execute on function public.is_homets_user() from anon;
