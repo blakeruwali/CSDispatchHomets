@@ -126,6 +126,7 @@ Before Dispatch leaves:
 ## Related
 
 - What Dispatch runs the day against: `sop.dispatch.priorities`
+- Duration classes, overruns and bumped jobs: `sop.dispatch.job-duration`
 - Hour-by-hour routine: `sop.dispatch.daily-workflow`
 - The technician's own start-time rule: `sop.field.start-time`
 - Windows the CSM may offer: `sop.csm.availability`
