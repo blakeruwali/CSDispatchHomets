@@ -18,6 +18,10 @@ export default function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
+  // Declared with the other hooks: this used to sit below the early returns,
+  // which changed the hook count between renders and crashed the page.
+  const [linkSent, setLinkSent] = useState(false);
+
 
   // main.tsx routes a failed OAuth round trip back here with the reason
   // attached, rather than bouncing the user to a page they cannot reach.
