@@ -429,3 +429,29 @@ export const SALES_SECTIONS: SectionDef[] = [
 export function salesSections(): ContentSection[] {
   return sectionsForSurface("sales", SALES_SECTIONS);
 }
+
+// ----------------------------------------------------------- dispatch sections
+
+/**
+ * The dispatch board: hours and start times, what moves first, and how the day
+ * is actually worked. Distinct from the field surface — this is the person
+ * running the board, not the technician being sent.
+ */
+export const DISPATCH_SECTIONS: SectionDef[] = [
+  {
+    id: "dispatch-foundations",
+    title: "Foundations",
+    description: "Hours, start times, and how a technician's day is managed",
+  },
+  {
+    id: "dispatch-board",
+    title: "Running the Board",
+    description: "Job priorities and the hour-by-hour workflow",
+  },
+  // Shared with the CSM, field and sales surfaces.
+  { id: "governance", title: "Governance", description: "How these documents are issued, acknowledged, and changed" },
+];
+
+export function dispatchSections(): ContentSection[] {
+  return sectionsForSurface("dispatch", DISPATCH_SECTIONS);
+}
