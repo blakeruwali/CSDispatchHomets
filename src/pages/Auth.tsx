@@ -45,6 +45,7 @@ export default function Auth() {
   const signInGoogle = async () => {
     setBusy(true);
     const redirectUri = `${window.location.origin}${import.meta.env.BASE_URL}`;
+    const managedAppUrl = "https://homets-shine-deck.lovable.app/";
 
     // GitHub Pages hosts the company domain, so it cannot provide Lovable's
     // reserved /~oauth proxy route. Start the managed flow on the published
@@ -57,7 +58,11 @@ export default function Auth() {
     if (!isLovableHosted) {
       const params = new URLSearchParams({
         provider: "google",
-        redirect_uri: redirectUri,
+        // The managed OAuth broker only accepts domains attached to this
+        // Lovable app. process.hometsair.com is hosted by GitHub Pages, so it
+        // cannot be used as the OAuth callback origin. Complete Google sign-in
+        // on the published app, where the resulting session can be stored.
+        redirect_uri: managedAppUrl,
         prompt: "select_account",
         state: crypto.randomUUID(),
       });
