@@ -81,6 +81,18 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | `after_hours_coverage` | Posh Virtual Receptionist, 5 PM – 7 AM |
 | `posh_coverage_full` | 5 PM – 7 AM weekdays, all Sundays, all holidays |
 
+## Dispatch & field day
+
+| Token | Value | Notes |
+|---|---|---|
+| `dispatch_hours` | 6:30 AM – 6:00 PM | Dispatch is on the board before the first tech moves and after the last job closes |
+| `tech_shift_start` | 7:30 AM | Rolling — on site at the top of the first window |
+| `board_lock` | 5:00 PM the day before | Tomorrow's first job is dispatched by this time |
+| `tech_ack_deadline` | 7:00 AM | Technician acknowledgement of the first job |
+| `job_check_in` | 90 minutes | No update from a tech on an open job = Dispatch checks in |
+| `overrun_threshold` | 30 minutes | Job over its estimate by this much = call Dispatch |
+| `tech_unreachable_window` | 30 minutes | Unreachable technician escalates to the dispatch manager |
+
 ## Guarantees / SLAs
 
 | Token | Value | Applies to |
