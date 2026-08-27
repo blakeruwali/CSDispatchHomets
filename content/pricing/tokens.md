@@ -97,6 +97,13 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | `overrun_threshold` | 30 minutes | Job over its estimate by this much = call Dispatch |
 | `tech_unreachable_window` | 30 minutes | Unreachable technician escalates to the dispatch manager |
 | `late_arrival_notice` | Before the window opens, with a named time | If the tech will not be on site at the top of the window, the customer hears a specific arrival time — not "on the way" |
+| `job_duration_short` | 1–2 hours | Diagnostic, minor repair, tune-up — fits one window |
+| `job_duration_medium` | 2–4 hours | Part replacement, capacitor/motor/board with a supply run, drain clearing — one window plus the next |
+| `job_duration_long` | 4+ hours | Replacement, coil, boiler, water heater, repipe, heavy commercial — booked as a day, not a window |
+| `long_job_block` | 2 windows minimum, 4 windows for a same-day install | Long jobs are blocked on the board before anything else is booked around them |
+| `bump_diagnostic_credit` | Diagnostic fee waived when **we** move the job | A customer bumped by us is rebooked with the diagnostic waived — the bump is our cost, not theirs |
+| `bump_rebook_deadline` | Next business day, named window, on a live call | A displaced job never leaves the board without a date |
+
 
 ## Guarantees / SLAs
 
