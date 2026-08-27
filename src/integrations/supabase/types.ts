@@ -352,6 +352,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      is_homets_user: { Args: never; Returns: boolean }
       seed_rubric: { Args: { payload: Json }; Returns: Json }
     }
     Enums: {
