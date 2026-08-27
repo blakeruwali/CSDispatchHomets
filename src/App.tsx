@@ -27,6 +27,8 @@ const App = () => (
       <HashRouter>
         <Routes>
           <Route path="/auth" element={<Auth />} />
+          {/* Public: recovery links must work for signed-out users. */}
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/" element={gated(<Index />)} />
           <Route path="/sales" element={gated(<SalesSOP />)} />
           {/* The slide deck this SOP was migrated from. Kept for training
