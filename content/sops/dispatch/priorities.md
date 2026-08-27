@@ -80,5 +80,6 @@ When a P1, P2 or P3 lands mid-day:
 
 - Life-safety matrix (governs everything here): `protocol.emergency.triage`
 - Hour-by-hour routine: `sop.dispatch.daily-workflow`
+- Duration classes and the bumped job: `sop.dispatch.job-duration`
 - Member benefits we are honouring: `reference.membership-plans`
 - Callback handling: `sop.csm.warranty-callback`

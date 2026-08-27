@@ -100,6 +100,9 @@ Dispatch then, in this order:
 3. **Move the job or move the tech.** Re-assign to whoever is nearest and qualified.
 4. **Note it on the ticket.** Repeated overruns on one job type is a pricing or a training signal, and it is invisible if nobody writes it down.
 
+The full decision table — keep, subcontract, split into diagnose-today, rebook with the fee waived, or escalate — is `sop.dispatch.job-duration`. Duration classes are booked before the day starts, so a {{price:job_duration_long}} job never sits on a board planned for four.
+
+
 ## Lunch, drive time and the honest board {#honest-board}
 
 The board must contain the real day, including the parts nobody likes scheduling:
@@ -123,6 +126,7 @@ Before Dispatch leaves:
 ## Related
 
 - What Dispatch runs the day against: `sop.dispatch.priorities`
+- Duration classes, overruns and bumped jobs: `sop.dispatch.job-duration`
 - Hour-by-hour routine: `sop.dispatch.daily-workflow`
 - The technician's own start-time rule: `sop.field.start-time`
 - Windows the CSM may offer: `sop.csm.availability`
