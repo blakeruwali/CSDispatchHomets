@@ -56,24 +56,18 @@ export default function Auth() {
       window.location.hostname === "localhost";
 
     if (!isLovableHosted) {
-      // The managed OAuth broker only accepts domains attached to this Lovable
-      // app. process.hometsair.com is hosted by GitHub Pages, so it is not an
-      // allowed callback origin ("redirect_uri is not allowed"). Complete
-      // Google sign-in on the published app instead, where the broker accepts
-      // the callback and the resulting session can be stored.
-      const result = await lovable.auth.signInWithOAuth("google", {
+      // The helper starts at `${window.location.origin}/~oauth`, which GitHub
+      // Pages cannot serve. Hand off to the same route on the attached Lovable
+      // host, and use that approved host for the callback as well.
+      const params = new URLSearchParams({
+        provider: "google",
         redirect_uri: managedAppUrl,
-        extraParams: { prompt: "select_account" },
+        prompt: "select_account",
       });
-      if (result.error) {
-        setBusy(false);
-        toast({
-          title: "Sign-in failed",
-          description: String((result.error as { message?: string }).message ?? result.error),
-          variant: "destructive",
-        });
-      }
-      return; // browser is navigating to Google on success
+      window.location.assign(
+        `${managedAppUrl}~oauth/initiate?${params.toString()}`,
+      );
+      return;
     }
 
     // Managed Google runs through the Lovable OAuth broker. Calling Supabase's
