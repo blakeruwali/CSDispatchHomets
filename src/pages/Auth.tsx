@@ -44,11 +44,34 @@ export default function Auth() {
 
   const signInGoogle = async () => {
     setBusy(true);
+    const redirectUri = `${window.location.origin}${import.meta.env.BASE_URL}`;
+
+    // GitHub Pages hosts the company domain, so it cannot provide Lovable's
+    // reserved /~oauth proxy route. Start the managed flow on the published
+    // Lovable host instead, while keeping this site as the return URL.
+    const isLovableHosted =
+      window.location.hostname.endsWith(".lovable.app") ||
+      window.location.hostname.endsWith(".lovableproject.com") ||
+      window.location.hostname === "localhost";
+
+    if (!isLovableHosted) {
+      const params = new URLSearchParams({
+        provider: "google",
+        redirect_uri: redirectUri,
+        prompt: "select_account",
+        state: crypto.randomUUID(),
+      });
+      window.location.assign(
+        `https://homets-shine-deck.lovable.app/~oauth/initiate?${params.toString()}`,
+      );
+      return;
+    }
+
     // Managed Google runs through the Lovable OAuth broker. Calling Supabase's
     // /authorize directly fails with "missing OAuth secret" because no per-app
     // Google client is configured on the Supabase project.
     const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: `${window.location.origin}${import.meta.env.BASE_URL}`,
+      redirect_uri: redirectUri,
       extraParams: { prompt: "select_account" },
     });
     if (result.error) {
