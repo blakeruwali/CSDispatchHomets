@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
 
 export default function Auth() {
-  const { session, loading, domainBlocked } = useAuth();
+  const { session, loading, domainBlocked, blockedEmail } = useAuth();
   const nav = useNavigate();
   const location = useLocation();
   const from = (location.state as { from?: string } | null)?.from;
@@ -84,7 +84,9 @@ export default function Auth() {
         <CardContent className="space-y-3">
           {domainBlocked && (
             <p className="text-sm text-destructive">
-              That account isn't a @{ALLOWED_EMAIL_DOMAIN} address, so it was signed out.
+              {blockedEmail ? <><strong>{blockedEmail}</strong> is not a </> : "That account isn't a "}
+              @{ALLOWED_EMAIL_DOMAIN} address, so it was signed out. Sign in with your
+              Homets account, or ask Blake to have your address added.
             </p>
           )}
           <Button onClick={signInGoogle} disabled={busy} className="w-full">

@@ -8,20 +8,55 @@ export function isAllowedEmail(email?: string | null) {
   return !!email && email.toLowerCase().endsWith(`@${ALLOWED_EMAIL_DOMAIN}`);
 }
 
+/**
+ * A rejected sign-in has to survive the redirect that follows it.
+ *
+ * `useAuth` is called independently by RequireAuth, Auth, DocsLayout,
+ * AcknowledgePanel and Checklist, and each call owns its own `useState`. The
+ * rejection happens inside whichever component was mounted when the session
+ * arrived — normally RequireAuth on a gated route — and the sign-in page then
+ * mounts fresh, with its own state, knowing nothing about it.
+ *
+ * The result was a user completing Google sign-in, being bounced back to
+ * /auth, and being told nothing at all. Holding the rejection at module scope
+ * and notifying every instance is what makes the reason reach the person it
+ * is about.
+ */
+interface Rejection {
+  email: string | null;
+}
+
+let rejection: Rejection | null = null;
+const listeners = new Set<(r: Rejection | null) => void>();
+
+function setRejection(next: Rejection | null) {
+  rejection = next;
+  for (const listener of listeners) listener(next);
+}
+
 export function useAuth() {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
-  const [domainBlocked, setDomainBlocked] = useState(false);
+  const [blocked, setBlocked] = useState<Rejection | null>(rejection);
+
+  useEffect(() => {
+    listeners.add(setBlocked);
+    return () => { listeners.delete(setBlocked); };
+  }, []);
 
   useEffect(() => {
     const handle = (s: Session | null) => {
       if (s && !isAllowedEmail(s.user.email)) {
-        setDomainBlocked(true);
+        // Keep the address: "that account isn't allowed" is far more useful
+        // than "an account isn't allowed" when someone has three Google
+        // logins and picked the wrong one.
+        setRejection({ email: s.user.email ?? null });
         setSession(null);
         setLoading(false);
         void supabase.auth.signOut();
         return;
       }
+      if (s) setRejection(null);
       setSession(s);
       setLoading(false);
     };
@@ -35,7 +70,9 @@ export function useAuth() {
     session,
     user: session?.user as User | undefined,
     loading,
-    domainBlocked,
-    clearDomainBlocked: () => setDomainBlocked(false),
+    domainBlocked: blocked !== null,
+    /** The address that was rejected, when we captured it. */
+    blockedEmail: blocked?.email ?? null,
+    clearDomainBlocked: () => setRejection(null),
   };
 }
