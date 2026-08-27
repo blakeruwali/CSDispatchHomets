@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { lovable } from "@/integrations/lovable/index";
+
 import { useAuth, ALLOWED_EMAIL_DOMAIN, isAllowedEmail } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,6 +18,10 @@ export default function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
+  // Declared with the other hooks: this used to sit below the early returns,
+  // which changed the hook count between renders and crashed the page.
+  const [linkSent, setLinkSent] = useState(false);
+
 
   // main.tsx routes a failed OAuth round trip back here with the reason
   // attached, rather than bouncing the user to a page they cannot reach.
@@ -38,32 +44,26 @@ export default function Auth() {
 
   const signInGoogle = async () => {
     setBusy(true);
-    // Google goes through Supabase rather than the Lovable broker. The broker
-    // is a server endpoint (`/~oauth/initiate`) served by Lovable's hosting;
-    // this app is also deployed to GitHub Pages, which is static files only
-    // and cannot answer it at any path. Supabase hosts its own callback, so
-    // one code path works from both deployments.
-    //
-    // `redirectTo` must carry BASE_URL: on Pages the app lives under
-    // /CSDispatchHomets/, and returning to the bare origin lands on a 404.
-    //
-    // No `hd` hint: it silently breaks sign-in when the account isn't on a
-    // Google Workspace domain. The @hometsair.com rule is enforced in useAuth.
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}`,
-        queryParams: { prompt: "select_account" },
-      },
+    // Managed Google runs through the Lovable OAuth broker. Calling Supabase's
+    // /authorize directly fails with "missing OAuth secret" because no per-app
+    // Google client is configured on the Supabase project.
+    const result = await lovable.auth.signInWithOAuth("google", {
+      redirect_uri: `${window.location.origin}${import.meta.env.BASE_URL}`,
+      extraParams: { prompt: "select_account" },
     });
-    if (error) {
+    if (result.error) {
       setBusy(false);
-      toast({ title: "Sign-in failed", description: error.message, variant: "destructive" });
+      toast({
+        title: "Sign-in failed",
+        description: String((result.error as { message?: string }).message ?? result.error),
+        variant: "destructive",
+      });
       return;
     }
-    // On success the browser is navigating away to Google; leave `busy` set so
-    // the button cannot be pressed twice while the redirect is in flight.
+    if (result.redirected) return; // browser is navigating to Google
+    nav(dest);
   };
+
 
 
   const signInEmail = async () => {
@@ -75,7 +75,7 @@ export default function Auth() {
     else nav(dest);
   };
 
-  const [linkSent, setLinkSent] = useState(false);
+  
 
   // Magic link: no Google provider setup needed, and first sign-in creates the
   // account — which is how the first users get in at all. The domain rule is
