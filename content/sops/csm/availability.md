@@ -25,10 +25,11 @@ surfaces: [csm, checklist]
 ## The rules {#rules}
 
 1. **Offer two windows, never open-ended.** "When works for you?" invites a request we can't fill.
-2. **Standard windows:** {{price:service_windows}}.
-3. **Same-day cutoff: {{price:same_day_cutoff}}** unless Dispatch approves.
-4. **Evening, weekend, or holiday needs Dispatch approval first** — do not offer it and then check.
-5. **Confirm verbally, then send the ServiceTitan confirmation text.**
+2. **Core windows:** {{price:service_windows}}. These are the four you may offer freely.
+3. **Overflow windows ({{price:service_windows_overflow}}) need Dispatch approval before you offer them.** We run {{price:tech_headcount}} and plan {{price:tech_daily_capacity}} — the late windows exist only when the day is genuinely clear.
+4. **Same-day cutoff: {{price:same_day_cutoff}}** unless Dispatch approves.
+5. **Evening, weekend, or holiday needs Dispatch approval first** — do not offer it and then check.
+6. **Confirm verbally, then send the ServiceTitan confirmation text.**
 
 ## The ask {#ask}
 
