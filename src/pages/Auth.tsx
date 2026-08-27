@@ -60,7 +60,7 @@ export default function Auth() {
       provider: "google",
       options: {
         redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}`,
-        queryParams: { prompt: "select_account" },
+        queryParams: { prompt: "select_account", hd: "hometsair.com" },
       },
     });
 
