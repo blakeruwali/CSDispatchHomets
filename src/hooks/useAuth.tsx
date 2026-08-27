@@ -4,6 +4,19 @@ import { supabase } from "@/integrations/supabase/client";
 
 export const ALLOWED_EMAIL_DOMAIN = "hometsair.com";
 
+/**
+ * This check is user experience, not security.
+ *
+ * Signing a non-domain account out here happens in the browser, after Supabase
+ * has already issued a real session. The token stays valid, so anyone holding
+ * one can reach the API directly without going near this page. The rule is
+ * only actually enforced by row-level security keyed on the email claim —
+ * `public.is_homets_user()` in the database.
+ *
+ * Keep the two definitions of the domain in step. If this constant changes,
+ * the SQL function has to change with it.
+ */
+
 export function isAllowedEmail(email?: string | null) {
   return !!email && email.toLowerCase().endsWith(`@${ALLOWED_EMAIL_DOMAIN}`);
 }
