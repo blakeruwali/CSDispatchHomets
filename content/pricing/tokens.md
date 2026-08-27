@@ -24,8 +24,12 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | Token | Amount | Notes |
 |---|---|---|
 | `diagnostic_residential` | $199 | Standard residential diagnostic |
+| `diagnostic_discounted` | $99 | Discounted residential diagnostic — promo / dollars-off offers only. Whichever fee the CSM quoted is the fee on the form. |
 | `diagnostic_commercial`  | $269 | Standard commercial diagnostic |
 | `diagnostic_after_hours` | **Same as standard — no surcharge** | Evenings, weekends, holidays. **We do not charge an emergency or after-hours surcharge.** Resolved by the owner 2026-08-10, closing conflict C1. Quote the standard diagnostic at any hour. |
+| `diagnostic_credit_on_sale` | Credited in full | The diagnostic comes off the invoice when the customer approves the repair **or** the replacement on that visit |
+| `diagnostic_on_non_repairable` | Charged | A unit found non-repairable still consumed 45–60 minutes of diagnosis. The fee is charged and the replacement estimate is free; the fee is credited if they buy the replacement. |
+
 
 ## Labor rates
 
