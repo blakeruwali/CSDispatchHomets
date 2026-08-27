@@ -117,7 +117,8 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 |---|---|---|
 | `answer_by_ring` | 3 rings | Inbound answer target |
 | `hold_cap` | 60 seconds | Maximum hold before returning with an update |
-| `service_windows` | 8–10, 10–12, 12–2, 2–4, 4–6 | The only windows we offer |
+| `service_windows` | 8–10, 10–12, 12–2, 2–4 | Core bookable windows — the standard four |
+| `service_windows_overflow` | 4–6, 6–8 | Offered **only** with Dispatch approval, when capacity is genuinely open |
 | `same_day_cutoff` | 3:00 PM | After this, same-day needs Dispatch approval |
 | `sms_max_unanswered` | 2 texts per 24h | Outbound SMS cap without a reply |
 | `marketplace_attempts` | 6 attempts over 48 hours | Before a marketplace lead is closed unreachable |
