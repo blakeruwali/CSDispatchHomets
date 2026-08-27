@@ -39,20 +39,23 @@ This is the hour the day is either saved or lost.
 
 1. **Re-forecast every remaining job** against actual finish times, not scheduled ones.
 2. **Identify at-risk windows** — the afternoon jobs that will not be met if nothing changes.
-3. **Call those customers before their window opens.** Every time. A moved appointment we called about is a non-event; a missed window we did not call about is a review.
+3. **Call those customers before their window opens.** Every time, with a specific time. A moved appointment we called about is a non-event; a missed window we did not call about is a review.
 4. **Move the flexible layer first** — tune-ups and maintenance, never callbacks or members in distress.
 5. **Check {{price:same_day_cutoff}}.** After it, same-day bookings are Dispatch's call only.
 
 ## Afternoon — closing the loop {#afternoon}
 
 - **Chase open jobs.** {{price:job_check_in}} with no update is a check-in, not a wait.
+- **An emergency install landing late takes the slot.** Approved replacement with no heat or no cooling outranks a standard service call — subcontract the displaced job, or rebook it to a named window tomorrow on a live call. Order and escalation rules: `sop.dispatch.priorities`.
 - **Quality-gate every close.** Equipment attached to the location, forms complete, photos present — `sop.field.forms`. A job closed thin gets sent back to the technician who closed it, today, not next week.
 - **Route sold work same day.** Approved estimates go to the install coordinator; declined estimates go to the follow-up list, never to nowhere.
 - **Parts-hold jobs get a date**, not a status. "Waiting on the part" is not a plan the customer can hear.
 
 ## End of day {#end-of-day}
 
-Run the closing checklist in `sop.dispatch.hours` — every job closed or explained, tomorrow's first job dispatched to every tech, on-call confirmed, soft holds noted for Posh.
+Run the closing checklist in `sop.dispatch.hours` — every job closed or explained, on-call confirmed, soft holds noted for Posh.
+
+**And the one that gets skipped:** tomorrow's first job goes to the technician by {{price:board_lock}} **with its actual start hour**. If tomorrow opens at 9 instead of 8, say 9. A tech guessing at the start time is an 8 AM window missed before the day begins.
 
 ## The escalation triggers {#escalation}
 
