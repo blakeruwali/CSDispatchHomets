@@ -85,13 +85,18 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 
 | Token | Value | Notes |
 |---|---|---|
-| `dispatch_hours` | 6:30 AM – 6:00 PM | Dispatch is on the board before the first tech moves and after the last job closes |
-| `tech_shift_start` | 7:30 AM | Rolling — on site at the top of the first window |
+| `dispatch_hours` | 7:00 AM – 6:00 PM | Dispatch is on the board before the first tech moves and after the last job closes |
+| `tech_shift_start` | 7:30 AM | Leave time — the tech is loaded and moving so the first window is met **on site** |
+| `first_job_start_default` | 8:00 AM | Default first window. If the first job is booked later, the actual start time is what the tech is told |
+| `first_job_notice` | By {{price:board_lock}}, with the exact start hour | Tomorrow's first job is communicated with its real start time — "8 AM" or "9 AM", never "morning" |
+| `tech_headcount` | 1 technician | Current field capacity — the board is planned against this, not an assumed crew |
+| `tech_daily_capacity` | 4 core jobs per technician per day | 8–10, 10–12, 12–2, 2–4. Overflow windows are added only when the day is actually clear |
 | `board_lock` | 5:00 PM the day before | Tomorrow's first job is dispatched by this time |
 | `tech_ack_deadline` | 7:00 AM | Technician acknowledgement of the first job |
 | `job_check_in` | 90 minutes | No update from a tech on an open job = Dispatch checks in |
 | `overrun_threshold` | 30 minutes | Job over its estimate by this much = call Dispatch |
 | `tech_unreachable_window` | 30 minutes | Unreachable technician escalates to the dispatch manager |
+| `late_arrival_notice` | Before the window opens, with a named time | If the tech will not be on site at the top of the window, the customer hears a specific arrival time — not "on the way" |
 
 ## Guarantees / SLAs
 
