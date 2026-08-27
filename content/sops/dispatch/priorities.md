@@ -24,22 +24,35 @@ surfaces: [dispatch, checklist]
 |---|---|---|---|
 | **P1** | Life safety | Gas smell, CO alarm, burning/sparking, active flooding | Immediate. Customer is directed to 911/utility first — `protocol.emergency.triage` |
 | **P2** | Emergency no-service | No heat under {{price:emergency_temp_cold}}, no AC over {{price:emergency_temp_hot}} with a vulnerable occupant, no water, sewage backup | Same day. Interrupt the board |
-| **P3** | Callback / warranty | We were just there and it is not fixed | Same day where possible, next morning at the latest. **Never behind new work** |
-| **P4** | Member service | Active Home+ or Business+ with a service issue | Priority scheduling ahead of non-members — that is what they bought |
-| **P5** | Commercial down | Commercial unit down, business impacted, no vulnerable-occupant factor | Same or next day, coordinated with the site contact |
-| **P6** | Standard service | Non-member service call, system running but faulty | Next available standard window |
-| **P7** | Sold install / estimate | Scheduled install, quoted estimate visit | Booked date — protected, not raided for P6 work |
-| **P8** | Maintenance / tune-up | Membership visits, seasonal tune-ups | The flexible layer. First to move, last to cancel |
+| **P3** | Emergency install / system replacement | System dead and unrepairable, customer has approved a replacement, no heat or no cooling until it goes in | Same day, and it **outranks standard service** — see the revenue rule below |
+| **P4** | Callback / warranty | We were just there and it is not fixed | Same day where possible, next morning at the latest. **Never behind new work** |
+| **P5** | Member service | Active Home+ or Business+ with a service issue | Priority scheduling ahead of non-members — that is what they bought |
+| **P6** | Commercial down | Commercial unit down, business impacted, no vulnerable-occupant factor | Same or next day, coordinated with the site contact |
+| **P7** | Standard service | Non-member service call, system running but faulty | Next available core window |
+| **P8** | Sold install / estimate | Scheduled install, quoted estimate visit | Booked date — protected, not raided for P7 work |
+| **P9** | Maintenance / tune-up | Membership visits, seasonal tune-ups | The flexible layer. First to move, last to cancel |
 
 **Priority is set at booking by the CSM and verified by Dispatch.** An untagged emergency is an emergency that waits in line, which is the whole reason the tag exists (`sop.csm.dispatch-handoff`).
 
-## The three rules that decide the hard calls {#rules}
+With {{price:tech_headcount}} and {{price:tech_daily_capacity}}, this ladder is not theoretical — on most days something has to move, and this page says what.
+
+## The four rules that decide the hard calls {#rules}
 
 **1. A callback outranks new revenue.** Always. It feels backwards on a busy day and it is not: the callback customer already paid us and is currently deciding what to tell their neighbours. See `sop.csm.warranty-callback`.
 
 **2. Members go first among equals.** Two identical no-cooling calls, one tech: the active member gets the earlier slot. Priority scheduling is a printed benefit of Home+ and Business+ (`reference.membership-plans`) and a benefit we do not honour is a refund waiting to happen.
 
-**3. Maintenance is the shock absorber.** When the day breaks, tune-ups move — never callbacks, never members-in-distress. Moving a tune-up is a phone call; moving a no-heat is a lost customer. But **move it to a real date on the call**, never to "we'll ring you."
+**3. Between two non-emergencies, the larger job wins.** Once life safety, emergencies and callbacks are placed, sequence what remains by value to the business. An approved install or a replacement estimate on a dead system is worth more than a routine diagnostic, and it is also the customer with the most on the line. Revenue never outranks P1–P4 — it decides the order *underneath* them.
+
+**4. An emergency install at the end of the day takes the slot.** A customer with an approved replacement and no heat or no cooling gets the truck, even when it lands on top of a booked service call. The displaced service call does not simply vanish — Dispatch does one of three things, in this order:
+
+1. **Hand it to a subcontractor** who can cover it in the original window.
+2. **Move it to the next day**, to a named window, agreed with the customer on a live call.
+3. **Escalate to the dispatch manager** if the customer refuses both or the job is a callback or a member in distress — those are not the ones you move.
+
+Whichever path, the customer hears it from us **before their window opens**, with a specific new time. Log the reason on both tickets.
+
+**5. Maintenance is the shock absorber.** When the day breaks, tune-ups move — never callbacks, never members-in-distress. Moving a tune-up is a phone call; moving a no-heat is a lost customer. But **move it to a real date on the call**, never to "we'll ring you."
 
 ## Never say "we're fully booked" to a P1 or P2 {#never-full}
 
