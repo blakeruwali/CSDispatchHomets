@@ -4,7 +4,7 @@ title: Adding Equipment & Completing Forms Before You Close
 department: field
 owner: service-manager
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-08-27
 review_cadence_days: 90
 tags: [forms, equipment, servicetitan, documentation, close, technician, photos, checklist]
