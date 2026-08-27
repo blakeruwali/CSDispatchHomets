@@ -68,12 +68,13 @@ Priority decides *what* goes next. It does not decide *who*.
 
 ## Re-sequencing during the day {#resequence}
 
-When a P1 or P2 lands mid-day:
+When a P1, P2 or P3 lands mid-day:
 
-1. **Find the slack, not the victim** — an unstarted P8 or a P6 with a wide window.
-2. **Reassign, then call.** The displaced customer hears a new time, not an apology with no date attached.
-3. **Displace the same customer twice and it escalates to the dispatch manager.** Two bumps is how a routine job becomes a complaint.
-4. **Log the reason on both tickets.** The pattern in those notes is next quarter's staffing case.
+1. **Find the slack, not the victim** — an unstarted P9 or a P7 with a wide window.
+2. **With one truck, "slack" often means a subcontractor or tomorrow.** Decide which before you pick up the phone, so the customer hears a plan and not a problem.
+3. **Reassign, then call.** The displaced customer hears a new time, not an apology with no date attached.
+4. **Displace the same customer twice and it escalates to the dispatch manager.** Two bumps is how a routine job becomes a complaint.
+5. **Log the reason on both tickets.** The pattern in those notes is next quarter's staffing case.
 
 ## Related
 
