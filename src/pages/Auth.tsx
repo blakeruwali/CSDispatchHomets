@@ -154,6 +154,9 @@ export default function Auth() {
             <Button variant="ghost" onClick={sendMagicLink} disabled={busy || linkSent} className="w-full">
               {linkSent ? "Link sent — check your email" : "Email me a sign-in link"}
             </Button>
+            <Button variant="ghost" onClick={sendPasswordReset} disabled={busy} className="w-full">
+              Set / reset password
+            </Button>
           </div>
         </CardContent>
       </Card>
