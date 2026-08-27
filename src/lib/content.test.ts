@@ -21,7 +21,12 @@ import {
 } from "./content";
 import { ackState, acknowledgementStatement } from "./acknowledgements";
 import { resolveDoc } from "./translate";
-import { returnOriginFor, isManagedHost, MANAGED_APP_URL } from "./oauthHandoff";
+import {
+  returnOriginFor,
+  isManagedHost,
+  MANAGED_APP_URL,
+  GOOGLE_SIGN_IN_ENABLED,
+} from "./oauthHandoff";
 
 describe("oauth handoff", () => {
   it("sends the session back to the production domain", () => {
@@ -56,6 +61,12 @@ describe("oauth handoff", () => {
     expect(isManagedHost("localhost")).toBe(true);
     expect(isManagedHost("process.hometsair.com")).toBe(false);
     expect(isManagedHost("blakeruwali.github.io")).toBe(false);
+  });
+
+  it("hides Google until the Supabase project has its own OAuth client", () => {
+    // /authorize answers "Unsupported provider: missing OAuth secret" without
+    // one. Showing the button anyway gives staff a fourth way to fail.
+    expect(GOOGLE_SIGN_IN_ENABLED).toBe(false);
   });
 
   it("keeps the broker URL pointing at a host that serves it", () => {

@@ -17,6 +17,27 @@
  * breaking.
  */
 
+/**
+ * Whether to offer Google sign-in.
+ *
+ * Off, because the Supabase project has no Google OAuth client of its own:
+ * calling /authorize returns
+ *
+ *   {"error_code":"validation_failed","msg":"Unsupported provider: missing OAuth secret"}
+ *
+ * Accounts do carry a linked Google identity, but that came from Lovable's
+ * broker supplying its own client at request time — which is not something
+ * this deployment can use, since the broker is a server route that only
+ * Lovable's hosting serves and only accepts callbacks on its own domains.
+ *
+ * Flip to true once a Google client ID and secret are set on the Supabase
+ * project. Nothing else has to change: sign-in already calls Supabase
+ * directly with redirectTo on this origin. Until then the button is hidden
+ * rather than shown broken — staff who cannot sign in do not need a fourth
+ * option that fails.
+ */
+export const GOOGLE_SIGN_IN_ENABLED = false;
+
 export const MANAGED_APP_URL = "https://homets-shine-deck.lovable.app/";
 
 /**

@@ -3,6 +3,7 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 
 import { useAuth, ALLOWED_EMAIL_DOMAIN, isAllowedEmail } from "@/hooks/useAuth";
+import { GOOGLE_SIGN_IN_ENABLED } from "@/lib/oauthHandoff";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -141,9 +142,11 @@ export default function Auth() {
               Homets account, or ask Blake to have your address added.
             </p>
           )}
-          <Button onClick={signInGoogle} disabled={busy} className="w-full">
-            Continue with Google
-          </Button>
+          {GOOGLE_SIGN_IN_ENABLED && (
+            <Button onClick={signInGoogle} disabled={busy} className="w-full">
+              Continue with Google
+            </Button>
+          )}
           <p className="text-xs text-muted-foreground text-center">
             Only @{ALLOWED_EMAIL_DOMAIN} accounts are allowed.
           </p>
