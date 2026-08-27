@@ -36,7 +36,7 @@
  * rather than shown broken — staff who cannot sign in do not need a fourth
  * option that fails.
  */
-export const GOOGLE_SIGN_IN_ENABLED = false;
+export const GOOGLE_SIGN_IN_ENABLED = true;
 
 export const MANAGED_APP_URL = "https://homets-shine-deck.lovable.app/";
 
