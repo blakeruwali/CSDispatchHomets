@@ -10,7 +10,7 @@ review_cadence_days: 90
 tags: [diagnostics, diagnosis, root-cause, readings, measurement, technician, field, callback, servicetitan]
 related: [sop.field.equipment-capture, reference.diagnostic-readings, sop.csm.tools, sop.csm.diagnostic-fee, sop.csm.symptom-clarification, reference.guarantees, sop.csm.warranty-callback, governance.acknowledgement]
 section: field-standards
-order: 2
+order: 4
 surfaces: [field, checklist]
 acknowledgement: required
 ---

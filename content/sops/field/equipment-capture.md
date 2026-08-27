@@ -10,7 +10,7 @@ review_cadence_days: 90
 tags: [equipment, servicetitan, data-plate, serial, model, warranty, technician, field, capture]
 related: [sop.csm.warranty-callback, reference.guarantees, sop.csm.system-type, sop.csm.tools, governance.acknowledgement]
 section: field-standards
-order: 2
+order: 3
 surfaces: [field, checklist]
 acknowledgement: required
 ---
