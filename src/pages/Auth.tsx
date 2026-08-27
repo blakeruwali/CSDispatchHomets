@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
 
 import { useAuth, ALLOWED_EMAIL_DOMAIN, isAllowedEmail } from "@/hooks/useAuth";
+import { MANAGED_APP_URL, isManagedHost } from "@/lib/oauthHandoff";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -45,27 +46,23 @@ export default function Auth() {
   const signInGoogle = async () => {
     setBusy(true);
     const redirectUri = `${window.location.origin}${import.meta.env.BASE_URL}`;
-    const managedAppUrl = "https://homets-shine-deck.lovable.app/";
 
-    // GitHub Pages hosts the company domain, so it cannot provide Lovable's
-    // reserved /~oauth proxy route. Start the managed flow on the published
-    // Lovable host instead, while keeping this site as the return URL.
-    const isLovableHosted =
-      window.location.hostname.endsWith(".lovable.app") ||
-      window.location.hostname.endsWith(".lovableproject.com") ||
-      window.location.hostname === "localhost";
-
-    if (!isLovableHosted) {
+    if (!isManagedHost()) {
       // The helper starts at `${window.location.origin}/~oauth`, which GitHub
       // Pages cannot serve. Hand off to the same route on the attached Lovable
       // host, and use that approved host for the callback as well.
+      //
+      // `state` carries where to send the session afterwards. It rides through
+      // OAuth untouched, so `redirect_uri` stays exactly the approved value —
+      // changing that is what produced "redirect_uri is not allowed".
       const params = new URLSearchParams({
         provider: "google",
-        redirect_uri: managedAppUrl,
+        redirect_uri: MANAGED_APP_URL,
         prompt: "select_account",
+        state: window.location.origin,
       });
       window.location.assign(
-        `${managedAppUrl}~oauth/initiate?${params.toString()}`,
+        `${MANAGED_APP_URL}~oauth/initiate?${params.toString()}`,
       );
       return;
     }

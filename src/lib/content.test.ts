@@ -21,6 +21,40 @@ import {
 } from "./content";
 import { ackState, acknowledgementStatement } from "./acknowledgements";
 import { resolveDoc } from "./translate";
+import { returnOriginFor, isManagedHost, MANAGED_APP_URL } from "./oauthHandoff";
+
+describe("oauth handoff", () => {
+  it("sends the session back to the production domain", () => {
+    expect(returnOriginFor("https://process.hometsair.com")).toBe("https://process.hometsair.com");
+  });
+
+  it("refuses any origin not on the allowlist", () => {
+    // Forwarding a fragment holding an access token to a caller-supplied
+    // origin would be an open redirect that leaks credentials.
+    for (const evil of [
+      "https://evil.example.com",
+      "https://process.hometsair.com.evil.example.com",
+      "http://process.hometsair.com",
+      "",
+      null,
+      undefined,
+    ]) {
+      expect(returnOriginFor(evil)).toBeNull();
+    }
+  });
+
+  it("knows which hosts can serve the broker route themselves", () => {
+    expect(isManagedHost("homets-shine-deck.lovable.app")).toBe(true);
+    expect(isManagedHost("localhost")).toBe(true);
+    expect(isManagedHost("process.hometsair.com")).toBe(false);
+    expect(isManagedHost("blakeruwali.github.io")).toBe(false);
+  });
+
+  it("keeps the broker URL pointing at a host that serves it", () => {
+    expect(MANAGED_APP_URL.endsWith("/")).toBe(true);
+    expect(isManagedHost(new URL(MANAGED_APP_URL).hostname)).toBe(true);
+  });
+});
 
 describe("content loader", () => {
   it("loads documents from content/", () => {
