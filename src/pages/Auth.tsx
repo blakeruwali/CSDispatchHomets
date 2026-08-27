@@ -71,7 +71,7 @@ export default function Auth() {
     else nav(dest);
   };
 
-  const [linkSent, setLinkSent] = useState(false);
+  
 
   // Magic link: no Google provider setup needed, and first sign-in creates the
   // account — which is how the first users get in at all. The domain rule is
