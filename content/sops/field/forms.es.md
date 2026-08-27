@@ -1,6 +1,6 @@
 ---
 translation_of: sop.field.forms
-source_version: 1
+source_version: 2
 ---
 
 # Registrar el Equipo y Llenar los Formularios Antes de Cerrar
@@ -11,19 +11,70 @@ source_version: 1
 
 Antes de presionar Completado:
 
-1. **Equipo registrado en el domicilio** — cada sistema, con foto de la placa de datos (`sop.field.equipment-capture`).
-2. **Formulario del trabajo lleno** — lecturas, hallazgos, lo que hiciste.
-3. **Fotos** — antes, después, y cualquier cosa que estés señalando.
-4. **Firma del cliente** capturada en el dispositivo.
-5. **Recomendaciones registradas**, incluidas las que rechazaron.
+1. **Verifica que la cuota de diagnóstico en el formulario sea la que se le cotizó al cliente** — {{price:diagnostic_residential}}, {{price:diagnostic_discounted}} o {{price:diagnostic_commercial}}.
+2. **Equipo registrado en el domicilio** — cada sistema, con foto de la placa de datos (`sop.field.equipment-capture`).
+3. **Formulario del trabajo lleno** — lecturas, hallazgos, lo que hiciste.
+4. **Fotos** — antes, después, y cualquier cosa que estés señalando.
+5. **Si compraron la reparación o el reemplazo, la cuota de diagnóstico se quita de la factura.**
+6. **Firma del cliente** capturada en el dispositivo.
+7. **Recomendaciones registradas**, incluidas las que rechazaron.
 
 **Dos o tres minutos.** Cada uno de ellos sale más barato que la llamada que recibes tres meses después sobre un trabajo que nadie puede reconstruir.
+
+## La cuota de diagnóstico correcta, antes de que alguien firme {#fee-accuracy}
+
+> **La cuota en el formulario debe ser la que se le dijo al cliente por teléfono. Verifícala antes de tocar la puerta, no después de que firmen.**
+
+La cuota no siempre es el mismo número:
+
+| Situación | Cuota en el formulario |
+|---|---|
+| Llamada de reparación residencial estándar | {{price:diagnostic_residential}} |
+| Llamada con promoción / descuento cotizado por el CSM | {{price:diagnostic_discounted}} |
+| Comercial | {{price:diagnostic_commercial}} |
+| Miembro activo | {{price:membership_diagnostic_posture}} — confirma el estatus primero (`sop.field.membership`) |
+| Nosotros movimos a este cliente de un día anterior | Sin costo — {{price:bump_diagnostic_credit}} |
+
+**Dónde verificarlo:** el campo de postura de cuota en el ticket, capturado por el CSM al agendar (`sop.csm.ticket-standards`). Léelo en la camioneta antes de bajarte.
+
+**Si la cuota del formulario no coincide con el ticket, llama a Despacho y corrígela antes de presentar cualquier cosa.** Un formulario firmado con el número equivocado es la peor versión de este problema — el cliente firmó un precio y ve otro, y una buena visita se vuelve una disputa de facturación que perdemos. Nadie firma un formulario que no revisaste.
+
+**Nunca cambies tú la cuota cotizada.** Ni la descuentas ni la subes. Si el cliente dice que le dijeron otro número, créele, respeta el número que le dijeron y anótalo — Despacho o el CSM arreglan el registro.
 
 ## El equipo va en el domicilio, no en las notas {#equipment}
 
 Este es el error que más cuesta. Las notas son invisibles en la siguiente visita — no se asocian al domicilio, no impulsan el mantenimiento, y no aparecen cuando el CSM agenda la siguiente llamada.
 
 **Cada sistema de la dirección lleva su registro**, no solo el que se descompuso: calefactor *y* condensador, la segunda zona que nadie mencionó, calentador de agua, cabezales mini-split *y* la unidad exterior, cada RTU en una azotea comercial. El estándar completo campo por campo: `sop.field.equipment-capture`.
+
+**Cada tipo de trabajo, sin excepción** — diagnóstico, mantenimiento, reparación, estimado, instalación, visita de regreso, garantía. No hay visita donde registrar el equipo sea opcional. El mantenimiento de hoy es la reclamación de garantía, el recordatorio anual y la cotización de reemplazo del año que viene, y las tres fallan si el modelo y el número de serie no están en el sistema.
+
+## Cuándo se acredita el diagnóstico {#credit}
+
+Le decimos a cada cliente: **si aprueba el trabajo hoy, el diagnóstico se le quita.** Esa promesa solo se cumple si tú lo quitas de la factura.
+
+- Reparación aprobada en esta visita → quita la línea del diagnóstico antes de que el cliente firme.
+- Reemplazo aprobado en esta visita → igual, el diagnóstico se acredita al reemplazo.
+- El cliente rechaza todo → el diagnóstico se cobra completo, como se cotizó.
+
+El crédito ocurre en la factura, en la puerta, no "en la próxima". Un cliente al que le cobramos una cuota que dijimos que quitaríamos va a llamar, y va a tener razón.
+
+## Sistemas viejos y el hallazgo de "no reparable" {#non-repairable}
+
+Los equipos de quince o veinte años con frecuencia no vale la pena repararlos, y a veces no se pueden reparar. Eso **no** hace que la visita sea gratis.
+
+1. **Diagnostícalo bien de todos modos.** Lecturas, hallazgos y la razón por la que no es reparable, en el formulario. "Está viejo" no es un diagnóstico.
+2. **El diagnóstico se cobra** — {{price:diagnostic_on_non_repairable}}. Invertiste de 45 a 60 minutos en llegar a la respuesta, y la respuesta es lo que el cliente pagó.
+3. **El estimado de reemplazo es gratis** ({{price:estimate_install}}) y se presenta en la misma visita — bueno / mejor / el mejor (`sop.sales.good-better-best`).
+4. **Si aprueban el reemplazo, el diagnóstico se acredita** — la misma promesa que en cualquier reparación.
+5. **Fotografía la evidencia**: la placa de datos con la antigüedad, el componente fallado, el óxido o el intercambiador de calor agrietado. Eso es lo que hace creíble la conversación de reemplazo.
+
+Dilo claro en la puerta, antes de empezar:
+
+> "Hay una cuota de diagnóstico para saber exactamente qué está fallando. Si tiene reparación, le doy el precio; si no la tiene, le muestro por qué y le doy el precio del reemplazo — de cualquier forma, si avanza hoy, la cuota de diagnóstico se le quita."
+
+Esa frase es la que evita la llamada de "me cobraron nada más por decirme que ya no sirve".
+
 
 ## El formulario es el diagnóstico, por escrito {#forms}
 
