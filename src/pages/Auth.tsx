@@ -38,32 +38,26 @@ export default function Auth() {
 
   const signInGoogle = async () => {
     setBusy(true);
-    // Google goes through Supabase rather than the Lovable broker. The broker
-    // is a server endpoint (`/~oauth/initiate`) served by Lovable's hosting;
-    // this app is also deployed to GitHub Pages, which is static files only
-    // and cannot answer it at any path. Supabase hosts its own callback, so
-    // one code path works from both deployments.
-    //
-    // `redirectTo` must carry BASE_URL: on Pages the app lives under
-    // /CSDispatchHomets/, and returning to the bare origin lands on a 404.
-    //
-    // No `hd` hint: it silently breaks sign-in when the account isn't on a
-    // Google Workspace domain. The @hometsair.com rule is enforced in useAuth.
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}`,
-        queryParams: { prompt: "select_account" },
-      },
+    // Managed Google runs through the Lovable OAuth broker. Calling Supabase's
+    // /authorize directly fails with "missing OAuth secret" because no per-app
+    // Google client is configured on the Supabase project.
+    const result = await lovable.auth.signInWithOAuth("google", {
+      redirect_uri: `${window.location.origin}${import.meta.env.BASE_URL}`,
+      extraParams: { prompt: "select_account" },
     });
-    if (error) {
+    if (result.error) {
       setBusy(false);
-      toast({ title: "Sign-in failed", description: error.message, variant: "destructive" });
+      toast({
+        title: "Sign-in failed",
+        description: String((result.error as { message?: string }).message ?? result.error),
+        variant: "destructive",
+      });
       return;
     }
-    // On success the browser is navigating away to Google; leave `busy` set so
-    // the button cannot be pressed twice while the redirect is in flight.
+    if (result.redirected) return; // browser is navigating to Google
+    nav(dest);
   };
+
 
 
   const signInEmail = async () => {
