@@ -10,11 +10,15 @@ export const ALLOWED_EMAIL_DOMAIN = "hometsair.com";
  * Signing a non-domain account out here happens in the browser, after Supabase
  * has already issued a real session. The token stays valid, so anyone holding
  * one can reach the API directly without going near this page. The rule is
- * only actually enforced by row-level security keyed on the email claim —
- * `public.is_homets_user()` in the database.
+ * actually enforced by `public.is_homets_user()`, which every row-level
+ * security policy is keyed on — see
+ * supabase/migrations/20260827180000_restrict_data_to_hometsair_domain.sql.
+ * What this function does is explain the rejection to someone who mistyped
+ * their address, rather than leaving them at an empty screen.
  *
  * Keep the two definitions of the domain in step. If this constant changes,
- * the SQL function has to change with it.
+ * the SQL function has to change with it — and so does the signup trigger in
+ * 20260827180100_block_non_hometsair_signups.sql.
  */
 
 export function isAllowedEmail(email?: string | null) {
