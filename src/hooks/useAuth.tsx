@@ -11,15 +11,19 @@ export const ALLOWED_EMAIL_DOMAIN = "hometsair.com";
  * has already issued a real session. The token stays valid, so anyone holding
  * one can reach the API directly without going near this page. The rule is
  * actually enforced by `public.is_homets_user()`, which every row-level
- * security policy is keyed on — see
- * supabase/migrations/20260827180000_restrict_data_to_hometsair_domain.sql.
+ * security policy is keyed on (migration 20260827175842). It reads
+ * `auth.users` rather than the JWT email claim, and requires a confirmed
+ * address. Public sign-ups are disabled at the project level as a second
+ * layer, so a non-domain account cannot be created in the first place — new
+ * staff are invited from the Cloud dashboard.
+ *
  * What this function does is explain the rejection to someone who mistyped
  * their address, rather than leaving them at an empty screen.
  *
- * Keep the two definitions of the domain in step. If this constant changes,
- * the SQL function has to change with it — and so does the signup trigger in
- * 20260827180100_block_non_hometsair_signups.sql.
+ * Keep the two definitions of the domain in step: if this constant changes,
+ * `public.is_homets_user()` has to change with it.
  */
+
 
 export function isAllowedEmail(email?: string | null) {
   return !!email && email.toLowerCase().endsWith(`@${ALLOWED_EMAIL_DOMAIN}`);
