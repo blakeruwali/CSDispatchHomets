@@ -42,7 +42,7 @@ The CSM books; Dispatch owns the board. Anything outside standard windows — af
 
 ## Arrival guarantee {#guarantee}
 
-Standard windows carry the {{price:same_day_service_window}} arrival guarantee. Don't oversell it on the call, but know it exists — it is a genuine differentiator when a customer is comparing us to a company that said "sometime Tuesday."
+Standard windows carry the {{price:arrival_guarantee}} arrival guarantee. Don't oversell it on the call, but know it exists — it is a genuine differentiator when a customer is comparing us to a company that said "sometime Tuesday."
 
 ## Related
 
