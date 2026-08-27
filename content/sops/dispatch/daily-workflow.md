@@ -21,16 +21,17 @@ surfaces: [dispatch, checklist]
 ## Before the techs move — {{price:dispatch_hours}} opens {#pre-shift}
 
 1. **Read the Posh overnight log** and confirm every emergency was actually dispatched, not just recorded — `sop.csm.coverage`.
-2. **Confirm every technician acknowledged their first job.** No acknowledgement by {{price:tech_ack_deadline}} is a phone call.
-3. **Sanity-check the geography.** Two techs crossing the island past each other at 8 AM is a fix you make now, not at noon.
+2. **Confirm every technician acknowledged their first job — and the start hour they were given.** The night-before dispatch carries the real time ({{price:first_job_notice}}); at 7 AM you are confirming the tech read it, not sending it. No acknowledgement by {{price:tech_ack_deadline}} is a phone call.
+3. **Sanity-check the geography.** A first job in eastern Suffolk at 8 AM is a fix you make now, not at noon.
 4. **Confirm parts on hold have arrived** for any job scheduled today. A parts job dispatched without the part is a wasted slot and an angry customer.
-5. **Check the day's capacity against the emergency season.** Under {{price:emergency_temp_cold}} or over {{price:emergency_temp_hot}}, hold a slot open. It will get used.
+5. **Check the day's capacity against the emergency season.** We plan {{price:tech_daily_capacity}}. Under {{price:emergency_temp_cold}} or over {{price:emergency_temp_hot}}, hold a slot open. It will get used.
 
 ## Morning — first windows {#morning}
 
-- **Watch arrivals in real time.** The {{price:arrival_guarantee}} clock starts at the beginning of the booked window; a tech not on site with 20 minutes left is a call to the customer now.
+- **The tech is on site at the top of the window**, {{price:first_job_start_default}} for an 8–10. Leaving at {{price:tech_shift_start}} is the means, not the promise.
+- **Watch arrivals in real time.** The {{price:arrival_guarantee}} clock starts at the beginning of the booked window; a tech not on site at the top of the window is a call to the customer **now**, with a named arrival time — not "he's on his way." Full rule: `sop.dispatch.hours`.
 - **Confirm each tech has exactly the next job visible** and nothing further — `sop.dispatch.hours`.
-- **Take the CSM's same-day requests.** Approve or decline against `sop.dispatch.priorities`, and answer quickly — the CSM has a customer on the line.
+- **Take the CSM's same-day requests.** Approve or decline against `sop.dispatch.priorities`, and answer quickly — the CSM has a customer on the line. Overflow windows ({{price:service_windows_overflow}}) are yours to grant, never the CSM's to offer.
 
 ## Midday — the re-plan {#midday}
 
