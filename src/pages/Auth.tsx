@@ -75,6 +75,33 @@ export default function Auth() {
     else nav(dest);
   };
 
+  const [linkSent, setLinkSent] = useState(false);
+
+  // Magic link: no Google provider setup needed, and first sign-in creates the
+  // account — which is how the first users get in at all. The domain rule is
+  // enforced before sending (only hometsair.com mailboxes can receive the
+  // link) and again in useAuth after the session lands.
+  //
+  // emailRedirectTo carries BASE_URL for the same reason the Google redirect
+  // does: on GitHub Pages the app lives under a sub-path, and returning to the
+  // bare origin lands on a 404. main.tsx consumes the token fragment before
+  // HashRouter sees it.
+  const sendMagicLink = async () => {
+    if (!isAllowedEmail(email)) return domainError();
+    setBusy(true);
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: `${window.location.origin}${import.meta.env.BASE_URL}` },
+    });
+    setBusy(false);
+    if (error) {
+      toast({ title: "Couldn't send link", description: error.message, variant: "destructive" });
+      return;
+    }
+    setLinkSent(true);
+    toast({ title: "Check your email", description: `Sign-in link sent to ${email}.` });
+  };
+
   return (
     <main className="min-h-screen bg-background flex items-center justify-center p-6">
       <Card className="w-full max-w-sm">
@@ -106,6 +133,9 @@ export default function Auth() {
             />
             <Button variant="outline" onClick={signInEmail} disabled={busy} className="w-full">
               {busy ? "…" : "Sign in with email"}
+            </Button>
+            <Button variant="ghost" onClick={sendMagicLink} disabled={busy || linkSent} className="w-full">
+              {linkSent ? "Link sent — check your email" : "Email me a sign-in link"}
             </Button>
           </div>
         </CardContent>
