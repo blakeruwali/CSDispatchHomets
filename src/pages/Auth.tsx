@@ -102,6 +102,23 @@ export default function Auth() {
     toast({ title: "Check your email", description: `Sign-in link sent to ${email}.` });
   };
 
+  // Password set/reset: emails a recovery link that lands on /reset-password.
+  // This is also how magic-link users (who never had a password) set one for
+  // the first time.
+  const sendPasswordReset = async () => {
+    if (!isAllowedEmail(email)) return domainError();
+    setBusy(true);
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}#/reset-password`,
+    });
+    setBusy(false);
+    if (error) {
+      toast({ title: "Couldn't send link", description: error.message, variant: "destructive" });
+      return;
+    }
+    toast({ title: "Check your email", description: `Password link sent to ${email}.` });
+  };
+
   return (
     <main className="min-h-screen bg-background flex items-center justify-center p-6">
       <Card className="w-full max-w-sm">
@@ -136,6 +153,9 @@ export default function Auth() {
             </Button>
             <Button variant="ghost" onClick={sendMagicLink} disabled={busy || linkSent} className="w-full">
               {linkSent ? "Link sent — check your email" : "Email me a sign-in link"}
+            </Button>
+            <Button variant="ghost" onClick={sendPasswordReset} disabled={busy} className="w-full">
+              Set / reset password
             </Button>
           </div>
         </CardContent>
