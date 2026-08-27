@@ -24,6 +24,9 @@ export default function Auth() {
   // Declared with the other hooks: this used to sit below the early returns,
   // which changed the hook count between renders and crashed the page.
   const [linkSent, setLinkSent] = useState(false);
+  // "password" = returning staff with a password set.
+  // "link" = first-time / passwordless sign-in, which is how new staff get in.
+  const [mode, setMode] = useState<"password" | "link">("password");
 
 
   // main.tsx routes a failed OAuth round trip back here with the reason
