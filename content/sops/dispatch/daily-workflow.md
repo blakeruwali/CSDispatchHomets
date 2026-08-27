@@ -79,4 +79,5 @@ One named dispatcher owns the board at any moment, and a handoff between dispatc
 
 - Hours and start-time rules: `sop.dispatch.hours`
 - What moves first: `sop.dispatch.priorities`
+- Duration classes, overruns and bumped jobs: `sop.dispatch.job-duration`
 - The technician's close standard: `sop.field.forms`
