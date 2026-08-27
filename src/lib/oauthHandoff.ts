@@ -35,8 +35,29 @@ export function isManagedHost(hostname: string = window.location.hostname): bool
   );
 }
 
-/** The origin to send the session back to, or null if it is not allowed. */
+/**
+ * The origin to send the session back to, or null if it is not allowed.
+ *
+ * The broker returns `state` percent-encoded a second time — an observed
+ * callback carried `https%253A%252F%252Fprocess.hometsair.com`, which is one
+ * decode short of an origin after URLSearchParams has already decoded once.
+ * So decode until it stops changing, bounded, and compare the result. Matching
+ * on the raw value silently failed the allowlist and skipped the handoff.
+ */
 export function returnOriginFor(candidate: string | null | undefined): string | null {
   if (!candidate) return null;
-  return RETURN_ORIGINS.includes(candidate) ? candidate : null;
+
+  let value = candidate;
+  for (let i = 0; i < 3; i += 1) {
+    let decoded: string;
+    try {
+      decoded = decodeURIComponent(value);
+    } catch {
+      break; // malformed escape — judge what we have
+    }
+    if (decoded === value) break;
+    value = decoded;
+  }
+
+  return RETURN_ORIGINS.includes(value) ? value : null;
 }

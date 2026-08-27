@@ -28,11 +28,19 @@ describe("oauth handoff", () => {
     expect(returnOriginFor("https://process.hometsair.com")).toBe("https://process.hometsair.com");
   });
 
+  it("accepts the double-encoded state the broker actually returns", () => {
+    // Observed in a real callback: URLSearchParams decodes once, leaving
+    // https%3A%2F%2Fprocess.hometsair.com, which matches nothing.
+    expect(returnOriginFor("https%3A%2F%2Fprocess.hometsair.com"))
+      .toBe("https://process.hometsair.com");
+  });
+
   it("refuses any origin not on the allowlist", () => {
     // Forwarding a fragment holding an access token to a caller-supplied
     // origin would be an open redirect that leaks credentials.
     for (const evil of [
       "https://evil.example.com",
+      "https%3A%2F%2Fevil.example.com",
       "https://process.hometsair.com.evil.example.com",
       "http://process.hometsair.com",
       "",

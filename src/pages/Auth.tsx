@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable/index";
 
 import { useAuth, ALLOWED_EMAIL_DOMAIN, isAllowedEmail } from "@/hooks/useAuth";
-import { MANAGED_APP_URL, isManagedHost } from "@/lib/oauthHandoff";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -45,46 +43,33 @@ export default function Auth() {
 
   const signInGoogle = async () => {
     setBusy(true);
-    const redirectUri = `${window.location.origin}${import.meta.env.BASE_URL}`;
 
-    if (!isManagedHost()) {
-      // The helper starts at `${window.location.origin}/~oauth`, which GitHub
-      // Pages cannot serve. Hand off to the same route on the attached Lovable
-      // host, and use that approved host for the callback as well.
-      //
-      // `state` carries where to send the session afterwards. It rides through
-      // OAuth untouched, so `redirect_uri` stays exactly the approved value —
-      // changing that is what produced "redirect_uri is not allowed".
-      const params = new URLSearchParams({
-        provider: "google",
-        redirect_uri: MANAGED_APP_URL,
-        prompt: "select_account",
-        state: window.location.origin,
-      });
-      window.location.assign(
-        `${MANAGED_APP_URL}~oauth/initiate?${params.toString()}`,
-      );
-      return;
-    }
-
-    // Managed Google runs through the Lovable OAuth broker. Calling Supabase's
-    // /authorize directly fails with "missing OAuth secret" because no per-app
-    // Google client is configured on the Supabase project.
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: redirectUri,
-      extraParams: { prompt: "select_account" },
+    // Google goes straight through Supabase. The Lovable broker is a server
+    // route (`/~oauth/initiate`) that only Lovable's hosting serves, and it
+    // will only accept callbacks on a domain attached to that app — so a
+    // sign-in started here finished on homets-shine-deck.lovable.app, leaving
+    // the session in that origin's localStorage where this site cannot read
+    // it. Supabase hosts its own callback, so production stays production.
+    //
+    // The account already carries a linked Google identity issued by this
+    // Supabase project, so the provider is configured on it. If that ever
+    // stops being true the failure returns as `error_description`, which
+    // main.tsx routes back here and shows, rather than failing silently.
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}`,
+        queryParams: { prompt: "select_account" },
+      },
     });
-    if (result.error) {
+
+    if (error) {
       setBusy(false);
-      toast({
-        title: "Sign-in failed",
-        description: String((result.error as { message?: string }).message ?? result.error),
-        variant: "destructive",
-      });
+      toast({ title: "Sign-in failed", description: error.message, variant: "destructive" });
       return;
     }
-    if (result.redirected) return; // browser is navigating to Google
-    nav(dest);
+    // Success means the browser is navigating to Google; leave `busy` set so
+    // the button cannot be pressed twice while the redirect is in flight.
   };
 
 
