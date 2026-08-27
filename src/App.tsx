@@ -13,6 +13,7 @@ import Auth from "./pages/Auth";
 import ResetPassword from "./pages/ResetPassword";
 import CSM from "./pages/CSM";
 import Field from "./pages/Field";
+import Dispatch from "./pages/Dispatch";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/admin/seed" element={gated(<AdminSeed />)} />
           <Route path="/csm" element={gated(<CSM />)} />
           <Route path="/field" element={gated(<Field />)} />
+          <Route path="/dispatch" element={gated(<Dispatch />)} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

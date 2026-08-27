@@ -214,6 +214,13 @@ const ScrollablePresentation: React.FC = () => {
               Live Scoring
             </Link>
             <Link
+              to="/dispatch"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
+            >
+              <Radio className="w-3.5 h-3.5" />
+              Dispatch SOP
+            </Link>
+            <Link
               to="/field"
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
             >
