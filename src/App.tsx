@@ -10,6 +10,7 @@ import Sales from "./pages/Sales";
 import Checklist from "./pages/Checklist";
 import AdminSeed from "./pages/AdminSeed";
 import Auth from "./pages/Auth";
+import ResetPassword from "./pages/ResetPassword";
 import CSM from "./pages/CSM";
 import Field from "./pages/Field";
 import NotFound from "./pages/NotFound";
