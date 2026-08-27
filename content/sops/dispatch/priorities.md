@@ -54,7 +54,7 @@ Whichever path, the customer hears it from us **before their window opens**, wit
 
 **5. Maintenance is the shock absorber.** When the day breaks, tune-ups move — never callbacks, never members-in-distress. Moving a tune-up is a phone call; moving a no-heat is a lost customer. But **move it to a real date on the call**, never to "we'll ring you."
 
-## Never say "we're fully booked" to a P1 or P2 {#never-full}
+## Never say "we're fully booked" to a P1, P2 or P3 {#never-full}
 
 The board is not the customer's problem. Emergencies get a slot; creating one is the dispatch manager's job — overtime, a re-sequenced afternoon, or the on-call tech. Mirrors the CSM rule in `protocol.emergency.triage`.
 
