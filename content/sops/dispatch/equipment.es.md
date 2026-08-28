@@ -16,7 +16,7 @@ Cada trabajo que se cierra con trabajo realizado debe responder una pregunta ant
 **¿Está el equipo registrado en la ubicación, con una foto legible de la placa de datos?**
 
 - **Sí** — ciérralo.
-- **No** — devuélvelo al técnico que lo cerró, **hoy**, mientras aún pueda estar cerca de la dirección o al menos recuerde el trabajo. Una devolución la próxima semana es un segundo viaje; una devolución hoy es una llamada y dos minutos en su tableta.
+- **No** — **llama o envía un mensaje al técnico el mismo día, antes de que termine su turno, y registra la falla.** No regresamos físicamente al técnico al domicilio — eso es un segundo viaje que pagamos nosotros. En su lugar nos aseguramos de que lo *sepa*, de inmediato, para que no se vuelva costumbre: el técnico confirma la falla y completa el registro con lo que permita su escaneo y sus fotos, o escribe la excepción en las notas. Una notificación hoy es un arreglo de dos minutos en su camioneta; el silencio es un hueco que nadie reconstruye el próximo mes.
 
 Esto aplica a **todo tipo de visita**, no solo reparaciones: diagnósticos, mantenimientos, estimados, instalaciones, callbacks y llamadas de garantía. Si un técnico estuvo en el sitio, el registro de equipos de la ubicación debe estar completo cuando se vaya.
 
@@ -50,7 +50,7 @@ El mismo día, siempre — nunca acumulado para el fin de semana. El punto es qu
 
 ## El ciclo semanal {#weekly}
 
-Un técnico que es devuelto repetidamente por equipos faltantes va a la lista del gerente de servicio para la reunión semanal uno-a-uno, junto con la tasa de callbacks — los dos están relacionados, y la conexión es el punto. El trabajo de Despacho es mostrar el patrón, no corregirlo.
+Un técnico señalado repetidamente por equipos faltantes va a la lista del gerente de servicio para la reunión semanal uno-a-uno, junto con la tasa de callbacks — los dos están relacionados, y la conexión es el punto. El trabajo de Despacho es notificar en el momento y mostrar el patrón, no corregirlo.
 
 ## Relacionados
 
