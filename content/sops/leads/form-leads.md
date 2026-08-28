@@ -73,10 +73,12 @@ A new Meta lead fires notifications to **email and the app** at the same time. W
 
 | Attempt | Timing | Channel |
 |---|---|---|
-| 1 | Within 5 minutes | Call → text if no answer |
+| 1 | Within 1 minute (legal window 8 AM – 9 PM; leads outside it are called at 8 AM sharp) | Call → text + email if no answer |
 | 2 | 2 hours later | Call → text |
 | 3 | Next morning | Call → text |
 | Final | 48 hours | Closing text, then mark unreachable |
+
+**Attempts 2 and 3 also stay inside the 8 AM – 9 PM window.** Never stack a call, a text, and an email back-to-back on attempts 2 and 3 — one call, one text per attempt. The full-court press (call + text + email + Messenger) belongs to attempt 1 only; after that, restraint is what keeps the lead warm instead of blocked.
 
 Closing text:
 
