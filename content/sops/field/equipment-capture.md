@@ -23,14 +23,14 @@ acknowledgement: required
 
 At every unit, before you start:
 
-1. **Photograph the data plate.** Close, square, wipe it if it's dirty.
+1. **Scan the equipment.** Point your tablet camera at the data plate and run the equipment scan — ServiceTitan reads the model and serial straight off the plate. Then photograph the plate as well.
 2. **Photograph the whole unit** where it sits.
 3. **Create the equipment record** — make, model, serial, location, filter size.
 4. **Then start work.**
 
 **Roughly 60–90 seconds per unit.** That is the real cost, and this document does not pretend it is free.
 
-If you are genuinely up against it, the three that must be captured are **the plate photo, the model, and the serial.** Everything else can be filled in later from the photo. Nothing can be filled in later from a plate you did not photograph.
+If you are genuinely up against it, the three that must be captured are **the plate scan, the model, and the serial.** Everything else can be filled in later from the scan and the photo. Nothing can be filled in later from a plate you did not scan.
 
 ## What this does for you {#for-you}
 
@@ -98,13 +98,14 @@ The second system is the one that gets skipped, and it is the one that generates
 
 **Model and serial are transcribed from the photo, never from memory.** They are long, they mix letters and digits, and one wrong character is a warranty claim that fails months later when nobody can reconstruct what happened.
 
-## The plate photo is the record {#photo}
+## Scan the plate, then photograph it {#photo}
 
-The typed fields can contain a typo. The photo cannot.
+The typed fields can contain a typo. The scan and the photo cannot.
 
-- One photo per unit minimum: **the data plate, filling the frame, in focus.**
+- **Scan first:** every unit gets the equipment scan run against its data plate — model and serial come in from the scan, character for character, with no typing to get wrong.
+- **One photo per unit minimum after the scan:** **the data plate, filling the frame, in focus.** The photo is the backstop — if the scan misreads a character, the photo is what settles it months later.
 - Plus a wider shot showing the unit and its surroundings.
-- Dirty plate? Wipe it and reshoot. A photo you cannot read is not a record.
+- Dirty plate? Wipe it, then rescan and reshoot. A plate the scanner cannot read is a plate you cannot read either — a scan that failed is not a record.
 
 ## When the plate is unreadable or gone {#unreadable}
 
