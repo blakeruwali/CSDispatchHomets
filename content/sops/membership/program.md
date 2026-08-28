@@ -134,6 +134,9 @@ If any one of those three quotes a different number, the customer hears a compan
 - **Leaving the tune-ups unscheduled.** Book the seasonal tune-up while you are with the customer. An unused tune-up is a cancellation waiting to happen.
 - **Charging a member a diagnostic.** Refund it on the spot and tell Dispatch; do not make the customer chase it.
 - **Enrolling verbally and finishing "later".** If it is not in ServiceTitan on today's invoice, it did not happen.
+- **Quoting the monthly figure as month-to-month.** $7.99 and $24.99 are annual billing shown monthly. Say the annual total in the same breath.
+- **Selling Infinite for the discount alone.** The credit is the reason to buy it; if they will not use {{price:membership_infinite_credit}} of work, sell Comfort.
+- **Presenting "no overtime charges" as a member perk.** Nobody pays a surcharge here — see `reference.guarantees`.
 
 ## Related
 
