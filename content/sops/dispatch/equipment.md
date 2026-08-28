@@ -24,7 +24,7 @@ The capture rule itself lives in `sop.field.equipment-capture` and belongs to th
 
 Every job that closes with work performed gets one question answered before it leaves the board:
 
-**Is the equipment attached to the location, with a readable data-plate photo?**
+**Is the equipment scanned and attached to the location, with a readable data-plate photo?**
 
 - **Yes** — close it.
 - **No** — send it back to the technician who closed it, **today**, while they may still be near the address or at least still remember the job. A send-back next week is a second trip; a send-back today is a phone call and two minutes on their tablet.
@@ -38,11 +38,12 @@ Dispatch is checking placement and completeness, not re-typing anything:
 | Check | Right | Wrong |
 |---|---|---|
 | Record location | Equipment attached to the **customer's location** | Buried in job notes |
+| Plate scan | Equipment scan run on every unit | No scan — typed from memory |
 | Plate photo | Present, fills the frame, readable | Missing, blurry, unreadable |
-| Model & serial | Entered (or "data plate illegible" noted) | Blank with no explanation |
+| Model & serial | From the scan (or "data plate illegible" noted) | Blank with no explanation |
 | Coverage | Every system at the address | Only the unit that broke |
 
-**Model and serial must come from the photo, never from memory** — one wrong character is a warranty claim that fails months later. If the plate was unreadable, the condition notes must say "data plate illegible" — a silent gap is a defect, an explained gap is a record.
+**Model and serial must come from the scan and the photo, never from memory** — one wrong character is a warranty claim that fails months later. If the plate was unreadable, the condition notes must say "data plate illegible" — a silent gap is a defect, an explained gap is a record.
 
 ## The send-back conversation {#send-back}
 
