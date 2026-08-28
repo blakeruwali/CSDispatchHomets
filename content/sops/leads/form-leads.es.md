@@ -1,6 +1,6 @@
 ---
 translation_of: sop.leads.form-leads
-source_version: 2
+source_version: 3
 ---
 
 # Respuesta a Clientes Potenciales de Facebook y Formularios
@@ -14,6 +14,21 @@ Los formularios de Facebook, Instagram, Google y el sitio web producen lo mismo:
 **Todo cliente potencial de Facebook / Instagram / formulario recibe un intento de llamada en vivo dentro de 1 minuto de que llegue la notificación durante el horario laboral. Los que llegan fuera de horario se llaman al inicio del siguiente turno — antes del barrido de llamadas perdidas, en el orden en que llegaron.**
 
 Un cliente de formulario nunca se estaciona en una cola, un buzón o una pestaña del CRM. Si no se llama, muere.
+
+## Cobertura y horarios legales de contacto {#coverage-hours}
+
+**El escritorio está cubierto de 6:00 AM a 10:00 PM, los siete días de la semana.** El dueño (Devi) cubre el escritorio fuera del horario de los CSM — los clientes que llegan entre 6 AM y 10 PM reciben la misma llamada de 1 minuto, quien sea que esté cubriendo.
+
+**Horario legal de llamadas: 8:00 AM – 9:00 PM (hora local del cliente).** La ley federal de telemercadeo (TCPA) prohíbe llamadas y textos de mercadeo a residencias antes de las 8 AM o después de las 9 PM. No es una guía — las violaciones conllevan multas por llamada. Nuestra cobertura es más amplia que el horario legal, así que las reglas son:
+
+| El cliente llega | Qué pasa |
+|---|---|
+| **8:00 AM – 9:00 PM** | Llamar dentro de 1 minuto. Si no contestan: texto + correo dentro de 2 minutos. |
+| **6:00 AM – 8:00 AM** | **Todavía no llamar.** Registra el cliente, prepara el ticket. A las **8:00 AM en punto**, llama — luego texto + correo si no contestan. |
+| **9:00 PM – 10:00 PM** | **No llamar ni textear.** Manda **solo el correo** (el correo no tiene restricción de horario). Llama + texto a las **8:00 AM de la mañana siguiente**, antes que cualquier otra cosa en el tablero. |
+| **10:00 PM – 6:00 AM** (escritorio cerrado) | Se ponen en cola en orden de llegada. A las **8:00 AM en punto**, llama en el orden en que llegaron — estos clientes van primero, antes del barrido de llamadas perdidas. |
+
+**Nunca llamar ni textear antes de las 8 AM ni después de las 9 PM — sin excepciones, aunque el cliente acabe de llegar.** Un cliente que llegó a las 9:30 PM agenda mucho más con una llamada puntual a las 8 AM que con una llamada a las 9:45 PM que despierta la casa y lo irrita. La velocidad importa, pero solo dentro del horario legal; fuera de él, *primero a las 8 AM* es el estándar de velocidad.
 
 ## Dónde aparece el cliente potencial {#notifications}
 
