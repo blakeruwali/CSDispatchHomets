@@ -63,10 +63,15 @@ describe("oauth handoff", () => {
     expect(isManagedHost("blakeruwali.github.io")).toBe(false);
   });
 
-  it("hides Google until the Supabase project has its own OAuth client", () => {
-    // /authorize answers "Unsupported provider: missing OAuth secret" without
-    // one. Showing the button anyway gives staff a fourth way to fail.
-    expect(GOOGLE_SIGN_IN_ENABLED).toBe(false);
+  it("offers Google, now that the Supabase project has its own OAuth client", () => {
+    // This asserted `false` while /authorize still answered "Unsupported
+    // provider: missing OAuth secret" — showing the button then would have
+    // given staff a fourth way to fail. The client is configured now.
+    //
+    // If sign-in starts returning that error again, the provider has been
+    // removed from the project rather than the flag being wrong: check
+    // Supabase before flipping this back.
+    expect(GOOGLE_SIGN_IN_ENABLED).toBe(true);
   });
 
   it("keeps the broker URL pointing at a host that serves it", () => {
@@ -218,7 +223,11 @@ describe("field surface", () => {
       // after it close the gap rather than keeping a hardcoded number.
       "Part 2 — Diagnosing by Complaint",
       "Part 3 — Documentation",
-      "Part 4 — Governance",
+      // The two install stages the crew performs on site. The rest of the
+      // projects lifecycle is office work and stays out of this book.
+      "Part 4 — Install Day",
+      "Part 5 — Closeout & Comfort Check",
+      "Part 6 — Governance",
     ]);
   });
 

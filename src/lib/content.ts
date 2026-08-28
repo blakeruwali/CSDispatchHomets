@@ -119,12 +119,33 @@ export const priceTokens: Record<string, string> = tokensPath
   ? parseTokens(raw[tokensPath])
   : {};
 
-function resolveTokens(body: string): string {
+function substitute(body: string): string {
   return body.replace(/\{\{price:([a-z0-9_]+)\}\}/g, (whole, token: string) => {
     const value = priceTokens[token];
     // An unresolved token is a content bug; surface it rather than hiding it.
     return value ?? whole;
   });
+}
+
+/**
+ * A token's value may itself cite another token. `first_job_notice` is written
+ * as "By {{price:board_lock}}, with the exact start hour" so the deadline has
+ * one definition instead of two that can drift apart — which is the whole
+ * point of the token file. So substitute until the text stops changing rather
+ * than once, or that inner token reaches the page as literal braces.
+ *
+ * Bounded, because a token citing itself would otherwise spin forever. Hitting
+ * the bound leaves the token visible, which is what an unresolved token is for:
+ * the suite fails and someone unpicks the loop.
+ */
+function resolveTokens(body: string): string {
+  let out = body;
+  for (let pass = 0; pass < 5; pass += 1) {
+    const next = substitute(out);
+    if (next === out) break;
+    out = next;
+  }
+  return out;
 }
 
 // ------------------------------------------------------------------- the docs
@@ -392,6 +413,23 @@ export const FIELD_SECTIONS: SectionDef[] = [
     id: "field-documentation",
     title: "Documentation",
     description: "Photos, notes, and what has to be in ServiceTitan before a job closes",
+  },
+  // The two stages of a sold install a technician actually performs on site.
+  // They are owned by the projects book — the other six stages are office work
+  // and stay there — but `sop.projects.install-day` and
+  // `sop.projects.comfort-check` name `field` in their surfaces because the
+  // crew doing the work reads this book, not the coordinator's one. Without
+  // these parts, a document can declare the field surface and then be dropped
+  // from it for having nowhere to sit.
+  {
+    id: "projects-install",
+    title: "Install Day",
+    description: "Arrival, scope discipline, startup readings, and the walkthrough",
+  },
+  {
+    id: "projects-closeout",
+    title: "Closeout & Comfort Check",
+    description: "Invoice, warranty registration, records, and going back at 10-14 days",
   },
   // Shares the id `governance` with the CSM surface's Part 7, so a single
   // company-wide governance document can appear in both books without being
