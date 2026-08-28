@@ -381,6 +381,11 @@ export const CSM_SECTIONS: SectionDef[] = [
   { id: "channels", title: "Channel Playbooks", description: "Speed to lead, marketplaces, inbound, LSA, web, Posh, SMS" },
   { id: "post-booking", title: "Post-Booking & Retention", description: "Tickets, handoff, follow-up, warranty, retention" },
   { id: "governance", title: "Governance", description: "Guarantees, doc control, QA rubric, coaching, onboarding" },
+  {
+    id: "membership-program",
+    title: "The Membership Program",
+    description: "Home+ pricing, covered systems, benefits, and adding systems three and four",
+  },
 ];
 
 export function csmSections(): ContentSection[] {
@@ -439,6 +444,11 @@ export const FIELD_SECTIONS: SectionDef[] = [
     title: "Governance",
     description: "How these documents are issued, acknowledged, and changed",
   },
+  {
+    id: "membership-program",
+    title: "The Membership Program",
+    description: "Home+ pricing, covered systems, benefits, and adding systems three and four",
+  },
 ];
 
 export function fieldSections(): ContentSection[] {
@@ -488,6 +498,11 @@ export const DISPATCH_SECTIONS: SectionDef[] = [
   },
   // Shared with the CSM, field and sales surfaces.
   { id: "governance", title: "Governance", description: "How these documents are issued, acknowledged, and changed" },
+  {
+    id: "membership-program",
+    title: "The Membership Program",
+    description: "Home+ pricing, covered systems, benefits, and adding systems three and four",
+  },
 ];
 
 export function dispatchSections(): ContentSection[] {
@@ -572,4 +587,23 @@ export const REVIEWS_SECTIONS: SectionDef[] = [
 
 export function reviewsSections(): ContentSection[] {
   return sectionsForSurface("reviews", REVIEWS_SECTIONS);
+}
+
+// -------------------------------------------------------- membership sections
+
+/**
+ * The membership book: what Home+ costs, what it covers, and how a third or
+ * fourth system gets added. Surfaced on field, csm and dispatch too, because
+ * a member hears the same numbers from all three or trusts none of them.
+ */
+export const MEMBERSHIP_SECTIONS: SectionDef[] = [
+  {
+    id: "membership-program",
+    title: "The Membership Program",
+    description: "Home+ pricing, covered systems, benefits, and adding systems three and four",
+  },
+];
+
+export function membershipSections(): ContentSection[] {
+  return sectionsForSurface("membership", MEMBERSHIP_SECTIONS);
 }
