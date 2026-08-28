@@ -79,6 +79,19 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | `membership_business_plus_premier_visits`     | 4 | Scheduled visit allocations per membership year |
 | `membership_business_plus_premier_discount`   | 12% | Discount on eligible approved repairs |
 | `membership_business_plus_enterprise`         | Written quote required | Enterprise — custom fleet/multi-location scope; renewal defined in the proposal |
+| `membership_business_plus_extra_rtu`          | $399/year per additional rooftop unit | Beyond the first included RTU; up to 9 units in the published flow |
+
+### Membership proposals (site survey → three options)
+
+| Token | Value | Notes |
+|---|---|---|
+| `membership_survey_fee` | Free | Membership / maintenance-plan site survey. No diagnostic fee when the visit is scoped as a plan survey only. |
+| `membership_proposal_options` | 3 | Minimum plan options presented in every membership proposal |
+| `membership_proposal_delivery_hours` | 24 hours | Deadline to email **and** text the proposal after the site survey |
+| `membership_proposal_call_hours` | 2 hours | Deadline to call the customer after the proposal is sent |
+| `membership_proposal_followup_days` | Day 2, day 5, day 14 | Follow-up cadence on an unanswered proposal before it goes to nurture |
+
+
 
 ## Deposits & payment flow
 

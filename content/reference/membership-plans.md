@@ -60,7 +60,7 @@ A two-visit annual maintenance starting point for one qualifying light-commercia
 - {{price:membership_business_plus_essential_visits}} scheduled maintenance visits per membership year
 - {{price:membership_business_plus_essential_discount}} discount on eligible approved repairs
 - Unit nameplate and site access confirmed before service
-- Additional rooftop units priced separately
+- Additional rooftop units {{price:membership_business_plus_extra_rtu}}
 
 ### Premier {#premier}
 
@@ -71,7 +71,7 @@ More frequent service for one RTU, or two visits each for two qualifying rooftop
 - {{price:membership_business_plus_premier_visits}} scheduled visit allocations per membership year
 - {{price:membership_business_plus_premier_discount}} discount on eligible approved repairs
 - Written equipment and visit-allocation record
-- Additional rooftop units priced separately
+- Additional rooftop units {{price:membership_business_plus_extra_rtu}}
 
 ### Enterprise {#enterprise}
 
