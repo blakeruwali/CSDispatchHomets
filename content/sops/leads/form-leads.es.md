@@ -61,10 +61,12 @@ Un cliente nuevo de Meta dispara notificaciones al **correo y a la aplicación**
 
 | Intento | Momento | Canal |
 |---|---|---|
-| 1 | Dentro de 1 minuto | Llamada → texto + correo si no contestan |
+| 1 | Dentro de 1 minuto (horario legal 8 AM – 9 PM; los que llegan fuera se llaman a las 8 AM en punto) | Llamada → texto + correo si no contestan |
 | 2 | 2 horas después | Llamada → texto |
 | 3 | A la mañana siguiente | Llamada → texto |
 | Final | 48 horas | Texto de cierre, luego marcar como inalcanzable |
+
+**Los intentos 2 y 3 también se mantienen dentro del horario de 8 AM – 9 PM.** Nunca apiles llamada, texto y correo uno tras otro en los intentos 2 y 3 — una llamada, un texto por intento. El despliegue total (llamada + texto + correo + Messenger) es solo para el intento 1; después, la moderación es lo que mantiene al cliente interesado en vez de bloqueado.
 
 Texto de cierre:
 
