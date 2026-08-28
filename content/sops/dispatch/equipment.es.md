@@ -27,11 +27,12 @@ Despacho verifica la ubicación y completitud del registro, no vuelve a escribir
 | Verificación | Correcto | Incorrecto |
 |---|---|---|
 | Ubicación del registro | Equipo registrado en la **ubicación del cliente** | Enterrado en las notas del trabajo |
+| Escaneo de la placa | Escaneo de equipo ejecutado en cada unidad | Sin escaneo — capturado de memoria |
 | Foto de la placa | Presente, llena el encuadre, legible | Falta, borrosa, ilegible |
-| Modelo y serie | Ingresados (o "placa de datos ilegible" anotado) | En blanco sin explicación |
+| Modelo y serie | Del escaneo (o "placa de datos ilegible" anotado) | En blanco sin explicación |
 | Cobertura | Todos los sistemas de la dirección | Solo la unidad que se descompuso |
 
-**El modelo y la serie deben salir de la foto, nunca de la memoria** — un solo carácter incorrecto es un reclamo de garantía que falla meses después. Si la placa era ilegible, las notas de condición deben decir "placa de datos ilegible" — un vacío silencioso es un defecto, un vacío explicado es un registro.
+**El modelo y la serie deben salir del escaneo y de la foto, nunca de la memoria** — un solo carácter incorrecto es un reclamo de garantía que falla meses después. Si la placa era ilegible, las notas de condición deben decir "placa de datos ilegible" — un vacío silencioso es un defecto, un vacío explicado es un registro.
 
 ## La conversación de devolución {#send-back}
 
