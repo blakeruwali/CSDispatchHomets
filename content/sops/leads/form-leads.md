@@ -107,9 +107,30 @@ Wrong service, outside Nassau or Suffolk, obvious spam, or a duplicate — be br
 
 Same standard as missed calls (`sop.leads.missed-calls`): before the last CSM logs off, every form lead from the day has an outcome logged — booked, quoted, declined, already booked elsewhere, unreachable after three attempts, or unqualified/disputed. Anything unresolved goes on tomorrow's morning list, first thing.
 
+## The target: 60% booking rate {#target}
+
+**Every social/form lead channel is held to a minimum 60% booking rate** — six of every ten Facebook, Instagram, or form leads end the week with a booked estimate or diagnostic on the calendar.
+
+| Metric | Target |
+|---|---|
+| First-touch time (call attempt) | ≤ 1 minute |
+| Leads reached by a live voice | ≥ 80% |
+| **Booking rate (booked ÷ total valid leads)** | **≥ 60%** |
+| Invalid leads disputed same day | 100% |
+
+The five levers that move the rate, in order of impact:
+
+1. **Speed.** A lead called in the first minute books far more often than one called in an hour. Everything else is secondary to this.
+2. **All three channels on the first miss** — call, then text *and* email inside 2 minutes, plus the Messenger reply on Meta leads. One channel is not an attempt.
+3. **Anchor every confused lead** with the ad, the timing, and the offer before accepting a no (`#confused-leads`).
+4. **Offer two named windows, never "when are you free?"** An open question invites "let me think about it"; two real times invite a choice.
+5. **Clean the denominator.** Spam, wrong-service, and out-of-area leads are disputed and marked unqualified the same day so the rate reflects real opportunities, not junk.
+
+Rate is reviewed weekly per CSM and per campaign on the CSM scoreboard (`sop.csm.kpis`). A campaign booking under 60% for two straight weeks is a marketing conversation, not just a CSM one — flag it to the CS manager with the disposition breakdown.
+
 ## Why this is measured {#why}
 
-Form leads are pre-paid opportunities — marketing already bought them, and the only variable is our speed. First-touch time (target: ≤ 5 minutes) and form-lead booking rate sit on the CSM scoreboard (`sop.csm.kpis`), because a form answered in an hour is usually answered by someone else's tech already standing in the driveway.
+Form leads are pre-paid opportunities — marketing already bought them, and the only variable is our speed. A form answered in an hour is usually answered by someone else's tech already standing in the driveway.
 
 ## Related
 
