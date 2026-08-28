@@ -119,7 +119,7 @@ Write **what you recommended, the price given, and their reason for declining.**
 
 ## Why the close gate exists {#enforcement}
 
-- **Dispatch quality-gates every close.** Work performed with no equipment attached, or a blank form, gets sent back to the technician who closed it — same day (`sop.dispatch.daily-workflow`).
+- **Dispatch quality-gates every close.** Work performed with no equipment attached, or a blank form, gets flagged to the technician who closed it — same day, and they must acknowledge it and complete or explain the gap (`sop.dispatch.equipment`).
 - **It is reviewed in the weekly one-to-one**, next to callback rate. The two are related and the connection is the point.
 - **A genuine exception is fine when it is written down.** No access, customer refused the attic, plate illegible — say so. An explained gap is a record. A silent gap is a defect.
 - **This page is signed for** (`governance.acknowledgement`).

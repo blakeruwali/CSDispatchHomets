@@ -116,7 +116,7 @@ Esta es la forma más común en que se hace mal. Las notas son invisibles en la 
 
 Para que esta no sea una regla que solo existe en papel:
 
-- **Despacho lo revisa al cierre.** Un trabajo cerrado con trabajo realizado y sin equipo asociado al domicilio se le regresa al técnico que lo cerró.
+- **Despacho lo revisa al cierre.** Un trabajo cerrado con trabajo realizado y sin equipo asociado al domicilio se le notifica al técnico que lo cerró — el mismo día, y debes confirmar la notificación y completar o explicar el hueco.
 - **Se revisa en el uno a uno semanal**, junto con tu tasa de llamadas de regreso — las dos cosas están relacionadas, y esa conexión es justamente el punto.
 - **Una excepción legítima está bien cuando queda escrita.** Sin acceso a la unidad, el cliente no dejó subir al ático, sótano cerrado con llave — dilo en las notas. Un hueco explicado es un registro. Un hueco silencioso es un defecto.
 - **Este documento se firma.** Hay un bloque de confirmación al final de esta página. Una vez que lo firmes, "nadie me dijo" queda descartado — y también al revés: si nunca se te pidió firmarlo, eso es responsabilidad nuestra y no tuya (`governance.acknowledgement`).

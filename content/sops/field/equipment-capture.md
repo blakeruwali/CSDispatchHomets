@@ -128,7 +128,7 @@ This is the most common way it gets done wrong. Notes are invisible on the next 
 
 So this is not a rule that only exists on paper:
 
-- **Dispatch checks it at close.** A job closed with work performed and no equipment attached to the location gets sent back to the technician who closed it.
+- **Dispatch checks it at close.** A job closed with work performed and no equipment attached to the location gets flagged to the technician who closed it — same day, and you must acknowledge the flag and complete or explain the gap.
 - **It is reviewed in the weekly one-to-one**, alongside callback rate — the two are related, and the connection is the point.
 - **A genuine exception is fine when it is written down.** No access to the unit, customer refused the attic, locked crawlspace — say so in the notes. An explained gap is a record. A silent gap is a defect.
 - **This document is signed for.** There is an acknowledgement block at the foot of this page. Once you have signed it, "nobody told me" is off the table — and so is the reverse: if you were never asked to sign, that is on us and not on you (`governance.acknowledgement`).

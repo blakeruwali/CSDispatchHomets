@@ -13,7 +13,7 @@ La regla de captura está en `sop.field.equipment-capture` y pertenece al técni
 
 Cada trabajo que se cierra con trabajo realizado debe responder una pregunta antes de salir del tablero:
 
-**¿Está el equipo registrado en la ubicación, con una foto legible de la placa de datos?**
+**¿Está el equipo escaneado y registrado en la ubicación, con una foto legible de la placa de datos?**
 
 - **Sí** — ciérralo.
 - **No** — **llama o envía un mensaje al técnico el mismo día, antes de que termine su turno, y registra la falla.** No regresamos físicamente al técnico al domicilio — eso es un segundo viaje que pagamos nosotros. En su lugar nos aseguramos de que lo *sepa*, de inmediato, para que no se vuelva costumbre: el técnico confirma la falla y completa el registro con lo que permita su escaneo y sus fotos, o escribe la excepción en las notas. Una notificación hoy es un arreglo de dos minutos en su camioneta; el silencio es un hueco que nadie reconstruye el próximo mes.

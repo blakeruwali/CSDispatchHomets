@@ -7,7 +7,7 @@ status: published
 version: 1
 last_reviewed: 2026-08-28
 review_cadence_days: 90
-tags: [equipment, servicetitan, verification, close, send-back, quality-gate, dispatch]
+tags: [equipment, servicetitan, verification, close, notification, quality-gate, dispatch]
 related: [sop.field.equipment-capture, sop.dispatch.daily-workflow, sop.field.forms, sop.dispatch.priorities]
 section: dispatch-board
 order: 4
