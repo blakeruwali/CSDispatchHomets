@@ -116,7 +116,7 @@ Then **call within {{price:membership_proposal_call_hours}}**. The call is not "
 
 ## If they do not answer {#followup}
 
-Follow up on **{{price:membership_proposal_followup_days}}**, alternating call and text. After the third attempt, move the customer into seasonal nurture (`sop.csm.seasonal-outreach`) — do not keep dialing, and do not discount the plan to close it.
+Follow up on **{{price:membership_proposal_followup_days}}**, alternating call and text. After the third attempt, move the customer into seasonal nurture (`script.csm.seasonal-outreach`) — do not keep dialing, and do not discount the plan to close it.
 
 ## Failure modes {#failures}
 

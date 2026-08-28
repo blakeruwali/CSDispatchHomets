@@ -1,4 +1,6 @@
 ---
+translation_of: sop.membership.proposal
+source_version: 1
 id: sop.membership.proposal
 title: Cómo Preparar una Propuesta de Membresía — Del Estudio Gratuito al Plan Firmado
 department: ops
@@ -110,7 +112,7 @@ Luego **llame dentro de {{price:membership_proposal_call_hours}}**. La llamada n
 
 ## Si no contestan {#followup}
 
-Dé seguimiento en **{{price:membership_proposal_followup_days}}**, alternando llamada y texto. Después del tercer intento, pase al cliente a seguimiento de temporada (`sop.csm.seasonal-outreach`). No siga marcando y no descuente el plan para cerrarlo.
+Dé seguimiento en **{{price:membership_proposal_followup_days}}**, alternando llamada y texto. Después del tercer intento, pase al cliente a seguimiento de temporada (`script.csm.seasonal-outreach`). No siga marcando y no descuente el plan para cerrarlo.
 
 ## Errores comunes {#failures}
 
