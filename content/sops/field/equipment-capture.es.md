@@ -11,14 +11,14 @@ source_version: 2
 
 En cada unidad, antes de empezar:
 
-1. **Fotografía la placa de datos.** De cerca, de frente, límpiala si está sucia.
+1. **Escanea el equipo.** Apunta la cámara de la tableta a la placa de datos y ejecuta el escaneo — ServiceTitan lee el modelo y el número de serie directo de la placa. Después fotografía también la placa.
 2. **Fotografía la unidad completa** donde está instalada.
 3. **Crea el registro del equipo** — marca, modelo, número de serie, ubicación, medida del filtro.
 4. **Ahora sí, empieza a trabajar.**
 
 **Unos 60–90 segundos por unidad.** Ese es el costo real, y este documento no va a fingir que es gratis.
 
-Si de verdad vas apurado, los tres datos obligatorios son **la foto de la placa, el modelo y el número de serie.** Lo demás se puede completar después con la foto. Nada se puede completar después con una placa que no fotografiaste.
+Si de verdad vas apurado, los tres datos obligatorios son **el escaneo de la placa, el modelo y el número de serie.** Lo demás se puede completar después con el escaneo y la foto. Nada se puede completar después con una placa que no escaneaste.
 
 ## Qué ganas tú con esto {#for-you}
 
@@ -46,7 +46,7 @@ Nárralo y se lee como minucioso, no como lento:
 El cliente escucha a una empresa que lleva registros. Nadie se ha quejado nunca de esa frase.
 
 **"Hay 43°C en ese ático y no voy a pasar cinco minutos extra allá arriba."**
-No los vas a pasar. Toma las dos fotos, baja, y captura el registro desde las fotos en la camioneta o en la escalera. Lo único que tiene que pasar junto a la unidad es la cámara, y eso son quince segundos.
+No los vas a pasar. Escanea la placa, toma las fotos, baja, y completa el registro desde el escaneo en la camioneta o en la escalera. Lo único que tiene que pasar junto a la unidad es la cámara, y eso son quince segundos.
 
 **"Ya conozco este sistema, ya vine antes."**
 Entonces el registro ya existe y confirmarlo te toma diez segundos. Si no existe, tú eres la razón por la que el siguiente técnico empieza desde cero.
@@ -86,19 +86,20 @@ El segundo sistema es el que se salta, y es el que genera la siguiente llamada. 
 
 **El modelo y el número de serie se transcriben desde la foto, nunca de memoria.** Son largos, mezclan letras y dígitos, y un solo carácter equivocado es un reclamo de garantía que se cae meses después cuando ya nadie puede reconstruir qué pasó.
 
-## La foto de la placa es el registro {#photo}
+## Escanea la placa, luego fotografíala {#photo}
 
-Los campos escritos pueden tener un error de dedo. La foto no.
+Los campos escritos pueden tener un error de dedo. El escaneo y la foto no.
 
-- Mínimo una foto por unidad: **la placa de datos, llenando el encuadre, enfocada.**
+- **Primero el escaneo:** cada unidad recibe el escaneo de equipo sobre su placa de datos — el modelo y el número de serie entran desde el escaneo, carácter por carácter, sin escribir nada a mano.
+- **Mínimo una foto por unidad después del escaneo:** **la placa de datos, llenando el encuadre, enfocada.** La foto es el respaldo — si el escaneo lee mal un carácter, la foto es lo que lo resuelve meses después.
 - Además una toma más abierta que muestre la unidad y su entorno.
-- ¿Placa sucia? Límpiala y vuelve a tomarla. Una foto que no se puede leer no es un registro.
+- ¿Placa sucia? Límpiala, vuelve a escanear y vuelve a tomarla. Una placa que el escáner no puede leer es una placa que tú tampoco puedes leer — un escaneo fallido no es un registro.
 
 ## Cuando la placa está ilegible o no está {#unreadable}
 
 Común en equipos exteriores viejos. No te saltes el registro, y no inventes números.
 
-1. Fotografía lo que quede, por parcial que sea.
+1. Escanea de todos modos — una placa parcial a menudo te da al menos el fabricante o parte del modelo — y fotografía lo que quede, por parcial que sea.
 2. Captura lo que *sí* puedas establecer — tipo, fabricante, ubicación, combustible, antigüedad aproximada.
 3. **Escribe "placa de datos ilegible" en las notas de condición.**
 4. Busca una etiqueta secundaria: dentro de la puerta del soplador, en el gabinete, en el desconectador, o una calcomanía de un instalador anterior.
