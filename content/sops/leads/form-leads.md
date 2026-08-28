@@ -4,7 +4,7 @@ title: Facebook & Form Lead Response
 department: leads
 owner: cs-manager
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-08-28
 review_cadence_days: 90
 tags: [facebook, form-lead, web-lead, meta, speed-to-lead, callback, intake]
@@ -23,20 +23,30 @@ Facebook, Instagram, Google, and website forms all produce the same thing: a nam
 
 ## The rule {#rule}
 
-**Every form lead gets a live call attempt within 5 minutes of landing during business hours. Leads that land after hours are called at the very start of the next shift — before the missed-call sweep, in the order they arrived.**
+**Every Facebook / Instagram / form lead gets a live call attempt within 1 minute of the notification landing during business hours. Leads that land after hours are called at the very start of the next shift — before the missed-call sweep, in the order they arrived.**
 
 A form lead is never parked in a queue, an inbox, or a CRM tab. If it isn't called, it dies.
 
+## Where the lead shows up {#notifications}
+
+A new Meta lead fires notifications to **email and the app** at the same time. Whoever sees it first owns it — there is no "I thought someone else had it." The standard:
+
+- Notifications for the lead inbox and the app are **on, audible, and checked on every shift** — never muted, never "I'll check it later."
+- The moment the notification lands, the clock starts: **call inside 1 minute.**
+- If two people see it, the first to dial owns it; the second logs nothing and moves on.
+
 ## The moment the lead lands {#first-response}
 
-1. **Call first. Within 5 minutes.** Not a text, not an email, not an in-platform reply — a phone call. Speed beats polish.
-2. **Open with their own words.** Form leads doubt a human read their form. Prove it immediately:
+1. **Call first. Within 1 minute.** Not a text, not an email, not an in-platform reply — a phone call. Speed beats polish.
+2. **Open with their own words — name the ad or offer they responded to.** Form leads doubt a human read their form. Prove it immediately:
 
-   > "Hi [name], this is [Name] with home+ Air & Heat — I just got your request about [the exact issue they typed, e.g. 'the AC that stopped cooling upstairs']. Is now a good time to lock in a visit?"
+   > "Hi [name], this is [Name] with home+ Air & Heat — you just sent us a request through our Facebook ad for [the exact offer / issue, e.g. 'the AC tune-up special' or 'the AC that stopped cooling upstairs']. I wanted to catch you while it's fresh — is now a good time to lock in a visit?"
 
-3. **If no answer: text within 2 minutes.** Same minute, while the number is warm:
+3. **If no answer: text and email within 2 minutes.** Same minute, while the number is warm — both channels, not one:
 
-   > "Hi [name] — [Name] from home+ Air & Heat. Just tried you about the [job type] you requested. We can get a tech out [today / tomorrow morning]. Reply here or call [number] and I'll lock in a window."
+   > Text: "Hi [name] — [Name] from home+ Air & Heat. Just tried you about the [job type / offer] you requested on Facebook. We can get a tech out [today / tomorrow morning]. Reply here or call [number] and I'll lock in a window."
+
+   > Email subject: "Your [job type] request — home+ Air & Heat" — one short paragraph naming their request, one real time offered, one question, our number.
 
 4. **If it came through Facebook/Instagram, also reply in the platform.** Many Meta leads live in Messenger — meet them where they submitted:
 
@@ -61,10 +71,23 @@ Closing text:
 
 ## The conversation, once they answer {#conversation}
 
-A form lead is a normal call once they're live — full intake (`sop.csm.intake`), symptom clarification, diagnostic fee posture, and book it (`sop.csm.booking-authority`). Two differences:
+A form lead is a normal call once they're live — full intake (`sop.csm.intake`), symptom clarification, diagnostic fee posture, and book it (`sop.csm.booking-authority`). The goal on every live conversation is a **booked appointment**: an estimate visit if the lead came from a replacement/estimate offer, a diagnostic visit if it came from a repair or tune-up offer. Even a hesitant "I'm not sure" is worked toward a booking — the appointment is the product.
 
-- **They may not remember submitting the form** — Meta forms autofill and people tap through fast. If they sound confused, anchor them: "You requested a quote for [issue] on Facebook a few minutes ago — I wanted to catch you while it's fresh." Never make them feel foolish; confusion is normal, not a brush-off.
 - **Close on time, not interest.** "Is now a good time to get you on the schedule?" assumes the booking. "Are you still looking?" invites a no.
+
+## "I don't remember inquiring" {#confused-leads}
+
+This is the most common Facebook-lead moment, and it is **normal — not a brush-off.** Meta forms autofill name and number; people tap through in seconds and genuinely forget. Never argue, never make them feel foolish, and never hang up on a confused lead. Anchor them with three facts and pivot straight to the booking:
+
+1. **Where it happened:** "You filled out a short form on Facebook [this morning / about an hour ago] — it autofills your info, so it only takes a tap."
+2. **What it was about:** "It was our ad for [the exact offer — 'the AC tune-up special' / 'a free replacement estimate' / 'the no-cooling diagnostic']."
+3. **Why you're calling so fast:** "We call right back while it's fresh so you don't sit in a queue."
+
+Then pivot, gently but directly:
+
+> "While I have you — is the [system / issue] still acting up? … Then let's do this: I can have a licensed tech out [today / tomorrow morning]. The diagnostic is {{price:diagnostic_residential}} and it comes off the work if you move forward. Which window works better?"
+
+If they truly have no issue and no interest after the anchor — log it accurately ("doesn't recall / no need"), don't re-argue, and keep the disposition honest. But **one anchor attempt is mandatory on every confused lead before you let it go.**
 
 **If they already booked someone:**
 
@@ -84,9 +107,30 @@ Wrong service, outside Nassau or Suffolk, obvious spam, or a duplicate — be br
 
 Same standard as missed calls (`sop.leads.missed-calls`): before the last CSM logs off, every form lead from the day has an outcome logged — booked, quoted, declined, already booked elsewhere, unreachable after three attempts, or unqualified/disputed. Anything unresolved goes on tomorrow's morning list, first thing.
 
+## The target: 60% booking rate {#target}
+
+**Every social/form lead channel is held to a minimum 60% booking rate** — six of every ten Facebook, Instagram, or form leads end the week with a booked estimate or diagnostic on the calendar.
+
+| Metric | Target |
+|---|---|
+| First-touch time (call attempt) | ≤ 1 minute |
+| Leads reached by a live voice | ≥ 80% |
+| **Booking rate (booked ÷ total valid leads)** | **≥ 60%** |
+| Invalid leads disputed same day | 100% |
+
+The five levers that move the rate, in order of impact:
+
+1. **Speed.** A lead called in the first minute books far more often than one called in an hour. Everything else is secondary to this.
+2. **All three channels on the first miss** — call, then text *and* email inside 2 minutes, plus the Messenger reply on Meta leads. One channel is not an attempt.
+3. **Anchor every confused lead** with the ad, the timing, and the offer before accepting a no (`#confused-leads`).
+4. **Offer two named windows, never "when are you free?"** An open question invites "let me think about it"; two real times invite a choice.
+5. **Clean the denominator.** Spam, wrong-service, and out-of-area leads are disputed and marked unqualified the same day so the rate reflects real opportunities, not junk.
+
+Rate is reviewed weekly per CSM and per campaign on the CSM scoreboard (`sop.csm.kpis`). A campaign booking under 60% for two straight weeks is a marketing conversation, not just a CSM one — flag it to the CS manager with the disposition breakdown.
+
 ## Why this is measured {#why}
 
-Form leads are pre-paid opportunities — marketing already bought them, and the only variable is our speed. First-touch time (target: ≤ 5 minutes) and form-lead booking rate sit on the CSM scoreboard (`sop.csm.kpis`), because a form answered in an hour is usually answered by someone else's tech already standing in the driveway.
+Form leads are pre-paid opportunities — marketing already bought them, and the only variable is our speed. A form answered in an hour is usually answered by someone else's tech already standing in the driveway.
 
 ## Related
 
