@@ -552,3 +552,24 @@ export const PROJECTS_SECTIONS: SectionDef[] = [
 export function projectsSections(): ContentSection[] {
   return sectionsForSurface("projects", PROJECTS_SECTIONS);
 }
+
+// ------------------------------------------------------------ reviews sections
+
+/**
+ * The review program: why reviews matter to a company founded in Nov 2025,
+ * the 100+ first-year target, and who owns each ask. Distinct from the CSM
+ * surface (which handles calls) and field (which handles visits) — this is
+ * the shared reputation effort, with the tech ask, the CS ask, and the rules
+ * that apply to everyone in one place.
+ */
+export const REVIEWS_SECTIONS: SectionDef[] = [
+  {
+    id: "review-program",
+    title: "The Review Program",
+    description: "Targets, the technician's ask, the CS team's ask, and the rules for everyone",
+  },
+];
+
+export function reviewsSections(): ContentSection[] {
+  return sectionsForSurface("reviews", REVIEWS_SECTIONS);
+}
