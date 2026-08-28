@@ -48,14 +48,16 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 
 | Token | Amount | Notes |
 |---|---|---|
-| `membership_home_plus_monthly`      | $95.98 first year, then $299/year | Home+ residential membership — covers 2 systems |
-| `membership_home_plus_first_year`   | $95.98 | Home+ — first-year enrollment, covers 2 systems |
+| `membership_home_plus_monthly`      | $95.88 first year, then $299/year | Home+ residential membership — covers 2 systems |
+| `membership_home_plus_first_year`   | $95.88 | Home+ — first-year enrollment, covers 2 systems |
 | `membership_home_plus_renewal`      | $299/year | Home+ — every year after the first, covers 2 systems |
 | `membership_home_plus_systems`      | 2 systems | Systems covered by one Home+ membership (any mix of heating and cooling) |
-| `membership_home_plus_extra_system` | $95.98 per additional system | Each system beyond the 2 included, first year and renewal alike |
-| `membership_home_plus_tuneups`      | 2 per year | One tune-up per covered system — cooling before summer, heating before winter |
+| `membership_home_plus_extra_system` | $99 per additional system, per year | Each system beyond the 2 included — charged in the first year and again at every renewal |
+| `membership_home_plus_tuneups`      | 2 per year | One **regular** tune-up per covered system — cooling before summer, heating before winter |
 | `membership_home_plus_repair_discount` | 10% | Discount on the total invoice for an approved repair or replacement |
+| `membership_premium_tuneup`         | $404 per system | Premium tune-up — an upgrade, not included. Member's regular tune-up is credited toward it |
 | `membership_diagnostic_posture`     | Waived | Diagnostic / service call fee for an active member |
+
 
 
 ### Business+ (light commercial, priced per qualifying rooftop unit)
