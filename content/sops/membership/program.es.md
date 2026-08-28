@@ -15,9 +15,13 @@ source_version: 3
 | **Renovación, del segundo año en adelante** | {{price:membership_home_plus_renewal}} |
 | **Sistemas cubiertos** | {{price:membership_home_plus_systems}} |
 | **Cada sistema adicional** | {{price:membership_home_plus_extra_system}} |
-| **Mantenimiento premium (mejora, no incluido)** | {{price:membership_premium_tuneup}} |
+| **Mejora a mantenimiento Premium (no incluida)** | {{price:membership_premium_tuneup_upgrade}} |
 
-Nunca des una cifra mensual, nunca redondees, nunca digas "como cien dólares". El precio del primer año es la razón por la que dicen que sí; el de renovación es la razón por la que no cancelan sorprendidos un año después. **Di los dos, siempre.** Un miembro que se entera de la renovación al renovar es una cancelación.
+La página web vende el primer año como **$7.99/mes facturado anualmente** y la renovación como **$24.99/mes facturado anualmente**. Son los mismos dos números escritos por mes — {{price:membership_home_plus_first_year}} y {{price:membership_home_plus_renewal}}. Si el cliente te repite la cifra mensual, **acéptala y da el total anual**; nunca dejes que suene como pago mes a mes.
+
+El precio del primer año es la razón por la que dicen que sí; el de renovación es la razón por la que no cancelan sorprendidos un año después. **Di los dos, siempre.**
+
+**Sin contrato. Cancela cuando quiera.** Está en la página web, así que es una promesa: dilo sin rodeos.
 
 ## Qué significa "dos sistemas" {#two-systems}
 
@@ -33,22 +37,49 @@ Un tercer o cuarto sistema no está cubierto por defecto y cuesta {{price:member
 
 ## Qué recibe el miembro {#benefits}
 
-- **{{price:membership_home_plus_tuneups}} mantenimientos regulares** — uno por sistema cubierto. Enfriamiento **antes del verano**, calefacción **antes del invierno**. Cambio de filtros, revisión del sistema, hallazgos por escrito.
+- **{{price:membership_home_plus_tuneups}} mantenimientos básicos** — uno por sistema cubierto, inspección de **26 puntos**. Enfriamiento **antes del verano**, calefacción **antes del invierno**. Valor de venta {{price:membership_tuneup_retail}} cada uno.
 - **Diagnóstico y visita: {{price:membership_diagnostic_posture}}.** Todo el año de membresía, en cada visita.
 - **{{price:membership_home_plus_repair_discount}} de descuento sobre el total de la factura** en cualquier reparación o reemplazo aprobado.
+- **Agenda prioritaria** — los miembros van antes que los no miembros, ver `sop.dispatch.priorities`.
+- **Sin recargos fuera de horario.** Aplica para todos (`reference.guarantees`): preséntalo como política de la empresa, no como beneficio del plan.
+- **Transferible** — la membresía pasa al nuevo dueño si venden la casa. No se muda con el cliente a otra propiedad.
 
 Esa es la lista. No le agregues nada.
 
-## Mantenimiento regular vs. premium {#tuneups}
+## Mantenimiento básico vs. Premium {#tuneups}
 
-La membresía incluye el mantenimiento **regular**. El **premium** es un servicio más profundo y **lo paga el cliente** — {{price:membership_premium_tuneup}} por sistema, o lo que muestre el price book ese día.
+La membresía incluye el mantenimiento **básico de 26 puntos**. El **Premium de 38 puntos** es más profundo y **lo paga el cliente**.
 
-- Quiere el regular: **incluido**, sin cargo.
-- Quiere el premium: **se le acredita el mantenimiento regular incluido** y paga la diferencia. Dilo así: *"Su mantenimiento incluido se aplica, usted solo cubre la mejora."*
+| Sistema | Básico (incluido) | Premium, precio normal | **Mejora para miembro** |
+|---|---|---|---|
+| Caldera / AC / bomba de calor | valor {{price:membership_tuneup_retail}} | $449 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Boiler | valor $349 | $549 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Mini-split | valor $279 | $399 | **{{price:membership_premium_tuneup_upgrade}}** |
+
+El Premium agrega: inspección del intercambiador de calor, prueba de monóxido de carbono, detección de fugas de gas, prueba eléctrica completa, limpieza de la línea de drenaje (AC) e informe de eficiencia.
+
+- Quiere el básico: **incluido**, sin cargo.
+- Quiere el Premium: **se le acredita el básico incluido** y paga la mejora de {{price:membership_premium_tuneup_upgrade}}.
 - No miembro: precio completo, sin crédito.
-- El {{price:membership_home_plus_repair_discount}} es para **reparaciones y reemplazos** aprobados; no se acumula con el crédito del mantenimiento regular en la misma visita premium.
+- El {{price:membership_home_plus_repair_discount}} es para **reparaciones y reemplazos** aprobados; no se resta de la mejora.
 
-**Ser miembro no hace gratis ni descontado el mantenimiento premium.** No lo insinúes en la puerta ni al teléfono.
+**Cuándo recomendar Premium:** sistema de más de 10 años, o algo inusual en la inspección básica. Habla de seguridad (intercambiador y CO), no de precio.
+
+**Ser miembro no hace gratis el Premium.** No lo insinúes en la puerta ni al teléfono.
+
+## Home+ Infinite — el nivel superior {#infinite}
+
+| | |
+|---|---|
+| **Precio** | {{price:membership_infinite_price}} |
+| **Descuento** | {{price:membership_infinite_discount}} en todos los servicios |
+| **Crédito de servicio** | {{price:membership_infinite_credit}} para cualquier reparación, reemplazo o servicio |
+| **Diagnósticos** | Gratis siempre, con o sin reparación |
+| **Emergencias** | Prioridad, por encima de Comfort |
+
+Infinite incluye todo lo de Comfort. No se lo vendas a quien no vaya a usar el crédito — un crédito sin usar termina en cancelación. Cotiza Infinite cuando ya hay una reparación grande o un reemplazo este año.
+
+
 
 ## Qué **no** cubre {#not-covered}
 
