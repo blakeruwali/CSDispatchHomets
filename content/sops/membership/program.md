@@ -44,11 +44,24 @@ A third or fourth system is not covered by default — see `sop.membership.upgra
 
 ## What the member gets {#benefits}
 
-- **{{price:membership_home_plus_tuneups}} tune-ups** — one per covered system. Cooling gets serviced **before summer**, heating **before winter**. Filters changed, system checked, findings written up.
+- **{{price:membership_home_plus_tuneups}} regular tune-ups** — one per covered system. Cooling gets serviced **before summer**, heating **before winter**. Filters changed, system checked, findings written up.
 - **Diagnostic and service call fee: {{price:membership_diagnostic_posture}}.** For the whole membership year, on every visit. We come out and look at the system at no charge.
 - **{{price:membership_home_plus_repair_discount}} off the total invoice** on any approved repair or replacement.
 
 That is the list. Do not add to it.
+
+## Regular tune-up vs. premium tune-up {#tuneups}
+
+The membership includes the **regular** tune-up. The **premium** tune-up is a different, deeper service and is **an upgrade the customer pays for** — {{price:membership_premium_tuneup}} per system, or whatever the price book shows on the day.
+
+How it works:
+
+- Member wants the regular tune-up: **included**, no charge, nothing to sell.
+- Member wants the premium tune-up: the **included regular tune-up is credited toward it**, so they pay the difference. Say it that way — *"Your regular tune-up goes toward it, so you're only covering the upgrade."*
+- Non-member premium tune-up: full price, no credit.
+- The {{price:membership_home_plus_repair_discount}} member discount is for approved **repairs and replacements**. It does not stack on top of the credited regular tune-up on the same premium visit.
+
+**Being a member does not make the premium tune-up free or discounted.** Do not imply otherwise at the door or on the phone — that is the fastest way to a chargeback argument at the next visit.
 
 ## What the membership does *not* cover {#not-covered}
 
@@ -56,8 +69,9 @@ The tune-ups are maintenance, not repair. If the visit turns up a failed part, *
 
 Also not covered:
 
+- The **premium tune-up** — it is an upgrade, see above.
 - Parts or equipment, at any discount beyond the {{price:membership_home_plus_repair_discount}}.
-- A third or fourth system that has not been added and paid for.
+- A third or fourth system that has not been added and paid for. Each extra system is {{price:membership_home_plus_extra_system}} — see `sop.membership.upgrades`.
 - Systems at a second property. The membership belongs to the address on the account.
 
 **Never sell membership as a way to avoid an after-hours or emergency surcharge.** There is no such surcharge for anyone, member or not — see `reference.guarantees`.
@@ -67,6 +81,7 @@ Also not covered:
 {{price:membership_home_plus_repair_discount}} comes off the **total invoice** for an approved repair or replacement, and it appears as a **line item** the customer can see next to the pre-discount number. A verbal "I took care of you" is not the benefit — a member who cannot see what the plan saved them today will not renew.
 
 The waived diagnostic and the {{price:membership_home_plus_repair_discount}} both apply on the same visit. The discount does not apply to a diagnostic that was already waived; the waiver is the benefit and it does not stack.
+
 
 ## Who has to know this {#who}
 
