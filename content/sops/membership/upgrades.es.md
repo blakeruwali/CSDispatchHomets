@@ -1,6 +1,6 @@
 ---
 translation_of: sop.membership.upgrades
-source_version: 1
+source_version: 2
 ---
 
 # Agregar Sistemas y Mejorar la Membresía
@@ -17,12 +17,14 @@ Tres momentos, los tres en campo o al teléfono:
 
 ## La regla {#rule}
 
-- Una membresía = **{{price:membership_home_plus_systems}}**, cualquier combinación de calefacción y enfriamiento.
+- Una membresía = **{{price:membership_home_plus_systems}}**, cualquier combinación: dos de enfriamiento, dos de calefacción, o (lo recomendado) uno de cada uno. El cliente elige.
 - Cada sistema adicional = **{{price:membership_home_plus_extra_system}}**, agregado a la membresía.
 - El cargo por sistema adicional aplica **el primer año y en cada renovación**. No es un cargo único.
-- Cada sistema agregado trae su propio mantenimiento, su diagnóstico exonerado y el mismo {{price:membership_home_plus_repair_discount}} en trabajo aprobado.
+- Cada sistema agregado trae su propio mantenimiento **regular**, su diagnóstico exonerado y el mismo {{price:membership_home_plus_repair_discount}} en trabajo aprobado.
+- El mantenimiento **premium** nunca está incluido: {{price:membership_premium_tuneup}} por sistema, acreditando el regular — ver `sop.membership.program`.
 
 Así, una casa con cuatro sistemas paga {{price:membership_home_plus_first_year}} más dos × {{price:membership_home_plus_extra_system}} el primer año, y {{price:membership_home_plus_renewal}} más dos × {{price:membership_home_plus_extra_system}} en la renovación. Haz esa cuenta **en voz alta, frente al cliente**, y escribe el total en la factura.
+
 
 ## Cuenta los sistemas antes de vender {#count}
 
