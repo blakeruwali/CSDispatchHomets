@@ -15,10 +15,19 @@ const PREVIEW_HOST_SUFFIXES = [
   ".gptengineer.run",
 ];
 
+/**
+ * Editor preview hosts on lovable.app look like
+ * `id-preview--<uuid>.lovable.app` or `preview--<name>.lovable.app`.
+ * The *published* app (`homets-shine-deck.lovable.app`) must stay gated, so
+ * match the preview prefixes rather than the whole zone.
+ */
+const PREVIEW_APP_HOST = /^(id-preview|preview)(--|\.)/i;
 
 export function isPreviewEnvironment(
   hostname: string = typeof window === "undefined" ? "" : window.location.hostname,
 ): boolean {
   if (hostname === "localhost" || hostname === "127.0.0.1") return true;
+  if (hostname.endsWith(".lovable.app")) return PREVIEW_APP_HOST.test(hostname);
   return PREVIEW_HOST_SUFFIXES.some((suffix) => hostname.endsWith(suffix));
 }
+
