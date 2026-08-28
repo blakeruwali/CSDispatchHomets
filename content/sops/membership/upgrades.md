@@ -4,7 +4,7 @@ title: Adding Systems and Upgrading a Membership
 department: ops
 owner: owner
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-08-28
 review_cadence_days: 90
 tags: [membership, upgrade, additional-system, home-plus, renewal, servicetitan, tune-up]
