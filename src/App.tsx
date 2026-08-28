@@ -15,6 +15,7 @@ import CSM from "./pages/CSM";
 import Field from "./pages/Field";
 import Dispatch from "./pages/Dispatch";
 import Projects from "./pages/Projects";
+import Leads from "./pages/Leads";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/field" element={gated(<Field />)} />
           <Route path="/dispatch" element={gated(<Dispatch />)} />
           <Route path="/projects" element={gated(<Projects />)} />
+          <Route path="/leads" element={gated(<Leads />)} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
