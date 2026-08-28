@@ -145,14 +145,18 @@ describe("CSM surface", () => {
     expect(orphans.map((d) => d.id)).toEqual([]);
   });
 
-  it("renders all seven parts of the SOP", () => {
+  it("renders every part of the SOP in reading order", () => {
+    // Seven parts came from the source document; `leads` is an eighth added
+    // here, so the count is no longer a property of the original SOP. The
+    // order still matters — it is what the clause numbers are derived from.
     const sections = csmSections();
-    expect(sections).toHaveLength(7);
+    expect(sections).toHaveLength(8);
     expect(sections.map((s) => s.id)).toEqual([
       "foundations",
       "interaction",
       "intake",
       "booking",
+      "leads",
       "channels",
       "post-booking",
       "governance",

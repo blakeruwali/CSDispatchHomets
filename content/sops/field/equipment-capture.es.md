@@ -1,6 +1,6 @@
 ---
 translation_of: sop.field.equipment-capture
-source_version: 2
+source_version: 3
 ---
 
 # Registro de Equipos en ServiceTitan — Antes de Cualquier Trabajo

@@ -4,8 +4,8 @@ title: Equipment Capture in ServiceTitan — Before Any Work
 department: field
 owner: service-manager
 status: published
-version: 2
-last_reviewed: 2026-08-04
+version: 3
+last_reviewed: 2026-08-28
 review_cadence_days: 90
 tags: [equipment, servicetitan, data-plate, serial, model, warranty, technician, field, capture]
 related: [sop.csm.warranty-callback, reference.guarantees, sop.csm.system-type, sop.csm.tools, governance.acknowledgement]
