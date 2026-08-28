@@ -1,17 +1,6 @@
 ---
-id: sop.dispatch.equipment
-title: Captura de Equipos — Verificación de Despacho
-department: dispatch
-owner: dispatch-manager
-status: published
-version: 1
-last_reviewed: 2026-08-28
-review_cadence_days: 90
-tags: [equipo, servicetitan, verificación, cierre, devolución, control-de-calidad, despacho]
-related: [sop.field.equipment-capture, sop.dispatch.daily-workflow, sop.field.forms, sop.dispatch.priorities]
-section: dispatch-board
-order: 4
-surfaces: [dispatch, checklist]
+translation_of: sop.dispatch.equipment
+source_version: 1
 ---
 
 # Captura de Equipos — Verificación de Despacho
