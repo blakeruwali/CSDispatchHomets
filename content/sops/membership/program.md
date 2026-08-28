@@ -4,7 +4,7 @@ title: Home+ Membership — What It Costs and What It Covers
 department: ops
 owner: owner
 status: published
-version: 2
+version: 3
 last_reviewed: 2026-08-28
 review_cadence_days: 90
 tags: [membership, home-plus, tune-up, discount, diagnostic, enrollment, renewal, systems]
