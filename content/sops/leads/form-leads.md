@@ -85,7 +85,7 @@ This is the most common Facebook-lead moment, and it is **normal — not a brush
 
 Then pivot, gently but directly:
 
-> "While I have you — is the [system / issue] still acting up? … Then let's do this: I can have a licensed tech out [today / tomorrow morning]. The diagnostic is {{price:diagnostic_fee}} and it comes off the work if you move forward. Which window works better?"
+> "While I have you — is the [system / issue] still acting up? … Then let's do this: I can have a licensed tech out [today / tomorrow morning]. The diagnostic is {{price:diagnostic_residential}} and it comes off the work if you move forward. Which window works better?"
 
 If they truly have no issue and no interest after the anchor — log it accurately ("doesn't recall / no need"), don't re-argue, and keep the disposition honest. But **one anchor attempt is mandatory on every confused lead before you let it go.**
 

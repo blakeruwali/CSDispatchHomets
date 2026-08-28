@@ -73,7 +73,7 @@ Este es el momento más común con clientes de Facebook, y es **normal — no es
 
 Luego el pivote, amable pero directo:
 
-> "Ya que lo tengo en la línea — ¿el [sistema / problema] sigue fallando? … Entonces hagamos esto: puedo mandarle un técnico licenciado [hoy / mañana en la mañana]. El diagnóstico es {{price:diagnostic_fee}} y se descuenta del trabajo si sigue adelante. ¿Cuál horario le funciona mejor?"
+> "Ya que lo tengo en la línea — ¿el [sistema / problema] sigue fallando? … Entonces hagamos esto: puedo mandarle un técnico licenciado [hoy / mañana en la mañana]. El diagnóstico es {{price:diagnostic_residential}} y se descuenta del trabajo si sigue adelante. ¿Cuál horario le funciona mejor?"
 
 Si de verdad no tienen problema ni interés después de orientarlos — regístralo con precisión ("no recuerda / no necesita"), no vuelvas a insistir, y mantén la disposición honesta. Pero **un intento de orientación es obligatorio en cada cliente confundido antes de soltarlo.**
 
