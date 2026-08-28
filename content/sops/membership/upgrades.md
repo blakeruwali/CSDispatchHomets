@@ -4,7 +4,7 @@ title: Adding Systems and Upgrading a Membership
 department: ops
 owner: owner
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-08-28
 review_cadence_days: 90
 tags: [membership, upgrade, additional-system, home-plus, renewal, servicetitan, tune-up]
@@ -29,12 +29,14 @@ Three moments, and all three are in the field or on the phone:
 
 ## The rule {#rule}
 
-- One membership = **{{price:membership_home_plus_systems}}**, any mix of heating and cooling.
+- One membership = **{{price:membership_home_plus_systems}}**, any mix of heating and cooling — two cooling, two heating, or (what we recommend) one of each. The customer picks.
 - Each system beyond that = **{{price:membership_home_plus_extra_system}}**, added to the membership.
 - The additional-system charge applies **in the first year and at every renewal**. It is not a one-time setup fee.
-- Each added system carries its own tune-up, its own waived diagnostic, and the same {{price:membership_home_plus_repair_discount}} on approved work.
+- Each added system carries its own **regular** tune-up, its own waived diagnostic, and the same {{price:membership_home_plus_repair_discount}} on approved work.
+- The **premium** tune-up is never included on any system, added or original. It is {{price:membership_premium_tuneup}} per system with the regular tune-up credited toward it — see `sop.membership.program`.
 
 So a home with four systems pays {{price:membership_home_plus_first_year}} plus two × {{price:membership_home_plus_extra_system}} in year one, and {{price:membership_home_plus_renewal}} plus two × {{price:membership_home_plus_extra_system}} at renewal. Do that arithmetic **out loud, in front of the customer**, and write the total on the invoice.
+
 
 ## Count the systems before you sell {#count}
 

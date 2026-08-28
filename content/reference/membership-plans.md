@@ -23,7 +23,9 @@ One page, both plan families. If a customer asks what they get, the answer is he
 | | |
 |---|---|
 | **Price** | {{price:membership_home_plus_monthly}} |
-| **Included tune-ups** | {{price:membership_home_plus_tuneups}} |
+| **Included tune-ups** | {{price:membership_home_plus_tuneups}} (regular) |
+| **Each additional system** | {{price:membership_home_plus_extra_system}} |
+| **Premium tune-up** | {{price:membership_premium_tuneup}} — upgrade, not included; the regular tune-up is credited toward it |
 | **Repair discount** | {{price:membership_home_plus_repair_discount}} on eligible approved repairs |
 | **Diagnostic** | {{price:membership_diagnostic_posture}} |
 | **Cancellation** | Anytime. Pro-rated refund if no services were used. |
