@@ -23,20 +23,30 @@ Facebook, Instagram, Google, and website forms all produce the same thing: a nam
 
 ## The rule {#rule}
 
-**Every form lead gets a live call attempt within 5 minutes of landing during business hours. Leads that land after hours are called at the very start of the next shift — before the missed-call sweep, in the order they arrived.**
+**Every Facebook / Instagram / form lead gets a live call attempt within 1 minute of the notification landing during business hours. Leads that land after hours are called at the very start of the next shift — before the missed-call sweep, in the order they arrived.**
 
 A form lead is never parked in a queue, an inbox, or a CRM tab. If it isn't called, it dies.
 
+## Where the lead shows up {#notifications}
+
+A new Meta lead fires notifications to **email and the app** at the same time. Whoever sees it first owns it — there is no "I thought someone else had it." The standard:
+
+- Notifications for the lead inbox and the app are **on, audible, and checked on every shift** — never muted, never "I'll check it later."
+- The moment the notification lands, the clock starts: **call inside 1 minute.**
+- If two people see it, the first to dial owns it; the second logs nothing and moves on.
+
 ## The moment the lead lands {#first-response}
 
-1. **Call first. Within 5 minutes.** Not a text, not an email, not an in-platform reply — a phone call. Speed beats polish.
-2. **Open with their own words.** Form leads doubt a human read their form. Prove it immediately:
+1. **Call first. Within 1 minute.** Not a text, not an email, not an in-platform reply — a phone call. Speed beats polish.
+2. **Open with their own words — name the ad or offer they responded to.** Form leads doubt a human read their form. Prove it immediately:
 
-   > "Hi [name], this is [Name] with home+ Air & Heat — I just got your request about [the exact issue they typed, e.g. 'the AC that stopped cooling upstairs']. Is now a good time to lock in a visit?"
+   > "Hi [name], this is [Name] with home+ Air & Heat — you just sent us a request through our Facebook ad for [the exact offer / issue, e.g. 'the AC tune-up special' or 'the AC that stopped cooling upstairs']. I wanted to catch you while it's fresh — is now a good time to lock in a visit?"
 
-3. **If no answer: text within 2 minutes.** Same minute, while the number is warm:
+3. **If no answer: text and email within 2 minutes.** Same minute, while the number is warm — both channels, not one:
 
-   > "Hi [name] — [Name] from home+ Air & Heat. Just tried you about the [job type] you requested. We can get a tech out [today / tomorrow morning]. Reply here or call [number] and I'll lock in a window."
+   > Text: "Hi [name] — [Name] from home+ Air & Heat. Just tried you about the [job type / offer] you requested on Facebook. We can get a tech out [today / tomorrow morning]. Reply here or call [number] and I'll lock in a window."
+
+   > Email subject: "Your [job type] request — home+ Air & Heat" — one short paragraph naming their request, one real time offered, one question, our number.
 
 4. **If it came through Facebook/Instagram, also reply in the platform.** Many Meta leads live in Messenger — meet them where they submitted:
 
