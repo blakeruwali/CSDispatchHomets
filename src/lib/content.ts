@@ -455,3 +455,40 @@ export const DISPATCH_SECTIONS: SectionDef[] = [
 export function dispatchSections(): ContentSection[] {
   return sectionsForSurface("dispatch", DISPATCH_SECTIONS);
 }
+
+// ----------------------------------------------------------- projects sections
+
+/**
+ * Project management: a sold install from the signed agreement through to the
+ * comfort check. Distinct from sales (which ends at the signature) and from
+ * field (which is the service call) — this is the office-owned lifecycle of a
+ * project, with one named owner at every stage.
+ */
+export const PROJECTS_SECTIONS: SectionDef[] = [
+  {
+    id: "projects-foundations",
+    title: "Foundations",
+    description: "The seven stages, who owns each, and the handoff out of sales",
+  },
+  {
+    id: "projects-preinstall",
+    title: "Before the Crew Rolls",
+    description: "Procurement, permits, and the pre-install confirmation",
+  },
+  {
+    id: "projects-install",
+    title: "Install Day",
+    description: "Arrival, scope discipline, startup readings, and the walkthrough",
+  },
+  {
+    id: "projects-closeout",
+    title: "Closeout & Comfort Check",
+    description: "Invoice, warranty registration, records, and going back at 10-14 days",
+  },
+  // Shared with the CSM, field, sales and dispatch surfaces.
+  { id: "governance", title: "Governance", description: "How these documents are issued, acknowledged, and changed" },
+];
+
+export function projectsSections(): ContentSection[] {
+  return sectionsForSurface("projects", PROJECTS_SECTIONS);
+}
