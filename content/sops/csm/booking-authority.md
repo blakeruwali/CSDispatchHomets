@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-08-27
 review_cadence_days: 90
 tags: [booking, priorities, dispatch, ticket, communication, authority, no-dispatch]
-related: [sop.csm.availability, sop.csm.ticket-standards, sop.csm.dispatch-handoff, sop.dispatch.priorities, protocol.emergency.triage, sop.csm.communication-standards]
+related: [sop.csm.availability, sop.csm.ticket-standards, sop.csm.dispatch-handoff, sop.dispatch.priorities, protocol.emergency.triage, sop.csm.communication]
 section: booking
 order: 0
 surfaces: [csm, checklist]
@@ -80,7 +80,7 @@ Then the read-back, in your own voice, per `sop.csm.confirmation`. A booking the
 
 - *"Sometime in the morning."* — It is a window or it is nothing.
 - *"He should be able to fix it while he's there."* — You are pricing a repair you have not seen.
-- *"I'll see what I can do and call you back."* — Either book it, or name the time you will call and keep it (`sop.csm.communication-standards`).
+- *"I'll see what I can do and call you back."* — Either book it, or name the time you will call and keep it (`sop.csm.communication`).
 
 ## When we cannot book what they need {#cannot}
 
