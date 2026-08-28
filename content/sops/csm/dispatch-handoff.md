@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [dispatch, handoff, checklist, save, ticket, quality-gate]
-related: [sop.csm.ticket-standards, sop.csm.intake, protocol.emergency.triage]
+related: [sop.csm.booking-authority, sop.csm.ticket-standards, sop.csm.intake, protocol.emergency.triage]
 section: post-booking
 order: 2
 surfaces: [csm, checklist]
