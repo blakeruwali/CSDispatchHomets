@@ -1,6 +1,6 @@
 ---
 translation_of: sop.membership.program
-source_version: 1
+source_version: 2
 ---
 
 # Membresía Home+
@@ -15,6 +15,7 @@ source_version: 1
 | **Renovación, del segundo año en adelante** | {{price:membership_home_plus_renewal}} |
 | **Sistemas cubiertos** | {{price:membership_home_plus_systems}} |
 | **Cada sistema adicional** | {{price:membership_home_plus_extra_system}} |
+| **Mantenimiento premium (mejora, no incluido)** | {{price:membership_premium_tuneup}} |
 
 Nunca des una cifra mensual, nunca redondees, nunca digas "como cien dólares". El precio del primer año es la razón por la que dicen que sí; el de renovación es la razón por la que no cancelan sorprendidos un año después. **Di los dos, siempre.** Un miembro que se entera de la renovación al renovar es una cancelación.
 
@@ -28,15 +29,26 @@ Una membresía cubre **{{price:membership_home_plus_systems}}** — el cliente e
 
 Recomendamos la pareja calefacción-enfriamiento porque es la que se usa, pero la decisión es del cliente. **Registra en ServiceTitan cuáles dos sistemas quedan cubiertos al inscribirlo.** Una membresía sin sistemas nombrados es un pleito esperando al primer mantenimiento.
 
-Un tercer o cuarto sistema no está cubierto por defecto — ver `sop.membership.upgrades`.
+Un tercer o cuarto sistema no está cubierto por defecto y cuesta {{price:membership_home_plus_extra_system}} cada uno — ver `sop.membership.upgrades`.
 
 ## Qué recibe el miembro {#benefits}
 
-- **{{price:membership_home_plus_tuneups}} mantenimientos** — uno por sistema cubierto. Enfriamiento **antes del verano**, calefacción **antes del invierno**. Cambio de filtros, revisión del sistema, hallazgos por escrito.
+- **{{price:membership_home_plus_tuneups}} mantenimientos regulares** — uno por sistema cubierto. Enfriamiento **antes del verano**, calefacción **antes del invierno**. Cambio de filtros, revisión del sistema, hallazgos por escrito.
 - **Diagnóstico y visita: {{price:membership_diagnostic_posture}}.** Todo el año de membresía, en cada visita.
 - **{{price:membership_home_plus_repair_discount}} de descuento sobre el total de la factura** en cualquier reparación o reemplazo aprobado.
 
 Esa es la lista. No le agregues nada.
+
+## Mantenimiento regular vs. premium {#tuneups}
+
+La membresía incluye el mantenimiento **regular**. El **premium** es un servicio más profundo y **lo paga el cliente** — {{price:membership_premium_tuneup}} por sistema, o lo que muestre el price book ese día.
+
+- Quiere el regular: **incluido**, sin cargo.
+- Quiere el premium: **se le acredita el mantenimiento regular incluido** y paga la diferencia. Dilo así: *"Su mantenimiento incluido se aplica, usted solo cubre la mejora."*
+- No miembro: precio completo, sin crédito.
+- El {{price:membership_home_plus_repair_discount}} es para **reparaciones y reemplazos** aprobados; no se acumula con el crédito del mantenimiento regular en la misma visita premium.
+
+**Ser miembro no hace gratis ni descontado el mantenimiento premium.** No lo insinúes en la puerta ni al teléfono.
 
 ## Qué **no** cubre {#not-covered}
 
@@ -44,8 +56,9 @@ Los mantenimientos son mantenimiento, no reparación. Si la visita descubre una 
 
 Tampoco cubre:
 
+- El **mantenimiento premium** — es una mejora, ver arriba.
 - Piezas o equipos con algún descuento mayor al {{price:membership_home_plus_repair_discount}}.
-- Un tercer o cuarto sistema que no se haya agregado y pagado.
+- Un tercer o cuarto sistema que no se haya agregado y pagado ({{price:membership_home_plus_extra_system}} cada uno).
 - Sistemas en una segunda propiedad. La membresía pertenece a la dirección de la cuenta.
 
 **Nunca vendas la membresía como forma de evitar un recargo de emergencia o fuera de horario.** No existe tal recargo para nadie — ver `reference.guarantees`.
@@ -55,6 +68,7 @@ Tampoco cubre:
 El {{price:membership_home_plus_repair_discount}} se resta del **total de la factura** de una reparación o reemplazo aprobado, y aparece como **línea visible** junto al número previo al descuento. Un "ya le hice un descuento" de palabra no es el beneficio.
 
 El diagnóstico exonerado y el {{price:membership_home_plus_repair_discount}} aplican en la misma visita. El descuento no se aplica a un diagnóstico ya exonerado; la exoneración es el beneficio y no se acumula.
+
 
 ## Quién tiene que saber esto {#who}
 
