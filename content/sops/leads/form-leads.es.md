@@ -1,6 +1,6 @@
 ---
 translation_of: sop.leads.form-leads
-source_version: 1
+source_version: 2
 ---
 
 # Respuesta a Clientes Potenciales de Facebook y Formularios
@@ -11,20 +11,30 @@ Los formularios de Facebook, Instagram, Google y el sitio web producen lo mismo:
 
 ## La regla {#rule}
 
-**Todo cliente potencial de formulario recibe un intento de llamada en vivo dentro de 5 minutos de haber llegado durante el horario laboral. Los que llegan fuera de horario se llaman al inicio del siguiente turno — antes del barrido de llamadas perdidas, en el orden en que llegaron.**
+**Todo cliente potencial de Facebook / Instagram / formulario recibe un intento de llamada en vivo dentro de 1 minuto de que llegue la notificación durante el horario laboral. Los que llegan fuera de horario se llaman al inicio del siguiente turno — antes del barrido de llamadas perdidas, en el orden en que llegaron.**
 
 Un cliente de formulario nunca se estaciona en una cola, un buzón o una pestaña del CRM. Si no se llama, muere.
 
+## Dónde aparece el cliente potencial {#notifications}
+
+Un cliente nuevo de Meta dispara notificaciones al **correo y a la aplicación** al mismo tiempo. Quien lo vea primero es el dueño — no existe el "pensé que alguien más lo tenía". El estándar:
+
+- Las notificaciones del buzón de clientes y de la aplicación están **activas, con sonido y revisadas en cada turno** — nunca silenciadas, nunca "lo reviso más tarde".
+- En el momento en que llega la notificación, empieza el reloj: **llamar dentro de 1 minuto.**
+- Si dos personas lo ven, el primero que marca es el dueño; el segundo no registra nada y sigue adelante.
+
 ## En el momento en que llega {#first-response}
 
-1. **Llama primero. Dentro de 5 minutos.** No texto, no correo, no respuesta en la plataforma — una llamada telefónica. La velocidad le gana a la perfección.
-2. **Abre con sus propias palabras.** Los clientes de formulario dudan que un humano haya leído su formulario. Demuéstralo de inmediato:
+1. **Llama primero. Dentro de 1 minuto.** No texto, no correo, no respuesta en la plataforma — una llamada telefónica. La velocidad le gana a la perfección.
+2. **Abre con sus propias palabras — nombra el anuncio u oferta al que respondió.** Los clientes de formulario dudan que un humano haya leído su formulario. Demuéstralo de inmediato:
 
-   > "Hola [nombre], habla [Nombre] de home+ Air & Heat — acabo de recibir su solicitud sobre [el problema exacto que escribió, ej. 'el aire que dejó de enfriar arriba']. ¿Es buen momento para agendarle la visita?"
+   > "Hola [nombre], habla [Nombre] de home+ Air & Heat — acaba de enviarnos una solicitud por nuestro anuncio de Facebook sobre [la oferta o problema exacto, ej. 'el especial de mantenimiento de AC' o 'el aire que dejó de enfriar arriba']. Quise contactarlo mientras está fresco — ¿es buen momento para agendarle la visita?"
 
-3. **Si no contestan: manda texto dentro de 2 minutos.** En el mismo minuto, mientras el número sigue caliente:
+3. **Si no contestan: manda texto y correo dentro de 2 minutos.** En el mismo minuto, mientras el número sigue caliente — ambos canales, no uno:
 
-   > "Hola [nombre] — [Nombre] de home+ Air & Heat. Acabo de intentar llamarle sobre la solicitud de [tipo de trabajo]. Podemos mandar un técnico [hoy / mañana en la mañana]. Responda aquí o llame al [número] y le aseguro un horario."
+   > Texto: "Hola [nombre] — [Nombre] de home+ Air & Heat. Acabo de intentar llamarle sobre la solicitud de [tipo de trabajo / oferta] que envió en Facebook. Podemos mandar un técnico [hoy / mañana en la mañana]. Responda aquí o llame al [número] y le aseguro un horario."
+
+   > Correo, asunto: "Su solicitud de [tipo de trabajo] — home+ Air & Heat" — un párrafo corto nombrando su solicitud, un horario real ofrecido, una sola pregunta, y nuestro número.
 
 4. **Si vino por Facebook/Instagram, también responde en la plataforma.** Muchos clientes de Meta viven en Messenger — encuéntralos donde enviaron la solicitud:
 
@@ -36,7 +46,7 @@ Un cliente de formulario nunca se estaciona en una cola, un buzón o una pestañ
 
 | Intento | Momento | Canal |
 |---|---|---|
-| 1 | Dentro de 5 minutos | Llamada → texto si no contestan |
+| 1 | Dentro de 1 minuto | Llamada → texto + correo si no contestan |
 | 2 | 2 horas después | Llamada → texto |
 | 3 | A la mañana siguiente | Llamada → texto |
 | Final | 48 horas | Texto de cierre, luego marcar como inalcanzable |
@@ -49,10 +59,23 @@ Texto de cierre:
 
 ## La conversación, cuando contestan {#conversation}
 
-Un cliente de formulario es una llamada normal una vez que está en la línea — captura completa (`sop.csm.intake`), aclaración de síntomas, fee de diagnóstico y agenda (`sop.csm.booking-authority`). Dos diferencias:
+Un cliente de formulario es una llamada normal una vez que está en la línea — captura completa (`sop.csm.intake`), aclaración de síntomas, fee de diagnóstico y agenda (`sop.csm.booking-authority`). La meta en cada conversación en vivo es una **cita agendada**: una visita de cotización si el cliente vino de una oferta de reemplazo/cotización, o una visita de diagnóstico si vino de una oferta de reparación o mantenimiento. Incluso un "no estoy seguro" se trabaja hacia una cita — la cita es el producto.
 
-- **Puede que no recuerden haber enviado el formulario** — los formularios de Meta se autollenan y la gente avanza rápido. Si suenan confundidos, oriéntalos: "Usted pidió una cotización para [problema] en Facebook hace unos minutos — quise contactarlo mientras está fresco." Nunca los hagas sentir tontos; la confusión es normal, no un rechazo.
 - **Cierra con horario, no con interés.** "¿Es buen momento para ponerlo en el horario?" asume la venta. "¿Todavía está buscando?" invita un no.
+
+## "No recuerdo haber preguntado" {#confused-leads}
+
+Este es el momento más común con clientes de Facebook, y es **normal — no es un rechazo.** Los formularios de Meta autollenan nombre y número; la gente avanza en segundos y sinceramente se le olvida. Nunca discutas, nunca los hagas sentir tontos, y nunca cuelgues con un cliente confundido. Oriéntalos con tres hechos y pasa directo a la cita:
+
+1. **Dónde pasó:** "Llenó un formulario corto en Facebook [esta mañana / hace como una hora] — se autollena con sus datos, así que solo toma un toque."
+2. **De qué se trataba:** "Era nuestro anuncio de [la oferta exacta — 'el especial de mantenimiento de AC' / 'una cotización gratis de reemplazo' / 'el diagnóstico de aire que no enfría']."
+3. **Por qué llama tan rápido:** "Le devolvemos la llamada de inmediato mientras está fresco para que no se quede esperando en una cola."
+
+Luego el pivote, amable pero directo:
+
+> "Ya que lo tengo en la línea — ¿el [sistema / problema] sigue fallando? … Entonces hagamos esto: puedo mandarle un técnico licenciado [hoy / mañana en la mañana]. El diagnóstico es {{price:diagnostic_fee}} y se descuenta del trabajo si sigue adelante. ¿Cuál horario le funciona mejor?"
+
+Si de verdad no tienen problema ni interés después de orientarlos — regístralo con precisión ("no recuerda / no necesita"), no vuelvas a insistir, y mantén la disposición honesta. Pero **un intento de orientación es obligatorio en cada cliente confundido antes de soltarlo.**
 
 **Si ya agendaron con alguien más:**
 
@@ -72,9 +95,30 @@ Servicio equivocado, fuera de Nassau o Suffolk, spam obvio o duplicado — sé b
 
 El mismo estándar que las llamadas perdidas (`sop.leads.missed-calls`): antes de que el último CSM cierre sesión, cada cliente de formulario del día tiene un resultado registrado — agendado, cotizado, rechazado, ya agendó en otro lado, inalcanzable después de tres intentos, o no calificado/disputado. Cualquier cosa sin resolver pasa a la lista de mañana a primera hora.
 
+## La meta: 60% de tasa de agendamiento {#target}
+
+**Todo canal social/de formulario se mide contra una tasa mínima de agendamiento del 60%** — seis de cada diez clientes de Facebook, Instagram o formulario terminan la semana con una cotización o diagnóstico agendado en el calendario.
+
+| Métrica | Meta |
+|---|---|
+| Tiempo al primer contacto (intento de llamada) | ≤ 1 minuto |
+| Clientes alcanzados por voz en vivo | ≥ 80% |
+| **Tasa de agendamiento (agendados ÷ clientes válidos)** | **≥ 60%** |
+| Clientes inválidos disputados el mismo día | 100% |
+
+Las cinco palancas que mueven la tasa, en orden de impacto:
+
+1. **Velocidad.** Un cliente llamado en el primer minuto agenda mucho más que uno llamado una hora después. Todo lo demás es secundario.
+2. **Los tres canales en el primer fallo** — llamada, luego texto *y* correo dentro de 2 minutos, más la respuesta en Messenger para clientes de Meta. Un solo canal no cuenta como intento.
+3. **Orienta a cada cliente confundido** con el anuncio, el momento y la oferta antes de aceptar un no (`#confused-leads`).
+4. **Ofrece dos horarios nombrados, nunca "¿cuándo está libre?"** Una pregunta abierta invita "déjeme pensarlo"; dos horarios reales invitan una decisión.
+5. **Limpia el denominador.** Spam, servicio equivocado y fuera de área se disputan y se marcan como no calificados el mismo día para que la tasa refleje oportunidades reales, no basura.
+
+La tasa se revisa semanalmente por CSM y por campaña en el tablero del CSM (`sop.csm.kpis`). Una campaña por debajo del 60% dos semanas seguidas es una conversación de mercadeo, no solo del CSM — repórtala al gerente de CS con el desglose de disposiciones.
+
 ## Por qué se mide {#why}
 
-Los clientes de formulario son oportunidades ya pagadas — el mercadeo ya los compró, y la única variable es nuestra velocidad. El tiempo de primer contacto (meta: ≤ 5 minutos) y la tasa de agendamiento de formularios van en el tablero del CSM (`sop.csm.kpis`), porque un formulario contestado en una hora normalmente lo contesta el técnico de otra compañía que ya está parado en la entrada.
+Los clientes de formulario son oportunidades ya pagadas — el mercadeo ya los compró, y la única variable es nuestra velocidad. Un formulario contestado en una hora normalmente lo contesta el técnico de otra compañía que ya está parado en la entrada.
 
 ## Relacionado
 
