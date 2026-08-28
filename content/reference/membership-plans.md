@@ -18,19 +18,34 @@ surfaces: [field, csm, checklist]
 
 One page, both plan families. If a customer asks what they get, the answer is here — do not improvise benefits, and do not promise anything this page does not list.
 
-## Home+ — residential {#home-plus}
+## Home+ Comfort — residential {#home-plus}
 
 | | |
 |---|---|
 | **Price** | {{price:membership_home_plus_monthly}} |
-| **Included tune-ups** | {{price:membership_home_plus_tuneups}} (regular) |
+| **Included tune-ups** | {{price:membership_home_plus_tuneups}} — basic 26-point, {{price:membership_tuneup_retail}} retail value each |
 | **Each additional system** | {{price:membership_home_plus_extra_system}} |
-| **Premium tune-up** | {{price:membership_premium_tuneup}} — upgrade, not included; the regular tune-up is credited toward it |
+| **Premium 38-point tune-up** | Not included. Member upgrade {{price:membership_premium_tuneup_upgrade}}; retail {{price:membership_premium_tuneup}} |
 | **Repair discount** | {{price:membership_home_plus_repair_discount}} on eligible approved repairs |
 | **Diagnostic** | {{price:membership_diagnostic_posture}} |
-| **Cancellation** | Anytime. Pro-rated refund if no services were used. |
+| **Scheduling** | Priority over non-members |
+| **Cancellation** | Anytime, no contract. Pro-rated refund if no services were used. |
 
-Home+ covers the residential systems we service at the address on the account. It is not transferable to a second property, and it is not offered to a tenant on a system they do not own — see `sop.csm.customer-profiles`.
+Home+ covers the residential systems we service at the address on the account. It transfers to the new owner if the home is sold; it does not follow the customer to a second property, and it is not offered to a tenant on a system they do not own — see `sop.csm.customer-profiles`.
+
+## Home+ Infinite — residential top tier {#infinite}
+
+| | |
+|---|---|
+| **Price** | {{price:membership_infinite_price}} |
+| **Includes** | Everything in Comfort |
+| **Discount** | {{price:membership_infinite_discount}} on all services |
+| **Service credit** | {{price:membership_infinite_credit}}, applied to any repair, replacement or service |
+| **Diagnostic** | Free always, with or without a repair |
+| **Emergency response** | Priority ahead of Comfort |
+
+Infinite is quoted to customers already facing a large repair or a replacement this year. Selling it to a low-spend household produces an unused credit and a cancellation.
+
 
 ## Business+ — light commercial {#business-plus}
 

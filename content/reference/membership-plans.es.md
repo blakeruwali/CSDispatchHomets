@@ -7,19 +7,34 @@ source_version: 1
 
 Una sola página, las dos familias de planes. Si un cliente pregunta qué obtiene, la respuesta está aquí — no improvises beneficios, y no prometas nada que esta página no liste.
 
-## Home+ — residencial {#home-plus}
+## Home+ Comfort — residencial {#home-plus}
 
 | | |
 |---|---|
 | **Precio** | {{price:membership_home_plus_monthly}} |
-| **Mantenimientos incluidos** | {{price:membership_home_plus_tuneups}} (regulares) |
+| **Mantenimientos incluidos** | {{price:membership_home_plus_tuneups}} básicos de 26 puntos ({{price:membership_tuneup_retail}} de valor cada uno) |
 | **Sistema adicional** | {{price:membership_home_plus_extra_system}} |
-| **Mantenimiento premium** | {{price:membership_premium_tuneup}} — mejora, no incluida; se acredita el regular |
+| **Mantenimiento Premium (38 puntos)** | No incluido. Mejora para miembro {{price:membership_premium_tuneup_upgrade}}; precio normal {{price:membership_premium_tuneup}} |
 | **Descuento en reparaciones** | {{price:membership_home_plus_repair_discount}} en reparaciones aprobadas elegibles |
 | **Diagnóstico** | {{price:membership_diagnostic_posture}} |
-| **Cancelación** | Cuando sea. Reembolso proporcional si no se usaron servicios. |
+| **Agenda** | Prioridad sobre no miembros |
+| **Cancelación** | Cuando sea, sin contrato. Reembolso proporcional si no se usaron servicios. |
 
-Home+ cubre los sistemas residenciales a los que damos servicio en el domicilio de la cuenta. No es transferible a una segunda propiedad, y no se le ofrece a un inquilino sobre un sistema que no le pertenece — ver `sop.csm.customer-profiles`.
+Home+ cubre los sistemas residenciales a los que damos servicio en el domicilio de la cuenta. Se transfiere al nuevo dueño si venden la casa; no sigue al cliente a una segunda propiedad, y no se le ofrece a un inquilino sobre un sistema que no le pertenece — ver `sop.csm.customer-profiles`.
+
+## Home+ Infinite — nivel superior residencial {#infinite}
+
+| | |
+|---|---|
+| **Precio** | {{price:membership_infinite_price}} |
+| **Incluye** | Todo lo de Comfort |
+| **Descuento** | {{price:membership_infinite_discount}} en todos los servicios |
+| **Crédito de servicio** | {{price:membership_infinite_credit}} para cualquier reparación, reemplazo o servicio |
+| **Diagnóstico** | Gratis siempre, con o sin reparación |
+| **Emergencias** | Prioridad por encima de Comfort |
+
+Infinite se cotiza a clientes que ya enfrentan una reparación grande o un reemplazo este año. Vendérselo a una casa de bajo gasto produce un crédito sin usar y una cancelación.
+
 
 ## Business+ — comercial ligero {#business-plus}
 

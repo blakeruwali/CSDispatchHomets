@@ -4,7 +4,7 @@ title: Home+ Membership — What It Costs and What It Covers
 department: ops
 owner: owner
 status: published
-version: 2
+version: 3
 last_reviewed: 2026-08-28
 review_cadence_days: 90
 tags: [membership, home-plus, tune-up, discount, diagnostic, enrollment, renewal, systems]
@@ -27,9 +27,13 @@ acknowledgement: required
 | **Renewal, year two onward** | {{price:membership_home_plus_renewal}} |
 | **Systems covered** | {{price:membership_home_plus_systems}} |
 | **Each additional system** | {{price:membership_home_plus_extra_system}} |
-| **Premium tune-up (upgrade, not included)** | {{price:membership_premium_tuneup}} |
+| **Premium tune-up upgrade (not included)** | {{price:membership_premium_tuneup_upgrade}} |
 
-Never quote a monthly figure, never round, never say "about a hundred." The first-year price is the reason people say yes; the renewal price is the reason they do not cancel in surprise a year later. **Say both, every time.** A member who learns about the renewal at renewal is a cancellation.
+The website sells the first year as **$7.99/mo billed annually** and the renewal as **$24.99/mo billed annually**. Those are the same two numbers written monthly — {{price:membership_home_plus_first_year}} and {{price:membership_home_plus_renewal}}. If the customer quotes the monthly figure back at you, **agree and give the annual total**; never let the two versions sound like two different plans, and never quote a monthly price the customer could read as a month-to-month billing.
+
+The first-year price is the reason people say yes; the renewal price is the reason they do not cancel in surprise a year later. **Say both, every time.** A member who learns about the renewal at renewal is a cancellation.
+
+**No contract. Cancel anytime.** That is on the website, so it is a promise — say it, do not hedge it.
 
 ## What "two systems" means {#two-systems}
 
@@ -45,24 +49,53 @@ A third or fourth system is not covered by default — see `sop.membership.upgra
 
 ## What the member gets {#benefits}
 
-- **{{price:membership_home_plus_tuneups}} regular tune-ups** — one per covered system. Cooling gets serviced **before summer**, heating **before winter**. Filters changed, system checked, findings written up.
+- **{{price:membership_home_plus_tuneups}} basic tune-ups** — one per covered system, each a **26-point inspection**. Cooling gets serviced **before summer**, heating **before winter**. Filters checked, thermostat calibrated, pressures and electrical checked, findings written up. Retail value {{price:membership_tuneup_retail}} each.
 - **Diagnostic and service call fee: {{price:membership_diagnostic_posture}}.** For the whole membership year, on every visit. We come out and look at the system at no charge.
 - **{{price:membership_home_plus_repair_discount}} off the total invoice** on any approved repair or replacement.
+- **Priority scheduling** — members go ahead of non-members in the board, see `sop.dispatch.priorities`.
+- **No overtime or after-hours charges.** True for everyone (`reference.guarantees`) — state it as a company policy, not as a member perk.
+- **Transferable** — the membership can transfer to the new owner if the home is sold. It does **not** move with the customer to a second or new property.
 
 That is the list. Do not add to it.
 
-## Regular tune-up vs. premium tune-up {#tuneups}
+## Basic tune-up vs. Premium tune-up {#tuneups}
 
-The membership includes the **regular** tune-up. The **premium** tune-up is a different, deeper service and is **an upgrade the customer pays for** — {{price:membership_premium_tuneup}} per system, or whatever the price book shows on the day.
+The membership includes the **basic 26-point** tune-up. The **Premium 38-point** tune-up is a deeper service and is **an upgrade the customer pays for**.
+
+| System | Basic (included for members) | Premium, retail | **Member upgrade price** |
+|---|---|---|---|
+| Furnace / AC / heat pump | {{price:membership_tuneup_retail}} value | $449 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Boiler | $349 value | $549 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Mini-split | $279 value | $399 | **{{price:membership_premium_tuneup_upgrade}}** |
+
+What Premium adds over Basic: heat exchanger inspection, carbon monoxide testing, gas line leak detection, complete electrical testing, AC drain line flush, and a written efficiency report.
 
 How it works:
 
-- Member wants the regular tune-up: **included**, no charge, nothing to sell.
-- Member wants the premium tune-up: the **included regular tune-up is credited toward it**, so they pay the difference. Say it that way — *"Your regular tune-up goes toward it, so you're only covering the upgrade."*
-- Non-member premium tune-up: full price, no credit.
-- The {{price:membership_home_plus_repair_discount}} member discount is for approved **repairs and replacements**. It does not stack on top of the credited regular tune-up on the same premium visit.
+- Member wants the basic tune-up: **included**, no charge, nothing to sell.
+- Member wants Premium: the included basic tune-up is **credited toward it** and they pay the {{price:membership_premium_tuneup_upgrade}} upgrade. Say it that way — *"Your included tune-up goes toward it, so you're only covering the upgrade."*
+- Non-member: Premium is full retail, no credit.
+- The {{price:membership_home_plus_repair_discount}} discount is for approved **repairs and replacements**. It does not come off the upgrade price.
 
-**Being a member does not make the premium tune-up free or discounted.** Do not imply otherwise at the door or on the phone — that is the fastest way to a chargeback argument at the next visit.
+**When to recommend Premium:** the system is over 10 years old, or the basic inspection turned up anything unusual. The heat exchanger and CO checks are the honest reason — lead with safety, not with the price.
+
+**Being a member does not make the Premium tune-up free.** Do not imply otherwise at the door or on the phone.
+
+## Home+ Infinite — the upper tier {#infinite}
+
+Comfort is the plan most homes buy. **Infinite** is the tier for larger homes, older equipment, or a customer who wants everything handled.
+
+| | |
+|---|---|
+| **Price** | {{price:membership_infinite_price}} |
+| **Discount** | {{price:membership_infinite_discount}} on all services |
+| **Service credit** | {{price:membership_infinite_credit}}, applied to any repair, replacement or service |
+| **Diagnostics** | Free, always — with or without a repair |
+| **Emergency response** | Priority, ahead of Comfort |
+
+Infinite includes everything in Comfort. Do not sell Infinite to a customer whose annual spend will not use the credit — an unused credit is a cancellation and a bad review. Quote Infinite when the customer is already looking at a large repair or a replacement this year.
+
+
 
 ## What the membership does *not* cover {#not-covered}
 
@@ -70,7 +103,7 @@ The tune-ups are maintenance, not repair. If the visit turns up a failed part, *
 
 Also not covered:
 
-- The **premium tune-up** — it is an upgrade, see above.
+- The **Premium 38-point tune-up** — it is a {{price:membership_premium_tuneup_upgrade}} upgrade, see above.
 - Parts or equipment, at any discount beyond the {{price:membership_home_plus_repair_discount}}.
 - A third or fourth system that has not been added and paid for. Each extra system is {{price:membership_home_plus_extra_system}} — see `sop.membership.upgrades`.
 - Systems at a second property. The membership belongs to the address on the account.
@@ -101,6 +134,9 @@ If any one of those three quotes a different number, the customer hears a compan
 - **Leaving the tune-ups unscheduled.** Book the seasonal tune-up while you are with the customer. An unused tune-up is a cancellation waiting to happen.
 - **Charging a member a diagnostic.** Refund it on the spot and tell Dispatch; do not make the customer chase it.
 - **Enrolling verbally and finishing "later".** If it is not in ServiceTitan on today's invoice, it did not happen.
+- **Quoting the monthly figure as month-to-month.** $7.99 and $24.99 are annual billing shown monthly. Say the annual total in the same breath.
+- **Selling Infinite for the discount alone.** The credit is the reason to buy it; if they will not use {{price:membership_infinite_credit}} of work, sell Comfort.
+- **Presenting "no overtime charges" as a member perk.** Nobody pays a surcharge here — see `reference.guarantees`.
 
 ## Related
 
