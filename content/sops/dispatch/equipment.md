@@ -7,7 +7,7 @@ status: published
 version: 1
 last_reviewed: 2026-08-28
 review_cadence_days: 90
-tags: [equipment, servicetitan, verification, close, send-back, quality-gate, dispatch]
+tags: [equipment, servicetitan, verification, close, notification, quality-gate, dispatch]
 related: [sop.field.equipment-capture, sop.dispatch.daily-workflow, sop.field.forms, sop.dispatch.priorities]
 section: dispatch-board
 order: 4
@@ -27,7 +27,7 @@ Every job that closes with work performed gets one question answered before it l
 **Is the equipment scanned and attached to the location, with a readable data-plate photo?**
 
 - **Yes** — close it.
-- **No** — send it back to the technician who closed it, **today**, while they may still be near the address or at least still remember the job. A send-back next week is a second trip; a send-back today is a phone call and two minutes on their tablet.
+- **No** — **call or message the technician the same day, before the end of their shift, and log the miss.** We do not physically send a technician back to the address — that is a second trip we pay for. Instead we make sure they *know*, right away, so it does not become a habit: the technician acknowledges the miss and completes the record from whatever the scan and photos they did take allow, or writes the exception in the notes. A notification today is a two-minute fix in their truck; silence is a gap nobody reconstructs next month.
 
 This applies to **every visit type**, not just repairs: diagnostics, tune-ups, estimates, installs, callbacks, warranty calls. If a tech was on site, the location's equipment record should be complete when they leave.
 
@@ -45,13 +45,13 @@ Dispatch is checking placement and completeness, not re-typing anything:
 
 **Model and serial must come from the scan and the photo, never from memory** — one wrong character is a warranty claim that fails months later. If the plate was unreadable, the condition notes must say "data plate illegible" — a silent gap is a defect, an explained gap is a record.
 
-## The send-back conversation {#send-back}
+## The notification conversation {#notify}
 
-Short, factual, no lecture:
+We can't send the technician back — but they have to be told, and they have to acknowledge it. Short, factual, no lecture:
 
-> "Job 4821 — no equipment on the location. Add the record and the plate photos and close it again, or write the exception in the notes."
+> "Job 4821 — no equipment scanned on the location. Confirm you saw this, add whatever you can from your scan and photos, and write the exception in the notes if there was one. Watch for it on your next stop today."
 
-A genuine exception is fine when it is written down: no access to the unit, customer refused the attic, locked crawlspace. "Customer refused" is a record. Silence is a defect.
+Same day, every time — never saved up for the end of the week. The point is awareness in the moment, not punishment after the fact. A genuine exception is fine when it is written down: no access to the unit, customer refused the attic, locked crawlspace. "Customer refused" is a record. Silence is a defect.
 
 ## Why Dispatch owns this check {#why-dispatch}
 
@@ -61,7 +61,7 @@ A genuine exception is fine when it is written down: no access to the unit, cust
 
 ## The weekly loop {#weekly}
 
-A tech who is repeatedly sent back for missing equipment goes on the service manager's list for the weekly one-to-one, alongside callback rate — the two are related, and the connection is the point. Dispatch's job is to surface the pattern, not to coach it.
+A tech who is repeatedly flagged for missing equipment goes on the service manager's list for the weekly one-to-one, alongside callback rate — the two are related, and the connection is the point. Dispatch's job is to notify in the moment and surface the pattern, not to coach it.
 
 ## Related
 
