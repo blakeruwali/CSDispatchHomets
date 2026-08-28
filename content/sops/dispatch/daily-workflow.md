@@ -4,8 +4,8 @@ title: Workflow During the Day — Hour by Hour
 department: dispatch
 owner: dispatch-manager
 status: published
-version: 1
-last_reviewed: 2026-08-27
+version: 2
+last_reviewed: 2026-08-28
 review_cadence_days: 90
 tags: [dispatch, workflow, daily, routine, board, servicetitan, handoff]
 related: [sop.dispatch.hours, sop.dispatch.priorities, sop.field.start-time, sop.field.forms, sop.csm.coverage]
@@ -32,6 +32,24 @@ surfaces: [dispatch, checklist]
 - **Watch arrivals in real time.** The {{price:arrival_guarantee}} clock starts at the beginning of the booked window; a tech not on site at the top of the window is a call to the customer **now**, with a named arrival time — not "he's on his way." Full rule: `sop.dispatch.hours`.
 - **Confirm each tech has exactly the next job visible** and nothing further — `sop.dispatch.hours`.
 - **Take the CSM's same-day requests.** Approve or decline against `sop.dispatch.priorities`, and answer quickly — the CSM has a customer on the line. Overflow windows ({{price:service_windows_overflow}}) are yours to grant, never the CSM's to offer.
+
+## Diagnostic fee posture — the ticket must be right before the tech knocks {#diagnostic-fees}
+
+A wrong diagnostic fee is discovered at the door, in front of the customer, on a form two people are about to sign. That is a failure Dispatch can prevent the night before, not one the tech should absorb in the driveway. On every dispatched ticket, confirm the fee posture matches what the customer was told:
+
+| Posture | Fee on the ticket | When it applies |
+|---|---|---|
+| Standard residential | {{price:diagnostic_residential}} | Default residential service call |
+| Promo / dollars-off | {{price:diagnostic_discounted}} | Only when the CSM quoted it at booking — whichever fee was quoted is the fee on the form |
+| Commercial | {{price:diagnostic_commercial}} | Commercial service call |
+| Active member | Waived | {{price:membership_diagnostic_posture}} — check membership status on the location, not the caller's word |
+| Bumped by us | Waived | We moved the job — {{price:bump_diagnostic_credit}} |
+| After hours | **Same as standard** | No emergency or after-hours surcharge, ever — quote the standard diagnostic at any hour |
+| Install / replacement estimate | Free | Never a diagnostic on an estimate visit |
+
+**If the ticket's fee doesn't match what the customer was told, fix it before the tech is en route.** A tech who catches the mismatch calls Dispatch before knocking — that call only helps if someone answers it and corrects the form.
+
+**What Dispatch should expect at close:** the diagnostic is credited in full the moment the customer approves the repair **or** the replacement on that visit — {{price:diagnostic_credit_on_sale}}. A unit found non-repairable still gets charged — {{price:diagnostic_on_non_repairable}} — with the fee credited if they buy the replacement. If a sold job closes with the diagnostic still on the invoice, that's a send-back, same day.
 
 ## Midday — the re-plan {#midday}
 
