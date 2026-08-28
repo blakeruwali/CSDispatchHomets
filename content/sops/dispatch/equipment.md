@@ -24,7 +24,7 @@ The capture rule itself lives in `sop.field.equipment-capture` and belongs to th
 
 Every job that closes with work performed gets one question answered before it leaves the board:
 
-**Is the equipment attached to the location, with a readable data-plate photo?**
+**Is the equipment scanned and attached to the location, with a readable data-plate photo?**
 
 - **Yes** — close it.
 - **No** — send it back to the technician who closed it, **today**, while they may still be near the address or at least still remember the job. A send-back next week is a second trip; a send-back today is a phone call and two minutes on their tablet.

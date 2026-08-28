@@ -58,7 +58,7 @@ Narrate it and it reads as thorough, not slow:
 Customers hear a company that keeps records. Nobody has ever complained about that sentence.
 
 **"It's 110° in that attic and I'm not spending an extra five minutes up there."**
-You are not. Take the two photos, come down, and type the record from the photos in the truck or on the stairs. The part that has to happen at the unit is the camera, and that is fifteen seconds.
+You are not. Scan the plate, take the photos, come down, and finish the record from the scan in the truck or on the stairs. The part that has to happen at the unit is the camera, and that is fifteen seconds.
 
 **"I already know this system, I've been here before."**
 Then the record already exists and this takes you ten seconds to confirm. If it does not exist, you are the reason the next tech starts from nothing.
@@ -111,7 +111,7 @@ The typed fields can contain a typo. The scan and the photo cannot.
 
 Common on old outdoor equipment. Do not skip the record, and do not invent numbers.
 
-1. Photograph whatever is left, however partial.
+1. Run the scan anyway — a partial plate still often gives you the manufacturer or part of the model — and photograph whatever is left, however partial.
 2. Enter what you *can* establish — type, manufacturer, location, fuel, rough age.
 3. **Write "data plate illegible" in the condition notes.**
 4. Check for a secondary label: inside the blower door, on the cabinet, on the disconnect, or a prior installer's sticker.

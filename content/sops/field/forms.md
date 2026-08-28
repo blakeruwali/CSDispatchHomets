@@ -24,7 +24,7 @@ acknowledgement: required
 Before you press Complete:
 
 1. **Check the diagnostic fee on the form matches what the customer was quoted** — {{price:diagnostic_residential}}, {{price:diagnostic_discounted}}, or {{price:diagnostic_commercial}}.
-2. **Equipment attached to the location** — every system, with a data-plate photo (`sop.field.equipment-capture`).
+2. **Equipment scanned and attached to the location** — every system, plate scanned on the tablet plus a data-plate photo (`sop.field.equipment-capture`).
 3. **The job's form filled in** — readings, findings, what you did.
 4. **Photos** — before, after, and anything you are flagging.
 5. **If they bought the repair or the replacement, the diagnostic comes off the invoice.**
