@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import { slides } from "./slideData";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { MobilePresentation } from "./MobilePresentation";
-import { Search, X, Sun, Moon, BookOpen, Presentation, ClipboardCheck, Headphones, Wrench, Radio } from "lucide-react";
+import { Search, X, Sun, Moon, BookOpen, Presentation, ClipboardCheck, Headphones, Wrench, Radio, HardHat } from "lucide-react";
 import { Link } from "react-router-dom";
 import { KnowledgeBase } from "@/components/knowledge-base/KnowledgeBase";
 import { kbSections } from "@/components/knowledge-base/kbData";
@@ -219,6 +219,13 @@ const ScrollablePresentation: React.FC = () => {
             >
               <Radio className="w-3.5 h-3.5" />
               Dispatch SOP
+            </Link>
+            <Link
+              to="/projects"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
+            >
+              <HardHat className="w-3.5 h-3.5" />
+              Projects SOP
             </Link>
             <Link
               to="/field"
