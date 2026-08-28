@@ -248,6 +248,13 @@ const ScrollablePresentation: React.FC = () => {
               <Megaphone className="w-3.5 h-3.5" />
               Leads SOP
             </Link>
+            <Link
+              to="/reviews"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
+            >
+              <Star className="w-3.5 h-3.5" />
+              Reviews SOP
+            </Link>
           </div>
 
           <div className="flex items-center gap-2">
