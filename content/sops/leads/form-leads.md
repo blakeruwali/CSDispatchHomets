@@ -71,10 +71,23 @@ Closing text:
 
 ## The conversation, once they answer {#conversation}
 
-A form lead is a normal call once they're live — full intake (`sop.csm.intake`), symptom clarification, diagnostic fee posture, and book it (`sop.csm.booking-authority`). Two differences:
+A form lead is a normal call once they're live — full intake (`sop.csm.intake`), symptom clarification, diagnostic fee posture, and book it (`sop.csm.booking-authority`). The goal on every live conversation is a **booked appointment**: an estimate visit if the lead came from a replacement/estimate offer, a diagnostic visit if it came from a repair or tune-up offer. Even a hesitant "I'm not sure" is worked toward a booking — the appointment is the product.
 
-- **They may not remember submitting the form** — Meta forms autofill and people tap through fast. If they sound confused, anchor them: "You requested a quote for [issue] on Facebook a few minutes ago — I wanted to catch you while it's fresh." Never make them feel foolish; confusion is normal, not a brush-off.
 - **Close on time, not interest.** "Is now a good time to get you on the schedule?" assumes the booking. "Are you still looking?" invites a no.
+
+## "I don't remember inquiring" {#confused-leads}
+
+This is the most common Facebook-lead moment, and it is **normal — not a brush-off.** Meta forms autofill name and number; people tap through in seconds and genuinely forget. Never argue, never make them feel foolish, and never hang up on a confused lead. Anchor them with three facts and pivot straight to the booking:
+
+1. **Where it happened:** "You filled out a short form on Facebook [this morning / about an hour ago] — it autofills your info, so it only takes a tap."
+2. **What it was about:** "It was our ad for [the exact offer — 'the AC tune-up special' / 'a free replacement estimate' / 'the no-cooling diagnostic']."
+3. **Why you're calling so fast:** "We call right back while it's fresh so you don't sit in a queue."
+
+Then pivot, gently but directly:
+
+> "While I have you — is the [system / issue] still acting up? … Then let's do this: I can have a licensed tech out [today / tomorrow morning]. The diagnostic is {{price:diagnostic_fee}} and it comes off the work if you move forward. Which window works better?"
+
+If they truly have no issue and no interest after the anchor — log it accurately ("doesn't recall / no need"), don't re-argue, and keep the disposition honest. But **one anchor attempt is mandatory on every confused lead before you let it go.**
 
 **If they already booked someone:**
 
