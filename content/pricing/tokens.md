@@ -48,15 +48,21 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 
 | Token | Amount | Notes |
 |---|---|---|
-| `membership_home_plus_monthly`      | $95.88 first year, then $299/year | Home+ residential membership — covers 2 systems |
-| `membership_home_plus_first_year`   | $95.88 | Home+ — first-year enrollment, covers 2 systems |
-| `membership_home_plus_renewal`      | $299/year | Home+ — every year after the first, covers 2 systems |
+| `membership_home_plus_monthly`      | $7.99/mo billed annually ($95.88) first year, then $24.99/mo ($299/year) | Home+ Comfort — covers 2 systems |
+| `membership_home_plus_first_year`   | $95.88 | Home+ Comfort — first-year enrollment ($7.99/mo billed annually), covers 2 systems |
+| `membership_home_plus_renewal`      | $299/year | Home+ Comfort — every year after the first ($24.99/mo billed annually), covers 2 systems |
 | `membership_home_plus_systems`      | 2 systems | Systems covered by one Home+ membership (any mix of heating and cooling) |
 | `membership_home_plus_extra_system` | $99 per additional system, per year | Each system beyond the 2 included — charged in the first year and again at every renewal |
-| `membership_home_plus_tuneups`      | 2 per year | One **regular** tune-up per covered system — cooling before summer, heating before winter |
-| `membership_home_plus_repair_discount` | 10% | Discount on the total invoice for an approved repair or replacement |
-| `membership_premium_tuneup`         | $404 per system | Premium tune-up — an upgrade, not included. Member's regular tune-up is credited toward it |
+| `membership_home_plus_tuneups`      | 2 per year | One **basic (26-point)** tune-up per covered system — cooling before summer, heating before winter |
+| `membership_home_plus_repair_discount` | 10% | Comfort — discount on the total invoice for an approved repair or replacement |
+| `membership_tuneup_retail`          | $299 | Retail value of one basic tune-up (furnace / AC / heat pump) — included for members |
+| `membership_premium_tuneup`         | $449 furnace / AC / heat pump, $549 boiler, $399 mini-split | Premium 38-point tune-up at retail — not included in any membership |
+| `membership_premium_tuneup_upgrade` | $149 per system | Member upgrade price from the included basic tune-up to the Premium 38-point tune-up |
+| `membership_infinite_price`         | $2,999/year ($250/mo billed annually) | Home+ Infinite — top residential tier |
+| `membership_infinite_discount`      | 15% | Infinite — discount on all services |
+| `membership_infinite_credit`        | $2,000/year | Infinite — service credit toward any repair, replacement or service |
 | `membership_diagnostic_posture`     | Waived | Diagnostic / service call fee for an active member |
+
 
 
 
