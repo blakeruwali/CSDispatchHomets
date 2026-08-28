@@ -118,6 +118,10 @@ const SECTIONS: Record<string, { title: string; description: string }> = {
     title: "Gobernanza",
     description: "Cómo se emiten, se firman y se cambian estos documentos",
   },
+  "leads-recovery": {
+    title: "Recuperación de Clientes Potenciales",
+    description: "Llamadas perdidas, estimaciones canceladas y traer de vuelta a los clientes que se fueron",
+  },
   "field-standards": {
     title: "En Cada Trabajo",
     description: "Lo que ocurre en cada visita, antes e independientemente del trabajo",

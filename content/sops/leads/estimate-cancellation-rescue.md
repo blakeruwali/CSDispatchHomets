@@ -1,17 +1,17 @@
 ---
-id: sop.csm.estimate-cancellation-rescue
+id: sop.leads.estimate-cancellation-rescue
 title: Estimate Cancellation Rescue
-department: csm
+department: leads
 owner: cs-manager
 status: published
 version: 1
 last_reviewed: 2026-08-28
 review_cadence_days: 60
 tags: [estimate, cancellation, rescue, save, replacement, revenue, leads]
-related: [sop.csm.reschedules, sop.csm.missed-calls, sop.csm.availability, sop.csm.second-opinion, sop.sales.follow-up, sop.csm.de-escalation]
-section: leads
+related: [sop.csm.reschedules, sop.leads.missed-calls, sop.csm.availability, sop.csm.second-opinion, sop.sales.follow-up, sop.csm.de-escalation]
+section: leads-recovery
 order: 2
-surfaces: [csm, checklist]
+surfaces: [leads, checklist]
 acknowledgement: required
 ---
 
@@ -119,6 +119,6 @@ Three cancellations from the same lead source or the same booking CSM in a week 
 ## Related
 
 - Rescheduling a service job (not an estimate): `sop.csm.reschedules`
-- Customer never answered: `sop.csm.missed-calls`
+- Customer never answered: `sop.leads.missed-calls`
 - Windows to offer: `sop.csm.availability`
 - Post-estimate follow-up by the technician: `sop.sales.follow-up`

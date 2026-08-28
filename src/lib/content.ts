@@ -378,7 +378,6 @@ export const CSM_SECTIONS: SectionDef[] = [
   { id: "interaction", title: "Customer Interaction", description: "Greeting, listening, profiles, emergency triage, escalation" },
   { id: "intake", title: "Intake", description: "Required data, service and system type, symptoms, lead source" },
   { id: "booking", title: "Booking", description: "Availability, service area, fees, membership, objections" },
-  { id: "leads", title: "Leads", description: "Missed calls, lead follow-up, and speed-to-lead recovery" },
   { id: "channels", title: "Channel Playbooks", description: "Speed to lead, marketplaces, inbound, LSA, web, Posh, SMS" },
   { id: "post-booking", title: "Post-Booking & Retention", description: "Tickets, handoff, follow-up, warranty, retention" },
   { id: "governance", title: "Governance", description: "Guarantees, doc control, QA rubric, coaching, onboarding" },
@@ -493,6 +492,28 @@ export const DISPATCH_SECTIONS: SectionDef[] = [
 
 export function dispatchSections(): ContentSection[] {
   return sectionsForSurface("dispatch", DISPATCH_SECTIONS);
+}
+
+// --------------------------------------------------------------- leads sections
+
+/**
+ * Lead recovery and rescue: the work of bringing back leads that slipped —
+ * missed calls and cancelled estimates. Distinct from the CSM surface, which
+ * covers call handling and booking; this is the recovery effort, with its own
+ * owner and metrics (rescue rate, nurture conversion).
+ */
+export const LEADS_SECTIONS: SectionDef[] = [
+  {
+    id: "leads-recovery",
+    title: "Lead Recovery",
+    description: "Missed calls, cancelled estimates, and bringing leads back from the edge",
+  },
+  // Shared with the CSM, field, sales, dispatch and projects surfaces.
+  { id: "governance", title: "Governance", description: "How these documents are issued, acknowledged, and changed" },
+];
+
+export function leadsSections(): ContentSection[] {
+  return sectionsForSurface("leads", LEADS_SECTIONS);
 }
 
 // ----------------------------------------------------------- projects sections
