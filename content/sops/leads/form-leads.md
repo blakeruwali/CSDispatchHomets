@@ -4,7 +4,7 @@ title: Facebook & Form Lead Response
 department: leads
 owner: cs-manager
 status: published
-version: 2
+version: 3
 last_reviewed: 2026-08-28
 review_cadence_days: 90
 tags: [facebook, form-lead, web-lead, meta, speed-to-lead, callback, intake]
@@ -26,6 +26,21 @@ Facebook, Instagram, Google, and website forms all produce the same thing: a nam
 **Every Facebook / Instagram / form lead gets a live call attempt within 1 minute of the notification landing during business hours. Leads that land after hours are called at the very start of the next shift — before the missed-call sweep, in the order they arrived.**
 
 A form lead is never parked in a queue, an inbox, or a CRM tab. If it isn't called, it dies.
+
+## Coverage & legal contact windows {#coverage-hours}
+
+**The desk is covered 6:00 AM – 10:00 PM, seven days a week.** The owner (Devi) holds the desk outside CSM hours — leads that land between 6 AM and 10 PM get the same 1-minute call, whoever is covering.
+
+**Legal calling window: 8:00 AM – 9:00 PM (customer's local time).** Federal telemarketing law (TCPA) prohibits marketing calls and texts to residences before 8 AM or after 9 PM. This is not a guideline — violations carry per-call penalties. Our coverage is wider than the legal window, so the rules are:
+
+| Lead lands | What happens |
+|---|---|
+| **8:00 AM – 9:00 PM** | Call within 1 minute. If no answer: text + email within 2 minutes. |
+| **6:00 AM – 8:00 AM** | **Do not call yet.** Log the lead, prepare the ticket. At **8:00 AM sharp**, call — then text + email if no answer. The lead still gets a sub-5-minute response measured from the legal open. |
+| **9:00 PM – 10:00 PM** | **Do not call or text.** Send the **email only** (email has no legal hour restriction). Call + text at **8:00 AM the next morning**, before anything else on the board. |
+| **10:00 PM – 6:00 AM** (desk dark) | Queue in arrival order. At **8:00 AM sharp**, call in the order they arrived — these leads go first, ahead of the missed-call sweep. |
+
+**Never call or text before 8 AM or after 9 PM — no exceptions, even if the lead just came in.** A lead that arrived at 9:30 PM is far more likely to book from a prompt 8 AM call than from a 9:45 PM call that wakes the house and irritates them. Speed matters, but only inside the legal window; outside it, *first at 8 AM* is the speed standard.
 
 ## Where the lead shows up {#notifications}
 
@@ -58,10 +73,12 @@ A new Meta lead fires notifications to **email and the app** at the same time. W
 
 | Attempt | Timing | Channel |
 |---|---|---|
-| 1 | Within 5 minutes | Call → text if no answer |
+| 1 | Within 1 minute (legal window 8 AM – 9 PM; leads outside it are called at 8 AM sharp) | Call → text + email if no answer |
 | 2 | 2 hours later | Call → text |
 | 3 | Next morning | Call → text |
 | Final | 48 hours | Closing text, then mark unreachable |
+
+**Attempts 2 and 3 also stay inside the 8 AM – 9 PM window.** Never stack a call, a text, and an email back-to-back on attempts 2 and 3 — one call, one text per attempt. The full-court press (call + text + email + Messenger) belongs to attempt 1 only; after that, restraint is what keeps the lead warm instead of blocked.
 
 Closing text:
 
