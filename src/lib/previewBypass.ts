@@ -9,12 +9,12 @@
  * preview sessions simply see no rows rather than protected data.
  */
 const PREVIEW_HOST_SUFFIXES = [
-  ".lovable.app",
   ".lovableproject.com",
   ".lovableproject-dev.com",
   ".gpt-eng.com",
   ".gptengineer.run",
 ];
+
 
 export function isPreviewEnvironment(
   hostname: string = typeof window === "undefined" ? "" : window.location.hostname,
