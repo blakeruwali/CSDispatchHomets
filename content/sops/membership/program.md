@@ -103,7 +103,7 @@ The tune-ups are maintenance, not repair. If the visit turns up a failed part, *
 
 Also not covered:
 
-- The **premium tune-up** — it is an upgrade, see above.
+- The **Premium 38-point tune-up** — it is a {{price:membership_premium_tuneup_upgrade}} upgrade, see above.
 - Parts or equipment, at any discount beyond the {{price:membership_home_plus_repair_discount}}.
 - A third or fourth system that has not been added and paid for. Each extra system is {{price:membership_home_plus_extra_system}} — see `sop.membership.upgrades`.
 - Systems at a second property. The membership belongs to the address on the account.
