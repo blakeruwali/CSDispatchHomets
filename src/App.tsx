@@ -16,6 +16,7 @@ import Field from "./pages/Field";
 import Dispatch from "./pages/Dispatch";
 import Projects from "./pages/Projects";
 import Leads from "./pages/Leads";
+import Reviews from "./pages/Reviews";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/dispatch" element={gated(<Dispatch />)} />
           <Route path="/projects" element={gated(<Projects />)} />
           <Route path="/leads" element={gated(<Leads />)} />
+          <Route path="/reviews" element={gated(<Reviews />)} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

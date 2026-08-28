@@ -122,6 +122,10 @@ const SECTIONS: Record<string, { title: string; description: string }> = {
     title: "Recuperación de Clientes Potenciales",
     description: "Llamadas perdidas, estimaciones canceladas y traer de vuelta a los clientes que se fueron",
   },
+  "review-program": {
+    title: "El Programa de Reseñas",
+    description: "Metas, el pedido del técnico, el pedido del equipo de servicio y las reglas para todos",
+  },
   "field-standards": {
     title: "En Cada Trabajo",
     description: "Lo que ocurre en cada visita, antes e independientemente del trabajo",
