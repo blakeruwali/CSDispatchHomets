@@ -378,6 +378,7 @@ export const CSM_SECTIONS: SectionDef[] = [
   { id: "interaction", title: "Customer Interaction", description: "Greeting, listening, profiles, emergency triage, escalation" },
   { id: "intake", title: "Intake", description: "Required data, service and system type, symptoms, lead source" },
   { id: "booking", title: "Booking", description: "Availability, service area, fees, membership, objections" },
+  { id: "leads", title: "Leads", description: "Missed calls, lead follow-up, and speed-to-lead recovery" },
   { id: "channels", title: "Channel Playbooks", description: "Speed to lead, marketplaces, inbound, LSA, web, Posh, SMS" },
   { id: "post-booking", title: "Post-Booking & Retention", description: "Tickets, handoff, follow-up, warranty, retention" },
   { id: "governance", title: "Governance", description: "Guarantees, doc control, QA rubric, coaching, onboarding" },

@@ -9,8 +9,8 @@ last_reviewed: 2026-08-28
 review_cadence_days: 90
 tags: [missed-call, callback, speed-to-lead, inbound, recovery, phone, intake]
 related: [sop.csm.greeting, sop.csm.intake, sop.csm.booking-authority, sop.csm.kpis, sop.csm.availability]
-section: interaction
-order: 9
+section: leads
+order: 1
 surfaces: [csm, checklist]
 ---
 
