@@ -27,6 +27,7 @@ acknowledgement: required
 | **Renewal, year two onward** | {{price:membership_home_plus_renewal}} |
 | **Systems covered** | {{price:membership_home_plus_systems}} |
 | **Each additional system** | {{price:membership_home_plus_extra_system}} |
+| **Premium tune-up (upgrade, not included)** | {{price:membership_premium_tuneup}} |
 
 Never quote a monthly figure, never round, never say "about a hundred." The first-year price is the reason people say yes; the renewal price is the reason they do not cancel in surprise a year later. **Say both, every time.** A member who learns about the renewal at renewal is a cancellation.
 
