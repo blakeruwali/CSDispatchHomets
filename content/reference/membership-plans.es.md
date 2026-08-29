@@ -14,7 +14,7 @@ Una sola página, las dos familias de planes. Si un cliente pregunta qué obtien
 | **Precio** | {{price:membership_home_plus_monthly}} |
 | **Mantenimientos incluidos** | {{price:membership_home_plus_tuneups}} básicos de 26 puntos ({{price:membership_tuneup_retail}} de valor cada uno) |
 | **Sistema adicional** | {{price:membership_home_plus_extra_system}} |
-| **Mantenimiento Premium (38 puntos)** | No incluido. Mejora para miembro {{price:membership_premium_tuneup_upgrade}}; precio normal {{price:membership_premium_tuneup}} |
+| **Mantenimiento Premium (38 puntos)** | No incluido. Mejora para miembro {{price:membership_premium_tuneup_upgrade}} por sistema. Sin precio de venta publicado — {{price:membership_premium_tuneup}} |
 | **Descuento en reparaciones** | {{price:membership_home_plus_repair_discount}} en reparaciones aprobadas elegibles |
 | **Diagnóstico** | {{price:membership_diagnostic_posture}} |
 | **Agenda** | Prioridad sobre no miembros |
