@@ -62,11 +62,13 @@ That is the list. Do not add to it.
 
 The membership includes the **basic 26-point** tune-up. The **Premium 38-point** tune-up is a deeper service and is **an upgrade the customer pays for**.
 
-| System | Basic (included for members) | Premium, retail | **Member upgrade price** |
-|---|---|---|---|
-| Furnace / AC / heat pump | {{price:membership_tuneup_retail}} value | $449 | **{{price:membership_premium_tuneup_upgrade}}** |
-| Boiler | $349 value | $549 | **{{price:membership_premium_tuneup_upgrade}}** |
-| Mini-split | $279 value | $399 | **{{price:membership_premium_tuneup_upgrade}}** |
+| System | Basic (included for members) | **Member upgrade price** |
+|---|---|---|
+| Furnace / AC / heat pump | {{price:membership_tuneup_retail}} value | **{{price:membership_premium_tuneup_upgrade}}** |
+| Boiler | $349 value | **{{price:membership_premium_tuneup_upgrade}}** |
+| Mini-split | $279 value | **{{price:membership_premium_tuneup_upgrade}}** |
+
+**There is no published retail price for the Premium tune-up.** Premium pricing depends on the system, its age, and its condition — the technician inspects on site and gives the customer a written estimate. Never quote a Premium retail number on the phone or at the door, and never guess one ("four hundred something"). The only Premium number anyone quotes is the member upgrade: {{price:membership_premium_tuneup_upgrade}} per system.
 
 What Premium adds over Basic: heat exchanger inspection, carbon monoxide testing, gas line leak detection, complete electrical testing, AC drain line flush, and a written efficiency report.
 
@@ -74,7 +76,7 @@ How it works:
 
 - Member wants the basic tune-up: **included**, no charge, nothing to sell.
 - Member wants Premium: the included basic tune-up is **credited toward it** and they pay the {{price:membership_premium_tuneup_upgrade}} upgrade. Say it that way — *"Your included tune-up goes toward it, so you're only covering the upgrade."*
-- Non-member: Premium is full retail, no credit.
+- Non-member: Premium is quoted on site after the inspection — no credit, no phone number.
 - The {{price:membership_home_plus_repair_discount}} discount is for approved **repairs and replacements**. It does not come off the upgrade price.
 
 **When to recommend Premium:** the system is over 10 years old, or the basic inspection turned up anything unusual. The heat exchanger and CO checks are the honest reason — lead with safety, not with the price.
