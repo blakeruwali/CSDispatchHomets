@@ -75,6 +75,28 @@ no operational queues or customer data (see "Product boundary" in
   **any** content change; it gates the build.
 - `npm run build` / `npm run dev` / `npx vitest run` for the app.
 
+## The wider repo ecosystem
+
+This repo is one of ten business repos under `blakeruwali/` (reviewed
+2026-08-29). The others, and how they relate:
+
+| Repo | Role |
+|---|---|
+| `integrated-home-hub` | Sales/proposal engine + internal ops portal (architect.hometsair.com). Deepest ServiceTitan integration (estimate push, technicians), Twilio SMS, Stripe. Its Supabase "architect" DB is also read by the marketing site. |
+| `homets-home-tech` | hometsair.com marketing site — 262 SEO pages, ServiceTitan booking widget, Stripe-billed Home+ memberships. |
+| `homets-comfort-architect` | iPad Swift app — LiDAR scan → Manual J load calc → in-home recommendation; syncs to the architect DB, renders reports via integrated-home-hub. |
+| `complusmechanical` | Com+ Mechanical, the commercial brand site (NYC + LI), forked from the Homets site; rebrand incomplete. |
+| `longislandhvacrepair` | Second-brand lead-gen site (same phone/HQ as Homets); booking not wired up, stalled. |
+| `hvac-catalog` | Pricebook manager + proposal generator vs ServiceTitan; stalled since May 2026; overlaps comfort-architect on proposals. |
+| `project-phoenix` | Internal brand/marketing asset studio (logos, cards, yard signs, email templates). |
+| `homets-pitch-deck` | Investor deck web app (private). |
+| `homets-smart-service` | Abandoned marketing prototype — archive candidate. |
+
+Key facts: each web repo has its own Supabase project; several hardcode
+prices/phones that this repo's token file owns — treat this repo as the fact
+authority and flag drift when you see it. ServiceTitan remains the only
+system of record for customers/jobs/leads across all of them.
+
 ## Connected tools
 
 The `homets-servicetitan` skill queries the live ServiceTitan tenant
