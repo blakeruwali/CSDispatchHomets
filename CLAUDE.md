@@ -105,5 +105,7 @@ system of record for customers/jobs/leads across all of them.
 
 The `homets-servicetitan` skill queries the live ServiceTitan tenant
 (availability, appointments, proposals, customers). Gmail, Google Calendar,
-Slack, ClickUp, and Fireflies connectors may also be available — use real data
-from them instead of placeholders in any customer-facing or ops output.
+Slack, and Fireflies connectors may also be available — use real data from
+them instead of placeholders in any customer-facing or ops output.
+ClickUp is retired — do not create or update ClickUp tasks; ops work is
+tracked in ServiceTitan and Slack.

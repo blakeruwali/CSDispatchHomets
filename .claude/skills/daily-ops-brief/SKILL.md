@@ -13,9 +13,9 @@ worse than no brief.
 1. **ServiceTitan** (`homets-servicetitan` skill): today's appointments and
    windows, technician availability, open proposals/estimates with age and
    amount, recent jobs missing follow-up.
-2. **Gmail / Slack / ClickUp / Google Calendar** (if connected): unanswered
-   customer emails, #csm-ops announcements pending, open ops tasks, calendar
-   conflicts.
+2. **Gmail / Slack / Google Calendar** (if connected): unanswered customer
+   emails, #csm-ops announcements pending, calendar conflicts. (ClickUp is
+   retired — don't pull from or write to it.)
 3. **This repo**: `npm run validate:content` for content errors/staleness;
    `content/INDEX.md` open questions still awaiting the owner.
 
