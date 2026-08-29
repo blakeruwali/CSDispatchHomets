@@ -30,8 +30,12 @@ no operational queues or customer data (see "Product boundary" in
   token resolution.
 - `src/components/presentation/slideData.tsx` (~4,900 lines, dispatch deck)
   and `kbData.tsx` — legacy source material still awaiting migration.
-- `.claude/skills/` — Claude's business skills. Each explains one job
-  (authoring, comms, dispatch, sales, membership, QA, daily brief, marketing).
+- `.claude/skills/` — Claude's business skills. Each explains one job:
+  sop-authoring, customer-comms, dispatch-triage, sales-support, membership,
+  qa-coaching, daily-ops-brief, marketing-outreach, estimate-builder
+  (build & push estimates to ServiceTitan), brand-facts (canonical facts +
+  known drift across all repos), repo-ops (cross-repo deploy/branch/env
+  rules), weekly-scorecard (weekly business review artifact).
 
 ## Hard rules (do not violate)
 
