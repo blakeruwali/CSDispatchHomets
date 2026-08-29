@@ -50,7 +50,12 @@ condemnation.
 
 ## Push paths to ServiceTitan
 
-Pick the one that matches where the estimate originates:
+**Read `references/servicetitan-api.md` before any push** — it has the
+verified op catalog and exact call shapes (estimate_create /
+add_items / replace_items / sell, plus the lookup ops), including the
+trap that `estimate_update` silently ignores line items.
+
+Pick the path that matches where the estimate originates:
 
 1. **Comfort-architect recommendations** — `integrated-home-hub`'s
    `architect-st-push-estimate` edge function: POST

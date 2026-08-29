@@ -5,6 +5,12 @@ description: How to work safely across the ten Homets business repos — which r
 
 # Repo ops — working across the Homets portfolio
 
+Start any cross-repo session with
+`bash .claude/skills/repo-ops/scripts/portfolio-status.sh [repos-root]`
+(default `/home/user`) — one table of every clone's branch, dirty files,
+unpushed commits, and last commit, so you know the lay of the land before
+touching anything.
+
 Ten repos, one business. The danger is that several **auto-deploy from
 their default branch with no staging** — a bad push to main IS a
 production incident. Branch first, validate with the repo's own gate,

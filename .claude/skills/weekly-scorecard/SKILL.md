@@ -19,6 +19,10 @@ win — ask once, then reuse.
 
 ## Pull real data (in this order of preference)
 
+Read `references/data-sources.md` first — it names the exact tables,
+functions, and projects each metric lives in (e.g. the ready-made
+`job_revenue_events` series) so you query instead of rediscovering.
+
 1. **ServiceTitan** (`homets-servicetitan` skill): completed-job revenue
    for the week, jobs by type and business unit, average ticket, open
    estimates (count, value, age buckets), sold estimates and close rate,
