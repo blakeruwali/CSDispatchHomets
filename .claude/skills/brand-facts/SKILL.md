@@ -70,13 +70,22 @@ All committed keys are anon-role/publishable by design; RLS is the wall.
    `content/pricing/tokens.md` + `content/reference/` in CSDispatchHomets.
    Any other repo showing a number gets checked against the tokens.
    Known live drift (found by the scan, unfixed as of 2026-08-29):
-   - homets-smart-service advertises membership at $49.99/mo vs the real
-     $19.99 Home+.
-   - hometsair.com's Home+ FAQ still describes the retired
-     "Comfort/Infinite" two-tier structure (S2 was resolved to a single
-     Home+ plan).
+   - homets-smart-service advertises membership at $49.99/mo vs the
+     tokens' $19.99 Home+.
+   - **The big one — S2 is live and revenue-wired**: the SOP's tokens
+     define a single Home+ plan at $19.99/mo, but hometsair.com's actual
+     funnel sells a THREE-tier Essential / Comfort / Infinite structure
+     (Comfort at $7.99/mo billed annually first year, Stripe join flows,
+     an Essential reduced-diagnostic benefit). Customers are being billed
+     on the site's structure. Neither source can be assumed correct —
+     only the owner resolves S2. Until then: internal SOP docs follow the
+     tokens; never "correct" the funnel to match the tokens (or vice
+     versa) without the owner's decision, and flag the conflict whenever
+     membership structure comes up.
    - Every longislandhvacrepair city page advertises a "$99 diagnostic
      waived with repair" — tokens say $199 standard, $99 promo-only.
+     Whether that's an intended standing offer for the LIR brand or drift
+     is the owner's call.
 2. **Customers, jobs, leads, scheduling** → ServiceTitan only. Repos with
    their own lead tables (phoenix `service_requests`) are shadow stores —
    flag, don't extend.

@@ -11,15 +11,23 @@ quoting.
 
 ## The plans (token names — verify values in tokens.md)
 
-- **Home+** (residential): `membership_home_plus_monthly` ($19.99/mo), 2
-  tune-ups/year, 15% repair discount, diagnostic waived for active members.
+- **Home+** (residential), per the SOP tokens: `membership_home_plus_monthly`
+  ($19.99/mo), 2 tune-ups/year, 15% repair discount, diagnostic waived for
+  active members.
+- ⚠️ **S2 is live**: hometsair.com's actual funnel sells a different,
+  three-tier Home+ (Essential / Comfort / Infinite, Comfort $7.99/mo
+  billed annually first year, Stripe-billed). Two revenue-bearing sources
+  disagree; only the owner resolves which structure is real. Internal SOP
+  work follows the tokens; anything customer-facing must not assert either
+  structure as settled — flag S2 instead. When talking to an existing
+  member, their actual plan in ServiceTitan/Stripe governs, whatever it's
+  called.
 - **Business+** (light commercial, priced **per qualifying rooftop unit**):
   Essential ($249.50 first year / $499 renewal, 2 visits, 10% discount),
   Premier ($499 first year / $998 renewal, 4 visits, 12% discount),
   Enterprise (written quote only — never improvise a price).
-- Historical trap: old sources claimed $299/yr, 10%, "no overtime charges",
-  or a Comfort/Infinite structure — all superseded. Nobody pays an
-  after-hours surcharge, member or not, so it is not a membership benefit.
+- Settled either way (C1): nobody pays an after-hours surcharge, member or
+  not — so "no overtime charges" is never a membership benefit.
 
 ## The moments that sell it
 
