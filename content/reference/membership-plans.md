@@ -25,7 +25,7 @@ One page, both plan families. If a customer asks what they get, the answer is he
 | **Price** | {{price:membership_home_plus_monthly}} |
 | **Included tune-ups** | {{price:membership_home_plus_tuneups}} — basic 26-point, {{price:membership_tuneup_retail}} retail value each |
 | **Each additional system** | {{price:membership_home_plus_extra_system}} |
-| **Premium 38-point tune-up** | Not included. Member upgrade {{price:membership_premium_tuneup_upgrade}}; retail {{price:membership_premium_tuneup}} |
+| **Premium 38-point tune-up** | Not included. Member upgrade {{price:membership_premium_tuneup_upgrade}} per system. No published retail price — {{price:membership_premium_tuneup}} |
 | **Repair discount** | {{price:membership_home_plus_repair_discount}} on eligible approved repairs |
 | **Diagnostic** | {{price:membership_diagnostic_posture}} |
 | **Scheduling** | Priority over non-members |
