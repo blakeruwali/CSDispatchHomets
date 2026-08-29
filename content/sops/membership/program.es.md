@@ -50,17 +50,19 @@ Esa es la lista. No le agregues nada.
 
 La membresía incluye el mantenimiento **básico de 26 puntos**. El **Premium de 38 puntos** es más profundo y **lo paga el cliente**.
 
-| Sistema | Básico (incluido) | Premium, precio normal | **Mejora para miembro** |
-|---|---|---|---|
-| Caldera / AC / bomba de calor | valor {{price:membership_tuneup_retail}} | $449 | **{{price:membership_premium_tuneup_upgrade}}** |
-| Boiler | valor $349 | $549 | **{{price:membership_premium_tuneup_upgrade}}** |
-| Mini-split | valor $279 | $399 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Sistema | Básico (incluido) | **Mejora para miembro** |
+|---|---|---|
+| Caldera / AC / bomba de calor | valor {{price:membership_tuneup_retail}} | **{{price:membership_premium_tuneup_upgrade}}** |
+| Boiler | valor $349 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Mini-split | valor $279 | **{{price:membership_premium_tuneup_upgrade}}** |
+
+**El mantenimiento Premium no tiene precio de venta publicado.** El precio depende del sistema, su edad y su condición — el técnico inspecciona en el sitio y entrega una cotización por escrito. Nunca des un precio de Premium por teléfono ni en la puerta, y nunca adivines uno ("como cuatrocientos y algo"). El único número de Premium que alguien da es la mejora para miembro: {{price:membership_premium_tuneup_upgrade}} por sistema.
 
 El Premium agrega: inspección del intercambiador de calor, prueba de monóxido de carbono, detección de fugas de gas, prueba eléctrica completa, limpieza de la línea de drenaje (AC) e informe de eficiencia.
 
 - Quiere el básico: **incluido**, sin cargo.
 - Quiere el Premium: **se le acredita el básico incluido** y paga la mejora de {{price:membership_premium_tuneup_upgrade}}.
-- No miembro: precio completo, sin crédito.
+- No miembro: el Premium se cotiza en el sitio tras la inspección — sin crédito y sin precio por teléfono.
 - El {{price:membership_home_plus_repair_discount}} es para **reparaciones y reemplazos** aprobados; no se resta de la mejora.
 
 **Cuándo recomendar Premium:** sistema de más de 10 años, o algo inusual en la inspección básica. Habla de seguridad (intercambiador y CO), no de precio.
