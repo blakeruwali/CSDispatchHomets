@@ -4,8 +4,8 @@ title: Membership Plans — Home+ and Business+
 department: ops
 owner: owner
 status: published
-version: 1
-last_reviewed: 2026-08-17
+version: 2
+last_reviewed: 2026-09-02
 review_cadence_days: 90
 tags: [membership, home-plus, business-plus, benefits, rtu, commercial, discount, tune-up]
 related: [sop.field.membership, sop.csm.membership-status, sop.csm.membership-pivot, script.sales.membership-enroll, pricing.tokens]

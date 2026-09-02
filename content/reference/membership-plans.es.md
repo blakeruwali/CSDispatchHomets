@@ -1,6 +1,6 @@
 ---
 translation_of: reference.membership-plans
-source_version: 1
+source_version: 2
 ---
 
 # Planes de Membresía

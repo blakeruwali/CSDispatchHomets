@@ -4,8 +4,8 @@ title: Home+ Membership — What It Costs and What It Covers
 department: ops
 owner: owner
 status: published
-version: 3
-last_reviewed: 2026-08-28
+version: 4
+last_reviewed: 2026-09-02
 review_cadence_days: 90
 tags: [membership, home-plus, tune-up, discount, diagnostic, enrollment, renewal, systems]
 related: [sop.membership.upgrades, reference.membership-plans, sop.field.membership, script.sales.membership-enroll, sop.csm.membership-status, pricing.tokens]
