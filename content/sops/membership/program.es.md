@@ -48,26 +48,39 @@ Esa es la lista. No le agregues nada.
 
 ## Mantenimiento básico vs. Premium {#tuneups}
 
-La membresía incluye el mantenimiento **básico de 26 puntos**. El **Premium de 38 puntos** es más profundo y **lo paga el cliente**.
+Comfort incluye el mantenimiento **básico de 26 puntos**. El **Premium de 38 puntos** es más profundo: el miembro Comfort paga la mejora de {{price:membership_premium_tuneup_upgrade}}; **el miembro Signature ya lo tiene incluido** en cada sistema cubierto.
 
-| Sistema | Básico (incluido) | **Mejora para miembro** |
-|---|---|---|
-| Caldera / AC / bomba de calor | valor {{price:membership_tuneup_retail}} | **{{price:membership_premium_tuneup_upgrade}}** |
-| Boiler | valor $349 | **{{price:membership_premium_tuneup_upgrade}}** |
-| Mini-split | valor $279 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Sistema | Básico (incluido en Comfort) | Precio Premium | **Mejora para miembro** |
+|---|---|---|---|
+| Caldera / AC / bomba de calor | valor $299 | $449 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Boiler | valor $349 | $549 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Mini-split | valor $279 | $399 | **{{price:membership_premium_tuneup_upgrade}}** |
 
-**El mantenimiento Premium no tiene precio de venta publicado.** El precio depende del sistema, su edad y su condición — el técnico inspecciona en el sitio y entrega una cotización por escrito. Nunca des un precio de Premium por teléfono ni en la puerta, y nunca adivines uno ("como cuatrocientos y algo"). El único número de Premium que alguien da es la mejora para miembro: {{price:membership_premium_tuneup_upgrade}} por sistema.
+Esos son los precios publicados en el sitio web y son los únicos precios Premium que alguien cotiza. **Confirma el tipo de sistema antes de dar un precio.** Cualquier sistema fuera de la tabla se cotiza en el sitio tras la inspección; nunca adivines ("como cuatrocientos y algo").
 
-El Premium agrega: inspección del intercambiador de calor, prueba de monóxido de carbono, detección de fugas de gas, prueba eléctrica completa, limpieza de la línea de drenaje (AC) e informe de eficiencia.
+El Premium agrega: inspección del intercambiador de calor, prueba de monóxido de carbono, detección de fugas de gas, prueba eléctrica completa, limpieza de la línea de drenaje (AC), análisis de combustión y flujo de aire, e informe de eficiencia.
 
-- Quiere el básico: **incluido**, sin cargo.
-- Quiere el Premium: **se le acredita el básico incluido** y paga la mejora de {{price:membership_premium_tuneup_upgrade}}.
-- No miembro: el Premium se cotiza en el sitio tras la inspección — sin crédito y sin precio por teléfono.
+- Miembro Comfort quiere el básico: **incluido**, sin cargo.
+- Miembro Comfort quiere el Premium: **se le acredita el básico incluido** y paga la mejora de {{price:membership_premium_tuneup_upgrade}}.
+- **Miembro Signature: el Premium ya está incluido.** Nunca le vendas la mejora.
+- No miembro: el Premium se cotiza al precio de la tabla según el sistema.
 - El {{price:membership_home_plus_repair_discount}} es para **reparaciones y reemplazos** aprobados; no se resta de la mejora.
 
 **Cuándo recomendar Premium:** sistema de más de 10 años, o algo inusual en la inspección básica. Habla de seguridad (intercambiador y CO), no de precio.
 
-**Ser miembro no hace gratis el Premium.** No lo insinúes en la puerta ni al teléfono.
+**Ser miembro Comfort no hace gratis el Premium.** No lo insinúes en la puerta ni al teléfono.
+
+## Home+ Signature — el nivel intermedio {#signature}
+
+| | |
+|---|---|
+| **Precio** | {{price:membership_signature_price}} |
+| **Sistemas cubiertos** | {{price:membership_signature_systems}} |
+| **Mantenimiento** | {{price:membership_signature_tuneup}} |
+| **Diagnóstico** | {{price:membership_signature_diagnostic}} |
+| **Incluye** | Todo lo de Comfort, más análisis de combustión y flujo de aire e informe escrito en cada visita |
+
+Signature es la opción cuando la casa tiene un **tercer sistema** o cuando el cliente pregunta por la mejora Premium en dos o más sistemas — ahí Signature cuesta menos que Comfort más las mejoras. Haz la cuenta con el cliente en voz alta.
 
 ## Home+ Infinite — el nivel superior {#infinite}
 
@@ -75,11 +88,18 @@ El Premium agrega: inspección del intercambiador de calor, prueba de monóxido 
 |---|---|
 | **Precio** | {{price:membership_infinite_price}} |
 | **Descuento** | {{price:membership_infinite_discount}} en todos los servicios |
-| **Crédito de servicio** | {{price:membership_infinite_credit}} para cualquier reparación, reemplazo o servicio |
+| **Crédito de servicio** | {{price:membership_infinite_credit}} para cualquier reparación, reemplazo o servicio — se acumula al siguiente año |
+| **Crédito de reemplazo** | {{price:membership_infinite_replacement_credit}} aplicado a un reemplazo de sistema |
 | **Diagnósticos** | Gratis siempre, con o sin reparación |
 | **Emergencias** | Prioridad, por encima de Comfort |
 
 Infinite incluye todo lo de Comfort. No se lo vendas a quien no vaya a usar el crédito — un crédito sin usar termina en cancelación. Cotiza Infinite cuando ya hay una reparación grande o un reemplazo este año.
+
+## Cómo citar el ahorro {#savings}
+
+El sitio anuncia **{{price:membership_comfort_savings}}** de ahorro en Comfort: $847+ de valor de venta (mantenimiento de calefacción $299, de AC $299, agenda prioritaria $50, exoneración del diagnóstico $199) contra un precio anual de $299. Usa esas cifras exactas.
+
+El sitio también corre una fecha límite: **{{price:membership_intro_deadline}}.** La tarifa del primer año se fija al inscribirse.
 
 
 
