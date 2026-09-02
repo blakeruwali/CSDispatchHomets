@@ -49,6 +49,7 @@ const App = () => (
           <Route path="/leads" element={gated(<Leads />)} />
           <Route path="/reviews" element={gated(<Reviews />)} />
           <Route path="/membership" element={gated(<Membership />)} />
+          <Route path="/insurance" element={gated(<Insurance />)} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
