@@ -262,6 +262,14 @@ const ScrollablePresentation: React.FC = () => {
               <BadgeCheck className="w-3.5 h-3.5" />
               Membership SOP
             </Link>
+            <Link
+              to="/insurance"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
+            >
+              <ShieldCheck className="w-3.5 h-3.5" />
+              Insurance SOP
+            </Link>
+
 
           </div>
 
