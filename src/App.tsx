@@ -18,6 +18,7 @@ import Projects from "./pages/Projects";
 import Leads from "./pages/Leads";
 import Reviews from "./pages/Reviews";
 import Membership from "./pages/Membership";
+import Insurance from "./pages/Insurance";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

@@ -142,6 +142,18 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | `bump_rebook_deadline` | Next business day, named window, on a live call | A displaced job never leaves the board without a date |
 
 
+## Insurance / home-warranty claims
+
+| Token | Value | Notes |
+|---|---|---|
+| `insurance_diagnostic_charged` | Charged in full at the visit | An insurance or home-warranty customer pays the diagnostic like anyone else. Nothing is deferred to the claim. |
+| `insurance_diagnostic_credit_rule` | Credited **only** when the repair is approved and performed on that same visit, or when the return trip is caused by us | A customer who defers the decision — one day or thirty — pays the diagnostic. The credit is for a same-visit sale, not for eventually buying. |
+| `insurance_estimate_fee` | Free | Written estimate for the claim. The estimate is free; the diagnosis that produced it is not. |
+| `insurance_estimate_delivery` | Same day, by end of business | Emailed **and** texted to the customer, adjuster copied when the customer asks for it |
+| `insurance_claim_followup` | Day 3, day 7, day 14 | Follow-up cadence on an open claim before it goes to nurture |
+| `insurance_claim_authority` | Manager only | Rewording, re-scoping, or re-dating an invoice to fit a carrier's request |
+
+
 ## Guarantees / SLAs
 
 | Token | Value | Applies to |

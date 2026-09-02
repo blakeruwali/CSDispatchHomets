@@ -607,3 +607,23 @@ export const MEMBERSHIP_SECTIONS: SectionDef[] = [
 export function membershipSections(): ContentSection[] {
   return sectionsForSurface("membership", MEMBERSHIP_SECTIONS);
 }
+
+// ------------------------------------------------------------ insurance sections
+
+/**
+ * Insurance and home-warranty claims: the visit, the fee rule, and what we
+ * will and will not put on an invoice for a carrier. Its own book because the
+ * money is approved by a third party, which changes the paperwork and nothing
+ * else — and because the fee rule here is the one people get wrong.
+ */
+export const INSURANCE_SECTIONS: SectionDef[] = [
+  {
+    id: "insurance-claims",
+    title: "Insurance & Home Warranty",
+    description: "The claim visit, the diagnostic fee rule, estimates, and invoicing a carrier will accept",
+  },
+];
+
+export function insuranceSections(): ContentSection[] {
+  return sectionsForSurface("insurance", INSURANCE_SECTIONS);
+}
