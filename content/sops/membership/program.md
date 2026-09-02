@@ -60,28 +60,44 @@ That is the list. Do not add to it.
 
 ## Basic tune-up vs. Premium tune-up {#tuneups}
 
-The membership includes the **basic 26-point** tune-up. The **Premium 38-point** tune-up is a deeper service and is **an upgrade the customer pays for**.
+The Comfort membership includes the **basic 26-point** tune-up. The **Premium 38-point** tune-up is a deeper service. Comfort members pay a {{price:membership_premium_tuneup_upgrade}} upgrade for it; **Signature members already have it** on every covered system.
 
-| System | Basic (included for members) | **Member upgrade price** |
-|---|---|---|
-| Furnace / AC / heat pump | {{price:membership_tuneup_retail}} value | **{{price:membership_premium_tuneup_upgrade}}** |
-| Boiler | $349 value | **{{price:membership_premium_tuneup_upgrade}}** |
-| Mini-split | $279 value | **{{price:membership_premium_tuneup_upgrade}}** |
+| System | Basic (included on Comfort) | Premium retail | **Member upgrade price** |
+|---|---|---|---|
+| Furnace / AC / heat pump | $299 value | $449 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Boiler | $349 value | $549 | **{{price:membership_premium_tuneup_upgrade}}** |
+| Mini-split | $279 value | $399 | **{{price:membership_premium_tuneup_upgrade}}** |
 
-**There is no published retail price for the Premium tune-up.** Premium pricing depends on the system, its age, and its condition — the technician inspects on site and gives the customer a written estimate. Never quote a Premium retail number on the phone or at the door, and never guess one ("four hundred something"). The only Premium number anyone quotes is the member upgrade: {{price:membership_premium_tuneup_upgrade}} per system.
+Those three rows are the numbers published on the website — they are the only Premium retail numbers anyone quotes. **Confirm the system type before quoting.** Any system not in the table is estimated on site after inspection; never guess ("four hundred something").
 
-What Premium adds over Basic: heat exchanger inspection, carbon monoxide testing, gas line leak detection, complete electrical testing, AC drain line flush, and a written efficiency report.
+What Premium adds over Basic: heat exchanger inspection, carbon monoxide testing, gas line leak detection, complete electrical testing, AC drain line flush, combustion and airflow analysis, and a written efficiency report.
 
 How it works:
 
-- Member wants the basic tune-up: **included**, no charge, nothing to sell.
-- Member wants Premium: the included basic tune-up is **credited toward it** and they pay the {{price:membership_premium_tuneup_upgrade}} upgrade. Say it that way — *"Your included tune-up goes toward it, so you're only covering the upgrade."*
-- Non-member: Premium is quoted on site after the inspection — no credit, no phone number.
+- Comfort member wants the basic tune-up: **included**, no charge, nothing to sell.
+- Comfort member wants Premium: the included basic tune-up is **credited toward it** and they pay the {{price:membership_premium_tuneup_upgrade}} upgrade. Say it that way — *"Your included tune-up goes toward it, so you're only covering the upgrade."*
+- **Signature member: Premium is already included on every covered system.** Never sell them the upgrade.
+- Non-member: Premium is quoted at retail for the system type above.
 - The {{price:membership_home_plus_repair_discount}} discount is for approved **repairs and replacements**. It does not come off the upgrade price.
 
 **When to recommend Premium:** the system is over 10 years old, or the basic inspection turned up anything unusual. The heat exchanger and CO checks are the honest reason — lead with safety, not with the price.
 
-**Being a member does not make the Premium tune-up free.** Do not imply otherwise at the door or on the phone.
+**Being a Comfort member does not make the Premium tune-up free.** Do not imply otherwise at the door or on the phone.
+
+## Home+ Signature — the middle tier {#signature}
+
+Signature is the plan for a **multi-system home** or a homeowner who wants the deep service on every visit.
+
+| | |
+|---|---|
+| **Price** | {{price:membership_signature_price}} |
+| **Systems covered** | {{price:membership_signature_systems}} |
+| **Tune-up** | {{price:membership_signature_tuneup}} |
+| **Diagnostic** | {{price:membership_signature_diagnostic}} |
+| **Repair pricing** | Member repair discount on every approved repair |
+| **Includes** | Everything in Comfort, plus combustion & airflow analysis and a written report every visit |
+
+Signature is the right pivot when a Comfort quote runs into a **third system** or when the customer is asking about the {{price:membership_premium_tuneup_upgrade}} Premium upgrade on two or more systems — at that point Signature costs less than Comfort plus upgrades. Do the math out loud with them.
 
 ## Home+ Infinite — the upper tier {#infinite}
 
@@ -91,11 +107,18 @@ Comfort is the plan most homes buy. **Infinite** is the tier for larger homes, o
 |---|---|
 | **Price** | {{price:membership_infinite_price}} |
 | **Discount** | {{price:membership_infinite_discount}} on all services |
-| **Service credit** | {{price:membership_infinite_credit}}, applied to any repair, replacement or service |
+| **Service credit** | {{price:membership_infinite_credit}}, applied to any repair, replacement or service — rolls over |
+| **Replacement credit** | {{price:membership_infinite_replacement_credit}}, applied to a system replacement |
 | **Diagnostics** | Free, always — with or without a repair |
 | **Emergency response** | Priority, ahead of Comfort |
 
 Infinite includes everything in Comfort. Do not sell Infinite to a customer whose annual spend will not use the credit — an unused credit is a cancellation and a bad review. Quote Infinite when the customer is already looking at a large repair or a replacement this year.
+
+## Quoting the savings {#savings}
+
+The website advertises **{{price:membership_comfort_savings}}** in Comfort savings: $847+ of retail value (furnace tune-up $299, AC tune-up $299, priority scheduling $50, diagnostic waiver $199) against a $299 annual price. Use those exact figures — a made-up savings number that does not match the site is a credibility problem.
+
+The site also runs a deadline: **{{price:membership_intro_deadline}}.** The first-year rate is locked in at enrollment. Say it as a real deadline, not as pressure theater, and never invent a new one after it passes.
 
 
 
