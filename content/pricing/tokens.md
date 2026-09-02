@@ -55,13 +55,20 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | `membership_home_plus_extra_system` | $99 per additional system, per year | Each system beyond the 2 included — charged in the first year and again at every renewal |
 | `membership_home_plus_tuneups`      | 2 per year | One **basic (26-point)** tune-up per covered system — cooling before summer, heating before winter |
 | `membership_home_plus_repair_discount` | 10% | Comfort — discount on the total invoice for an approved repair or replacement |
-| `membership_tuneup_retail`          | $299 | Retail value of one basic tune-up (furnace / AC / heat pump) — included for members |
-| `membership_premium_tuneup`         | **Quoted on site — no published retail price** | Premium 38-point tune-up retail varies by system and condition. Do NOT quote a retail number on the phone or at the door; the technician inspects and provides an estimate. Not included in any membership. |
-| `membership_premium_tuneup_upgrade` | $149 per system | Member upgrade price from the included basic tune-up to the Premium 38-point tune-up. This is the ONLY Premium number staff quote. |
+| `membership_tuneup_retail`          | $299 | Retail value of one basic 26-point tune-up (furnace / AC / heat pump). Boiler $349, mini-split $279 |
+| `membership_premium_tuneup`         | **Quoted on site — confirm system type first** | Published premium retail on the website: furnace / AC / heat pump $449, boiler $549, mini-split $399. Quote a retail number only after the system type is confirmed; anything outside those three system types is estimated on site. |
+| `membership_premium_tuneup_upgrade` | $149 per system | Member upgrade price from the included basic tune-up to the Premium 38-point tune-up |
+| `membership_signature_price`        | $59/mo ($599/year — saves $109 vs. monthly) | Home+ Signature — middle residential tier, covers up to 3 systems |
+| `membership_signature_systems`      | Up to 3 systems | Systems covered by one Signature membership |
+| `membership_signature_tuneup`       | Premium 38-point on every covered system | Signature includes the premium deep-service visit — no $149 upgrade to sell |
+| `membership_signature_diagnostic`   | No dispatch fee | Signature diagnostic posture |
 | `membership_infinite_price`         | $2,999/year ($250/mo billed annually) | Home+ Infinite — top residential tier |
 | `membership_infinite_discount`      | 15% | Infinite — discount on all services |
-| `membership_infinite_credit`        | $2,000/year | Infinite — service credit toward any repair, replacement or service |
+| `membership_infinite_credit`        | $2,000/year | Infinite — service credit toward any repair, replacement or service; rolls over |
+| `membership_infinite_replacement_credit` | $1,000/year | Infinite — replacement credit, applied to a system replacement |
 | `membership_diagnostic_posture`     | Waived | Diagnostic / service call fee for an active member |
+| `membership_comfort_savings`        | $548+ per year | Published Comfort savings vs. booking the same services separately ($847+ retail) |
+| `membership_intro_deadline`         | Introductory pricing ends October | Website banner — first-year Comfort rate is locked at enrollment |
 
 
 
