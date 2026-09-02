@@ -5,7 +5,7 @@ department: ops
 owner: owner
 status: published
 version: 2
-last_reviewed: 2026-08-02
+last_reviewed: 2026-09-02
 review_cadence_days: 30
 tags: [pricing, tokens, reference]
 surfaces: []   # definitions file — machine-read, values appear resolved inside other docs
@@ -140,6 +140,15 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | `long_job_block` | 2 windows minimum, 4 windows for a same-day install | Long jobs are blocked on the board before anything else is booked around them |
 | `bump_diagnostic_credit` | Diagnostic fee waived when **we** move the job | A customer bumped by us is rebooked with the diagnostic waived — the bump is our cost, not theirs |
 | `bump_rebook_deadline` | Next business day, named window, on a live call | A displaced job never leaves the board without a date |
+
+
+## Insurance / home-warranty claims
+
+| Token | Value | Notes |
+|---|---|---|
+| `insurance_estimate_fee` | Free | Written estimate for the claim. The estimate is free; the diagnosis that produced it is not. |
+| `insurance_estimate_delivery` | Same day, by end of business | Emailed **and** texted to the customer, adjuster copied when the customer asks for it |
+| `insurance_claim_authority` | Manager only | Rewording, re-scoping, or re-dating an invoice to fit a carrier's request |
 
 
 ## Guarantees / SLAs
