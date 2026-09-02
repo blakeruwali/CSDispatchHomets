@@ -4,8 +4,8 @@ title: Membership Plans — Home+ and Business+
 department: ops
 owner: owner
 status: published
-version: 1
-last_reviewed: 2026-08-17
+version: 2
+last_reviewed: 2026-09-02
 review_cadence_days: 90
 tags: [membership, home-plus, business-plus, benefits, rtu, commercial, discount, tune-up]
 related: [sop.field.membership, sop.csm.membership-status, sop.csm.membership-pivot, script.sales.membership-enroll, pricing.tokens]
@@ -25,13 +25,27 @@ One page, both plan families. If a customer asks what they get, the answer is he
 | **Price** | {{price:membership_home_plus_monthly}} |
 | **Included tune-ups** | {{price:membership_home_plus_tuneups}} — basic 26-point, {{price:membership_tuneup_retail}} retail value each |
 | **Each additional system** | {{price:membership_home_plus_extra_system}} |
-| **Premium 38-point tune-up** | Not included. Member upgrade {{price:membership_premium_tuneup_upgrade}} per system. No published retail price — {{price:membership_premium_tuneup}} |
+| **Premium 38-point tune-up** | Not included. Member upgrade {{price:membership_premium_tuneup_upgrade}} per system. Retail: $449 furnace/AC/heat pump, $549 boiler, $399 mini-split |
 | **Repair discount** | {{price:membership_home_plus_repair_discount}} on eligible approved repairs |
 | **Diagnostic** | {{price:membership_diagnostic_posture}} |
 | **Scheduling** | Priority over non-members |
+| **Advertised savings** | {{price:membership_comfort_savings}} vs. booking separately |
 | **Cancellation** | Anytime, no contract. Pro-rated refund if no services were used. |
 
 Home+ covers the residential systems we service at the address on the account. It transfers to the new owner if the home is sold; it does not follow the customer to a second property, and it is not offered to a tenant on a system they do not own — see `sop.csm.customer-profiles`.
+
+## Home+ Signature — residential middle tier {#signature}
+
+| | |
+|---|---|
+| **Price** | {{price:membership_signature_price}} |
+| **Systems covered** | {{price:membership_signature_systems}} |
+| **Tune-up** | {{price:membership_signature_tuneup}} |
+| **Diagnostic** | {{price:membership_signature_diagnostic}} |
+| **Includes** | Everything in Comfort, plus combustion & airflow analysis and a written report every visit |
+| **Repair pricing** | Member repair discount on approved repairs |
+
+Signature is the multi-system answer. Quote it instead of Comfort plus extra systems or Comfort plus Premium upgrades whenever the home has three systems or the customer wants the deep service every visit.
 
 ## Home+ Infinite — residential top tier {#infinite}
 
@@ -40,7 +54,8 @@ Home+ covers the residential systems we service at the address on the account. I
 | **Price** | {{price:membership_infinite_price}} |
 | **Includes** | Everything in Comfort |
 | **Discount** | {{price:membership_infinite_discount}} on all services |
-| **Service credit** | {{price:membership_infinite_credit}}, applied to any repair, replacement or service |
+| **Service credit** | {{price:membership_infinite_credit}}, applied to any repair, replacement or service — rolls over |
+| **Replacement credit** | {{price:membership_infinite_replacement_credit}} toward a system replacement |
 | **Diagnostic** | Free always, with or without a repair |
 | **Emergency response** | Priority ahead of Comfort |
 
