@@ -4,11 +4,11 @@ title: Workflow During the Day — Hour by Hour
 department: dispatch
 owner: dispatch-manager
 status: published
-version: 2
-last_reviewed: 2026-08-28
+version: 3
+last_reviewed: 2026-09-04
 review_cadence_days: 90
 tags: [dispatch, workflow, daily, routine, board, servicetitan, handoff]
-related: [sop.dispatch.hours, sop.dispatch.priorities, sop.field.start-time, sop.field.forms, sop.csm.coverage]
+related: [sop.dispatch.hours, sop.dispatch.priorities, sop.dispatch.job-duration, sop.dispatch.no-pause, sop.field.start-time, sop.field.forms, sop.csm.coverage]
 section: dispatch-board
 order: 2
 surfaces: [dispatch, checklist]
@@ -16,86 +16,115 @@ surfaces: [dispatch, checklist]
 
 # Workflow During the Day — Hour by Hour
 
-> The board is never "set." It is worked, all day, by one named person.
+> **The board is never "set." It is worked, all day, by one named person, from before the first truck moves to after the last job closes.**
 
-## Before the techs move — {{price:dispatch_hours}} opens {#pre-shift}
+## When this applies {#applies}
 
-1. **Read the Posh overnight log** and confirm every emergency was actually dispatched, not just recorded — `sop.csm.coverage`.
-2. **Confirm every technician acknowledged their first job — and the start hour they were given.** The night-before dispatch carries the real time ({{price:first_job_notice}}); at 7 AM you are confirming the tech read it, not sending it. No acknowledgement by {{price:tech_ack_deadline}} is a phone call.
-3. **Sanity-check the geography.** A first job in eastern Suffolk at 8 AM is a fix you make now, not at noon.
-4. **Confirm parts on hold have arrived** for any job scheduled today. A parts job dispatched without the part is a wasted slot and an angry customer.
-5. **Check the day's capacity against the emergency season.** We plan {{price:tech_daily_capacity}}. Under {{price:emergency_temp_cold}} or over {{price:emergency_temp_hot}}, hold a slot open. It will get used.
+Every day Dispatch runs, from pre-shift board review through end-of-day close-out. It is the spine the other dispatch SOPs hang off of — priority calls (`sop.dispatch.priorities`), duration and overrun decisions (`sop.dispatch.job-duration`), and the coverage window itself (`sop.dispatch.hours`) all happen at a specific point in the hour-by-hour shape below.
 
-## Morning — first windows {#morning}
+## The execution ladder {#execution}
 
-- **The tech is on site at the top of the window**, {{price:first_job_start_default}} for an 8–10. Leaving at {{price:tech_shift_start}} is the means, not the promise.
-- **Watch arrivals in real time.** The {{price:arrival_guarantee}} clock starts at the beginning of the booked window; a tech not on site at the top of the window is a call to the customer **now**, with a named arrival time — not "he's on his way." Full rule: `sop.dispatch.hours`.
-- **Confirm each tech has exactly the next job visible** and nothing further — `sop.dispatch.hours`.
-- **Take the CSM's same-day requests.** Approve or decline against `sop.dispatch.priorities`, and answer quickly — the CSM has a customer on the line. Overflow windows ({{price:service_windows_overflow}}) are yours to grant, never the CSM's to offer.
+**Pre-shift, before {{price:dispatch_hours}} opens**
 
-## Diagnostic fee posture — the ticket must be right before the tech knocks {#diagnostic-fees}
+1. Read the Posh overnight log and confirm every emergency was actually dispatched, not just recorded (`sop.csm.coverage`).
+2. Confirm every technician acknowledged their first job and start hour — the real time went out the night before ({{price:first_job_notice}}); at 7 AM you're confirming they read it. No acknowledgement by {{price:tech_ack_deadline}} is a phone call.
+3. Sanity-check the geography — a first job in eastern Suffolk at 8 AM is a fix you make now, not at noon.
+4. Confirm parts on hold have arrived for any job scheduled today. A parts job dispatched without the part is a wasted slot and an angry customer.
+5. Check the day's capacity against the emergency season — we plan {{price:tech_daily_capacity}}; under {{price:emergency_temp_cold}} or over {{price:emergency_temp_hot}}, hold a slot open. It will get used.
+6. Verify the diagnostic fee posture on every dispatched ticket before the tech goes en route (see the table below) — that mismatch belongs to Dispatch, not to the tech standing at the door.
 
-A wrong diagnostic fee is discovered at the door, in front of the customer, on a form two people are about to sign. That is a failure Dispatch can prevent the night before, not one the tech should absorb in the driveway. On every dispatched ticket, confirm the fee posture matches what the customer was told:
+**Morning — first windows**
 
-| Posture | Fee on the ticket | When it applies |
-|---|---|---|
-| Standard residential | {{price:diagnostic_residential}} | Default residential service call |
-| Promo / dollars-off | {{price:diagnostic_discounted}} | Only when the CSM quoted it at booking — whichever fee was quoted is the fee on the form |
-| Commercial | {{price:diagnostic_commercial}} | Commercial service call |
-| Active member | Waived | {{price:membership_diagnostic_posture}} — check membership status on the location, not the caller's word |
-| Bumped by us | Waived | We moved the job — {{price:bump_diagnostic_credit}} |
-| After hours | **Same as standard** | No emergency or after-hours surcharge, ever — quote the standard diagnostic at any hour |
-| Install / replacement estimate | Free | Never a diagnostic on an estimate visit |
+7. The tech is on site at the top of the window — {{price:first_job_start_default}} for an 8–10. Leaving at {{price:tech_shift_start}} is the means, not the promise.
+8. Watch arrivals in real time. The {{price:arrival_guarantee}} clock starts at the top of the booked window; a tech not on site by then is a call to the customer **now**, with a named arrival time — full rule in `sop.dispatch.hours`.
+9. Confirm each tech has exactly the next job visible and nothing further.
+10. Take the CSM's same-day requests — approve or decline against `sop.dispatch.priorities`, and answer fast; the CSM has a customer on the line. Overflow windows ({{price:service_windows_overflow}}) are yours to grant, never the CSM's to offer.
 
-**If the ticket's fee doesn't match what the customer was told, fix it before the tech is en route.** A tech who catches the mismatch calls Dispatch before knocking — that call only helps if someone answers it and corrects the form.
+**Midday — the re-plan**
 
-**What Dispatch should expect at close:** the diagnostic is credited in full the moment the customer approves the repair **or** the replacement on that visit — {{price:diagnostic_credit_on_sale}}. A unit found non-repairable still gets charged — {{price:diagnostic_on_non_repairable}} — with the fee credited if they buy the replacement. If a sold job closes with the diagnostic still on the invoice, that's a send-back, same day.
+11. Re-forecast every remaining job against actual finish times, not scheduled ones.
+12. Identify at-risk windows — the afternoon jobs that won't be met if nothing changes.
+13. Call those customers before their window opens, every time, with a specific time.
+14. Pick one outcome per at-risk job from the decision table in `sop.dispatch.job-duration` — keep, subcontract, split, rebook, or escalate.
+15. Move the flexible layer first — tune-ups and maintenance, never callbacks or members in distress.
+16. Check {{price:same_day_cutoff}} — after it, same-day bookings are Dispatch's call only.
 
-## Midday — the re-plan {#midday}
+**Afternoon — closing the loop**
 
-This is the hour the day is either saved or lost.
+17. Chase open jobs — {{price:job_check_in}} with no update is a check-in, not a wait.
+18. An emergency install landing late takes the slot; the displaced job gets subcontracted or rebooked to a named window, never dropped (`sop.dispatch.priorities`).
+19. Quality-gate every close — equipment attached, forms complete, photos present (`sop.field.forms`). A thin close goes back to the tech today.
+20. Route sold work same day — approved estimates to the install coordinator, declined estimates to the follow-up list, never to nowhere.
+21. Parts-hold jobs get a date, not a status.
 
-1. **Re-forecast every remaining job** against actual finish times, not scheduled ones.
-2. **Identify at-risk windows** — the afternoon jobs that will not be met if nothing changes.
-3. **Call those customers before their window opens.** Every time, with a specific time. A moved appointment we called about is a non-event; a missed window we did not call about is a review.
-4. **Pick one outcome per at-risk job** — keep it later today, subcontract, diagnose today and repair later, or rebook to a named window with {{price:bump_diagnostic_credit}}. The decision table is `sop.dispatch.job-duration`.
-5. **Move the flexible layer first** — tune-ups and maintenance, never callbacks or members in distress.
-6. **Check {{price:same_day_cutoff}}.** After it, same-day bookings are Dispatch's call only.
+**End of day**
 
+22. Run the closing checklist in `sop.dispatch.hours` — every job closed or explained, on-call confirmed, soft holds noted for Posh.
+23. Confirm zero paused jobs on the board — any found paused get closed and re-dispatched today, not carried over (`sop.dispatch.no-pause`).
+24. Tomorrow's first job goes to the technician by {{price:board_lock}} with its actual start hour.
 
-## Afternoon — closing the loop {#afternoon}
+## What you say {#verbatim}
 
-- **Chase open jobs.** {{price:job_check_in}} with no update is a check-in, not a wait.
-- **An emergency install landing late takes the slot.** Approved replacement with no heat or no cooling outranks a standard service call — subcontract the displaced job, or rebook it to a named window tomorrow on a live call. Order and escalation rules: `sop.dispatch.priorities`.
-- **Quality-gate every close.** Equipment attached to the location, forms complete, photos present — `sop.field.forms`. A job closed thin gets sent back to the technician who closed it, today, not next week.
-- **Route sold work same day.** Approved estimates go to the install coordinator; declined estimates go to the follow-up list, never to nowhere.
-- **Parts-hold jobs get a date**, not a status. "Waiting on the part" is not a plan the customer can hear.
+To a technician at 6:55 AM who hasn't acknowledged their first job:
 
-## End of day {#end-of-day}
+> "Just confirming you saw the board — you're 8 AM in Levittown, moving by 7:30."
 
-Run the closing checklist in `sop.dispatch.hours` — every job closed or explained, on-call confirmed, soft holds noted for Posh.
+To the CSM asking for a same-day overflow slot at 3:15 PM:
 
-**And the one that gets skipped:** tomorrow's first job goes to the technician by {{price:board_lock}} **with its actual start hour**. If tomorrow opens at 9 instead of 8, say 9. A tech guessing at the start time is an 8 AM window missed before the day begins.
+> "I can do a 6–8 if the tech's clear by then — let me check his afternoon and call you back in ten minutes, don't promise it yet."
 
-## The escalation triggers {#escalation}
+To a technician mid-afternoon, closing the loop on a quiet job:
 
-Do not sit on these. Raise to the dispatch manager immediately:
+> "You've been on that job 90 minutes with no update — give me a status, even if it's 'almost done.'"
 
-| Trigger | Why |
+To the incoming dispatcher at shift handoff:
+
+> "Board's clean, one soft hold in Wantagh for tomorrow, Rivera's on-call tonight, and the Baldwin boiler still needs its continuation appointment booked before end of day."
+
+## Worked example — a full day on the board {#example}
+
+| Time | What Dispatch does |
 |---|---|
-| An emergency with no available technician | Needs overtime or an on-call decision, now |
-| A second bump for the same customer | About to become a complaint |
-| A callback that cannot be covered today | Highest-cost failure we have |
-| A technician unreachable for {{price:tech_unreachable_window}} | Safety first, schedule second |
-| Repeated overruns on one job type | Pricing or training problem, not a dispatch one |
+| 6:45 AM | Posh log reviewed, overnight emergency confirmed dispatched |
+| 6:55 AM | Tech ack confirmed for the 8 AM Levittown job; ticket fee posture checked against what the CSM quoted |
+| 8:00 AM | Arrival clocked; guarantee clock live |
+| 9:40 AM | CSM calls with a same-day P7 request — declined for the 12–2 slot, offered tomorrow instead since the afternoon is already tight |
+| 11:15 AM | Midday re-plan: 12–2 job is now at risk because the 10–12 ran long; customer called with a 1:30 arrival before the window opens |
+| 2:20 PM | Emergency install call comes in — approved replacement, no cooling, 95°F outside; the 2–4 tune-up gets bumped to Thursday, diagnostic waived, logged on both tickets |
+| 4:45 PM | Job check-in on the emergency install — still on site, status "compressor set, finishing electrical" |
+| 5:50 PM | Closing checklist run: every job closed or explained, on-call confirmed for tonight, tomorrow's first job dispatched with real start hour |
 
-## What "worked all day" means {#discipline}
+Nothing on this list is exceptional — it's the ordinary shape of a day with one truck and four windows that keep moving under real conditions.
 
-One named dispatcher owns the board at any moment, and a handoff between dispatchers is spoken, not assumed. If the board is everyone's job during a busy afternoon, it is nobody's, and the jobs that fall through are always the quiet ones — the parts-hold, the tune-up moved to "we'll call you," the estimate that never reached the coordinator.
+## When it goes wrong {#failures}
+
+**A tech goes unreachable mid-afternoon.** Escalate to the dispatch manager immediately once past {{price:tech_unreachable_window}} — safety first, schedule second; do not keep calling the customer with guesses while the tech is unaccounted for.
+
+**Two customers are at risk in the same 30-minute window and only one call gets made.** Call both — a rushed 90-second call beats a silent no-show every time; if truly out of time, call the earlier window first since it fails sooner.
+
+**A job closes with equipment missing or forms incomplete.** Send it back to the technician who closed it the same day. Do not let it sit until the next morning — the customer and the invoice both need it right now.
+
+**The board shows a paused job.** Convert it same day: close what was done, book the continuation, dispatch it like any other appointment (`sop.dispatch.no-pause`). It never carries over as "paused."
+
+### Hard rules
+
+- Never let the board sit unattended during {{price:dispatch_hours}}.
+- Never promise a same-day slot the tech doesn't actually have.
+- Never let a paused job survive to the next shift.
+- Never hand off the board without naming the next dispatcher out loud.
+
+## QA scoring {#qa}
+
+| Score | Standard |
+|---|---|
+| **2** | Pre-shift checks complete, every at-risk window called ahead, every close quality-gated, zero paused jobs, tomorrow dispatched by {{price:board_lock}} |
+| **1** | One step missed but caught and corrected same day with no customer left uninformed |
+| **0** | A missed window with no call, a paused job left overnight, or tomorrow's board not dispatched on time |
 
 ## Related
 
 - Hours and start-time rules: `sop.dispatch.hours`
 - What moves first: `sop.dispatch.priorities`
 - Duration classes, overruns and bumped jobs: `sop.dispatch.job-duration`
+- Why we never pause a job: `sop.dispatch.no-pause`
 - The technician's close standard: `sop.field.forms`
