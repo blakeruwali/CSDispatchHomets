@@ -1,69 +1,77 @@
 ---
 translation_of: sop.field.start-time
-source_version: 1
+source_version: 2
 ---
 
-# Hora de Inicio — En el Domicilio al Abrir la Ventana
+# Hora de Inicio — En el Domicilio al Inicio de la Ventana
 
-> **Tu hora de inicio es cuando abre la ventana de llegada del cliente, contigo parado en su puerta — no la hora a la que sales de tu casa.**
+> **Tu hora de inicio es el inicio de la ventana de llegada del cliente, parado en su puerta — no la hora en que sales de la casa.**
 
-## La versión de 60 segundos {#field-card}
+## Cuándo aplica {#applies}
 
-1. **Camioneta cargada y con combustible la noche anterior.**
-2. **Primer trabajo confirmado la noche anterior**, cuando Despacho lo envía.
-3. **En marcha a las {{price:tech_shift_start}}.**
-4. **En el domicilio al abrir la ventana** — a las 8 para una ventana de 8 a 10, no a las 9:55.
-5. **Actualiza el estatus del trabajo en ServiceTitan conforme avanzas**: despachado → en camino → en sitio.
+Cada trabajo, cada día, cada ventana — 8–10, 10–12, 12–2, 2–4. Aplica más en el primer trabajo del día, porque esa llegada determina si el resto del tablero se sostiene, pero aplica igual a tu segunda, tercera y cuarta parada.
 
-## Por qué al abrir la ventana y no al final {#top-of-window}
+## La escalera de ejecución {#execution}
 
-Una ventana de 8 a 10 no es permiso para llegar a las 9:59. Son dos horas de margen para el tráfico, para que el trabajo anterior se alargue y para una vuelta al proveedor — y ese margen es a favor del cliente, no nuestro.
+1. **La noche anterior:** camión cargado y con gasolina, primer trabajo confirmado cuando Despacho lo envía, cualquier cosa faltante señalada a Despacho esa noche, no a las 7:45 AM.
+2. **En movimiento a las {{price:tech_shift_start}}.**
+3. **Actualiza el estatus del trabajo en ServiceTitan según va ocurriendo realmente** — confirmado, en camino, en el domicilio — en tiempo real, no en lote después.
+4. **En el domicilio al inicio de la ventana.** Una ventana de 8–10 significa 8, no 9:55.
+5. **Si sabes que vas a perder el inicio de la ventana, llama a Despacho en el momento en que lo sepas** — no cuando la ventana esté cerrando.
+6. **Si un trabajo se está alargando, avísalo cuando pases {{price:overrun_threshold}} sobre el estimado**, incluso si el progreso es bueno, para que Despacho pueda mover el resto del tablero alrededor de ti.
 
-**Tres cosas dependen de esto:**
+## Qué dices {#verbatim}
 
-**La garantía de llegada corre desde que abre la ventana.** {{price:arrival_guarantee}} — el reloj empieza cuando abre la ventana, no cuando tú sales (`reference.guarantees`). Cada minuto que pasas sin llegar es un minuto quemado de esa garantía.
+Si llegas temprano o exactamente a tiempo:
 
-**Llegar tarde te cuesta el día, no solo la llamada.** Llegar a las 9:50 a una ventana de 8 a 10 pone en riesgo tu segundo trabajo, y el tercero se vuelve problema de Despacho — lo que significa que al cliente de alguien más lo mueven por culpa de tu mañana.
+> "Justo a tiempo — sé que ha estado esperando desde que abrió la ventana."
 
-**El cliente pidió permiso en el trabajo.** Lleva esperando desde las 8. Llegar a las 9:55 es técnicamente puntual y se siente como desprecio, y es lo más común en una reseña de dos estrellas que por lo demás elogia la reparación.
+Si vas a llegar tarde y Despacho ya llamó al cliente:
 
-## Actualiza el estatus con honestidad {#statusing}
+> "Disculpe la espera — quiero darle un número real, no otro 'ya voy en camino'. Estaré ahí a las [hora específica]."
 
-El tablero vale lo que valen los estatus que tiene. Despacho toma decisiones reales con tu estatus cada hora.
+Nunca le digas a un cliente:
 
-| Estatus | Significa |
+> "Había mucho tráfico" como toda la explicación, sin una hora nueva y específica junto con eso.
+
+## Ejemplo trabajado {#example}
+
+**Débil:** Ventana de 8–10. El técnico sale del taller a las 8:15 porque el camión no se cargó la noche anterior, se topa con tráfico, llega a las 9:58. Técnicamente dentro de la ventana, pero el cliente ha estado esperando desde las 8, perdió parte de su mañana, y deja una reseña de dos estrellas que elogia la reparación pero señala "llegó hasta el último minuto, sin avisar."
+
+**Perfecto:** Camión cargado y con gasolina la noche anterior, primer trabajo confirmado, técnico en movimiento a las {{price:tech_shift_start}}, en el domicilio a las 7:58 para la ventana de 8–10. El reloj de la garantía de llegada nunca se acerca a agotarse, y el día del cliente se libera dos horas antes de lo que habría sido.
+
+| | Débil | Perfecto |
+|---|---|---|
+| Preparación | Camión cargado la mañana del trabajo | Cargado y con gasolina la noche anterior |
+| Llegada | 9:58 para una ventana de 8–10 | 7:58 para una ventana de 8–10 |
+| Día del cliente | Dos horas perdidas esperando | Liberado de inmediato |
+| Exposición de la garantía | Casi agotada | Intacta |
+
+## Cuando algo sale mal {#failures}
+
+- **Te das cuenta a medio camino de que vas a llegar tarde.** Llama a Despacho de inmediato con un ETA real — el que de verdad crees, no una suposición optimista. No llames tú al cliente con una promesa; Despacho puede necesitar mover el trabajo por completo.
+- **Un trabajo anterior se alarga y amenaza la siguiente ventana.** Avísalo al pasar {{price:overrun_threshold}} sobre el estimado, incluso si vas avanzando bien. El silencio es la falla, no el sobretiempo en sí.
+- **Descubres en la puerta del cliente que al camión le falta una pieza.** Eso se debió detectar la noche anterior durante la carga del camión. Señálalo a Despacho ahora en vez de empezar un trabajo que no puedes terminar.
+- **Estás inlocalizable por {{price:tech_unreachable_window}}.** Esto escala automáticamente al gerente de despacho — no dejes que tu teléfono se apague a media ruta.
+
+### Reglas duras
+
+- Nunca marques "en camino" en ServiceTitan antes de haber salido realmente hacia esa dirección.
+- Nunca improvises una nueva hora de llegada directamente al cliente — esa es decisión y comunicación de Despacho.
+- Nunca dejes que un trabajo pase su estimado sin notificar a Despacho, sin importar cuánta confianza tengas.
+- Nunca trates "técnicamente dentro de la ventana" como lo mismo que "al inicio de la ventana."
+
+## Calificación de QA {#qa}
+
+| Puntaje | Estándar |
 |---|---|
-| Confirmado | Viste el trabajo y vas para allá |
-| En camino | Las llantas van rodando hacia *esta* dirección |
-| En sitio | Estás en la propiedad |
-| Trabajando | Diagnóstico o reparación en curso |
-| Completado | Trabajo hecho, equipo registrado, formularios llenos — `sop.field.forms` |
-
-Poner "en camino" mientras sigues desayunando no es un atajo, son datos falsos — Despacho agenda una llamada del mismo día contra una camioneta que no se ha movido, y el cliente al otro lado de esa decisión lo paga.
-
-## Cuando vas a llegar tarde {#late}
-
-Pasa. Lo que no es aceptable es el silencio.
-
-1. **Llama a Despacho en cuanto lo sepas** — no cuando ya cerró la ventana.
-2. **Da una hora estimada real**, la que de verdad crees.
-3. **Despacho llama al cliente.** No hagas promesas por tu cuenta al siguiente cliente; puede que Despacho esté moviendo el trabajo completo.
-4. **Un trabajo que se pasa por {{price:overrun_threshold}} es una llamada**, aunque vayas avanzando bien. El tablero tiene que reacomodarse alrededor de ti (`sop.dispatch.hours`).
-
-## La noche anterior es parte de la hora de inicio {#night-before}
-
-La mañana se gana la tarde anterior:
-
-- ☐ Camioneta surtida para los tipos de trabajo de mañana
-- ☐ Tanque con combustible
-- ☐ Primer trabajo confirmado, dirección leída, síntoma leído
-- ☐ Lo que ya sepas que te falta, avisado a Despacho **esta noche**
-
-Descubrir a las 7:45 de la mañana que la pieza no está en la camioneta es una llegada a las 9:30.
+| 2 | En el domicilio al inicio o antes de cada ventana del día; estatus actualizados en tiempo real; cualquier retraso avisado proactivamente con un ETA real |
+| 1 | En el domicilio dentro de la ventana pero lo bastante tarde para notarse, o una actualización de estatus retrasada sin impacto al cliente |
+| 0 | Llegada al final de la ventana sin aviso previo, o un estatus falsificado ("en camino" sin estar en movimiento) |
 
 ## Relacionado
 
 - Cómo Despacho organiza tu día alrededor de esto: `sop.dispatch.hours`
 - Cerrar un trabajo correctamente: `sop.field.forms`
-- El equipo antes del trabajo: `sop.field.equipment-capture`
-- La garantía de llegada: `reference.guarantees`
+- Equipo antes del trabajo: `sop.field.equipment-capture`
+- La garantía de llegada en sí: `reference.guarantees`
