@@ -4,8 +4,8 @@ title: Adding Equipment & Completing Forms Before You Close
 department: field
 owner: service-manager
 status: published
-version: 2
-last_reviewed: 2026-08-27
+version: 3
+last_reviewed: 2026-09-04
 review_cadence_days: 90
 tags: [forms, equipment, servicetitan, documentation, close, technician, photos, checklist]
 related: [sop.field.equipment-capture, sop.field.start-time, sop.dispatch.daily-workflow, sop.field.diagnostics, governance.acknowledgement]
@@ -19,110 +19,64 @@ acknowledgement: required
 
 > **A job is not finished when the repair works. It is finished when the equipment is attached and the forms are in.**
 
-## The 60-second version {#field-card}
+## When this applies {#applies}
 
-Before you press Complete:
+Every job, every job type, before you press Complete in ServiceTitan — diagnostic, repair, tune-up, install, estimate, callback, warranty visit. There is no close where forms and equipment are optional, and there is no "I'll add it later" that counts.
 
-1. **Check the diagnostic fee on the form matches what the customer was quoted** — {{price:diagnostic_residential}}, {{price:diagnostic_discounted}}, or {{price:diagnostic_commercial}}.
-2. **Equipment scanned and attached to the location** — every system, plate scanned on the tablet plus a data-plate photo (`sop.field.equipment-capture`).
-3. **The job's form filled in** — readings, findings, what you did.
-4. **Photos** — before, after, and anything you are flagging.
-5. **If they bought the repair or the replacement, the diagnostic comes off the invoice.**
-6. **Customer signature** captured on the device.
-7. **Recommendations recorded**, even the declined ones.
+## The execution ladder {#execution}
 
-**Two to three minutes.** Every one of them is cheaper than the phone call you get in three months about a job nobody can reconstruct.
+1. **Check the diagnostic fee on the form against what the customer was quoted** — {{price:diagnostic_residential}}, {{price:diagnostic_discounted}}, or {{price:diagnostic_commercial}}, adjusted for membership status (`sop.field.membership`). Do this before anyone signs anything.
+2. **Confirm equipment is scanned and attached to the location** for every system at the address, not just the one you came for (`sop.field.equipment-capture`).
+3. **Fill in the job's form completely** — readings as numbers, findings, what you did, part numbers and warranty status.
+4. **Take photos** — before, after, the data plate, and anything you are flagging.
+5. **Remove the diagnostic line if the repair or replacement was approved on this visit.**
+6. **Record every recommendation, including declined ones**, with the price given and the customer's stated reason.
+7. **Get the customer's signature on the device.**
+8. **Only then press Complete.**
 
-## Get the diagnostic fee right before anyone signs {#fee-accuracy}
+Two to three minutes, every time. Every minute of it is cheaper than the phone call in three months about a job nobody can reconstruct.
 
-> **The fee on the form must be the fee the customer was told on the phone. Check it before you knock, not after they sign.**
-
-The fee is not always the same number:
-
-| Situation | Fee on the form |
-|---|---|
-| Standard residential repair call | {{price:diagnostic_residential}} |
-| Dollars-off / promo call — CSM quoted the discount | {{price:diagnostic_discounted}} |
-| Commercial | {{price:diagnostic_commercial}} |
-| Active member | {{price:membership_diagnostic_posture}} — confirm status first (`sop.field.membership`) |
-| We bumped this customer off an earlier day | Waived — {{price:bump_diagnostic_credit}} |
-
-**Where to check:** the fee posture field on the ticket, set by the CSM at booking (`sop.csm.ticket-standards`). Read it in the truck before you walk up.
-
-**If the form's fee does not match the ticket, call Dispatch and get it corrected before you present anything.** A signed form with the wrong number is the worst version of this problem — the customer signed one price and sees another, and now a good visit turns into a billing dispute we lose. Nobody signs a form you have not checked.
-
-**Never change the quoted fee yourself.** You do not discount it and you do not raise it. If the customer says they were told a different number than the ticket shows, believe them, honor the number they were told, and note it — then Dispatch or the CSM sorts out the record.
-
-## Equipment goes on the location, not in the notes {#equipment}
-
-This is the mistake that costs the most. Notes are invisible on the next visit — they do not attach to the location, do not drive maintenance, and do not appear when the CSM books the next call.
-
-**Every system at the address gets a record**, not just the one that broke: furnace *and* condenser, the second zone nobody mentioned, water heater, mini-split heads *and* the outdoor unit, every RTU on a commercial roof. Full field-by-field standard: `sop.field.equipment-capture`.
-
-**Every job type, no exceptions** — diagnostic, tune-up, repair, estimate, install, callback, warranty visit. There is no visit where equipment capture is optional. The tune-up you do today is the warranty claim, the annual maintenance reminder, and the replacement quote next year, and all three fail if the model and serial are not on file.
-
-## When the diagnostic gets credited {#credit}
-
-We tell every customer: **approve the work today and the diagnostic comes off.** That promise is only kept if you take it off the invoice.
-
-- Repair approved on this visit → remove the diagnostic line before the customer signs.
-- Replacement approved on this visit → same, the diagnostic is credited onto the replacement.
-- Customer declines everything → the diagnostic stands, in full, as quoted.
-
-The credit happens on the invoice at the door, not "on the next one" — {{price:diagnostic_credit_on_sale}}. A customer who is billed a fee we said we would waive will call, and they will be right.
-
-## Old systems and the non-repairable finding {#non-repairable}
-
-Fifteen- and twenty-year-old equipment often is not worth repairing, and sometimes cannot be repaired at all. That does **not** make the visit free.
-
-1. **Diagnose it properly anyway.** Readings, findings, and the reason it is non-repairable, on the form. "It's old" is not a diagnosis.
-2. **The diagnostic is charged** — {{price:diagnostic_on_non_repairable}}. You spent 45–60 minutes establishing the answer, and the answer is what the customer paid for.
-3. **The replacement estimate is free** ({{price:estimate_install}}) and is presented on the same visit — good / better / best (`sop.sales.good-better-best`).
-4. **If they approve the replacement, the diagnostic is credited to it** — the same promise as any repair.
-5. **Photograph the evidence**: the data plate showing age, the failed component, the rust or the cracked heat exchanger. This is what makes the replacement conversation believable.
-
-Say it plainly at the door, before you start:
+## What you say {#verbatim}
 
 > "There's a diagnostic to find out exactly what's wrong. If it's repairable I'll price the repair, and if it isn't I'll show you why and price the replacement — either way, if you move forward today the diagnostic comes off."
 
-That sentence is what stops the "you charged me just to tell me it's dead" call.
+> "I want to get your signature here just confirming what we did today and what we found — takes ten seconds."
 
+> "I'm noting that you're holding off on the coil replacement for now — that stays on file so whoever comes out next isn't starting from zero."
 
-## The form is the diagnosis, in writing {#forms}
+## Worked example {#example}
 
-Which form depends on the job type, and Dispatch attaches it when they dispatch. If a job arrives without the right form on it, that is a call to Dispatch — not a reason to skip it.
+**Weak:** Tech replaces a capacitor, tells the customer the blower motor is "getting tired," customer says maybe later, tech closes the job with no note on it. Four months later the blower fails on an emergency no-cool call. The new tech has no idea it was flagged, re-diagnoses from scratch, and the customer says "didn't you guys already look at that?"
 
-| Job type | Form must contain |
+**Perfect:** Same repair, but the form records: "Blower motor bearing noise audible at startup, amp draw within spec but trending high. Recommended replacement at {{price:estimate_install}}-scoped estimate; customer declined, citing budget, wants to revisit in spring." Four months later the same call comes in — the tech arrives with the part already suspected and the customer says "yeah, you guys did tell me this might happen."
+
+| | Weak | Perfect |
+|---|---|---|
+| Declined recommendation | Not recorded | Recorded with price and reason |
+| Diagnostic fee on form | Not checked against quote | Verified before signature |
+| Next visit | Starts from zero | Starts from history |
+
+## When it goes wrong {#failures}
+
+- **The form's fee doesn't match the ticket.** Call Dispatch and get it corrected before you present anything. Never change the quoted fee yourself, in either direction — if the customer says they were told something different, believe them, honor it, and note the discrepancy for Dispatch to reconcile.
+- **A non-repairable unit's diagnostic gets skipped or waived on your own judgment.** It is charged — {{price:diagnostic_on_non_repairable}} — because you spent real time establishing the answer. The replacement estimate itself is free ({{price:estimate_install}}), and the diagnostic is credited only if they buy the replacement.
+- **Job runs long and the form gets "finished later."** It won't be — capture rate after the fact is close to zero. If you are genuinely out of time, flag the gap to Dispatch before you close rather than closing incomplete and silent.
+- **Dispatch flags a closed job with a blank form or missing equipment.** Acknowledge same day and complete or explain the gap; a written exception (no access, plate illegible, customer refused) is acceptable, a silent one is not.
+
+### Hard rules
+
+- Never let a customer sign a form with a fee you have not verified against the ticket.
+- Never discount or raise a quoted diagnostic fee on your own authority.
+- Never record equipment or findings only in free-text notes instead of the structured fields.
+- Never close a job without recording a declined recommendation as a declined recommendation.
+
+## QA scoring {#qa}
+
+| Score | Standard |
 |---|---|
-| Diagnostic | Symptom as found, readings taken, root cause, options presented |
-| Repair | Part replaced, readings before and after, warranty status of the part |
-| Maintenance / tune-up | Full checklist, every reading, filter size and condition |
-| Install | Commissioning readings, startup checklist, registration submitted |
-| Callback | What the prior visit did, what was actually wrong, why it recurred |
-
-**Readings are numbers, not adjectives.** "Charge looked good" is not a reading. Subcool and superheat, static pressure, temperature split, amp draw, combustion numbers — whatever the form asks for, with the value. Six months from now the number is evidence and the adjective is nothing.
-
-## Photos {#photos}
-
-- **Before** — what you found, in place.
-- **After** — what you left.
-- **The data plate** — for every unit.
-- **Anything you are flagging** — rust, scorching, a cracked pan, an unsafe install someone else did.
-
-The photo of a pre-existing problem is the end of the argument when a customer says it was not like that before you arrived. It protects you at least as much as the company.
-
-## Record what they declined {#declined}
-
-The recommendation the customer said no to is the most valuable line in the file. It is the follow-up call, the next estimate, and the reason the CSM does not sound blindsided when the same system fails in November.
-
-Write **what you recommended, the price given, and their reason for declining.** "Customer declined" alone tells the next person nothing.
-
-## Why the close gate exists {#enforcement}
-
-- **Dispatch quality-gates every close.** Work performed with no equipment attached, or a blank form, gets flagged to the technician who closed it — same day, and they must acknowledge it and complete or explain the gap (`sop.dispatch.equipment`).
-- **It is reviewed in the weekly one-to-one**, next to callback rate. The two are related and the connection is the point.
-- **A genuine exception is fine when it is written down.** No access, customer refused the attic, plate illegible — say so. An explained gap is a record. A silent gap is a defect.
-- **This page is signed for** (`governance.acknowledgement`).
+| 2 | Fee verified, equipment attached, form complete with numeric readings, photos taken, declined items recorded, signature captured |
+| 1 | Form and signature present but one element thin — vague readings, missing photo, or an unrecorded decline |
+| 0 | Form blank or missing, equipment not attached, or a fee discrepancy signed without correction |
 
 ## Related
 

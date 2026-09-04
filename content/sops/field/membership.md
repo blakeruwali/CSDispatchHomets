@@ -4,8 +4,8 @@ title: Membership at the Door — Check It Before You Knock
 department: field
 owner: service-manager
 status: published
-version: 1
-last_reviewed: 2026-08-17
+version: 2
+last_reviewed: 2026-09-04
 review_cadence_days: 90
 tags: [membership, home-plus, business-plus, technician, field, servicetitan, discount, enrollment]
 related: [reference.membership-plans, script.sales.membership-enroll, sop.csm.membership-status, sop.csm.membership-pivot, sop.field.diagnostics, sop.field.equipment-capture, pricing.tokens]
@@ -17,65 +17,71 @@ acknowledgement: required
 
 # Membership at the Door
 
-> **Every visit starts with a membership check. The customer hears their status out loud, the benefit lands on the invoice as a line item, and a non-member leaves the visit with two numbers in front of them.**
+> **Every visit starts with a membership check before you knock, and the visit itself looks different depending on the answer.**
 
-## The 90-second version {#field-card}
+## When this applies {#applies}
 
-1. **Open the job in ServiceTitan before you knock.** Membership status is on the customer record. Ten seconds.
-2. **Say the status out loud at the door.** "I see you're on Home+ — thank you." Or, for a non-member, nothing yet; you earn that conversation with the diagnosis.
-3. **Apply the benefit on the estimate, not in conversation.** Waived diagnostic and repair discount as visible lines.
-4. **Lapsed?** Offer reinstatement at the same rate *before* you present the price, never after.
-5. **Non-member?** Present the repair with two numbers — today's price, and the member price plus the plan. `script.sales.membership-enroll`.
-6. **Commercial?** Business+ is priced per rooftop unit. Confirm nameplate and access, count the units, point at the right tier.
-7. **If they say yes, enroll it in ServiceTitan on today's invoice** and book the first included visit before you leave the driveway.
+Every residential and commercial visit, before you get out of the truck. It applies whether the job is a diagnostic, a repair, a tune-up, or an estimate — membership status changes the fee posture, the discount, and what gets offered, on every one of those job types.
 
-## Why this keeps landing on you {#why}
+## The execution ladder {#execution}
 
-The office checks status at booking, but the office is not the person holding the estimate. By the time you are at the kitchen table the customer has forgotten what they were told on the phone, and every benefit they do not see applied is a benefit they do not believe they have.
+1. **Open the job in ServiceTitan before you knock.** Membership status lives on the customer record — ten seconds.
+2. **If active, say the status out loud at the door and thank them.** Do not wait until the invoice to acknowledge it.
+3. **If lapsed, offer reinstatement at the current rate before you present any repair price** — the order matters, it changes the whole conversation.
+4. **If non-member, say nothing about it yet.** Diagnose first, earn the conversation with proof of the problem.
+5. **Apply every benefit as a visible line item on the estimate** — waived diagnostic, repair discount — never as a verbal-only adjustment.
+6. **For a non-member repair, present two numbers**: today's price, and the member price plus the plan, using `script.sales.membership-enroll`.
+7. **For commercial, count rooftop units and photograph nameplates before quoting anything** — Business+ prices per unit.
+8. **If they enroll, put it in ServiceTitan on today's invoice and book the first included visit before you leave the driveway.** Verbal enrollment that isn't in the system did not happen.
 
-Two failures cost us real money, both of them in the field:
+## What you say {#verbatim}
 
-- **Quoting a member full price and walking it back.** The customer now knows the price was negotiable. Everything after that is a negotiation.
-- **Finishing a $900 repair for a non-member without showing the member number.** That was the single best moment of the year to enroll them, and it is gone. They will not be as motivated on a maintenance call in April.
+To an active member, at the door:
 
-## Three states, three behaviours {#states}
+> "I see you're on Home+ — thank you for that, it's why there's no charge for me being here today."
 
-| Status | What you do |
+To a lapsed member, before presenting a repair price:
+
+> "Looks like your membership lapsed — we can get you back on it at the same rate before I price this out, and it'll change the number you're about to see."
+
+To a non-member after diagnosing:
+
+> "Here's what it costs today as a one-time repair, and here's what it costs as a member — the plan pays for itself on this one job alone."
+
+## Worked example {#example}
+
+**Weak:** Tech doesn't check status, quotes a member the full non-member repair price at the table, then has to "walk it back" when the customer mentions their plan. The customer now assumes every price here is negotiable.
+
+**Perfect:** Tech checks the record in the truck, opens with "I see you're on Home+, thank you," diagnoses the issue, and presents the repair with the 10% Comfort discount already applied as a line item next to the pre-discount number. Customer sees exactly what the plan saved them and schedules their unused seasonal tune-up before the tech leaves.
+
+| | Weak | Perfect |
+|---|---|---|
+| Status checked | Not checked | Checked before knocking |
+| Discount visibility | Verbal correction after complaint | Line item on the estimate |
+| Included tune-up | Never mentioned | Scheduled on the spot |
+| Trust in pricing | Damaged | Reinforced |
+
+## When it goes wrong {#failures}
+
+- **ServiceTitan status looks ambiguous or wrong.** Call the office. Do not apply a discount on a hunch and do not deny one on a hunch either — a wrong guess in either direction costs trust or costs money.
+- **You finish a large non-member repair and forget to pitch membership.** That was the best moment of the year to enroll them; they will not be nearly as motivated cold on a maintenance call. Build the two-number presentation into every non-member estimate so it never depends on remembering.
+- **A tenant, not the owner, is standing at the door.** Confirm the customer profile before pitching anything — a tenant cannot enroll a system they don't own (`sop.csm.customer-profiles`).
+- **Commercial site turns out to be a fleet or multi-location account.** Do not quote a tier. Capture the site list and nameplates and hand it to the Operations Manager for an Enterprise proposal.
+
+### Hard rules
+
+- Never quote a member full price and "walk it back" after the fact.
+- Never sell membership as a way to dodge an after-hours or emergency surcharge — no such surcharge exists (`reference.guarantees`).
+- Never stack a membership discount on top of an already-waived diagnostic.
+- Never leave an enrollment verbal-only — if it isn't on today's invoice in ServiceTitan, the customer isn't covered.
+
+## QA scoring {#qa}
+
+| Score | Standard |
 |---|---|
-| **Active** | Name it at the door and thank them. Diagnostic {{price:membership_diagnostic_posture}}. Repair discount applied as a line item. Schedule the included tune-up before you leave if it is unused. |
-| **Lapsed** | Offer reinstatement at the same rate — {{price:membership_home_plus_monthly}} residential — **before** you present the repair price. It changes the whole price conversation. |
-| **Non-member** | Standard flow. Diagnose, prove the cause, then present both numbers. Enroll on today's invoice. |
-
-Do not guess. If ServiceTitan is ambiguous or the record looks wrong, call the office — do not apply a discount on a hunch and do not deny one either.
-
-## What "tailored service" actually means {#tailored}
-
-Checking the box is not the point. A member's visit should visibly differ from a non-member's:
-
-- **The discount is a line item.** {{price:membership_home_plus_repair_discount}} shown on the estimate, with the pre-discount number next to it. If they cannot see what the plan saved them today, it did not save them anything they will remember at renewal.
-- **The included tune-up gets scheduled while you are standing there.** {{price:membership_home_plus_tuneups}} per year. An unused tune-up is a cancellation waiting to happen.
-- **The equipment record gets updated.** Members carry a history with us; that history is what makes the next visit fast — `sop.field.equipment-capture`.
-- **Commercial members get the written record.** Premier requires a written equipment and visit-allocation record. Capture the nameplate on every supported unit, not just the one you were called for.
-
-## Commercial: count the units first {#commercial}
-
-Business+ is **per qualifying rooftop unit**. Before quoting anything:
-
-1. Walk the roof and count supported RTUs.
-2. Photograph every nameplate.
-3. Confirm site access — who lets us in, and during what hours.
-
-Then point at the tier: one unit, two visits a year → Essential. One unit needing more frequent service, or two units → Premier. A fleet, several locations, or anything outside the published plans → **do not quote it.** Capture the site list and hand it to the Operations Manager for an Enterprise proposal.
-
-Full plan detail, pricing and rules: `reference.membership-plans`.
-
-## Failure modes {#failures}
-
-- **"The office should have caught it."** They may have. The customer still needs to hear it from you, and the invoice still needs the line.
-- **Applying a benefit that does not exist.** No emergency or after-hours surcharge applies to anybody — never sell membership as the way to dodge one. See `reference.guarantees`.
-- **Enrolling verbally and finishing the enrollment "later".** If it is not in ServiceTitan on today's invoice, it did not happen, the customer will not be billed, and the first person to find out is the customer when a benefit is refused.
-- **Pitching a tenant.** They do not own the system. Confirm the profile first — `sop.csm.customer-profiles`.
-- **Discounting a diagnostic that was already waived.** The waiver is the benefit; it does not stack.
+| 2 | Status checked before the knock, correctly acknowledged or leveraged, discount shown as a line item, enrollment (if any) entered same visit |
+| 1 | Status checked but applied late or verbally only, or a non-member repair closed without the two-number presentation |
+| 0 | Status not checked, a benefit wrongly applied or wrongly denied, or a promised enrollment never entered in ServiceTitan |
 
 ## Related
 
