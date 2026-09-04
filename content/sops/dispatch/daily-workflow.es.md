@@ -1,89 +1,119 @@
 ---
 translation_of: sop.dispatch.daily-workflow
-source_version: 2
+source_version: 3
 ---
 
 # Flujo de Trabajo Durante el Día — Hora por Hora
 
-> El tablero nunca está "listo". Se trabaja, todo el día, por una persona con nombre.
+> **El tablero nunca está "listo". Se trabaja, todo el día, por una persona con nombre, desde antes de que salga el primer camión hasta después de que se cierra el último trabajo.**
 
-## Antes de que los técnicos se muevan — abre {{price:dispatch_hours}} {#pre-shift}
+## Cuándo aplica {#applies}
 
-1. **Lee el registro nocturno de Posh** y confirma que cada emergencia realmente se despachó, no solo se registró — `sop.csm.coverage`.
-2. **Confirma que cada técnico confirmó su primer trabajo — y la hora de inicio que se le dio.** El despacho de la noche anterior lleva la hora real ({{price:first_job_notice}}); a las 7 AM estás confirmando que el técnico lo leyó, no enviándolo. Sin confirmación a las {{price:tech_ack_deadline}} es una llamada telefónica.
-3. **Revisa la geografía.** Un primer trabajo en el este de Suffolk a las 8 AM es un arreglo que haces ahora, no al mediodía.
-4. **Confirma que las refacciones apartadas ya llegaron** para cualquier trabajo agendado hoy. Un trabajo de refacciones despachado sin la refacción es un horario desperdiciado y un cliente molesto.
-5. **Revisa la capacidad del día contra la temporada de emergencias.** Planeamos {{price:tech_daily_capacity}}. Bajo {{price:emergency_temp_cold}} o sobre {{price:emergency_temp_hot}}, deja un horario libre. Se va a usar.
+Todos los días que Despacho opera, desde la revisión del tablero antes del turno hasta el cierre de fin de día. Es la columna de la que dependen los demás SOP de despacho — llamadas prioritarias (`sop.dispatch.priorities`), decisiones de duración y sobretiempo (`sop.dispatch.job-duration`), y la ventana de cobertura misma (`sop.dispatch.hours`) — todo ocurre en un punto específico de la forma hora por hora que sigue.
 
-## Mañana — primeras ventanas {#morning}
+## La escalera de ejecución {#execution}
 
-- **El técnico está en el domicilio al inicio de la ventana**, {{price:first_job_start_default}} para una de 8–10. Salir a las {{price:tech_shift_start}} es el medio, no la promesa.
-- **Vigila las llegadas en tiempo real.** El reloj de {{price:arrival_guarantee}} arranca al inicio de la ventana agendada; un técnico que no está en el domicilio al inicio de la ventana es una llamada al cliente **ahora**, con una hora de llegada concreta — no "ya va en camino". Regla completa: `sop.dispatch.hours`.
-- **Confirma que cada técnico vea exactamente el siguiente trabajo** y nada más — `sop.dispatch.hours`.
-- **Toma las solicitudes del mismo día del CSM.** Apruébalas o recházalas contra `sop.dispatch.priorities`, y responde rápido — el CSM tiene un cliente en la línea. Las ventanas extra ({{price:service_windows_overflow}}) las otorgas tú, nunca las ofrece el CSM.
+**Antes del turno, antes de que abra {{price:dispatch_hours}}**
 
-## Postura de cuota de diagnóstico — el ticket debe estar correcto antes de que el técnico toque la puerta {#diagnostic-fees}
+1. Lee el registro nocturno de Posh y confirma que cada emergencia realmente se despachó, no solo se registró (`sop.csm.coverage`).
+2. Confirma que cada técnico confirmó su primer trabajo y su hora de inicio — la hora real salió la noche anterior ({{price:first_job_notice}}); a las 7 AM estás confirmando que la leyeron. Sin confirmación para las {{price:tech_ack_deadline}} es una llamada telefónica.
+3. Revisa la geografía con sentido común — un primer trabajo en el este de Suffolk a las 8 AM es un arreglo que haces ahora, no al mediodía.
+4. Confirma que las refacciones apartadas ya llegaron para cualquier trabajo agendado hoy. Un trabajo de refacciones despachado sin la refacción es un horario desperdiciado y un cliente molesto.
+5. Revisa la capacidad del día contra la temporada de emergencias — planeamos {{price:tech_daily_capacity}}; bajo {{price:emergency_temp_cold}} o sobre {{price:emergency_temp_hot}}, deja un horario libre. Se va a usar.
+6. Verifica la postura de la cuota de diagnóstico en cada ticket despachado antes de que el técnico salga en camino (ver la tabla abajo) — ese desajuste le pertenece a Despacho, no al técnico parado en la puerta.
 
-Una cuota de diagnóstico equivocada se descubre en la puerta, frente al cliente, en un formulario que dos personas están a punto de firmar. Es un error que Despacho puede prevenir la noche anterior, no uno que el técnico debe absorber en la entrada. En cada ticket despachado, confirma que la postura de cuota coincida con lo que se le dijo al cliente:
+**Mañana — primeras ventanas**
 
-| Postura | Cuota en el ticket | Cuándo aplica |
-|---|---|---|
-| Residencial estándar | {{price:diagnostic_residential}} | Llamada de servicio residencial por defecto |
-| Promoción / descuento | {{price:diagnostic_discounted}} | Solo cuando el CSM la cotizó al agendar — la cuota cotizada es la cuota del formulario |
-| Comercial | {{price:diagnostic_commercial}} | Llamada de servicio comercial |
-| Miembro activo | Sin costo | {{price:membership_diagnostic_posture}} — verifica el estatus de membresía en el domicilio, no la palabra de quien llama |
-| Movido por nosotros | Sin costo | Nosotros movimos el trabajo — {{price:bump_diagnostic_credit}} |
-| Fuera de horario | **Igual que estándar** | Sin recargo de emergencia ni fuera de horario, nunca — cotiza el diagnóstico estándar a cualquier hora |
-| Estimado de instalación / reemplazo | Gratis | Nunca un diagnóstico en una visita de estimado |
+7. El técnico está en el domicilio al inicio de la ventana — {{price:first_job_start_default}} para una de 8–10. Salir a las {{price:tech_shift_start}} es el medio, no la promesa.
+8. Vigila las llegadas en tiempo real. El reloj de {{price:arrival_guarantee}} arranca al inicio de la ventana agendada; un técnico que no está en el domicilio para entonces es una llamada al cliente **ahora**, con una hora de llegada concreta — regla completa en `sop.dispatch.hours`.
+9. Confirma que cada técnico vea exactamente el siguiente trabajo y nada más.
+10. Toma las solicitudes del mismo día del CSM — apruébalas o recházalas contra `sop.dispatch.priorities`, y responde rápido; el CSM tiene un cliente en la línea. Las ventanas extra ({{price:service_windows_overflow}}) las otorgas tú, nunca las ofrece el CSM.
 
-**Si la cuota del ticket no coincide con lo que se le dijo al cliente, corrígela antes de que el técnico vaya en camino.** Un técnico que detecta la diferencia llama a Despacho antes de tocar la puerta — esa llamada solo sirve si alguien contesta y corrige el formulario.
+**Mediodía — la re-planificación**
 
-**Lo que Despacho debe esperar al cierre:** el diagnóstico se acredita por completo en el momento en que el cliente aprueba la reparación **o** el reemplazo en esa visita — {{price:diagnostic_credit_on_sale}}. Un equipo que no es reparable sí se cobra — {{price:diagnostic_on_non_repairable}} — con la cuota acreditada si compran el reemplazo. Si un trabajo vendido se cierra con el diagnóstico todavía en la factura, se devuelve, el mismo día.
+11. Re-pronostica cada trabajo restante contra horas reales de término, no las agendadas.
+12. Identifica las ventanas en riesgo — los trabajos de la tarde que no se cumplirán si nada cambia.
+13. Llama a esos clientes antes de que abra su ventana, siempre, con una hora concreta.
+14. Elige un resultado por trabajo en riesgo de la tabla de decisión en `sop.dispatch.job-duration` — mantenerlo, subcontratar, dividirlo, reagendar o escalar.
+15. Mueve primero la capa flexible — afinaciones y mantenimiento, nunca callbacks ni miembros en apuros.
+16. Revisa {{price:same_day_cutoff}} — después de esa hora, las reservas del mismo día son decisión exclusiva de Despacho.
 
-## Mediodía — la re-planificación {#midday}
+**Tarde — cerrando el ciclo**
 
-Esta es la hora en que el día se salva o se pierde.
+17. Persigue los trabajos abiertos — {{price:job_check_in}} sin actualización es una llamada de seguimiento, no una espera.
+18. Una instalación de emergencia que llega tarde toma el horario; el trabajo desplazado se subcontrata o se reagenda a una ventana concreta, nunca se abandona (`sop.dispatch.priorities`).
+19. Controla la calidad de cada cierre — equipo registrado, formularios completos, fotos presentes (`sop.field.forms`). Un cierre incompleto se devuelve al técnico hoy mismo.
+20. Rutea el trabajo vendido el mismo día — los estimados aprobados van al coordinador de instalación, los rechazados van a la lista de seguimiento, nunca a ningún lado.
+21. Los trabajos en espera de refacción reciben una fecha, no un estatus.
 
-1. **Re-pronostica cada trabajo restante** contra horas reales de término, no las agendadas.
-2. **Identifica las ventanas en riesgo** — los trabajos de la tarde que no se cumplirán si nada cambia.
-3. **Llama a esos clientes antes de que abra su ventana.** Siempre, con una hora concreta. Una cita movida de la que llamamos es un no-evento; una ventana perdida sin llamada es una reseña negativa.
-4. **Elige un resultado por trabajo en riesgo** — mantenerlo más tarde hoy, subcontratar, diagnosticar hoy y reparar después, o reagendar a una ventana concreta con {{price:bump_diagnostic_credit}}. La tabla de decisión es `sop.dispatch.job-duration`.
-5. **Mueve primero la capa flexible** — afinaciones y mantenimiento, nunca callbacks ni miembros en apuros.
-6. **Revisa {{price:same_day_cutoff}}.** Después de esa hora, las reservas del mismo día son decisión exclusiva de Despacho.
+**Fin del día**
 
-## Tarde — cerrando el ciclo {#afternoon}
+22. Ejecuta la lista de cierre en `sop.dispatch.hours` — cada trabajo cerrado o explicado, guardia confirmada, apartados suaves anotados para Posh.
+23. Confirma cero trabajos pausados en el tablero — cualquiera que se encuentre pausado se cierra y se re-despacha hoy mismo, no se carga al siguiente turno (`sop.dispatch.no-pause`).
+24. El primer trabajo de mañana va al técnico antes de las {{price:board_lock}} con su hora real de inicio.
 
-- **Persigue los trabajos abiertos.** {{price:job_check_in}} sin actualización es una llamada de seguimiento, no una espera.
-- **Una instalación de emergencia que llega tarde toma el horario.** Un reemplazo aprobado sin calefacción o sin enfriamiento supera a una llamada de servicio estándar — subcontrata el trabajo desplazado, o reagéndalo a una ventana concreta mañana en una llamada en vivo. Orden y escalación: `sop.dispatch.priorities`.
-- **Controla la calidad de cada cierre.** Equipo registrado en el domicilio, formularios completos, fotos presentes — `sop.field.forms`. Un trabajo cerrado incompleto se devuelve al técnico que lo cerró, hoy, no la próxima semana.
-- **Rutea el trabajo vendido el mismo día.** Los estimados aprobados van al coordinador de instalación; los rechazados van a la lista de seguimiento, nunca a ningún lado.
-- **Los trabajos en espera de refacción reciben una fecha**, no un estatus. "Esperando la refacción" no es un plan que el cliente pueda escuchar.
+## Qué dices {#verbatim}
 
-## Fin del día {#end-of-day}
+A un técnico a las 6:55 AM que no ha confirmado su primer trabajo:
 
-Ejecuta la lista de cierre en `sop.dispatch.hours` — cada trabajo cerrado o explicado, guardia confirmada, apartados suaves anotados para Posh.
+> "Solo confirmando que viste el tablero — eres las 8 AM en Levittown, en movimiento a las 7:30."
 
-**Y el que siempre se omite:** el primer trabajo de mañana va al técnico antes de las {{price:board_lock}} **con su hora real de inicio**. Si mañana abre a las 9 en vez de las 8, di 9. Un técnico adivinando la hora de inicio es una ventana de 8 AM perdida antes de que el día empiece.
+Al CSM que pide un espacio extra el mismo día a las 3:15 PM:
 
-## Los disparadores de escalación {#escalation}
+> "Puedo hacer un 6–8 si el técnico está libre para entonces — déjame revisar su tarde y te llamo en diez minutos, todavía no lo prometas."
 
-No te quedes con estos. Elévalos al gerente de despacho de inmediato:
+A un técnico a media tarde, cerrando el ciclo de un trabajo silencioso:
 
-| Disparador | Por qué |
+> "Llevas 90 minutos en ese trabajo sin actualización — dame un estatus, aunque sea 'casi terminando'."
+
+Al despachador entrante en el cambio de turno:
+
+> "El tablero está limpio, un apartado suave en Wantagh para mañana, Rivera está de guardia esta noche, y la caldera de Baldwin todavía necesita su cita de continuación agendada antes de que termine el día."
+
+## Ejemplo trabajado — un día completo en el tablero {#example}
+
+| Hora | Qué hace Despacho |
 |---|---|
-| Una emergencia sin técnico disponible | Necesita horas extra o decisión de guardia, ahora |
-| Un segundo cambio para el mismo cliente | A punto de volverse una queja |
-| Un callback que no se puede cubrir hoy | La falla más costosa que tenemos |
-| Un técnico inlocalizable por {{price:tech_unreachable_window}} | Seguridad primero, agenda segundo |
-| Sobretiempos repetidos en un tipo de trabajo | Problema de precios o capacitación, no de despacho |
+| 6:45 AM | Registro de Posh revisado, emergencia nocturna confirmada como despachada |
+| 6:55 AM | Confirmación del técnico verificada para el trabajo de las 8 AM en Levittown; postura de cuota del ticket verificada contra lo que cotizó el CSM |
+| 8:00 AM | Llegada registrada; reloj de garantía activo |
+| 9:40 AM | El CSM llama con una solicitud P7 del mismo día — rechazada para el espacio de 12–2, se ofrece mañana ya que la tarde está apretada |
+| 11:15 AM | Re-planificación de mediodía: el trabajo de 12–2 está en riesgo porque el de 10–12 se alargó; se llama al cliente con una llegada a la 1:30 antes de que abra la ventana |
+| 2:20 PM | Llamada de instalación de emergencia — reemplazo aprobado, sin enfriamiento, 95°F afuera; la afinación de 2–4 se mueve a jueves, diagnóstico condonado, registrado en ambos tickets |
+| 4:45 PM | Seguimiento del trabajo de instalación de emergencia — todavía en el domicilio, estatus "compresor instalado, terminando eléctrico" |
+| 5:50 PM | Lista de cierre ejecutada: cada trabajo cerrado o explicado, guardia confirmada para esta noche, primer trabajo de mañana despachado con la hora real de inicio |
 
-## Qué significa "trabajado todo el día" {#discipline}
+Nada en esta lista es excepcional — es la forma ordinaria de un día con un camión y cuatro ventanas que siguen moviéndose bajo condiciones reales.
 
-Un despachador con nombre es dueño del tablero en cada momento, y un relevo entre despachadores se habla, no se asume. Si el tablero es trabajo de todos durante una tarde ocupada, es de nadie, y los trabajos que se caen son siempre los silenciosos — el de espera de refacción, la afinación movida a "te llamamos", el estimado que nunca llegó al coordinador.
+## Cuando algo sale mal {#failures}
+
+**Un técnico se vuelve inlocalizable a media tarde.** Escala al gerente de despacho de inmediato una vez pasado {{price:tech_unreachable_window}} — seguridad primero, agenda segundo; no sigas llamando al cliente con conjeturas mientras el técnico está desaparecido.
+
+**Dos clientes están en riesgo en la misma ventana de 30 minutos y solo se puede hacer una llamada.** Llama a los dos — una llamada apresurada de 90 segundos vence a un no-show silencioso siempre; si de verdad no hay tiempo, llama primero a la ventana que abre más pronto, ya que falla primero.
+
+**Un trabajo se cierra con equipo faltante o formularios incompletos.** Devuélvelo al técnico que lo cerró, el mismo día. No lo dejes esperar hasta la mañana siguiente — el cliente y la factura lo necesitan ahora mismo.
+
+**El tablero muestra un trabajo pausado.** Convíértelo el mismo día: cierra lo que se hizo, agenda la continuación, despáchala como cualquier otra cita (`sop.dispatch.no-pause`). Nunca sobrevive como "pausado".
+
+### Reglas duras
+
+- Nunca dejes el tablero sin atender durante {{price:dispatch_hours}}.
+- Nunca prometas un espacio del mismo día que el técnico no tiene realmente disponible.
+- Nunca dejes que un trabajo pausado sobreviva al siguiente turno.
+- Nunca entregues el tablero sin decir en voz alta quién es el siguiente despachador.
+
+## Calificación de QA {#qa}
+
+| Puntaje | Estándar |
+|---|---|
+| **2** | Revisiones previas al turno completas, cada ventana en riesgo llamada con anticipación, cada cierre con control de calidad, cero trabajos pausados, mañana despachado antes de {{price:board_lock}} |
+| **1** | Un paso omitido pero detectado y corregido el mismo día sin dejar a ningún cliente sin informar |
+| **0** | Una ventana perdida sin llamada, un trabajo pausado dejado durante la noche, o el tablero de mañana no despachado a tiempo |
 
 ## Relacionados
 
 - Horas y reglas de hora de inicio: `sop.dispatch.hours`
 - Qué se mueve primero: `sop.dispatch.priorities`
 - Clases de duración, sobretiempos y trabajos movidos: `sop.dispatch.job-duration`
+- Por qué nunca pausamos un trabajo: `sop.dispatch.no-pause`
 - El estándar de cierre del técnico: `sop.field.forms`
