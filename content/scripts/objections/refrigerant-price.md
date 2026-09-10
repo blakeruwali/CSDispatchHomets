@@ -31,6 +31,7 @@ They are treating refrigerant like a commodity they can price-shop. The job of t
 | "I just need a rough number." | They want control before inviting someone in. | Offer certainty: a written flat price after diagnosis, with the diagnostic credited if they approve the repair. |
 | "Can't you just tell me over the phone?" | They don't understand why HVAC pricing can't be phone-quoted. | Explain that the refrigerant type and system condition change the price, and that EPA regulations require a licensed technician to handle it. |
 | "I saw a price online." | They are price-shopping a part, not a repair. | Point out that online refrigerant prices don't include recovery, leak detection, warranty protection, or the technician's labor and expertise. |
+| "I already know there's a leak; I don't want to pay for a diagnostic." | They think the diagnosis is just confirming what they know. | Reframe: the visit locates the leak, sizes the repair, checks the rest of the system, and produces a written flat price before any work starts. |
 
 ## Why it works {#why}
 
@@ -74,6 +75,14 @@ The customer thinks they're asking about a simple part. The real answer is about
 
 *(If there is no cooling, vulnerable occupants, or electrical/gas smell, go straight to `protocol.emergency.triage`.)*
 
+### "I already know there's a leak; I don't want to pay $199 for you to confirm it."
+
+> "I completely understand — if you already know it's leaking, the diagnostic can feel like paying for confirmation. But the tech isn't just confirming the leak. He's locating exactly where it is, testing the pressures, checking the compressor and the rest of the system, and then giving you a written flat price to fix it permanently. Without that, any repair quote is a guess — and guessing wrong is how a small leak turns into a major replacement. The diagnostic is {{price:diagnostic_residential}}, and it's credited if you approve the repair. Does morning or afternoon work better?"
+
+### "I don't want to pay $500 for a leak test on top of the diagnostic."
+
+> "I hear you. The diagnostic covers the full system check. If the tech finds the leak quickly during that check, you may not need anything beyond the diagnostic to get a flat repair price. If a more advanced leak detection is required, he'll explain why, tell you the cost upfront, and get your approval before doing it — no surprises. The goal is to give you one written price that fixes the problem for good. Does morning or afternoon work better?"
+
 ## Worked example {#example}
 
 **Caller:** "How much do you charge for one pound of refrigerant?"
@@ -97,6 +106,8 @@ The customer thinks they're asking about a simple part. The real answer is about
 - ❌ Don't say "I don't know" and leave it there.
 - ❌ Don't badmouth a competitor by name.
 - ❌ Don't imply refrigerant is a standalone fix without diagnosis.
+- ❌ Don't skip the diagnostic even if the customer says they already know the problem.
+- ❌ Don't invent a separate leak-test price unless it is a defined, approved service in the pricebook.
 - ❌ Don't skip the safety line if the call involves gas smell, burning, or sparking.
 
 ## QA scoring {#scoring}
