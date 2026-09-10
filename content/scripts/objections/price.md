@@ -18,7 +18,7 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "I hear you. That {{price:diagnostic_residential}} gets a licensed tech to your door, a full and accurate diagnosis with a thorough check of your entire system, and a written price — the best in the market — so we can get your system fixed and done and you don't have to worry about it any longer. If you approve the repair today, that diagnostic fee is credited toward the work."
+> "I hear you — and I want to make sure you're not throwing money at a guess. That {{price:diagnostic_residential}} gets a licensed tech to your door today, a full and accurate diagnosis with a thorough check of your entire system, and a written, flat price before anyone touches a thing — so it gets fixed right the first time and you're not calling someone else back out in three weeks. If you approve the repair today, that diagnostic fee is credited toward the work."
 
 ## Why it works {#why}
 
