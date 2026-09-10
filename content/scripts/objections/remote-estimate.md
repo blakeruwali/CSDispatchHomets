@@ -52,14 +52,15 @@ A number given without these is one of two things: **padded** to protect the com
 2. **Agree with the goal:** "You want a real number you can plan around — exactly right."
 3. **Explain why remote fails:** "Two identical houses can need very different systems. A phone number is a guess, and guesses get padded or revised."
 4. **Sell the guarantee:** "We measure everything and give you a written price with Good/Better/Best options. The number we quote is the number you pay."
-5. **Shrink the time:** "It takes about an hour, and we work around your schedule."
-6. **Close on a choice:** "Does morning or afternoon work better?"
+5. **Mention the financing promo:** "And right now we have 0% interest financing for 25 months, so when you get the written quote we can also show you a low monthly payment option."
+6. **Shrink the time:** "It takes about an hour, and we work around your schedule."
+7. **Close on a choice:** "Does morning or afternoon work better?"
 
 ## Scenario responses {#scenarios}
 
 **"Just give me a ballpark."**
 
-> "I can give you a general range based on the size of your home and the type of system — but I want to be honest with you that it's a wide range until someone measures the home, because installation conditions move the number a lot. Where your home lands in that range is exactly what the free visit tells you, in writing, with Good/Better/Best options. About an hour, zero obligation. What day works for you?"
+> "I can give you a general range based on the size of your home and the type of system — but I want to be honest with you that it's a wide range until someone measures the home, because installation conditions move the number a lot. Where your home lands in that range is exactly what the free visit tells you, in writing, with Good/Better/Best options. And we have a great promo right now — 0% interest financing for 25 months — so we can also show you what the monthly payment looks like once you have the quote. About an hour, zero obligation. What day works for you?"
 
 **"Another company quoted me over the phone."**
 
