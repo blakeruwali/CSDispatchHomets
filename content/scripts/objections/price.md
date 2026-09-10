@@ -4,7 +4,7 @@ title: Objection — "The diagnostic is too much"
 department: csm
 owner: cs-manager
 status: published
-version: 2
+version: 3
 last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, price, diagnostic, fee, script]
@@ -18,15 +18,16 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "I hear you. That {{price:diagnostic_residential}} gets a licensed tech to your door, a full and accurate diagnosis with a thorough check of your entire system, and a written price — the best in the market — so we can get your system fixed and done and you don't have to worry about it any longer. If you approve the repair today, that diagnostic fee is credited toward the work."
+> "I hear you — and I want to make sure you're not throwing money at a guess. That {{price:diagnostic_residential}} gets a licensed tech to your door today, a full and accurate diagnosis with a thorough check of your entire system, and a written, flat price before anyone touches a thing — so it gets fixed right the first time and you're not calling someone else back out in three weeks. If you approve the repair today, that diagnostic fee is credited toward the work."
 
 ## Why it works {#why}
 
 The objection is almost never about the number — it's the fear of paying for nothing. The reframe answers three unspoken worries at once:
 
 1. **"Will I get my money's worth?"** — *licensed tech, full and accurate diagnosis, thorough system check.*
-2. **"Will the price balloon?"** — *written price, best in the market, fixed and done.*
+2. **"Will the price balloon?"** — *written, flat price before any work starts.*
 3. **"Am I paying twice?"** — *credited toward the repair if you approve it today.*
+4. **"What happens if I wait?"** — *fixed right the first time, today, instead of a second breakdown and a second trip charge.*
 
 You're not defending the fee. You're showing them what the fee *unlocks* — certainty, expertise, and a finished job. Do not compare us to competitors, do not apologize, and do not let the call drift into bargaining.
 
@@ -50,7 +51,7 @@ Customer called about an AC blowing warm air. Fee has been framed once already p
 >
 > **Customer:** "…Yeah. I mean, the other company said they'd come out for free."
 >
-> **CSM:** "Totally understand. Here's what that {{price:diagnostic_residential}} gets you: a licensed tech at your door, a full and accurate diagnosis, a thorough check of your entire system, and a written price — the best in the market — so we can get this fixed and done and you don't have to worry about it any longer. If you approve the repair today, that diagnostic fee is credited toward the work." *(Stop talking.)*
+> **CSM:** "Totally understand — and free is fine right up until it's a guess. Here's what that {{price:diagnostic_residential}} gets you: a licensed tech at your door, a full and accurate diagnosis, a thorough check of your entire system, and a written, flat price before anyone touches a thing — so it's fixed right the first time and you're not paying someone else to come back out in three weeks. If you approve the repair today, that diagnostic fee is credited toward the work." *(Stop talking.)*
 >
 > **Customer:** "Hmm. Okay… but what if I don't like the repair price?"
 >
@@ -69,7 +70,7 @@ Customer called about an AC blowing warm air. Fee has been framed once already p
 | Beat | What the CSM did | What a weak CSM does |
 |---|---|---|
 | First objection | Empathy, then **silence** | Apologizes for the price ("I know, it is pricey…") |
-| Competitor mention | Reframed what the fee buys: licensed tech, full diagnosis, thorough check, written price, fixed and done | "Well, free companies just add it to the repair anyway" |
+| Competitor mention | Reframed on quality, not price: licensed tech, full diagnosis, thorough check, written flat price, fixed right the first time | "Well, free companies just add it to the repair anyway" |
 | "What if I don't like the price?" | Turned the fee into protection (written diagnosis, no obligation) | Offers to "see what I can do" about the fee |
 | Close | Asked for the booking directly, then pivoted to Home+ | Ends with "call us back if you change your mind" |
 
@@ -85,6 +86,8 @@ If they hesitate on the fee, this is the natural moment for the Home+ pivot — 
 - **No waivers.** Fee waivers are Manager-only — see `sop.csm.diagnostic-fee`.
 - **Don't cave to end the call.** A booked job at full price beats a waived fee and a customer who now expects one.
 - **Never trash-talk the "free" competitor.** Reframe, don't attack — attacking makes the customer defend the other company.
+- **Never claim we're the cheapest or "the best price in the market."** We compete on quality and certainty, not price. Say *written, flat price* and *fixed right the first time* — a cheapest claim invites shopping and one higher quote destroys it.
+- **Always close on a time window.** The fee conversation isn't handled until a slot is booked.
 
 ## Scoring {#scoring}
 
