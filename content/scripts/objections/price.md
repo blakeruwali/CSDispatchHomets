@@ -20,6 +20,21 @@ surfaces: [csm, checklist]
 
 > "I hear you — and I want to make sure you're not throwing money at a guess. That {{price:diagnostic_residential}} gets a licensed tech to your door today, a full and accurate diagnosis with a thorough check of your entire system, and a written, flat price before anyone touches a thing — so it gets fixed right the first time and you're not calling someone else back out in three weeks. If you approve the repair today, that diagnostic fee is credited toward the work."
 
+## Why the customer is saying this {#why-saying-it}
+
+The objection is almost never about the dollar amount itself. Figure out which worry is driving the pushback, then you can answer the real question instead of defending a number.
+
+| What they say | What they usually mean | What to answer |
+|---|---|---|
+| "$199 just to *look* at it?" | They're afraid of paying for nothing. They picture a five-minute glance and a shrug. | Name exactly what the visit buys: licensed tech, full diagnosis, thorough system check, written flat price. |
+| "Another company does it for free." | They've been burned before or see a cheaper door-opener. They need to know the difference is real. | Reframe around certainty, expertise, and fixing it right the first time. Never attack the competitor. |
+| "I didn't budget for this." | It's a timing/cash-flow problem, not a value problem. | Show the credit and the no-surprise flat price. If appropriate, pivot to Home+. |
+| "What if it's not even repairable?" | They fear paying twice: once to learn the unit is dead, then again for a replacement. | Say the non-repairable case out loud. The diagnostic still applies, but it gets credited toward a replacement if they move forward. |
+| "I just need a ballpark first." | They want control over the decision before inviting a stranger in. | Explain that every system is different — a phone guess would be unfair to them. The diagnostic is how we give them a real, written number they can hold us to. |
+| "That seems high." | They have no frame of reference for what HVAC/plumbing diagnosis costs. | Walk them through the value stack — the visit, the real answer, the written price — then stop talking. |
+
+Listen for the signal behind the words. A customer asking about the fee is usually a customer close to booking — they just need certainty first.
+
 ## Why it works {#why}
 
 The objection is almost never about the number — it's the fear of paying for nothing. The reframe answers three unspoken worries at once:
