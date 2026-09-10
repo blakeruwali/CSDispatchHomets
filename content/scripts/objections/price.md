@@ -4,7 +4,7 @@ title: Objection — "The diagnostic is too much"
 department: csm
 owner: cs-manager
 status: published
-version: 3
+version: 4
 last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, price, diagnostic, fee, script]
@@ -16,30 +16,29 @@ surfaces: [csm, checklist]
 
 # Objection — "The diagnostic is too much"
 
-## The response {#response}
+## The one line to memorize {#response}
 
-> "I hear you — and I want to make sure you're not throwing money at a guess. That {{price:diagnostic_residential}} gets a licensed tech to your door today, a full and accurate diagnosis with a thorough check of your entire system, and a written, flat price before anyone touches a thing — so it gets fixed right the first time and you're not calling someone else back out in three weeks. If you approve the repair today, that diagnostic fee is credited toward the work."
+This is the whole script. If you only remember one thing, remember this — one breath, then **stop talking**:
 
-## Why it works {#why}
+> "I hear you. That {{price:diagnostic_residential}} gets a licensed tech to your door today, a real answer in writing before any work starts — and if you approve the repair, it's credited toward the work."
 
-The objection is almost never about the number — it's the fear of paying for nothing. The reframe answers three unspoken worries at once:
+That's it. Empathy, value, credit — ten seconds, and then silence. The pause does the selling.
 
-1. **"Will I get my money's worth?"** — *licensed tech, full and accurate diagnosis, thorough system check.*
-2. **"Will the price balloon?"** — *written, flat price before any work starts.*
-3. **"Am I paying twice?"** — *credited toward the repair if you approve it today.*
-4. **"What happens if I wait?"** — *fixed right the first time, today, instead of a second breakdown and a second trip charge.*
+## Only if they push again {#layers}
 
-You're not defending the fee. You're showing them what the fee *unlocks* — certainty, expertise, and a finished job. Do not compare us to competitors, do not apologize, and do not let the call drift into bargaining.
+Don't stack everything into one speech. Add **one** layer per pushback, in this order:
 
-## The handling ladder {#ladder}
+1. **"I could get it looked at for free."** → "Free is fine right up until it's a guess. Ours is a full check of your entire system with a written, flat price — so it's fixed right the first time and you're not paying someone else to come back out in three weeks."
+2. **"What if I don't like the repair price?"** → "Then you owe the diagnostic fee and nothing else — and you keep a written diagnosis you can hold anyone else to."
+3. **"What if it can't be fixed?"** → "The visit and the diagnosis still happened, so the fee applies — but the replacement estimate is free, and the fee comes off the replacement if you move forward."
+4. **Still hesitating** → pivot to Home+ (see below). It costs less than the fee it waives.
+5. **Still refusing** → hold the fee, kindly: "I totally get it. The fee's the same for everyone — it's what gets a licensed tech to your door with a real answer and a written price." If it's a real emergency and they're about to hang up, offer a Manager callback — never a waiver.
 
-Handle it in this order. Most calls resolve at step 1 or 2 — don't skip ahead.
+## Why the short version works {#why}
 
-1. **Acknowledge, don't argue.** "I hear you" — two seconds of empathy, then silence. Never say "I understand, *but*…" The "but" erases the empathy.
-2. **Re-anchor to the outcome.** Restate what the fee buys: licensed tech, full and accurate diagnosis, thorough system check, written price, and a fixed system — then stop talking.
-3. **Close the loop on the credit.** "If you approve the repair today, that diagnostic fee is credited toward the work." This directly answers the "paying twice" fear.
-4. **Offer the membership pivot** (see below). Home+ costs less than the fee it waives.
-5. **Hold or escalate.** If they still refuse, hold the fee. "I totally get it. The fee's the same for everyone — it's what gets a licensed tech to your door with a real answer and a written price." If they're about to hang up on a real emergency, offer a Manager callback — never a waiver.
+The objection is almost never about the number — it's the fear of paying for nothing. Long speeches make it worse: the more you justify, the more the customer hears "this price is negotiable." A short, confident answer signals the fee is normal, fair, and the same for everyone.
+
+Every layer answers one specific worry — value (licensed tech, full system check), risk (written flat price, no obligation), fairness (credited toward the work). Pick the layer that matches *their* worry instead of reciting all of them.
 
 ## Perfect execution — full call {#perfect}
 
