@@ -4,7 +4,7 @@ title: Objection — "The diagnostic is too much"
 department: csm
 owner: cs-manager
 status: published
-version: 2
+version: 3
 last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, price, diagnostic, fee, script]
@@ -86,6 +86,8 @@ If they hesitate on the fee, this is the natural moment for the Home+ pivot — 
 - **No waivers.** Fee waivers are Manager-only — see `sop.csm.diagnostic-fee`.
 - **Don't cave to end the call.** A booked job at full price beats a waived fee and a customer who now expects one.
 - **Never trash-talk the "free" competitor.** Reframe, don't attack — attacking makes the customer defend the other company.
+- **Never claim we're the cheapest or "the best price in the market."** We compete on quality and certainty, not price. Say *written, flat price* and *fixed right the first time* — a cheapest claim invites shopping and one higher quote destroys it.
+- **Always close on a time window.** The fee conversation isn't handled until a slot is booked.
 
 ## Scoring {#scoring}
 
