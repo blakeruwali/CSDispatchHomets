@@ -25,8 +25,9 @@ surfaces: [csm, checklist]
 The objection is almost never about the number — it's the fear of paying for nothing. The reframe answers three unspoken worries at once:
 
 1. **"Will I get my money's worth?"** — *licensed tech, full and accurate diagnosis, thorough system check.*
-2. **"Will the price balloon?"** — *written price, best in the market, fixed and done.*
+2. **"Will the price balloon?"** — *written, flat price before any work starts.*
 3. **"Am I paying twice?"** — *credited toward the repair if you approve it today.*
+4. **"What happens if I wait?"** — *fixed right the first time, today, instead of a second breakdown and a second trip charge.*
 
 You're not defending the fee. You're showing them what the fee *unlocks* — certainty, expertise, and a finished job. Do not compare us to competitors, do not apologize, and do not let the call drift into bargaining.
 
