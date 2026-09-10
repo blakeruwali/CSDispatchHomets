@@ -70,11 +70,7 @@ When they already have another company's diagnostic/quote, add these steps befor
 
 > **Customer:** "I just want a quote. How much to fix my furnace?"
 >
-> **CSM:** "Happy to get you that — are you looking to fix the furnace you have, or replace it?"
->
-> **Customer:** "Fix it."
->
-> **CSM:** "Got it. Here's why I can't give you a real number over the phone: cycling can be a $200 sensor or a $900 board. Anyone who quotes blind is guessing. Our Home+ Protocol sends a licensed tech for a full on-site diagnostic — LiDAR scan, Manual J, airflow, electrical, combustion safety — then a written Good/Better/Best quote before any work starts. The {{price:diagnostic_residential}} covers that, and it's credited if you approve the repair today. If you don't like the price, you owe the diagnostic and nothing else."
+> **CSM:** "I hear you — you want a real number before any work starts. Because this is a repair, we need to diagnose the system on-site first. Every unit is different, and what looks like a small issue can have several causes. Our licensed tech will run a full diagnostic — LiDAR scan, Manual J, airflow, refrigerant, electrical, and combustion safety checks — then give you a written flat price with Good/Better/Best options before any work begins. The {{price:diagnostic_residential}} covers that visit, and if you approve the repair today, that fee is credited to the job. If you don't like the price, you owe just the diagnostic and nothing else. I can have someone there today between 2 and 4 — what's the address?"
 >
 > **Customer:** "Okay… when can you come?"
 >
