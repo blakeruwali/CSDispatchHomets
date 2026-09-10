@@ -49,7 +49,7 @@ Handling a non-objection is how we talk ourselves out of a free-estimate booking
 
 ## Why we don't quote repairs by phone {#why}
 
-Step 2 of our process is **We Diagnose On-Site**. We LiDAR-scan the home, run a Manual J, and test airflow, static pressure, refrigerant, electrical, and combustion safety. A phone quote skips all of that — it's a guess, and a guess we later revise on the doorstep costs trust. The {{price:diagnostic_residential}} buys the measurement, the written report, and a signed quote before work begins.
+A phone quote is a guess based on symptoms, not a real inspection. That guess can change the moment a tech opens the system — and a price revised on the doorstep costs trust. The {{price:diagnostic_residential}} buys the customer certainty: a licensed tech on-site, a full system check, a written flat price before work begins, and the peace of mind that the repair is done right the first time.
 
 ## The handling ladder {#ladder}
 
