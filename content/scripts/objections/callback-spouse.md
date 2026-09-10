@@ -79,16 +79,37 @@ When it is a smokescreen, the same response still works because it removes the c
 ## How to handle it {#execution}
 
 1. **Agree first.** "Of course — that makes total sense."
-2. **Offer the hold.** Tie it to their conversation so it feels helpful, not pushy. "While you speak with your wife, I can reserve the slot for you."
-3. **Remove the risk.** State the cancellation policy clearly: "If anything changes, there's no obligation, and we can reschedule or cancel, no problem."
-4. **Ask for the booking.** "Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
-5. **Set the soft hold properly in ServiceTitan.** See `sop.csm.availability`.
+2. **Test for the real concern.** Ask the respectful test question to separate genuine consultation from a soft no.
+3. **If genuine:** offer the hold while they talk. "While you speak with your wife, I can reserve the slot for you."
+4. **If smokescreen:** name the likely concern and ask permission to address it. "A lot of people just want to make sure they're not overpaying. Is that the main thing, or is it something else?"
+5. **Remove the risk.** State the cancellation policy clearly: "If anything changes, there's no obligation, and we can reschedule or cancel, no problem."
+6. **Ask for the booking.** "Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+7. **Set the soft hold properly in ServiceTitan.** See `sop.csm.availability`.
 
-## Worked example {#example}
+## Worked example — genuine {#example-genuine}
 
 **Caller:** "I need to talk to my wife first. Can you call me back?"
 
-**CSM:** "Of course — that makes total sense. While you speak with your wife, I can go ahead and reserve the slot for you. If anything changes, there's no obligation, and we can reschedule or cancel, no problem. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+**CSM:** "Of course — that makes total sense. Is there a specific concern she usually has, like the price or the timing, so I can make sure I send you both the right info?"
+
+**Caller:** "Yeah, she usually wants to know what the technician is going to do and how much it costs."
+
+**CSM:** "Got it. It's a $199 diagnostic, and if you approve the repair that day, it gets credited to the work. The technician does a full system check and gives you a written flat price before anything is done. While you talk it through with her, I can hold a slot for you — no obligation, and you can cancel or reschedule if anything changes. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+
+## Worked example — smokescreen {#example-smokescreen}
+
+**Caller:** "I need to talk to my wife first. Can you call me back?"
+
+**CSM:** "Of course — that makes total sense. Is there a specific concern she usually has, like the price or the timing, so I can send you both the right info?"
+
+**Caller:** "I just need to talk to her."
+
+**CSM:** "No problem. A lot of people want to make sure they're comfortable with the fee before booking. Is the $199 diagnostic the main thing, or is it something else?"
+
+**Caller:** "Yeah, that seems high just to come out."
+
+**CSM:** "I hear you. That $199 gets a licensed tech to your door, a full and accurate diagnosis, a thorough check of the entire system, and a written flat price before any work starts. If you approve the repair, that fee is credited to the same-day work. While you two talk it over, I can reserve a slot for you — no obligation, and you can cancel or reschedule if anything changes. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+
 
 ## Hold the slot properly {#soft-hold}
 
