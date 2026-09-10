@@ -80,6 +80,16 @@ When they already have another company's diagnostic/quote, add these steps befor
 >
 > **CSM:** "Today between 2 and 4. What's the address?"
 
+### Competitor diagnostic already done
+
+> **Customer:** "Another company already came out and quoted me $1,200. I don't want to pay for another diagnostic."
+>
+> **CSM:** "That makes sense — you did your homework, and having another number helps. We still need our own licensed tech to inspect the system so we can warranty the repair and guarantee the price we give you in writing. Bring that quote with you; our tech will review it during the visit and explain where the numbers differ and why. If you approve our repair, the {{price:diagnostic_residential}} diagnostic is credited to the job, so you're not paying twice for the answer. I can have someone there today between 2 and 4."
+>
+> **Customer:** "Okay, let's do it."
+>
+> **CSM:** "What's the address?"
+
 ## Hard rules {#rules}
 
 - **Replacement estimates are free.** Never quote a diagnostic fee for a new-system estimate.
