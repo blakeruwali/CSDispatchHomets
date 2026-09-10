@@ -53,9 +53,9 @@ A phone quote is a guess based on symptoms, not a real inspection. That guess ca
 
 ## The handling ladder {#ladder}
 
-1. **Clarify:** fix or replace?
-2. **Agree with the goal:** "You want a real number — fair. You'll get it in writing today."
-3. **Explain the process:** LiDAR, Manual J, system testing, written quote.
+1. **Agree with the goal:** "You want a real number before any work starts — fair."
+2. **Name the pain point:** "You don't want guesswork, surprise charges, or the same breakdown again."
+3. **Show the path:** "We send a licensed tech to inspect the system, then give you a written flat price with Good/Better/Best options before any work begins."
 4. **Shrink the commitment:** "If you don't like the repair price, you owe the diagnostic and nothing else."
 5. **Close on a window:** "I can have someone there today between 2 and 4."
 
