@@ -82,7 +82,7 @@ A number given without these is one of two things: **padded** to protect the com
 
 > **Customer:** "Can you just email me an estimate for a new AC? I don't want a sales visit."
 >
-> **CSM:** "Happy to get you that number — and it's completely free, with no obligation. The only thing is, a real quote can't be done by email. Two identical houses can need very different systems depending on the layout, the ductwork, and what's already there — so any number I email you would be a guess, and guesses get padded or revised later. Our comfort specialist comes out, measures everything, and gives you a written price with Good/Better/Best options that's guaranteed — the number we quote is the number you pay. It takes about an hour. Does morning or afternoon work better?"
+> **CSM:** "Happy to get you that number — and it's completely free, with no obligation. The only thing is, a real quote can't be done by email. Two identical houses can need very different systems depending on the layout, the ductwork, and what's already there — so any number I email you would be a guess, and guesses get padded or revised later. Our comfort specialist comes out, measures everything, and gives you a written price with Good/Better/Best options that's guaranteed — the number we quote is the number you pay. And right now we have an exciting promo: 0% interest financing for 25 months, so we can also show you what the investment looks like monthly. It takes about an hour. Does morning or afternoon work better?"
 >
 > **Customer:** "I guess… how about Saturday?"
 >
