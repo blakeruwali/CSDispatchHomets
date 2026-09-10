@@ -20,7 +20,21 @@ surfaces: [csm, checklist]
 
 > "Of course — that makes total sense. While you speak with your wife, I can go ahead and reserve the slot for you. If anything changes, there's no obligation, and we can reschedule or cancel, no problem."
 
+## Why the customer is saying this {#why-saying}
+
+| What they say | What they usually mean | How to handle |
+| --- | --- | --- |
+| "I need to talk to my spouse." | They genuinely cannot commit without a second decision-maker. | Offer to reserve the slot while they talk; remove the obligation to keep it. |
+| "Call me back in an hour." | They need space to think, compare, or verify funds. | Hold the slot and set a concrete callback time — do not leave it open-ended. |
+| "I want to check with someone first." | They may be a tenant, property manager, or adult child coordinating for the owner. | Ask who the decision-maker is, then offer to send the appointment details to both parties. |
+| "I'm not ready to book right now." | They are worried about being locked into a fee or a time they cannot change. | Lead with cancellation flexibility before asking for the slot. |
+| "Let me think about it." | They may not trust the value yet, or they are comparison shopping. | Recap the specific risk of waiting — no heat, no hot water, leak damage — then hold the slot. |
+| "Send me something to look at." | They want proof they can share with a spouse or landlord. | Offer to text/email the appointment summary and a short explanation of the visit fee and credit policy. |
+
+The goal is not to talk them out of consulting someone else. The goal is to keep the appointment alive while they do.
+
 ## Why it works {#why}
+
 
 This is not an objection to overcome — it's a legitimate decision that needs a second person. Pushing back makes us the company that pressured them.
 
