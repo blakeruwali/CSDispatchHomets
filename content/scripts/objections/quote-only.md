@@ -18,7 +18,7 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "I hear you — you want a real number before any work starts. Because this is a repair, we need to diagnose the system on-site first. Every unit is different, and what looks like a small issue can have several causes. Our licensed tech will run a full diagnostic — LiDAR scan, Manual J, airflow, refrigerant, electrical, and combustion safety checks — then give you a written flat price with Good/Better/Best options before any work begins. The {{price:diagnostic_residential}} covers that visit, and if you approve the repair today, that fee is credited to the job. If you don't like the price, you owe just the diagnostic and nothing else. I can have someone there today between 2 and 4 — what's the address?"
+> "I hear you — you want a real number before any work starts, and you don't want any surprises. Because this is a repair, we need to see the system on-site first. Every unit is different, and what looks like a small issue can have several causes. Our licensed tech will run a full diagnostic and give you a written flat price with Good/Better/Best options before any work begins — no guesswork, no surprise charges, and we fix it right the first time so you're not dealing with the same breakdown again. The {{price:diagnostic_residential}} covers that visit, and if you approve the repair today, that fee is credited to the job. If you don't like the price, you owe just the diagnostic and nothing else. I can have someone there today between 2 and 4 — what's the address?"
 
 ## Why the customer is saying this {#why-saying-it}
 
