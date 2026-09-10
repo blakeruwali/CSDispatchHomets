@@ -4,7 +4,8 @@ title: Objection — "The diagnostic is too much"
 department: csm
 owner: cs-manager
 status: published
-version: 3
+version: 4
+last_reviewed: 2026-09-10
 last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, price, diagnostic, fee, script]
