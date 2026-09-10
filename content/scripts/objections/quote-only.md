@@ -20,6 +20,21 @@ surfaces: [csm, checklist]
 
 > "I hear you — you want a real number. If you're replacing the system, the estimate is free. If we're repairing it, we follow our Home+ Protocol: we diagnose on-site with a LiDAR scan, Manual J load calculation, and full system testing, then give you a written quote before any work starts. The {{price:diagnostic_residential}} covers that visit, and it's credited toward the repair if you approve it today."
 
+## Why the customer is saying this {#why-saying-it}
+
+"I just want a quote" sounds like one request, but it usually hides a different worry. Identify the real driver before you answer.
+
+| What they say | What they usually mean | What to answer |
+|---|---|---|
+| "I just want a quote." | They want to compare prices before committing time. | Clarify first: repair quote vs. replacement estimate. Then explain that a real repair quote requires an on-site diagnosis. |
+| "How much before you come out?" | They're trying to avoid a wasted visit or a high-pressure sale. | Promise a written quote before any work starts, and that the diagnostic is the path to that written number. |
+| "Can you just give me a ballpark?" | They want a rough number to decide if we're even in range. | Refuse the ballpark. Every system is different — a guess would be unfair. The diagnostic gives them a real, binding quote. |
+| "The other company quoted me over the phone." | They think phone quotes are normal. | Explain why that hurts them: a guess revised on the doorstep costs trust. Our process measures first, quotes second. |
+| "I only need a small repair." | They believe the issue is simple and shouldn't require a full diagnostic. | Don't argue the symptom. Confirm that even small issues can have multiple causes, and the diagnostic locks in the right fix the first time. |
+| "I need to budget before I schedule." | This is a timing/cash-flow concern, not a refusal. | Show the value: written quote, no-surprise price, diagnostic credit if they approve the repair today. |
+
+Most quote-only calls are closer to booking than they sound. The customer wants certainty — give them the path to a written, guaranteed number.
+
 ## First, clarify what they mean {#clarify}
 
 "I just want a quote" usually means one of two things. Ask before you defend a fee:
