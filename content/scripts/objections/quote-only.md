@@ -59,6 +59,13 @@ Step 2 of our process is **We Diagnose On-Site**. We LiDAR-scan the home, run a 
 4. **Shrink the commitment:** "If you don't like the repair price, you owe the diagnostic and nothing else."
 5. **Close on a window:** "I can have someone there today between 2 and 4."
 
+When they already have another company's diagnostic/quote, add these steps before closing:
+
+1. **Acknowledge:** "Good — you did your homework. Having another number gives us a baseline."
+2. **Reframe:** "We still need our own licensed tech to inspect the system so we can warranty the repair and guarantee the price in writing."
+3. **Review the quote:** "Bring that written quote with you. Our tech will review it during the visit and we'll explain where the numbers differ and why."
+4. **Close on value:** "If you approve our repair, the diagnostic is credited to the job, so you're not paying twice for the answer."
+
 ## Perfect execution — full call {#perfect}
 
 > **Customer:** "I just want a quote. How much to fix my furnace?"
