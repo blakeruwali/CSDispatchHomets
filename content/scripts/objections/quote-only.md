@@ -4,7 +4,7 @@ title: Objection — "I just want a quote"
 department: csm
 owner: cs-manager
 status: published
-version: 3
+version: 4
 last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, quote, estimate, phone-quote, script, home-plus-protocol]
@@ -30,6 +30,7 @@ surfaces: [csm, checklist]
 | "How much before you come out?" | They're trying to avoid a wasted visit or a high-pressure sale. | Promise a written quote before any work starts, and that the diagnostic is the path to that written number. |
 | "Can you just give me a ballpark?" | They want a rough number to decide if we're even in range. | Refuse the ballpark. Every system is different — a guess would be unfair. The diagnostic gives them a real, binding quote. |
 | "The other company quoted me over the phone." | They think phone quotes are normal. | Explain why that hurts them: a guess revised on the doorstep costs trust. Our process measures first, quotes second. |
+| "The other company did the diagnostics and quoted me a price for the repair." | They think they already paid for a diagnosis and have a usable quote; they don't want to pay twice. | Validate their due diligence, then explain we must perform our own diagnostic to warranty the repair and stand behind our flat price. Offer to review the other company's written quote during our visit. |
 | "I only need a small repair." | They believe the issue is simple and shouldn't require a full diagnostic. | Don't argue the symptom. Confirm that even small issues can have multiple causes, and the diagnostic locks in the right fix the first time. |
 | "I need to budget before I schedule." | This is a timing/cash-flow concern, not a refusal. | Show the value: written quote, no-surprise price, diagnostic credit if they approve the repair today. |
 
@@ -58,6 +59,13 @@ Step 2 of our process is **We Diagnose On-Site**. We LiDAR-scan the home, run a 
 4. **Shrink the commitment:** "If you don't like the repair price, you owe the diagnostic and nothing else."
 5. **Close on a window:** "I can have someone there today between 2 and 4."
 
+When they already have another company's diagnostic/quote, add these steps before closing:
+
+1. **Acknowledge:** "Good — you did your homework. Having another number gives us a baseline."
+2. **Reframe:** "We still need our own licensed tech to inspect the system so we can warranty the repair and guarantee the price in writing."
+3. **Review the quote:** "Bring that written quote with you. Our tech will review it during the visit and we'll explain where the numbers differ and why."
+4. **Close on value:** "If you approve our repair, the diagnostic is credited to the job, so you're not paying twice for the answer."
+
 ## Perfect execution — full call {#perfect}
 
 > **Customer:** "I just want a quote. How much to fix my furnace?"
@@ -71,6 +79,16 @@ Step 2 of our process is **We Diagnose On-Site**. We LiDAR-scan the home, run a 
 > **Customer:** "Okay… when can you come?"
 >
 > **CSM:** "Today between 2 and 4. What's the address?"
+
+### Competitor diagnostic already done
+
+> **Customer:** "Another company already came out and quoted me $1,200. I don't want to pay for another diagnostic."
+>
+> **CSM:** "That makes sense — you did your homework, and having another number helps. We still need our own licensed tech to inspect the system so we can warranty the repair and guarantee the price we give you in writing. Bring that quote with you; our tech will review it during the visit and explain where the numbers differ and why. If you approve our repair, the {{price:diagnostic_residential}} diagnostic is credited to the job, so you're not paying twice for the answer. I can have someone there today between 2 and 4."
+>
+> **Customer:** "Okay, let's do it."
+>
+> **CSM:** "What's the address?"
 
 ## Hard rules {#rules}
 
