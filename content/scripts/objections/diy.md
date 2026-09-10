@@ -18,7 +18,7 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "I completely understand — a lot of homeowners like to try a quick fix first. Just so you know what you're walking into: with HVAC and plumbing, one small misstep can turn a $200 repair into a $2,000 replacement, and some work legally has to be done by a licensed professional. What I'd hate to see is you spend your Saturday on it and still need us Monday with a bigger problem. The easiest thing is to let a tech come out, diagnose it properly, and give you a written flat price before any work starts. If you approve the repair, the diagnostic is credited. Does morning or afternoon work better?"
+> "I completely understand — a lot of homeowners like to try a quick fix first. Just so you know what you're walking into: with HVAC and plumbing, one small misstep can turn a $400 repair into a $10,000 replacement, and some work legally has to be done by a licensed professional. What I'd hate to see is you spend your Saturday on it and still need us Monday with a bigger problem. The easiest thing is to let a tech come out, diagnose it properly, and give you a written flat price before any work starts. If you approve the repair, the diagnostic is credited. Does morning or afternoon work better?"
 
 This response does not insult the customer's ability. It respects the instinct, reframes the risk, and brings the conversation back to certainty and protection.
 
@@ -85,6 +85,10 @@ If their described symptom involves **gas smell, burning smell, or sparking**, t
 
 ## Scenario responses {#scenarios}
 
+### "What if it's a simple fix and I can save the diagnostic fee?"
+
+> "That's exactly why people try it — and if it's truly simple, it might work. The risk is that with HVAC and plumbing, what looks like a small issue can hide a bigger one. We've seen a $400 repair turn into a $10,000 replacement because someone pushed a part too far or misdiagnosed the root cause. A tech gives you certainty before anything gets worse. If you approve the repair, the diagnostic is credited. Does morning or afternoon work better?"
+
 ### "I'll watch a YouTube video first"
 
 > "YouTube is great for a lot of things. The tricky part with HVAC is that the symptom you see is often not the actual cause — a frozen coil can be low refrigerant, a failing blower, or a duct issue. A tech figures out the real cause in about 30 minutes and gives you a written flat price. That way if you do want to tackle it yourself, you at least know what you're actually fixing. Does morning or afternoon work better?"
@@ -99,7 +103,7 @@ If their described symptom involves **gas smell, burning smell, or sparking**, t
 
 ### "I want to try a part I found online"
 
-> "I get it — parts online can look a lot cheaper. The risk is ordering the wrong part or swapping something that isn't actually failed. A misdiagnosed part swap can void your warranty and turn a repair into a replacement. A tech tells you exactly what's failed before you spend money on parts. Does morning or afternoon work better?"
+> "I get it — parts online can look a lot cheaper. The risk is ordering the wrong part or swapping something that isn't actually failed. A misdiagnosed part swap can void your warranty and turn a $400 repair into a $10,000 replacement. A tech tells you exactly what's failed before you spend money on parts. Does morning or afternoon work better?"
 
 ### "I don't want a salesman pressuring me"
 
