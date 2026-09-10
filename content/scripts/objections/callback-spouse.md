@@ -4,7 +4,7 @@ title: Objection — "Call me back / I need to talk to my spouse"
 department: csm
 owner: cs-manager
 status: published
-version: 3
+version: 4
 last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, callback, spouse, decision-maker, soft-hold, script]
@@ -18,9 +18,20 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "Of course — that makes total sense. While you're talking it through, I can hold the slot for you with no obligation. If anything changes, we can reschedule or cancel, no problem. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+> "Of course — you should talk it through. While you do, let me hold the next available slot for you. There's no obligation, and if anything changes, we can reschedule or cancel — no problem. Does morning or afternoon work better?"
 
-This is the anchor. Use it for almost every version of this objection. It agrees, removes risk, and moves to a specific time before the customer hangs up.
+This is the anchor. It agrees without apologizing, frames holding the slot as a service, removes the risk of booking, and closes on a small choice — morning or afternoon — instead of a yes/no decision.
+
+### Why this response is stronger
+
+- **"You should talk it through"** removes pressure and respects the customer's process.
+- **"Let me hold the next available slot"** is assumptive and forward-moving. You are not asking permission to book; you are protecting their spot.
+- **"No obligation"** answers the hidden fear before they raise it.
+- **"Morning or afternoon"** is a low-friction close. Picking a time of day is easier than committing to a full window.
+
+If they still hesitate, use the escalation close:
+
+> "Here's what I'll do. I'll put a soft hold on the next slot so you don't lose the time while you're deciding. If you need to move it, just call or text back. Does morning or afternoon work better?"
 
 ## Why the customer is saying this {#why-saying}
 
