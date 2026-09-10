@@ -59,7 +59,7 @@ A number given without these is one of two things: **padded** to protect the com
 
 **"Just give me a ballpark."**
 
-> "I can give you a range — most homes in this area fall between {{price:install_residential_range}} depending on the size of the home and what's involved in the installation. Where your home lands in that range is exactly what the free visit tells you, in writing. About an hour, zero obligation. What day works for you?"
+> "I can give you a general range based on the size of your home and the type of system — but I want to be honest with you that it's a wide range until someone measures the home, because installation conditions move the number a lot. Where your home lands in that range is exactly what the free visit tells you, in writing, with Good/Better/Best options. About an hour, zero obligation. What day works for you?"
 
 **"Another company quoted me over the phone."**
 
