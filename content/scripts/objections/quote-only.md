@@ -18,7 +18,7 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "I hear you — you want a real number before any work starts. Because this is a repair, we need to diagnose the system on-site first. Every unit is different, and what looks like a small issue can have several causes. Our licensed tech will run a full diagnostic — LiDAR scan, Manual J, airflow, refrigerant, electrical, and combustion safety checks — then give you a written flat price with Good/Better/Best options before any work begins. The {{price:diagnostic_residential}} covers that visit, and if you approve the repair today, that fee is credited to the job. If you don't like the price, you owe just the diagnostic and nothing else. I can have someone there today between 2 and 4 — what's the address?"
+> "I hear you — you want a real number before any work starts, and you don't want any surprises. Because this is a repair, we need to see the system on-site first. Every unit is different, and what looks like a small issue can have several causes. Our licensed tech will run a full diagnostic and give you a written flat price with Good/Better/Best options before any work begins — no guesswork, no surprise charges, and we fix it right the first time so you're not dealing with the same breakdown again. The {{price:diagnostic_residential}} covers that visit, and if you approve the repair today, that fee is credited to the job. If you don't like the price, you owe just the diagnostic and nothing else. I can have someone there today between 2 and 4 — what's the address?"
 
 ## Why the customer is saying this {#why-saying-it}
 
@@ -49,13 +49,13 @@ Handling a non-objection is how we talk ourselves out of a free-estimate booking
 
 ## Why we don't quote repairs by phone {#why}
 
-Step 2 of our process is **We Diagnose On-Site**. We LiDAR-scan the home, run a Manual J, and test airflow, static pressure, refrigerant, electrical, and combustion safety. A phone quote skips all of that — it's a guess, and a guess we later revise on the doorstep costs trust. The {{price:diagnostic_residential}} buys the measurement, the written report, and a signed quote before work begins.
+A phone quote is a guess based on symptoms, not a real inspection. That guess can change the moment a tech opens the system — and a price revised on the doorstep costs trust. The {{price:diagnostic_residential}} buys the customer certainty: a licensed tech on-site, a full system check, a written flat price before work begins, and the peace of mind that the repair is done right the first time.
 
 ## The handling ladder {#ladder}
 
-1. **Clarify:** fix or replace?
-2. **Agree with the goal:** "You want a real number — fair. You'll get it in writing today."
-3. **Explain the process:** LiDAR, Manual J, system testing, written quote.
+1. **Agree with the goal:** "You want a real number before any work starts — fair."
+2. **Name the pain point:** "You don't want guesswork, surprise charges, or the same breakdown again."
+3. **Show the path:** "We send a licensed tech to inspect the system, then give you a written flat price with Good/Better/Best options before any work begins."
 4. **Shrink the commitment:** "If you don't like the repair price, you owe the diagnostic and nothing else."
 5. **Close on a window:** "I can have someone there today between 2 and 4."
 
@@ -70,7 +70,7 @@ When they already have another company's diagnostic/quote, add these steps befor
 
 > **Customer:** "I just want a quote. How much to fix my furnace?"
 >
-> **CSM:** "I hear you — you want a real number before any work starts. Because this is a repair, we need to diagnose the system on-site first. Every unit is different, and what looks like a small issue can have several causes. Our licensed tech will run a full diagnostic — LiDAR scan, Manual J, airflow, refrigerant, electrical, and combustion safety checks — then give you a written flat price with Good/Better/Best options before any work begins. The {{price:diagnostic_residential}} covers that visit, and if you approve the repair today, that fee is credited to the job. If you don't like the price, you owe just the diagnostic and nothing else. I can have someone there today between 2 and 4 — what's the address?"
+> **CSM:** "I hear you — you want a real number before any work starts, and you don't want any surprises. Because this is a repair, we need to see the system on-site first. Every unit is different, and what looks like a small issue can have several causes. Our licensed tech will run a full diagnostic and give you a written flat price with Good/Better/Best options before any work begins — no guesswork, no surprise charges, and we fix it right the first time so you're not dealing with the same breakdown again. The {{price:diagnostic_residential}} covers that visit, and if you approve the repair today, that fee is credited to the job. If you don't like the price, you owe just the diagnostic and nothing else. I can have someone there today between 2 and 4 — what's the address?"
 >
 > **Customer:** "Okay… when can you come?"
 >
