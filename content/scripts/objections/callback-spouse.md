@@ -4,7 +4,7 @@ title: Objection — "Call me back / I need to talk to my spouse"
 department: csm
 owner: cs-manager
 status: published
-version: 3
+version: 4
 last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, callback, spouse, decision-maker, soft-hold, script]
@@ -18,9 +18,20 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "Of course — that makes total sense. While you're talking it through, I can hold the slot for you with no obligation. If anything changes, we can reschedule or cancel, no problem. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+> "Of course — you should talk it through. While you do, let me hold the next available slot for you. There's no obligation, and if anything changes, we can reschedule or cancel — no problem. Does morning or afternoon work better?"
 
-This is the anchor. Use it for almost every version of this objection. It agrees, removes risk, and moves to a specific time before the customer hangs up.
+This is the anchor. It agrees without apologizing, frames holding the slot as a service, removes the risk of booking, and closes on a small choice — morning or afternoon — instead of a yes/no decision.
+
+### Why this response is stronger
+
+- **"You should talk it through"** removes pressure and respects the customer's process.
+- **"Let me hold the next available slot"** is assumptive and forward-moving. You are not asking permission to book; you are protecting their spot.
+- **"No obligation"** answers the hidden fear before they raise it.
+- **"Morning or afternoon"** is a low-friction close. Picking a time of day is easier than committing to a full window.
+
+If they still hesitate, use the escalation close:
+
+> "Here's what I'll do. I'll put a soft hold on the next slot so you don't lose the time while you're deciding. If you need to move it, just call or text back. Does morning or afternoon work better?"
 
 ## Why the customer is saying this {#why-saying}
 
@@ -81,29 +92,29 @@ When it is a smokescreen, the same response still works because it removes the c
 
 ## How to handle it {#execution}
 
-1. **Agree first.** "Of course — that makes total sense."
+1. **Agree without apologizing.** "Of course — you should talk it through."
 2. **Test for the real concern.** Ask the respectful test question to separate genuine consultation from a soft no.
-3. **If genuine:** offer the hold while they talk. "While you speak with your wife, I can reserve the slot for you."
+3. **If genuine:** move straight to holding the slot. "While you speak with her, let me hold the next available slot for you."
 4. **If smokescreen:** name the likely concern and ask permission to address it. "A lot of people just want to make sure they're comfortable with the fee before booking. Is that the main thing, or is it something else?"
-5. **Remove the risk.** State the cancellation policy clearly: "If anything changes, there's no obligation, and we can reschedule or cancel, no problem."
-6. **Ask for the booking.** "Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+5. **Remove the risk.** "There's no obligation, and if anything changes, we can reschedule or cancel — no problem."
+6. **Close on a small choice.** "Does morning or afternoon work better?"
 7. **Set the soft hold properly in ServiceTitan.** See `sop.csm.availability`.
 
 ## Scenario responses {#scenarios}
 
-Use these as starting points. Adapt the tone to the caller, but keep the structure: agree → test → remove risk → ask for the slot.
+Use these as starting points. Keep the structure: agree → test → remove risk → close on a small choice.
 
 ### "I need to talk to my spouse"
 
-> "Of course — that makes total sense. Is there a specific concern they usually have, like the price, the timing, or what the technician will do? That way I can send you both the right info."
+> "Of course — you should talk it through. Is there a specific concern they usually have, like the price, the timing, or what the technician will do? That way I can send you both the right info."
 
 If they name a concern, handle it. If they stay vague, continue:
 
-> "No problem at all. While you two talk it over, I can hold a slot for you — no obligation, and you can cancel or reschedule if anything changes. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+> "No problem at all. While you two talk it over, let me hold the next available slot — no obligation, and you can cancel or reschedule if anything changes. Does morning or afternoon work better?"
 
 ### "Call me back in an hour"
 
-> "I can definitely do that. So I don't lose the spot for you, let me hold the slot now — if anything changes, no obligation, we can move it or cancel. What time works better, this afternoon between 2 and 4, or 4 and 6?"
+> "Absolutely. So you don't lose the spot, let me hold the slot now — no obligation, and if anything changes, we can move it or cancel. Does this afternoon or tomorrow morning work better?"
 
 Then set a concrete callback time and confirm the number.
 
@@ -113,15 +124,15 @@ Then set a concrete callback time and confirm the number.
 
 If they are coordinating:
 
-> "I can send the appointment details to both of you right now so they have everything they need. While you're checking, I'll hold the slot — no obligation, and we can move it if needed. What's the best email or text for them?"
+> "I can send the appointment details to both of you right now so they have everything they need. While you're checking, I'll hold the slot — no obligation, and we can move it if needed. Does morning or afternoon work better?"
 
 ### "I'm not ready to book right now"
 
-> "I get it — you want to make sure this is the right move before committing. The good news is booking the visit doesn't lock you in. If anything changes, you can reschedule or cancel, no problem. What window works best so we can at least get you on the schedule?"
+> "I get it — you want to make sure this is the right move. The good news is holding the slot doesn't lock you in. If anything changes, you can reschedule or cancel — no problem. Does morning or afternoon work better?"
 
 ### "Let me think about it"
 
-> "Of course. Just so you have the full picture while you're deciding: the system is already running inefficiently, and waiting can turn a smaller repair into a bigger one. I can hold a slot for you now — no obligation — so you have the option without losing time. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+> "Of course. Just so you have the full picture while you're deciding: the system is already running inefficiently, and waiting can turn a smaller repair into a bigger one. Let me hold a slot for you now — no obligation — so you have the option without losing time. Does morning or afternoon work better?"
 
 ### "Send me something to look at"
 
@@ -129,23 +140,27 @@ If they are coordinating:
 
 ### "We're comparison shopping"
 
-> "That makes sense — you want to make sure you're getting the right value. While you're comparing, the biggest thing to watch for is whether the other company is giving a real written price after inspecting, or a phone guess that changes later. Our tech gives you a flat written price before any work starts. I can hold a slot now — no obligation — so you have the option. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+> "That makes sense — you want to make sure you're getting the right value. While you're comparing, the biggest thing to watch for is whether the other company is giving a real written price after inspecting, or a phone guess that changes later. Our tech gives you a flat written price before any work starts. Let me hold a slot now — no obligation — so you have the option. Does morning or afternoon work better?"
+
+### "I just want a price first"
+
+> "I hear you — you want to know what you're looking at before we come out. Because every system is different, we need to inspect on-site to give you a real written price. The {{price:diagnostic_residential}} covers that full inspection, and if you approve the repair, it's credited to the work. While you're deciding, let me hold the next available slot — no obligation. Does morning or afternoon work better?"
 
 ## Worked example — genuine {#example-genuine}
 
 **Caller:** "I need to talk to my wife first. Can you call me back?"
 
-**CSM:** "Of course — that makes total sense. Is there a specific concern she usually has, like the price or the timing, so I can make sure I send you both the right info?"
+**CSM:** "Of course — you should talk it through. Is there a specific concern she usually has, like the price or the timing, so I can send you both the right info?"
 
 **Caller:** "Yeah, she usually wants to know what the technician is going to do and how much it costs."
 
-**CSM:** "Got it. It's a {{price:diagnostic_residential}} diagnostic, and if you approve the repair that day, it gets credited to the work. The technician does a full system check and gives you a written flat price before anything is done. While you talk it through with her, I can hold a slot for you — no obligation, and you can cancel or reschedule if anything changes. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+**CSM:** "Got it. It's a {{price:diagnostic_residential}} diagnostic. A licensed tech comes out, does a full system check, and gives you a written flat price before any work starts. If you approve the repair that day, the diagnostic gets credited to the work. While you talk it through with her, let me hold the next available slot — no obligation, and you can cancel or reschedule if anything changes. Does morning or afternoon work better?"
 
 ## Worked example — smokescreen {#example-smokescreen}
 
 **Caller:** "I need to talk to my wife first. Can you call me back?"
 
-**CSM:** "Of course — that makes total sense. Is there a specific concern she usually has, like the price or the timing, so I can send you both the right info?"
+**CSM:** "Of course — you should talk it through. Is there a specific concern she usually has, like the price or the timing, so I can send you both the right info?"
 
 **Caller:** "I just need to talk to her."
 
@@ -153,15 +168,15 @@ If they are coordinating:
 
 **Caller:** "Yeah, that seems high just to come out."
 
-**CSM:** "I hear you. That {{price:diagnostic_residential}} gets a licensed tech to your door, a full and accurate diagnosis, a thorough check of the entire system, and a written flat price before any work starts. If you approve the repair, that fee is credited to the same-day work. While you two talk it over, I can reserve a slot for you — no obligation, and you can cancel or reschedule if anything changes. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+**CSM:** "I hear you. That {{price:diagnostic_residential}} gets a licensed tech to your door, a full and accurate diagnosis, a thorough check of the entire system, and a written flat price before any work starts. If you approve the repair, that fee is credited to the same-day work. While you two talk it over, let me hold the next available slot — no obligation, and you can cancel or reschedule if anything changes. Does morning or afternoon work better?"
 
 ## Worked example — callback request {#example-callback}
 
 **Caller:** "Can you call me back in an hour? I need to figure out my schedule."
 
-**CSM:** "Absolutely. So I don't lose the spot for you, let me hold the slot now — if anything changes, no obligation, we can move it or cancel. What works better, this afternoon between 2 and 4, or 4 and 6?"
+**CSM:** "Absolutely. So you don't lose the spot, let me hold the slot now — no obligation, and if anything changes, we can move it or cancel. Does this afternoon or tomorrow morning work better?"
 
-**Caller:** "Let's do 2 to 4."
+**Caller:** "This afternoon."
 
 **CSM:** "Perfect. I'll lock that in and call you back within the hour to confirm. If you need to move it, just let me know."
 
