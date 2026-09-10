@@ -22,25 +22,59 @@ surfaces: [csm, checklist]
 
 ## Why the customer is saying this {#why-saying}
 
+"I need to talk to my spouse" is used in two very different ways. Treating both the same costs bookings.
+
 | What they say | What they usually mean | How to handle |
 | --- | --- | --- |
-| "I need to talk to my spouse." | They genuinely cannot commit without a second decision-maker. | Offer to reserve the slot while they talk; remove the obligation to keep it. |
+| "I need to talk to my spouse." (soft, vague) | Often a polite smokescreen — they are not convinced or want to end the call without conflict. | Gently surface the real concern before offering a hold. See [smokescreen vs. genuine](#smokescreen). |
+| "My wife/husband makes these decisions." (specific, factual) | They genuinely cannot commit without a second decision-maker. | Offer to reserve the slot while they talk; remove the obligation to keep it. |
 | "Call me back in an hour." | They need space to think, compare, or verify funds. | Hold the slot and set a concrete callback time — do not leave it open-ended. |
 | "I want to check with someone first." | They may be a tenant, property manager, or adult child coordinating for the owner. | Ask who the decision-maker is, then offer to send the appointment details to both parties. |
 | "I'm not ready to book right now." | They are worried about being locked into a fee or a time they cannot change. | Lead with cancellation flexibility before asking for the slot. |
 | "Let me think about it." | They may not trust the value yet, or they are comparison shopping. | Recap the specific risk of waiting — no heat, no hot water, leak damage — then hold the slot. |
 | "Send me something to look at." | They want proof they can share with a spouse or landlord. | Offer to text/email the appointment summary and a short explanation of the visit fee and credit policy. |
 
-The goal is not to talk them out of consulting someone else. The goal is to keep the appointment alive while they do.
+The goal is not to talk them out of consulting someone else. The goal is to find out what is actually happening and keep the appointment alive if there is real interest.
+
+## Smokescreen vs. genuine {#smokescreen}
+
+Most "I need to talk to my spouse" responses are not about the spouse. They are about doubt, pressure, or wanting to get off the phone. The CSM's job is to separate the two without being pushy.
+
+### Signs it is a smokescreen
+
+- They cannot name what the spouse needs to know.
+- They have already decided "no" several times in the conversation.
+- The tone is final, not exploratory.
+- They offer to "call you back" rather than asking you to hold the slot.
+
+### Signs it is genuine
+
+- They name the decision-maker and what that person decides.
+- They ask what to tell their spouse.
+- They want information sent to another person.
+- They are apologetic or explain logistics.
+
+### The respectful test
+
+Before offering the soft hold, ask one clarifying question:
+
+> "Totally understand. Is there a specific concern your spouse usually has — like the price, the timing, or what the technician will actually do — so I can make sure I send you both the right information?"
+
+This does two things:
+
+1. It reveals the real objection without calling them a liar.
+2. It gives you the actual issue to handle next.
+
+If they give a vague answer like "I just need to talk to them," treat it as a soft no and use the smokescreen path below. If they answer with something specific — price, timing, trust — handle that objection directly.
 
 ## Why it works {#why}
 
+When it is genuine, this is not an objection to overcome — it is a decision that needs a second person. Pushing back makes us the company that pressured them.
 
-This is not an objection to overcome — it's a legitimate decision that needs a second person. Pushing back makes us the company that pressured them.
-
-The move is to remove the cost of saying yes. Reserving a slot they can walk away from lets the customer take action right now without needing permission. "No obligation, we can reschedule or cancel" answers the fear of locking in before the conversation happens. Most customers keep the slot.
+When it is a smokescreen, the same response still works because it removes the cost of saying yes. Reserving a slot they can walk away from lets the customer take action right now without needing permission. "No obligation, we can reschedule or cancel" answers the fear of locking in before the conversation happens.
 
 **Say it unconditionally.** {{price:cancellation_fee}} — there is no deadline to beat, so don't invent one. "No charge if you cancel by tomorrow" implies a charge on Wednesday and quietly weakens the close.
+
 
 ## How to handle it {#execution}
 
