@@ -4,7 +4,7 @@ title: Objection — "Just give me the estimate by phone or email"
 department: csm
 owner: cs-manager
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, estimate, phone-estimate, email-estimate, replacement, free-estimate, script]
@@ -18,7 +18,7 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "Happy to get you that number — and the good news is the estimate is completely free. The only thing is, a real replacement quote can't be done over the phone. Two identical houses can need very different systems depending on the layout, the ductwork, the insulation, and what's already there. If I give you a number sight-unseen, it's a guess — and a guess almost always costs you more, either because it's padded to cover unknowns or because it balloons once a crew shows up. Our comfort specialist comes out, measures everything, and gives you a written price with Good/Better/Best options that's guaranteed in writing — the number we quote is the number you pay. It takes about an hour, it costs you nothing, and you have zero obligation. I can have someone there tomorrow — does morning or afternoon work better?"
+> "Happy to get you that number — and the good news is the estimate is completely free. The only thing is, a real replacement quote can't be done over the phone. Two identical houses can need very different systems depending on the layout, the ductwork, the insulation, and what's already there. If I give you a number sight-unseen, it's a guess — and a guess almost always costs you more, either because it's padded to cover unknowns or because it balloons once a crew shows up. Our comfort specialist comes out, measures everything, and gives you a written price with Good/Better/Best options that's guaranteed in writing — the number we quote is the number you pay. And right now we're running an exciting promo with 0% interest financing for 25 months, so once you have that written quote we can also show you what the investment looks like as a low monthly payment. It takes about an hour, it costs you nothing, and you have zero obligation. I can have someone there tomorrow — does morning or afternoon work better?"
 
 ## Why the customer is saying this {#why-saying-it}
 
@@ -27,7 +27,7 @@ Remote-estimate requests happen rarely — roughly 2% of estimate calls — but 
 | What they say | What they usually mean | What to answer |
 |---|---|---|
 | "Just email me a quote." | They're collecting numbers to compare, and a site visit feels like a big commitment. | A written quote we stand behind beats a number we revise later. Free, one hour, no obligation. |
-| "How much is a new system, roughly?" | They want to know if they can afford it before investing time. | Range honestly, then anchor to the free visit: "Most homes fall between X and Y depending on the home — the free visit tells you exactly where yours lands." |
+| "How much is a new system, roughly?" | They want to know if they can afford it before investing time. | Range honestly, then anchor to the free visit: "Most homes fall between X and Y depending on the home — the free visit tells you exactly where yours lands. And we're currently offering 0% interest financing for 25 months, so we can also walk you through monthly options once you have the written quote." |
 | "The other company gave me a price over the phone." | They think remote quotes are normal. | Explain what a phone quote really is: padded or a bait number. Our written quote is the number you actually pay. |
 | "I'm too busy for an appointment." | Scheduling friction, not refusal. | Compress the commitment: "About an hour, we work around your schedule — early morning and evening slots available." |
 | "I already have a written quote from someone else." | They want a comparison number without another visit. | Offer a second-opinion visit — free — where we review their quote and measure properly. Their quote becomes our baseline. |
@@ -52,14 +52,15 @@ A number given without these is one of two things: **padded** to protect the com
 2. **Agree with the goal:** "You want a real number you can plan around — exactly right."
 3. **Explain why remote fails:** "Two identical houses can need very different systems. A phone number is a guess, and guesses get padded or revised."
 4. **Sell the guarantee:** "We measure everything and give you a written price with Good/Better/Best options. The number we quote is the number you pay."
-5. **Shrink the time:** "It takes about an hour, and we work around your schedule."
-6. **Close on a choice:** "Does morning or afternoon work better?"
+5. **Mention the financing promo:** "And right now we have 0% interest financing for 25 months, so when you get the written quote we can also show you a low monthly payment option."
+6. **Shrink the time:** "It takes about an hour, and we work around your schedule."
+7. **Close on a choice:** "Does morning or afternoon work better?"
 
 ## Scenario responses {#scenarios}
 
 **"Just give me a ballpark."**
 
-> "I can give you a general range based on the size of your home and the type of system — but I want to be honest with you that it's a wide range until someone measures the home, because installation conditions move the number a lot. Where your home lands in that range is exactly what the free visit tells you, in writing, with Good/Better/Best options. About an hour, zero obligation. What day works for you?"
+> "I can give you a general range based on the size of your home and the type of system — but I want to be honest with you that it's a wide range until someone measures the home, because installation conditions move the number a lot. Where your home lands in that range is exactly what the free visit tells you, in writing, with Good/Better/Best options. And we have a great promo right now — 0% interest financing for 25 months — so we can also show you what the monthly payment looks like once you have the quote. About an hour, zero obligation. What day works for you?"
 
 **"Another company quoted me over the phone."**
 
@@ -81,7 +82,7 @@ A number given without these is one of two things: **padded** to protect the com
 
 > **Customer:** "Can you just email me an estimate for a new AC? I don't want a sales visit."
 >
-> **CSM:** "Happy to get you that number — and it's completely free, with no obligation. The only thing is, a real quote can't be done by email. Two identical houses can need very different systems depending on the layout, the ductwork, and what's already there — so any number I email you would be a guess, and guesses get padded or revised later. Our comfort specialist comes out, measures everything, and gives you a written price with Good/Better/Best options that's guaranteed — the number we quote is the number you pay. It takes about an hour. Does morning or afternoon work better?"
+> **CSM:** "Happy to get you that number — and it's completely free, with no obligation. The only thing is, a real quote can't be done by email. Two identical houses can need very different systems depending on the layout, the ductwork, and what's already there — so any number I email you would be a guess, and guesses get padded or revised later. Our comfort specialist comes out, measures everything, and gives you a written price with Good/Better/Best options that's guaranteed — the number we quote is the number you pay. And right now we have an exciting promo: 0% interest financing for 25 months, so we can also show you what the investment looks like monthly. It takes about an hour. Does morning or afternoon work better?"
 >
 > **Customer:** "I guess… how about Saturday?"
 >
