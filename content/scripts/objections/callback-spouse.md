@@ -4,8 +4,8 @@ title: Objection — "Call me back / I need to talk to my spouse"
 department: csm
 owner: cs-manager
 status: published
-version: 1
-last_reviewed: 2026-08-02
+version: 2
+last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, callback, spouse, decision-maker, soft-hold, script]
 related: [sop.csm.availability, sop.csm.reschedules, script.objection.price]
@@ -18,15 +18,29 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "Absolutely. Before I let you go — want me to pencil in a window so you don't lose the slot? **There's never a charge to cancel, so you're not committing to anything.**"
+> "Of course — that makes total sense. While you speak with your wife, I can go ahead and reserve the slot for you. If anything changes, there's no obligation, and we can reschedule or cancel, no problem."
 
 ## Why it works {#why}
 
-This is not an objection to overcome — it's a legitimate decision that needs a second person. Pushing against it makes us the company that pressured them.
+This is not an objection to overcome — it's a legitimate decision that needs a second person. Pushing back makes us the company that pressured them.
 
-The move is to remove the cost of saying yes. A held slot with a free cancellation is a decision they can make alone, right now, because it commits them to nothing. Most of them keep it.
+The move is to remove the cost of saying yes. Reserving a slot they can walk away from lets the customer take action right now without needing permission. "No obligation, we can reschedule or cancel" answers the fear of locking in before the conversation happens. Most customers keep the slot.
 
 **Say it unconditionally.** {{price:cancellation_fee}} — there is no deadline to beat, so don't invent one. "No charge if you cancel by tomorrow" implies a charge on Wednesday and quietly weakens the close.
+
+## How to handle it {#execution}
+
+1. **Agree first.** "Of course — that makes total sense."
+2. **Offer the hold.** Tie it to their conversation so it feels helpful, not pushy. "While you speak with your wife, I can reserve the slot for you."
+3. **Remove the risk.** State the cancellation policy clearly: "If anything changes, there's no obligation, and we can reschedule or cancel, no problem."
+4. **Ask for the booking.** "Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
+5. **Set the soft hold properly in ServiceTitan.** See `sop.csm.availability`.
+
+## Worked example {#example}
+
+**Caller:** "I need to talk to my wife first. Can you call me back?"
+
+**CSM:** "Of course — that makes total sense. While you speak with your wife, I can go ahead and reserve the slot for you. If anything changes, there's no obligation, and we can reschedule or cancel, no problem. Would tomorrow between 8 and 12 work, or would 1 to 5 be better?"
 
 ## Hold the slot properly {#soft-hold}
 
