@@ -51,7 +51,7 @@ Customer called about an AC blowing warm air. Fee has been framed once already p
 >
 > **Customer:** "…Yeah. I mean, the other company said they'd come out for free."
 >
-> **CSM:** "Totally understand. Here's what that {{price:diagnostic_residential}} gets you: a licensed tech at your door, a full and accurate diagnosis, a thorough check of your entire system, and a written price — the best in the market — so we can get this fixed and done and you don't have to worry about it any longer. If you approve the repair today, that diagnostic fee is credited toward the work." *(Stop talking.)*
+> **CSM:** "Totally understand — and free is fine right up until it's a guess. Here's what that {{price:diagnostic_residential}} gets you: a licensed tech at your door, a full and accurate diagnosis, a thorough check of your entire system, and a written, flat price before anyone touches a thing — so it's fixed right the first time and you're not paying someone else to come back out in three weeks. If you approve the repair today, that diagnostic fee is credited toward the work." *(Stop talking.)*
 >
 > **Customer:** "Hmm. Okay… but what if I don't like the repair price?"
 >
@@ -70,7 +70,7 @@ Customer called about an AC blowing warm air. Fee has been framed once already p
 | Beat | What the CSM did | What a weak CSM does |
 |---|---|---|
 | First objection | Empathy, then **silence** | Apologizes for the price ("I know, it is pricey…") |
-| Competitor mention | Reframed what the fee buys: licensed tech, full diagnosis, thorough check, written price, fixed and done | "Well, free companies just add it to the repair anyway" |
+| Competitor mention | Reframed on quality, not price: licensed tech, full diagnosis, thorough check, written flat price, fixed right the first time | "Well, free companies just add it to the repair anyway" |
 | "What if I don't like the price?" | Turned the fee into protection (written diagnosis, no obligation) | Offers to "see what I can do" about the fee |
 | Close | Asked for the booking directly, then pivoted to Home+ | Ends with "call us back if you change your mind" |
 
