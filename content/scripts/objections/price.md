@@ -4,8 +4,8 @@ title: Objection — "The diagnostic is too much"
 department: csm
 owner: cs-manager
 status: published
-version: 1
-last_reviewed: 2026-08-02
+version: 2
+last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, price, diagnostic, fee, script]
 related: [sop.csm.diagnostic-fee, sop.csm.membership-pivot, script.objection.quote-only]
@@ -18,23 +18,27 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "I hear you. That {{price:diagnostic_residential}} gets a licensed tech to your door, a full diagnosis, and a written price. If you approve the repair, it's credited. **You're not paying twice.**"
+> "I hear you. That {{price:diagnostic_residential}} gets a licensed tech to your door, a full and accurate diagnosis with a thorough check of your entire system, and a written price — the best in the market — so we can get your system fixed and done and you don't have to worry about it any longer. If you approve the repair today, that diagnostic fee is credited toward the work."
 
 ## Why it works {#why}
 
-The objection is almost never about the number — it's the fear of paying for nothing. "You're not paying twice" answers the actual worry in five words.
+The objection is almost never about the number — it's the fear of paying for nothing. The reframe answers three unspoken worries at once:
 
-Re-anchor to what the fee buys: a licensed, insured tech and a written price. Do not defend the number by comparing it to competitors, and do not apologize for it.
+1. **"Will I get my money's worth?"** — *licensed tech, full and accurate diagnosis, thorough system check.*
+2. **"Will the price balloon?"** — *written price, best in the market, fixed and done.*
+3. **"Am I paying twice?"** — *credited toward the repair if you approve it today.*
+
+You're not defending the fee. You're showing them what the fee *unlocks* — certainty, expertise, and a finished job. Do not compare us to competitors, do not apologize, and do not let the call drift into bargaining.
 
 ## The handling ladder {#ladder}
 
 Handle it in this order. Most calls resolve at step 1 or 2 — don't skip ahead.
 
 1. **Acknowledge, don't argue.** "I hear you" — two seconds of empathy, then silence. Never say "I understand, *but*…" The "but" erases the empathy.
-2. **Re-anchor to value.** Restate what the fee buys: licensed tech, real diagnosis, written price, credit on repair. One sentence. Stop talking.
-3. **Answer the real fear.** "You're not paying twice" — the fee isn't lost money, it's a deposit on the repair.
+2. **Re-anchor to the outcome.** Restate what the fee buys: licensed tech, full and accurate diagnosis, thorough system check, written price, and a fixed system — then stop talking.
+3. **Close the loop on the credit.** "If you approve the repair today, that diagnostic fee is credited toward the work." This directly answers the "paying twice" fear.
 4. **Offer the membership pivot** (see below). Home+ costs less than the fee it waives.
-5. **Hold or escalate.** If they still refuse, hold the fee. "I totally get it. The fee's the same for everyone — it's what puts a licensed tech at your door instead of a guess." If they're about to hang up on a real emergency, offer a Manager callback — never a waiver.
+5. **Hold or escalate.** If they still refuse, hold the fee. "I totally get it. The fee's the same for everyone — it's what gets a licensed tech to your door with a real answer and a written price." If they're about to hang up on a real emergency, offer a Manager callback — never a waiver.
 
 ## Perfect execution — full call {#perfect}
 
@@ -46,11 +50,11 @@ Customer called about an AC blowing warm air. Fee has been framed once already p
 >
 > **Customer:** "…Yeah. I mean, the other company said they'd come out for free."
 >
-> **CSM:** "Totally understand. Here's what the {{price:diagnostic_residential}} gets you: a licensed, insured tech at your door, a real diagnosis — not a guess — and a written price before any work starts. And if you approve the repair, that $199 is credited straight toward it. **You're not paying twice.**" *(Stop talking.)*
+> **CSM:** "Totally understand. Here's what that {{price:diagnostic_residential}} gets you: a licensed tech at your door, a full and accurate diagnosis, a thorough check of your entire system, and a written price — the best in the market — so we can get this fixed and done and you don't have to worry about it any longer. If you approve the repair today, that diagnostic fee is credited toward the work." *(Stop talking.)*
 >
 > **Customer:** "Hmm. Okay… but what if I don't like the repair price?"
 >
-> **CSM:** "Then you owe the $199 and nothing else — and you keep a written diagnosis you can hold anyone else to. No obligation, no surprise numbers."
+> **CSM:** "Then you owe the diagnostic fee and nothing else — and you keep a written diagnosis you can hold anyone else to. No obligation, no surprise numbers."
 >
 > **Customer:** "Alright… fine. When can someone come?"
 >
@@ -65,7 +69,7 @@ Customer called about an AC blowing warm air. Fee has been framed once already p
 | Beat | What the CSM did | What a weak CSM does |
 |---|---|---|
 | First objection | Empathy, then **silence** | Apologizes for the price ("I know, it is pricey…") |
-| Competitor mention | Reframed what the fee buys — never bad-mouthed the competitor | "Well, free companies just add it to the repair anyway" |
+| Competitor mention | Reframed what the fee buys: licensed tech, full diagnosis, thorough check, written price, fixed and done | "Well, free companies just add it to the repair anyway" |
 | "What if I don't like the price?" | Turned the fee into protection (written diagnosis, no obligation) | Offers to "see what I can do" about the fee |
 | Close | Asked for the booking directly, then pivoted to Home+ | Ends with "call us back if you change your mind" |
 
