@@ -30,6 +30,7 @@ surfaces: [csm, checklist]
 | "How much before you come out?" | They're trying to avoid a wasted visit or a high-pressure sale. | Promise a written quote before any work starts, and that the diagnostic is the path to that written number. |
 | "Can you just give me a ballpark?" | They want a rough number to decide if we're even in range. | Refuse the ballpark. Every system is different — a guess would be unfair. The diagnostic gives them a real, binding quote. |
 | "The other company quoted me over the phone." | They think phone quotes are normal. | Explain why that hurts them: a guess revised on the doorstep costs trust. Our process measures first, quotes second. |
+| "The other company did the diagnostics and quoted me a price for the repair." | They think they already paid for a diagnosis and have a usable quote; they don't want to pay twice. | Validate their due diligence, then explain we must perform our own diagnostic to warranty the repair and stand behind our flat price. Offer to review the other company's written quote during our visit. |
 | "I only need a small repair." | They believe the issue is simple and shouldn't require a full diagnostic. | Don't argue the symptom. Confirm that even small issues can have multiple causes, and the diagnostic locks in the right fix the first time. |
 | "I need to budget before I schedule." | This is a timing/cash-flow concern, not a refusal. | Show the value: written quote, no-surprise price, diagnostic credit if they approve the repair today. |
 
