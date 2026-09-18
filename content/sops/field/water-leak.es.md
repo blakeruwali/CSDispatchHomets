@@ -15,11 +15,11 @@ Casi toda llamada residencial de agua es una de tres cosas. Se distinguen por **
 
 | Dónde está el agua | Qué es | A dónde vas |
 |---|---|---|
-| Gotea o escurre desde **un solo punto** | Drenaje de condensado, charola, o una junta con fuga | [El drenaje](#drain) |
-| En la **cara y las aletas** de la rejilla | El aire de suministro está por debajo del punto de rocío del cuarto | [La cara de la rejilla](#face) |
-| En el **marco, el aro del techo, o el techo alrededor** | Aire húmedo condensándose en metal frío en la bota | [La bota](#boot) |
+| Gotea o escurre desde **un solo punto** | Drenaje de condensado, charola, o una junta con fuga | **El drenaje** |
+| En la **cara y las aletas** de la rejilla | El aire de suministro está por debajo del punto de rocío del cuarto | **La cara de la rejilla** |
+| En el **marco, el aro del techo, o el techo alrededor** | Aire húmedo condensándose en metal frío en la bota | **La bota** |
 
-**Dos pueden ser ciertas a la vez.** Esa es la visita de regreso que este SOP existe para evitar — ver [No te detengas en la primera](#both).
+**Dos pueden ser ciertas a la vez.** Esa es la visita de regreso que este SOP existe para evitar — ver **No te detengas en la primera**, más abajo.
 
 ## Antes que nada — localiza el agua {#locate}
 
@@ -28,7 +28,7 @@ Casi toda llamada residencial de agua es una de tres cosas. Se distinguen por **
 1. **¿Dónde está mojado?** Cara y aletas, marco y aro del techo, o escurriendo desde un solo punto.
 2. **¿Es condensación o escurrimiento?** La condensación se forma pareja sobre una superficie. El escurrimiento traza, gotea y sigue la gravedad desde un lugar.
 3. **Fotografía con la rejilla quitada**, antes de tocar nada.
-4. **Aprieta con la mano el aislamiento** que encuentres en la bota. Aislamiento mojado ya es un hallazgo — ver [La bota](#boot).
+4. **Aprieta con la mano el aislamiento** que encuentres en la bota. Aislamiento mojado ya es un hallazgo — ver **La bota**, más abajo.
 
 **No cotices nada antes de hacer esto.** Un precio dado desde la entrada en una llamada de agua es una adivinanza.
 
@@ -112,7 +112,7 @@ Si la superficie de la rejilla marca por debajo del punto de rocío de esta tabl
 | Diferencial arriba de 22°F con suministro frío | **Poco flujo de aire.** Filtro, serpentín, soplador, dampers, restricción de ducto — luego estática |
 | Estática arriba de lo que dice la placa | **Restricción de ducto.** Flex colgado, tramos aplastados, retorno chico |
 | Diferencial normal, retorno ya frío | **El cuarto se está enfriando de más.** Problema de control o termostato, no del serpentín |
-| Diferencial y estática normales, cara todavía mojada | Revisa otra vez el punto de rocío. Si está bien, el agua no es condensación — regresa a [localiza](#locate) |
+| Diferencial y estática normales, cara todavía mojada | Revisa otra vez el punto de rocío. Si está bien, el agua no es condensación — regresa a **localiza el agua** |
 | Marco mojado, cara seca | **Bota.** Aislamiento, barrera de vapor, sellado al techo |
 
 ## No te detengas en la primera {#both}

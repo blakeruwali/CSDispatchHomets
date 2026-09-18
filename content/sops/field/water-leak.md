@@ -26,11 +26,11 @@ Almost every residential water call is one of three things. They are told apart 
 
 | Where the water is | What it is | Where you go |
 |---|---|---|
-| Dripping or tracking from **one point** | Condensate drain, pan, or a leaking joint | [The drain](#drain) |
-| On the **face and vanes** of the grille | Supply air is below the room's dew point | [The grille face](#face) |
-| On the **frame, ceiling ring, or ceiling around** the grille | Humid air condensing on cold metal at the boot | [The boot](#boot) |
+| Dripping or tracking from **one point** | Condensate drain, pan, or a leaking joint | **The drain** |
+| On the **face and vanes** of the grille | Supply air is below the room's dew point | **The grille face** |
+| On the **frame, ceiling ring, or ceiling around** the grille | Humid air condensing on cold metal at the boot | **The boot** |
 
-**Two of them can be true at once.** That is the callback this SOP exists to prevent — see [Do not stop at the first one](#both).
+**Two of them can be true at once.** That is the callback this SOP exists to prevent — see **Do not stop at the first one**, below.
 
 ## Before anything else — locate the water {#locate}
 
@@ -39,7 +39,7 @@ Almost every residential water call is one of three things. They are told apart 
 1. **Where is it wet?** Face and vanes, frame and ceiling ring, or running from a single point.
 2. **Is it condensation or flow?** Condensation forms evenly across a surface. Flow tracks, drips, and follows gravity from one place.
 3. **Photograph it with the grille off**, before you touch anything.
-4. **Squeeze any insulation** you find on the boot. Wet insulation is a finding in itself — see [The boot](#boot).
+4. **Squeeze any insulation** you find on the boot. Wet insulation is a finding in itself — see **The boot**, below.
 
 **Do not quote anything before you have done this.** A price given from the driveway on a water call is a guess.
 
@@ -123,7 +123,7 @@ If the grille surface reads below the dew point in this table, condensation is c
 | Split above 22°F with cold supply | **Low airflow.** Filter, coil, blower, dampers, duct restriction — then static |
 | TESP above the plate rating | **Duct restriction.** Sagging flex, crushed runs, undersized return |
 | Split normal, return already cold | **The room is being overcooled.** Control or thermostat problem, not the coil |
-| Split and static normal, face still wet | Re-check the dew point. If it is fine, the water is not condensation — go back to [locate](#locate) |
+| Split and static normal, face still wet | Re-check the dew point. If it is fine, the water is not condensation — go back to **locate the water** |
 | Frame wet, face dry | **Boot.** Insulation, vapour barrier, seal to the ceiling |
 
 ## Do not stop at the first one {#both}
