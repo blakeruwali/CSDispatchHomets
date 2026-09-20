@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Radio, Clock, LayoutList, Settings } from "lucide-react";
+import { Radio, Clock, LayoutList, Settings, Stethoscope } from "lucide-react";
 import { dispatchSections } from "@/lib/content";
 import { DocsLayout } from "@/components/content/DocsLayout";
 
