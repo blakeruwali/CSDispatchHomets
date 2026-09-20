@@ -140,6 +140,7 @@ Procedures that apply to a technician on **every** visit, whatever the job type.
 | **Complaint: Not Cooling** | `sop.field.no-cooling` | ✅ published · 🇪🇸 |
 | **Complaint: No Heat** | `sop.field.no-heat` | ✅ published · 🇪🇸 |
 | **Complaint: Ice on the System** | `sop.field.frozen-coil` | ✅ published · 🇪🇸 |
+| **Complaint: Sweating Grilles & Register Condensation** | `sop.field.sweating-grille` | ✅ published · 🇪🇸 |
 | Complaint: Water Leaking | `sop.field.water-leak` | ❌ placeholder |
 | Complaint: Breaker Tripping / Short Cycling | `sop.field.electrical` | ❌ placeholder |
 | Complaint: Noise | `sop.field.noise` | ❌ placeholder |
