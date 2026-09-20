@@ -1,6 +1,6 @@
 ---
 translation_of: sop.field.sweating-grille
-source_version: 1
+source_version: 2
 ---
 
 # Queja: Rejillas con Condensación (Sudoración de Registros)
