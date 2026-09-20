@@ -496,6 +496,15 @@ export const DISPATCH_SECTIONS: SectionDef[] = [
     title: "Running the Board",
     description: "Job priorities and the hour-by-hour workflow",
   },
+  // Complaint protocols a dispatcher has to recognise at booking and prep the
+  // truck for. The documents themselves are owned by the field book — they
+  // appear here so the person taking the call opens the same steps the
+  // technician will work.
+  {
+    id: "field-diagnostics",
+    title: "Complaint Protocols",
+    description: "Calls that need specific instruments, prep and duration before the truck rolls",
+  },
   // Shared with the CSM, field and sales surfaces.
   { id: "governance", title: "Governance", description: "How these documents are issued, acknowledged, and changed" },
   {

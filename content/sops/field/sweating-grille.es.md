@@ -1,6 +1,6 @@
 ---
 translation_of: sop.field.sweating-grille
-source_version: 1
+source_version: 2
 ---
 
 # Queja: Rejillas con Condensación (Sudoración de Registros)
@@ -16,6 +16,23 @@ La condensación ocurre por exactamente una razón: **una superficie está en o 
 ## Cuándo aplica {#applies}
 
 Cualquier queja de agua goteando de un registro de suministro, humedad o manchas en el techo o la pared alrededor de una rejilla, gotas visibles en la cara de la rejilla, o manchas de moho en un difusor. También aplica cuando lo encuentras tú mismo en una llamada no relacionada — una rejilla que suda que se encuentra, es una rejilla que suda que se documenta.
+
+## Cómo llega esta llamada al tablero {#dispatch}
+
+Despacho es dueño de la primera mitad de este protocolo. Las mediciones de abajo no sirven si el técnico llega sin los instrumentos o con un espacio de 30 minutos.
+
+**Palabras clave en el ticket.** Cualquiera de estas convierte una llamada genérica de "fuga de agua" o "problema de AC" en un trabajo de rejilla con condensación: *rejilla sudando, registro goteando, agua en el techo alrededor de la rejilla, rejilla mojada, gotas en la ventila, manchas de moho en el difusor, techo húmedo solo cuando corre el AC*. El CSM separa esto de una fuga de bandeja (`sop.csm.symptom-clarification`); Despacho lo detecta cuando no lo hacen.
+
+**Despacho hace esto antes de que salga el técnico:**
+
+1. **Etiqueta el ticket `SWEATING-GRILLE`** y pega la lista de mediciones del PASO 2 y el PASO 4 en las notas del trabajo.
+2. **Confirma que el camión lleva los instrumentos** — psicrómetro o higrómetro, termómetro infrarrojo, termómetro de sonda, kit de presión estática. Sin pistola infrarroja no hay diagnóstico válido; manda otro técnico.
+3. **Agéndalo como diagnóstico, no como llamada rápida.** El sistema debe correr en enfriamiento 15 minutos antes de que cualquier lectura sea válida (`sop.dispatch.job-duration`).
+4. **Pide que dejen el enfriamiento encendido.** Dile al cliente en la confirmación: que corra el sistema al menos una hora antes de la llegada.
+5. **Prioridad.** Servicio normal (P7) salvo que el panel de yeso esté saturado cerca de una luminaria o haya moho visible extendido — entonces es P2 del mismo día (`sop.dispatch.priorities`).
+6. **Temporada.** Solo temporada de enfriamiento. Cuando entra la calefacción el síntoma desaparece y no se puede medir hasta la primavera — se agenda esta semana, no "cuando se pueda".
+
+**Cerrar el ciclo.** Despacho no acepta el cierre sin punto de rocío, temperatura de superficie de la rejilla y delta-T en las notas (`sop.field.forms`).
 
 ## Puerta de seguridad {#safety}
 

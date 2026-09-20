@@ -4,14 +4,14 @@ title: "Complaint: Sweating Grilles & Register Condensation"
 department: field
 owner: service-manager
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-09-20
 review_cadence_days: 90
-tags: [diagnostics, condensation, sweating, grille, register, humidity, dew-point, delta-t, airflow, duct-insulation, complaint, field]
-related: [sop.field.diagnostics, reference.diagnostic-readings, sop.field.water-leak, sop.field.forms]
+tags: [diagnostics, condensation, sweating, grille, register, humidity, dew-point, delta-t, airflow, duct-insulation, complaint, field, dispatch]
+related: [sop.field.diagnostics, reference.diagnostic-readings, sop.field.water-leak, sop.field.forms, sop.csm.symptom-clarification, sop.dispatch.priorities, sop.dispatch.job-duration]
 section: field-diagnostics
 order: 7
-surfaces: [field, checklist]
+surfaces: [field, dispatch, checklist]
 ---
 
 # Complaint: Sweating Grilles & Register Condensation
@@ -27,6 +27,23 @@ Condensation happens for exactly one reason: **a surface is at or below the dew 
 ## When this applies {#applies}
 
 Any complaint of water dripping from a supply register, dampness or staining on a ceiling or wall around a grille, visible beads on the grille face, or mold spotting at a diffuser. Also applies when you find it yourself on an unrelated call — a sweating grille found is a sweating grille documented.
+
+## How this call reaches the board {#dispatch}
+
+Dispatch owns the first half of this protocol. The measurements below are worthless if the tech arrives without the instruments or with a 30-minute slot.
+
+**Trigger words on the ticket.** Any of these turns a generic "water leak" or "AC problem" call into a sweating-grille job: *sweating vent, dripping register, water on the ceiling around the vent, wet grille, beads on the vent, mold spots at the diffuser, damp ceiling only when the AC runs*. The CSM's job is to separate this from a drain-pan leak (`sop.csm.symptom-clarification`); Dispatch's job is to catch it when they don't.
+
+**Dispatch does this before the tech rolls:**
+
+1. **Tag the ticket `SWEATING-GRILLE`** and paste the measurement list from STEP 2 and STEP 4 into the job notes, so the tech opens the job on the required readings rather than on a description.
+2. **Confirm the truck carries the instruments** — psychrometer or hygrometer, IR thermometer, probe thermometer, static pressure kit. No IR gun, no valid diagnosis; send a different tech.
+3. **Book it as a diagnostic, not a quick call.** The system must run in cooling for 15 minutes before any reading is valid — allow the standard diagnostic duration class in `sop.dispatch.job-duration`, never a filler slot at the end of the day.
+4. **Ask for cooling to be left on.** Tell the customer at confirmation: run the system for at least an hour before arrival so the symptom is present and measurable.
+5. **Priority.** Normal service (P7) unless drywall is saturated near a light fixture or there is visible mold spread — then it is a same-day P2 (`sop.dispatch.priorities`).
+6. **Season.** Cooling season only. Once heat is on, the symptom disappears and cannot be measured until spring — a call taken in late season gets booked this week, not "when it's convenient."
+
+**Closing the loop.** Dispatch does not accept the close unless dew point, grille surface temperature and delta-T are in the job notes (`sop.field.forms`). A sweating-grille job closed with photos but no numbers goes back to the tech the same day.
 
 ## Safety gate {#safety}
 

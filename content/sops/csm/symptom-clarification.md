@@ -37,6 +37,7 @@ Every call, right after you've got name, number, address, and system type from `
 | "AC broken" | "Is it not running at all, or running but not blowing cold?" |
 | "No heat" | "Is the system on and blowing, or completely off?" |
 | "Leaking water" | "Is it dripping, pooling, or actively running?" |
+| "Water at a vent" / "the vent is sweating" | "Is the water on the face of the vent itself, or running out from inside it? And does it only happen while the AC is running?" — beads on the grille face during cooling is a condensation call: tag it `SWEATING-GRILLE` so Dispatch preps the truck (`sop.field.sweating-grille`) |
 | "Strange noise" | "Would you call it a rattle, a bang, a hiss, or a grinding?" |
 | "Smells weird" | "Would you describe that as gas, burning, musty, or something else?" |
 
