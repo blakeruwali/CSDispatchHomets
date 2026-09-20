@@ -4,14 +4,14 @@ title: "Complaint: Sweating Grilles & Register Condensation"
 department: field
 owner: service-manager
 status: published
-version: 1
+version: 2
 last_reviewed: 2026-09-20
 review_cadence_days: 90
-tags: [diagnostics, condensation, sweating, grille, register, humidity, dew-point, delta-t, airflow, duct-insulation, complaint, field]
-related: [sop.field.diagnostics, reference.diagnostic-readings, sop.field.water-leak, sop.field.forms]
+tags: [diagnostics, condensation, sweating, grille, register, humidity, dew-point, delta-t, airflow, duct-insulation, complaint, field, dispatch]
+related: [sop.field.diagnostics, reference.diagnostic-readings, sop.field.water-leak, sop.field.forms, sop.csm.symptom-clarification, sop.dispatch.priorities, sop.dispatch.job-duration]
 section: field-diagnostics
 order: 7
-surfaces: [field, checklist]
+surfaces: [field, dispatch, checklist]
 ---
 
 # Complaint: Sweating Grilles & Register Condensation
