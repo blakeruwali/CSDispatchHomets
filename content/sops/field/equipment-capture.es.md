@@ -1,139 +1,78 @@
 ---
 translation_of: sop.field.equipment-capture
-source_version: 3
+source_version: 4
 ---
 
 # Registro de Equipos en ServiceTitan — Antes de Cualquier Trabajo
 
-> **Cada equipo del domicilio se registra en ServiceTitan, con una foto de su placa de datos, antes de que toques una herramienta.**
+> **Cada equipo del domicilio va a ServiceTitan, con una placa de datos escaneada y fotografiada, antes de que toques una herramienta.**
 
-## La versión de 60 segundos {#field-card}
+## Cuándo aplica {#applies}
 
-En cada unidad, antes de empezar:
+Cada visita, cada tipo de trabajo, sin excepciones: diagnóstico, reparación, afinación, instalación, estimado, callback, visita de garantía. Aplica a la unidad para la que te despacharon **y** a cualquier otro equipo en el domicilio — el segundo calefactor que nadie mencionó, el calentador de agua en el rincón, cada RTU en un techo comercial. El trabajo es *el equipo de este domicilio*, no *el equipo que se descompuso*.
 
-1. **Escanea el equipo.** Apunta la cámara de la tableta a la placa de datos y ejecuta el escaneo — ServiceTitan lee el modelo y el número de serie directo de la placa. Después fotografía también la placa.
-2. **Fotografía la unidad completa** donde está instalada.
-3. **Crea el registro del equipo** — marca, modelo, número de serie, ubicación, medida del filtro.
-4. **Ahora sí, empieza a trabajar.**
+No deja de aplicar solo porque la placa es físicamente inalcanzable sin un acceso inseguro, y aun en ese caso sigue aplicando la regla de abajo en `#unreadable` — no te saltas el registro, documentas por qué está incompleto.
 
-**Unos 60–90 segundos por unidad.** Ese es el costo real, y este documento no va a fingir que es gratis.
+## La escalera de ejecución {#execution}
 
-Si de verdad vas apurado, los tres datos obligatorios son **el escaneo de la placa, el modelo y el número de serie.** Lo demás se puede completar después con el escaneo y la foto. Nada se puede completar después con una placa que no escaneaste.
+1. **Antes de abrir un panel o tomar una herramienta, encuentra cada unidad en el domicilio** — la que te enviaron a atender y cualquier otra en la propiedad que caliente, enfríe, caliente agua o filtre aire.
+2. **Escanea la placa de datos** en tu tableta. ServiceTitan lee el modelo y el número de serie directo de la placa — sin escribir, sin errores de transcripción.
+3. **Fotografía la placa de datos**, llenando el encuadre, enfocada, incluso después de un escaneo exitoso. La foto es el respaldo si el escaneo lee mal un carácter meses después.
+4. **Fotografía la unidad completa** donde está instalada, mostrando su condición y su entorno.
+5. **Crea o actualiza el registro de equipo en el domicilio del cliente** — tipo, fabricante, modelo, número de serie, combustible/energía, capacidad, tipo de refrigerante, fecha de fabricación, ubicación, medida del filtro, notas de condición.
+6. **Repite para cada unidad adicional** en el domicilio antes de empezar a diagnosticar o reparar nada.
+7. **Solo entonces empieza a trabajar.**
+8. **Al cierre, confirma que cada unidad que tocaste o encontraste tenga un registro asociado al domicilio** — no enterrado en notas del trabajo (`sop.field.forms`).
 
-## Qué ganas tú con esto {#for-you}
+Calcula 60–90 segundos por unidad. Si de verdad vas apurado, las tres cosas no negociables son **el escaneo de la placa, el modelo y el número de serie** — todo lo demás se puede completar después desde el escaneo y la foto. Nada se puede completar después de una placa que nunca escaneaste.
 
-No la oficina — la persona que tiene la herramienta en la mano.
-
-**Te pagan las llamadas de regreso que no son culpa tuya.** Si una pieza falla dentro de la garantía del fabricante y no hay número de serie registrado, el reclamo se cae. La empresa lo absorbe, y el viaje de regreso le toca al que esté libre — muchas veces a ti, en un trabajo que ahora no paga nada. Con el número de serie registrado, paga el fabricante y esa visita es un trabajo pagado.
-
-**La pieza correcta sale contigo.** Con el modelo en el sistema, el siguiente despacho a esa dirección sale con la pieza ya en la camioneta. Un segundo viaje es tiempo de manejo no pagado y un espacio que pudiste haber facturado.
-
-**La foto te protege.** Cuando un cliente dice que la unidad era más nueva de lo que era, o que no goteaba antes de que llegaras, la foto con fecha de lo que encontraste termina la discusión. Ese registro existe para tu beneficio tanto como para el de la empresa.
-
-**Tus cotizaciones son más grandes y se cierran más rápido.** La antigüedad y el tipo de refrigerante son lo que convierte un "está bastante viejo" en una conversación de reemplazo que el cliente sí cree. Ambos datos salen de la placa. Eso no lo puedes argumentar de memoria.
-
-**Dejas de repetir tu propio diagnóstico.** Todo lo que registras hoy te está esperando la próxima vez que tú o cualquier otro vaya a esa dirección.
-
-## "Pero—" {#objections}
-
-Las objeciones son justas. Aquí están las respuestas.
-
-**"El cliente está parado ahí y parezco lento."**
-Nárralo y se lee como minucioso, no como lento:
+## Qué dices {#verbatim}
 
 > "Solo estoy registrando su equipo — modelo y número de serie en el sistema para tener cubierta su garantía."
 
-El cliente escucha a una empresa que lleva registros. Nadie se ha quejado nunca de esa frase.
+> "Aquí en realidad tiene dos sistemas — quiero dejar los dos en el registro, no solo el que reportó."
 
-**"Hay 43°C en ese ático y no voy a pasar cinco minutos extra allá arriba."**
-No los vas a pasar. Escanea la placa, toma las fotos, baja, y completa el registro desde el escaneo en la camioneta o en la escalera. Lo único que tiene que pasar junto a la unidad es la cámara, y eso son quince segundos.
+> "Esta placa está bastante gastada — déjeme sacar lo que se pueda y anotar el resto para que nadie adivine después."
 
-**"Ya conozco este sistema, ya vine antes."**
-Entonces el registro ya existe y confirmarlo te toma diez segundos. Si no existe, tú eres la razón por la que el siguiente técnico empieza desde cero.
+## Ejemplo trabajado {#example}
 
-**"Lo agrego cuando cierre el trabajo."**
-Nadie lo hace, y eso no es un defecto de carácter — es lo que hace cualquier oficio ocupado cuando el trabajo se alarga y la siguiente llamada está esperando. El porcentaje de captura después del hecho es casi cero. Exactamente por eso la regla está puesta antes del trabajo y no después.
+**Débil:** Despachan al técnico por un condensador muerto, arregla el capacitor, cierra el trabajo. Sin registro de equipo. Tres meses después el compresor falla bajo garantía del fabricante. No hay número de serie registrado, el reclamo se rechaza, y el callback llega sin pago a quien lo tome.
 
-**"La oficina quiere datos, ese es problema de la oficina."**
-La mitad sí. La mitad de arriba no — la visita no pagada, el segundo viaje y el reclamo por daños disputado le caen a un técnico.
+**Perfecto:** El técnico llega, antes de tocar el condensador, escanea su placa, la fotografía, y nota que el calefactor en el mismo clóset nunca se registró tampoco. Lo escanea y lo fotografía también. Ambos registros quedan en el domicilio: fabricante, modelo, número de serie, tipo de refrigerante, medida del filtro. Se cambia el capacitor. Tres meses después el compresor falla — el número de serie está registrado, el reclamo se aprueba, y el callback sí paga.
 
-## Registra cada sistema, no solo por el que te mandaron {#every-system}
+| | Débil | Perfecto |
+|---|---|---|
+| Unidades registradas | 1 de 2 | 2 de 2 |
+| Origen de modelo/serie | Memoria / omitido | Escaneo + foto |
+| Reclamo de garantía después | Falla, callback sin pago | Aprobado, callback pagado |
+| Siguiente despacho | Empieza desde cero | Llega con la pieza correcta |
 
-El trabajo es *el equipo de este domicilio*, no *el equipo que se descompuso*.
+## Cuando algo sale mal {#failures}
 
-- Calefactor **y** condensador de aire son dos registros. Dos placas, dos entradas.
-- Casas con dos zonas o dos calefactores: cada unidad, incluida la del ático que nadie mencionó.
-- Calentador de agua, caldera, cabezales mini-split **y** su unidad exterior, manejadora de aire, equipos de calidad de aire.
-- Comercial: **cada unidad de azotea (RTU)**, numeradas de forma consistente para que el siguiente técnico sepa cuál es cuál.
+- **La placa está ilegible o no está.** Escanea de todos modos — una placa parcial a menudo aún revela el fabricante. Fotografía lo que quede. Escribe "placa de datos ilegible" en las notas de condición. Busca una etiqueta secundaria: dentro de la puerta del soplador, en el gabinete, en el desconectador, o una calcomanía de un instalador anterior. Nunca adivines un número de serie — un número adivinado es peor que uno en blanco porque la siguiente persona va a confiar en él.
+- **Se niega o se bloquea el acceso a una unidad.** Anótalo claramente — "cliente negó acceso al ático", "sótano cerrado con llave" — y registra todo lo demás. Un hueco explicado es un registro; un hueco silencioso es un defecto.
+- **Lo registraste en notas del trabajo en vez del domicilio.** Eso no está registrado. Las notas no se asocian al domicilio, no impulsan el mantenimiento, y no aparecen cuando el CSM agenda la siguiente llamada. Muévelo al registro de equipo antes de cerrar.
+- **Despacho marca un trabajo cerrado sin equipo asociado.** Reconoce la marca el mismo día y completa o explica el hueco. Esto se revisa junto con tu tasa de callback — las dos cosas están relacionadas.
 
-El segundo sistema es el que se salta, y es el que genera la siguiente llamada. Cuando entre esa llamada, un registro que ya tenemos es la diferencia entre que llegues con la pieza y que llegues a mirarla.
+### Reglas duras
 
-## Qué lleva el registro {#fields}
+- Nunca inventes ni estimes un número de modelo o de serie.
+- Nunca omitas el segundo sistema porque solo te despacharon por uno.
+- Nunca dejes los datos de equipo solo en notas del trabajo.
+- Nunca cierres un trabajo con un registro de equipo faltante sin explicar.
 
-| Campo | Regla |
+## Calificación de QA {#qa}
+
+| Puntaje | Estándar |
 |---|---|
-| Tipo de equipo | Calefactor / caldera / condensador AC / manejadora / bomba de calor / mini-split / calentador de agua / calidad de aire |
-| Fabricante | Tal como aparece impreso en la placa |
-| **Número de modelo** | **Exacto, carácter por carácter** |
-| **Número de serie** | **Exacto, carácter por carácter** |
-| Combustible / energía | Gas natural / propano / diésel / eléctrico |
-| Capacidad | Toneladas o BTU según se indique |
-| Tipo de refrigerante | Equipos de enfriamiento — define reparar vs. reemplazar |
-| Fecha de fabricación | De la placa, o decodificada del número de serie |
-| Ubicación | Dónde la va a encontrar el siguiente técnico |
-| Medida del filtro | Medida exacta por sistema — esto es lo que hace posible el mantenimiento |
-| Notas de condición | Lo que realmente encontraste |
-
-**El modelo y el número de serie se transcriben desde la foto, nunca de memoria.** Son largos, mezclan letras y dígitos, y un solo carácter equivocado es un reclamo de garantía que se cae meses después cuando ya nadie puede reconstruir qué pasó.
-
-## Escanea la placa, luego fotografíala {#photo}
-
-Los campos escritos pueden tener un error de dedo. El escaneo y la foto no.
-
-- **Primero el escaneo:** cada unidad recibe el escaneo de equipo sobre su placa de datos — el modelo y el número de serie entran desde el escaneo, carácter por carácter, sin escribir nada a mano.
-- **Mínimo una foto por unidad después del escaneo:** **la placa de datos, llenando el encuadre, enfocada.** La foto es el respaldo — si el escaneo lee mal un carácter, la foto es lo que lo resuelve meses después.
-- Además una toma más abierta que muestre la unidad y su entorno.
-- ¿Placa sucia? Límpiala, vuelve a escanear y vuelve a tomarla. Una placa que el escáner no puede leer es una placa que tú tampoco puedes leer — un escaneo fallido no es un registro.
-
-## Cuando la placa está ilegible o no está {#unreadable}
-
-Común en equipos exteriores viejos. No te saltes el registro, y no inventes números.
-
-1. Escanea de todos modos — una placa parcial a menudo te da al menos el fabricante o parte del modelo — y fotografía lo que quede, por parcial que sea.
-2. Captura lo que *sí* puedas establecer — tipo, fabricante, ubicación, combustible, antigüedad aproximada.
-3. **Escribe "placa de datos ilegible" en las notas de condición.**
-4. Busca una etiqueta secundaria: dentro de la puerta del soplador, en el gabinete, en el desconectador, o una calcomanía de un instalador anterior.
-
-**Un número de serie adivinado es peor que uno en blanco**, porque la siguiente persona va a confiar en él.
-
-## Dónde va {#where}
-
-**En el registro de equipo asociado al domicilio del cliente — no en las notas del trabajo.**
-
-Esta es la forma más común en que se hace mal. Las notas son invisibles en la siguiente visita: no se asocian al domicilio, no impulsan el mantenimiento, y no aparecen cuando el CSM agenda la siguiente llamada. La información existe y no hace nada. Mismo principio que en todo lo demás aquí — si no está en el lugar correcto en ServiceTitan, no ocurrió (`sop.csm.tools`).
-
-## Cuando falta {#enforcement}
-
-Para que esta no sea una regla que solo existe en papel:
-
-- **Despacho lo revisa al cierre.** Un trabajo cerrado con trabajo realizado y sin equipo asociado al domicilio se le notifica al técnico que lo cerró — el mismo día, y debes confirmar la notificación y completar o explicar el hueco.
-- **Se revisa en el uno a uno semanal**, junto con tu tasa de llamadas de regreso — las dos cosas están relacionadas, y esa conexión es justamente el punto.
-- **Una excepción legítima está bien cuando queda escrita.** Sin acceso a la unidad, el cliente no dejó subir al ático, sótano cerrado con llave — dilo en las notas. Un hueco explicado es un registro. Un hueco silencioso es un defecto.
-- **Este documento se firma.** Hay un bloque de confirmación al final de esta página. Una vez que lo firmes, "nadie me dijo" queda descartado — y también al revés: si nunca se te pidió firmarlo, eso es responsabilidad nuestra y no tuya (`governance.acknowledgement`).
-
-## Por qué antes, y no después {#why-before}
-
-Más allá de que después nadie lo hace:
-
-1. **La placa deja de estar accesible.** Saca un soplador, cambia un panel, deja caer el aislamiento de vuelta, y queda detrás de algo. En un trabajo de intercambiador de calor puede que ya no exista.
-2. **Necesitas el número de serie a media chamba.** En el momento en que encuentras una pieza fallada, la pregunta es si está en garantía — y eso no lo puedes contestar desde un registro que todavía no has hecho.
-3. **La conversación de reemplazo lo necesita antes de cotizar**, no después.
-4. **Un sistema ya desarmado no se puede fotografiar con honestidad.** El registro debe mostrar lo que encontraste, no lo que dejaste.
+| 2 | Cada unidad del domicilio escaneada, fotografiada y registrada en el domicilio con modelo/serie exactos; huecos explicados si los hay |
+| 1 | Unidad principal registrada correctamente pero se pasó por alto una segunda unidad en el domicilio, o campos menores incompletos |
+| 0 | Sin registro de equipo, un número de serie/modelo adivinado, o registro anotado solo en notas del trabajo |
 
 ## Relacionado
 
+- Cerrar el trabajo y los formularios: `sop.field.forms`
 - Períodos y cobertura de garantía: `reference.guarantees`
-- Visitas de regreso sin cargo: `sop.csm.warranty-callback`
+- Callbacks sin cargo: `sop.csm.warranty-callback`
 - Lo que el CSM capturó al agendar: `sop.csm.system-type`
 - Sistema de registro: `sop.csm.tools`
-- Qué significa firmar: `governance.acknowledgement`

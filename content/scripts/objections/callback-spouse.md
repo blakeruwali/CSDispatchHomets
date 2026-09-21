@@ -4,8 +4,8 @@ title: Objection — "Call me back / I need to talk to my spouse"
 department: csm
 owner: cs-manager
 status: published
-version: 1
-last_reviewed: 2026-08-02
+version: 4
+last_reviewed: 2026-09-10
 review_cadence_days: 90
 tags: [objection, callback, spouse, decision-maker, soft-hold, script]
 related: [sop.csm.availability, sop.csm.reschedules, script.objection.price]
@@ -18,27 +18,188 @@ surfaces: [csm, checklist]
 
 ## The response {#response}
 
-> "Absolutely. Before I let you go — want me to pencil in a window so you don't lose the slot? **There's never a charge to cancel, so you're not committing to anything.**"
+> "Of course — you should talk it through. While you do, let me hold the next available slot for you. There's no obligation, and if anything changes, we can reschedule or cancel — no problem. Does morning or afternoon work better?"
+
+This is the anchor. It agrees without apologizing, frames holding the slot as a service, removes the risk of booking, and closes on a small choice — morning or afternoon — instead of a yes/no decision.
+
+### Why this response is stronger
+
+- **"You should talk it through"** removes pressure and respects the customer's process.
+- **"Let me hold the next available slot"** is assumptive and forward-moving. You are not asking permission to book; you are protecting their spot.
+- **"No obligation"** answers the hidden fear before they raise it.
+- **"Morning or afternoon"** is a low-friction close. Picking a time of day is easier than committing to a full window.
+
+If they still hesitate, use the escalation close:
+
+> "Here's what I'll do. I'll put a soft hold on the next slot so you don't lose the time while you're deciding. If you need to move it, just call or text back. Does morning or afternoon work better?"
+
+## Why the customer is saying this {#why-saying}
+
+"I need to talk to my spouse" is used in two very different ways. Treating both the same costs bookings.
+
+| What they say | What they usually mean | How to handle |
+| --- | --- | --- |
+| "I need to talk to my spouse." (soft, vague) | Often a polite smokescreen — they are not convinced or want to end the call without conflict. | Gently surface the real concern before offering a hold. See [smokescreen vs. genuine](#smokescreen). |
+| "My wife/husband makes these decisions." (specific, factual) | They genuinely cannot commit without a second decision-maker. | Offer to reserve the slot while they talk; remove the obligation to keep it. |
+| "Call me back in an hour." | They need space to think, compare, or verify funds. | Hold the slot and set a concrete callback time — do not leave it open-ended. |
+| "I want to check with someone first." | They may be a tenant, property manager, or adult child coordinating for the owner. | Ask who the decision-maker is, then offer to send the appointment details to both parties. |
+| "I'm not ready to book right now." | They are worried about being locked into a fee or a time they cannot change. | Lead with cancellation flexibility before asking for the slot. |
+| "Let me think about it." | They may not trust the value yet, or they are comparison shopping. | Recap the specific risk of waiting — no heat, no hot water, leak damage — then hold the slot. |
+| "Send me something to look at." | They want proof they can share with a spouse or landlord. | Offer to text/email the appointment summary and a short explanation of the visit fee and credit policy. |
+
+The goal is not to talk them out of consulting someone else. The goal is to find out what is actually happening and keep the appointment alive if there is real interest.
+
+## Smokescreen vs. genuine {#smokescreen}
+
+Most "I need to talk to my spouse" responses are not about the spouse. They are about doubt, pressure, or wanting to get off the phone. The CSM's job is to separate the two without being pushy.
+
+### Signs it is a smokescreen
+
+- They cannot name what the spouse needs to know.
+- They have already decided "no" several times in the conversation.
+- The tone is final, not exploratory.
+- They offer to "call you back" rather than asking you to hold the slot.
+- They say "I'll think about it" with no specific question.
+
+### Signs it is genuine
+
+- They name the decision-maker and what that person decides.
+- They ask what to tell their spouse.
+- They want information sent to another person.
+- They are apologetic or explain logistics.
+- They ask for a time that works after they talk.
+
+### The respectful test
+
+Before offering the soft hold, ask one clarifying question:
+
+> "Totally understand. Is there a specific concern your spouse usually has — like the price, the timing, or what the technician will actually do — so I can make sure I send you both the right information?"
+
+This does two things:
+
+1. It reveals the real objection without calling them a liar.
+2. It gives you the actual issue to handle next.
+
+If they give a vague answer like "I just need to talk to them," treat it as a soft no and use the smokescreen path below. If they answer with something specific — price, timing, trust — handle that objection directly.
 
 ## Why it works {#why}
 
-This is not an objection to overcome — it's a legitimate decision that needs a second person. Pushing against it makes us the company that pressured them.
+When it is genuine, this is not an objection to overcome — it is a decision that needs a second person. Pushing back makes us the company that pressured them.
 
-The move is to remove the cost of saying yes. A held slot with a free cancellation is a decision they can make alone, right now, because it commits them to nothing. Most of them keep it.
+When it is a smokescreen, the same response still works because it removes the cost of saying yes. Reserving a slot they can walk away from lets the customer take action right now without needing permission. "No obligation, we can reschedule or cancel" answers the fear of locking in before the conversation happens.
 
-**Say it unconditionally.** {{price:cancellation_fee}} — there is no deadline to beat, so don't invent one. "No charge if you cancel by tomorrow" implies a charge on Wednesday and quietly weakens the close.
+**Say it unconditionally.** There is no deadline to beat, so don't invent one. "No charge if you cancel by tomorrow" implies a charge on Wednesday and quietly weakens the close.
+
+## How to handle it {#execution}
+
+1. **Agree without apologizing.** "Of course — you should talk it through."
+2. **Test for the real concern.** Ask the respectful test question to separate genuine consultation from a soft no.
+3. **If genuine:** move straight to holding the slot. "While you speak with her, let me hold the next available slot for you."
+4. **If smokescreen:** name the likely concern and ask permission to address it. "A lot of people just want to make sure they're comfortable with the fee before booking. Is that the main thing, or is it something else?"
+5. **Remove the risk.** "There's no obligation, and if anything changes, we can reschedule or cancel — no problem."
+6. **Close on a small choice.** "Does morning or afternoon work better?"
+7. **Set the soft hold properly in ServiceTitan.** See `sop.csm.availability`.
+
+## Scenario responses {#scenarios}
+
+Use these as starting points. Keep the structure: agree → test → remove risk → close on a small choice.
+
+### "I need to talk to my spouse"
+
+> "Of course — you should talk it through. Is there a specific concern they usually have, like the price, the timing, or what the technician will do? That way I can send you both the right info."
+
+If they name a concern, handle it. If they stay vague, continue:
+
+> "No problem at all. While you two talk it over, let me hold the next available slot — no obligation, and you can cancel or reschedule if anything changes. Does morning or afternoon work better?"
+
+### "Call me back in an hour"
+
+> "Absolutely. So you don't lose the spot, let me hold the slot now — no obligation, and if anything changes, we can move it or cancel. Does this afternoon or tomorrow morning work better?"
+
+Then set a concrete callback time and confirm the number.
+
+### "I want to check with my landlord / property manager"
+
+> "Totally understand. Is the landlord the one who approves the work, or are you coordinating the visit for them?"
+
+If they are coordinating:
+
+> "I can send the appointment details to both of you right now so they have everything they need. While you're checking, I'll hold the slot — no obligation, and we can move it if needed. Does morning or afternoon work better?"
+
+### "I'm not ready to book right now"
+
+> "I get it — you want to make sure this is the right move. The good news is holding the slot doesn't lock you in. If anything changes, you can reschedule or cancel — no problem. Does morning or afternoon work better?"
+
+### "Let me think about it"
+
+> "Of course. Just so you have the full picture while you're deciding: the system is already running inefficiently, and waiting can turn a smaller repair into a bigger one. Let me hold a slot for you now — no obligation — so you have the option without losing time. Does morning or afternoon work better?"
+
+### "Send me something to look at"
+
+> "Happy to. I'll text and email you a quick summary: what the visit covers, the {{price:diagnostic_residential}} fee, and how the diagnostic gets credited if you approve the repair. While you're looking it over, I'll hold the slot — no obligation. What's the best number and email to send that to?"
+
+### "We're comparison shopping"
+
+> "That makes sense — you want to make sure you're getting the right value. While you're comparing, the biggest thing to watch for is whether the other company is giving a real written price after inspecting, or a phone guess that changes later. Our tech gives you a flat written price before any work starts. Let me hold a slot now — no obligation — so you have the option. Does morning or afternoon work better?"
+
+### "I just want a price first"
+
+> "I hear you — you want to know what you're looking at before we come out. Because every system is different, we need to inspect on-site to give you a real written price. The {{price:diagnostic_residential}} covers that full inspection, and if you approve the repair, it's credited to the work. While you're deciding, let me hold the next available slot — no obligation. Does morning or afternoon work better?"
+
+## Worked example — genuine {#example-genuine}
+
+**Caller:** "I need to talk to my wife first. Can you call me back?"
+
+**CSM:** "Of course — you should talk it through. Is there a specific concern she usually has, like the price or the timing, so I can send you both the right info?"
+
+**Caller:** "Yeah, she usually wants to know what the technician is going to do and how much it costs."
+
+**CSM:** "Got it. It's a {{price:diagnostic_residential}} diagnostic. A licensed tech comes out, does a full system check, and gives you a written flat price before any work starts. If you approve the repair that day, the diagnostic gets credited to the work. While you talk it through with her, let me hold the next available slot — no obligation, and you can cancel or reschedule if anything changes. Does morning or afternoon work better?"
+
+## Worked example — smokescreen {#example-smokescreen}
+
+**Caller:** "I need to talk to my wife first. Can you call me back?"
+
+**CSM:** "Of course — you should talk it through. Is there a specific concern she usually has, like the price or the timing, so I can send you both the right info?"
+
+**Caller:** "I just need to talk to her."
+
+**CSM:** "No problem. A lot of people want to make sure they're comfortable with the fee before booking. Is the {{price:diagnostic_residential}} diagnostic the main thing, or is it something else?"
+
+**Caller:** "Yeah, that seems high just to come out."
+
+**CSM:** "I hear you. That {{price:diagnostic_residential}} gets a licensed tech to your door, a full and accurate diagnosis, a thorough check of the entire system, and a written flat price before any work starts. If you approve the repair, that fee is credited to the same-day work. While you two talk it over, let me hold the next available slot — no obligation, and you can cancel or reschedule if anything changes. Does morning or afternoon work better?"
+
+## Worked example — callback request {#example-callback}
+
+**Caller:** "Can you call me back in an hour? I need to figure out my schedule."
+
+**CSM:** "Absolutely. So you don't lose the spot, let me hold the slot now — no obligation, and if anything changes, we can move it or cancel. Does this afternoon or tomorrow morning work better?"
+
+**Caller:** "This afternoon."
+
+**CSM:** "Perfect. I'll lock that in and call you back within the hour to confirm. If you need to move it, just let me know."
 
 ## Hold the slot properly {#soft-hold}
 
 - Book it in ServiceTitan like any other job — see `sop.csm.availability`.
 - Note it as a soft hold so Dispatch and Posh know its status. See `sop.csm.coverage`.
 - Note on the ticket that the customer is deciding with a second person, so a follow-up call doesn't come in cold.
+- Set a callback reminder if one was promised.
 
 ## What not to do {#avoid}
 
 - ❌ Don't ask to speak to the spouse. Ever.
 - ❌ Don't manufacture urgency we can't back — no invented "last slot today."
 - ❌ Don't leave with "give us a call back when you decide." That's the version that never calls.
+- ❌ Don't accept "I'll think about it" without at least offering to hold a slot.
+- ❌ Don't debate whether they need to consult someone. Respect it and work with it.
+
+## QA scoring {#scoring}
+
+- **0** = accepted the brush-off without holding a slot or testing for the real concern.
+- **1** = used the respectful test but left the call without a scheduled or held window.
+- **2** = agreed, tested for the real concern, removed the risk, and held a specific slot.
 
 ## Related
 

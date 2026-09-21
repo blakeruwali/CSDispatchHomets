@@ -4,8 +4,8 @@ title: Start Time — On Site at the Top of the Window
 department: field
 owner: service-manager
 status: published
-version: 1
-last_reviewed: 2026-08-27
+version: 2
+last_reviewed: 2026-09-04
 review_cadence_days: 90
 tags: [start-time, arrival, window, technician, field, schedule, dispatch]
 related: [sop.dispatch.hours, sop.dispatch.daily-workflow, sop.field.forms, sop.field.equipment-capture, reference.guarantees]
@@ -19,59 +19,67 @@ acknowledgement: required
 
 > **Your start time is the start of the customer's arrival window, standing at their door — not the time you leave the house.**
 
-## The 60-second version {#field-card}
+## When this applies {#applies}
 
-1. **Truck loaded and fuelled the night before.**
-2. **First job acknowledged the night before**, when Dispatch sends it.
-3. **Rolling by {{price:tech_shift_start}}.**
-4. **On site at the top of the window** — 8 for an 8–10, not 9:55.
-5. **Status the job in ServiceTitan as you go**: dispatched → on the way → on site.
+Every job, every day, every window — 8–10, 10–12, 12–2, 2–4. It applies most on the first job of the day, because that arrival sets whether the rest of the board holds, but it applies identically to your second, third, and fourth stop.
 
-## Why the top of the window, and not the end {#top-of-window}
+## The execution ladder {#execution}
 
-An 8–10 window is not permission to arrive at 9:59. It is a two-hour allowance for traffic, for the job before running long, and for a supply run — and it is spent on the customer's behalf, not on ours.
+1. **The night before:** truck loaded and fuelled, first job acknowledged when Dispatch sends it, anything missing flagged to Dispatch that night, not at 7:45 AM.
+2. **Rolling by {{price:tech_shift_start}}.**
+3. **Status the job in ServiceTitan as it actually happens** — acknowledged, on the way, on site — in real time, not in a batch later.
+4. **On site at the top of the window.** An 8–10 window means 8, not 9:55.
+5. **If you know you will miss the top of the window, call Dispatch the moment you know it** — not when the window closes.
+6. **If a job is running long, call it in at {{price:overrun_threshold}} over estimate**, even if progress is good, so Dispatch can move the rest of the board around you.
 
-**Three things ride on it:**
+## What you say {#verbatim}
 
-**The arrival guarantee is live from the top of the window.** {{price:arrival_guarantee}} — the clock starts when the window opens, not when you leave (`reference.guarantees`). Every minute you spend not arriving is a minute of that guarantee burned.
+If you are early or exactly on time:
 
-**Arriving late costs you the day, not just the call.** A 9:50 arrival on an 8–10 puts your second job at risk, and your third is then Dispatch's problem to move — which means somebody else's customer gets bumped for your morning.
+> "Right on schedule — I know you've been waiting since the window opened."
 
-**The customer took time off work.** They have been waiting since 8. Arriving at 9:55 is technically on time and reads as contempt, and it is the single most common thing in a two-star review that otherwise praises the repair.
+If you are going to be late and Dispatch has already called the customer:
 
-## Status the job honestly {#statusing}
+> "Sorry for the wait — I want you to have a real number, not another 'on my way.' I'll be there by [specific time]."
 
-The board is only as good as the statuses on it. Dispatch is making real decisions off your status every hour.
+Never say to a customer:
 
-| Status | Means |
+> "Traffic was bad" as the whole explanation, with no specific new time attached.
+
+## Worked example {#example}
+
+**Weak:** 8–10 window. Tech leaves the shop at 8:15 because the truck wasn't loaded the night before, hits traffic, arrives at 9:58. Technically inside the window, but the customer has been sitting since 8, missed part of their morning, and leaves a two-star review that praises the repair and dings "showed up at the very last minute, no call."
+
+**Perfect:** Truck loaded and fuelled the night before, first job acknowledged, tech rolling by {{price:tech_shift_start}}, on site at 7:58 for the 8–10 window. The arrival guarantee clock never gets close to burning, and the customer's whole day opens up two hours earlier than it would have.
+
+| | Weak | Perfect |
+|---|---|---|
+| Prep | Truck loaded morning-of | Loaded and fuelled night before |
+| Arrival | 9:58 for an 8–10 | 7:58 for an 8–10 |
+| Customer's day | Two hours lost waiting | Freed up immediately |
+| Guarantee exposure | Nearly burned | Untouched |
+
+## When it goes wrong {#failures}
+
+- **You realize mid-drive you will be late.** Call Dispatch immediately with a real ETA — the one you actually believe, not an optimistic guess. Do not call the customer yourself with a promise; Dispatch may need to move the job entirely.
+- **A prior job runs long and threatens the next window.** Call it in at {{price:overrun_threshold}} over, even while making good progress. Silence is the failure, not the overrun itself.
+- **You discover at the customer's door that the truck is missing a part.** That should have been caught the night before during truck-stocking. Flag it to Dispatch now rather than starting a job you can't finish.
+- **You are unreachable for {{price:tech_unreachable_window}}.** This escalates to the dispatch manager automatically — do not let your phone go dark mid-route.
+
+### Hard rules
+
+- Never say "on the way" in ServiceTitan before you have actually left for that address.
+- Never freelance a new arrival time directly to the customer — that is Dispatch's call to make and communicate.
+- Never let a job run past its estimate without notifying Dispatch, regardless of how confident you are.
+- Never treat "technically inside the window" as the same thing as "at the top of the window."
+
+## QA scoring {#qa}
+
+| Score | Standard |
 |---|---|
-| Acknowledged | You have seen the job and you are going |
-| On the way | Wheels moving toward *this* address |
-| On site | You are at the property |
-| Working | Diagnosis or repair underway |
-| Complete | Work done, equipment attached, forms in — `sop.field.forms` |
-
-"On the way" while still at breakfast is not a shortcut, it is bad data — Dispatch books a same-day call against a truck that has not moved, and the customer at the other end of that decision pays for it.
-
-## When you are going to be late {#late}
-
-It happens. What is not acceptable is silence.
-
-1. **Call Dispatch the moment you know** — not when the window closes.
-2. **Give a real ETA**, the one you actually believe.
-3. **Dispatch calls the customer.** Do not freelance a promise directly to the next customer; Dispatch may be moving the job entirely.
-4. **A job running over by {{price:overrun_threshold}} is a call**, even if you are making good progress. The board has to move around you (`sop.dispatch.hours`).
-
-## The night before is part of the start time {#night-before}
-
-The morning is won the evening before:
-
-- ☐ Truck stocked for tomorrow's job types
-- ☐ Fuel in the tank
-- ☐ First job acknowledged, address read, symptom read
-- ☐ Anything you know you are missing flagged to Dispatch **tonight**
-
-A 7:45 AM discovery that the part is not on the truck is a 9:30 arrival.
+| 2 | On site at or before the top of every window that day; statuses updated in real time; any delay called in proactively with a real ETA |
+| 1 | On site within the window but late enough to be noticeable, or a status update lagged without customer impact |
+| 0 | Arrival at the tail end of the window with no advance notice, or a status falsified ("on the way" while not moving) |
 
 ## Related
 

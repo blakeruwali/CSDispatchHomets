@@ -5,147 +5,99 @@ source_version: 1
 
 # Queja: Fuga de Agua
 
-> **Averigua DÓNDE está el agua antes de averiguar por qué. El agua del drenaje y la condensación se ven idénticas en un techo y no tienen nada más en común — causa distinta, solución distinta, precio distinto.**
+> **El agua es un síntoma, nunca la falla. Encuentra qué la puso ahí, compruébalo con una lectura y cotiza la causa — no el charco.**
 
-Es la llamada donde la reparación obvia es, casi siempre, la equivocada. En toda queja de agua hay algo visiblemente mal cerca — una charola húmeda, un ducto sin aislamiento, una mancha vieja — y arreglar lo que se ve no es lo mismo que arreglar lo que está mojando el techo del cliente. Una reparación dirigida a la fuente equivocada regresa, y regresa con un cliente que ya pagó.
+El cliente ve agua en un techo o en el piso y quiere que pare. Pararla toma diez minutos. Averiguar por qué empezó es la visita, y es la diferencia entre una llamada repetida en agosto y un trabajo que aguanta.
 
-## Tres fuentes, un charco {#three-sources}
+## Cuándo aplica {#applies}
 
-Casi toda llamada residencial de agua es una de tres cosas. Se distinguen por **dónde está el agua realmente**, no por lo que se ve peor.
+Cualquier llamada donde aparece agua en o debajo de un manejador de aire, horno, serpentín, condensador, cabeza de mini-split o línea de refrigerante. Si el agua viene de plomería y no de HVAC, detente y pásalo al lado de plomería — una línea de suministro arriba de un horno no es un diagnóstico que nos toque adivinar.
 
-| Dónde está el agua | Qué es | A dónde vas |
-|---|---|---|
-| Gotea o escurre desde **un solo punto** | Drenaje de condensado, charola, o una junta con fuga | **El drenaje** |
-| En la **cara y las aletas** de la rejilla | El aire de suministro está por debajo del punto de rocío del cuarto | **La cara de la rejilla** |
-| En el **marco, el aro del techo, o el techo alrededor** | Aire húmedo condensándose en metal frío en la bota | **La bota** |
+Si la queja es *hielo* y no agua, trabaja primero `sop.field.frozen-coil`. Un serpentín congelado que se descongela mientras manejas a la llamada se presenta como fuga, y es la confusión más común de esta página.
 
-**Dos pueden ser ciertas a la vez.** Esa es la visita de regreso que este SOP existe para evitar — ver **No te detengas en la primera**, más abajo.
+**Localiza el agua antes de diagnosticar por qué está ahí.** Goteo desde un solo punto es este documento. Agua repartida pareja sobre la *cara y las aletas* de una rejilla, o sobre el *marco y el aro del techo* alrededor, es condensación — punto de rocío, no drenaje — y eso es `sop.field.sweating-grille`. Las dos se ven idénticas en un techo y no tienen nada más en común: causa distinta, solución distinta, precio distinto. Las dos pueden ser ciertas a la vez en la misma llamada, y esa es la visita de regreso que este par de documentos existe para evitar.
 
-## Antes que nada — localiza el agua {#locate}
+## La escalera de ejecución {#execution}
 
-**Quita la rejilla y mira.** Treinta segundos, y decide todo lo que sigue.
+Trabájalo en este orden. No brinques al paso 4 porque la trampa se vea obvia.
 
-1. **¿Dónde está mojado?** Cara y aletas, marco y aro del techo, o escurriendo desde un solo punto.
-2. **¿Es condensación o escurrimiento?** La condensación se forma pareja sobre una superficie. El escurrimiento traza, gotea y sigue la gravedad desde un lugar.
-3. **Fotografía con la rejilla quitada**, antes de tocar nada.
-4. **Aprieta con la mano el aislamiento** que encuentres en la bota. Aislamiento mojado ya es un hallazgo — ver **La bota**, más abajo.
+1. **Hazlo seguro y detén el daño.** Apaga el sistema si hay agua cerca de lo eléctrico. Aspira la charola. Protege el techo o el piso **antes** de diagnosticar — un cliente que te ve diagnosticar mientras se le empapa el tablaroca no va a escuchar una sola palabra de tus hallazgos.
+2. **Establece dónde está el agua, con precisión.** Charola primaria, charola secundaria, la línea de drenaje misma, una mancha en el techo a un metro de la unidad, o la línea de refrigerante. Fotografíalo antes de tocar nada. Esa foto es la evidencia del estimado.
+3. **Revisa el flotador de seguridad.** ¿Existe, está conectado, está activado? Un flotador activado que hizo su trabajo significa que el drenaje está tapado — esa es tu respuesta, no una molestia que haya que puentear. **Un flotador faltante es un hallazgo que anotas en cada una de estas llamadas.**
+4. **Prueba el drenaje primario.** Vierte agua en la charola y observa cómo desaloja. Flujo lento o nulo es obstrucción. Verifica que la trampa exista, esté bien configurada y cebada — una trampa faltante o sin cebar en un manejador de presión negativa jala aire y retiene agua en la charola todo el día.
+5. **Destapa y verifica.** Aspira desde la terminación, purga la línea, vuelve a verter y observa que corra limpio. **Vuelve a verificar después de destapar, o no terminaste la reparación.**
+6. **Si el drenaje está limpio y el agua sigue apareciendo, no es un problema de drenaje.** Pasa a la tabla de abajo.
 
-**No cotices nada antes de hacer esto.** Un precio dado desde la entrada en una llamada de agua es una adivinanza.
+## La bifurcación — qué significa realmente el agua {#the-split}
 
-## Fuente 1 — el drenaje {#drain}
-
-Lo más barato de revisar, así que revísalo primero.
-
-| Revisión | Qué buscas |
+| Lo que observas | Lo que suele ser |
 |---|---|
-| **Charola primaria** | Agua estancada, línea de óxido, crecimiento biológico |
-| **Línea de drenaje** | Que corra libre al vaciarle agua, o que se regrese |
-| **Trampa** | Seca, faltante, o con profundidad equivocada — una trampa seca deja que el aire jale el agua de regreso |
-| **Interruptor de flotador** | Disparado, mojado, o puenteado por alguien antes que tú |
-| **Charola secundaria** | Agua en ella significa que la primaria ya falló al menos una vez |
-| **Reparaciones previas** | Una junta que alguien más cortó es una junta que puede llorar |
+| Charola llena, drenaje lento, flotador activado | Drenaje primario tapado / serpentín sucio soltando biopelícula |
+| Charola seca, agua en la línea de refrigerante | Aislamiento faltante o dañado — está sudando, no fugando |
+| Agua en la cara de la rejilla, las aletas o el aro del techo | Condensación — `sop.field.sweating-grille`, mide antes de aislar |
+| Agua solo cuando el sistema trabaja fuerte | Trampa subdimensionada o de presión negativa, o el flujo de aire arrastra el condensado fuera del serpentín |
+| Mancha en el techo lejos de la unidad | Desborde de la charola secundaria, o línea de drenaje rota dentro del techo |
+| Hielo en el serpentín, agua al derretirse | `sop.field.frozen-coil` — carga o flujo de aire |
+| Agua en un horno/serpentín horizontal en el ático | Charola oxidada y perforada, o la pendiente del drenaje está mal |
+| Óxido y manchas, sin agua activa hoy | Crónico, de tiempo atrás. Documéntalo — cambia la conversación de reemplazo |
 
-**Un drenaje tapado muchas veces es un síntoma, no la causa.** Un serpentín trabajando mucho más frío de lo normal condensa más fuerte y puede rebasar un drenaje que llevaba años aguantando. Si encuentras una línea tapada, sigue adelante — toma las lecturas de todos modos y averigua por qué el sistema está haciendo tanta agua.
+**Mide antes de concluir.** Las lecturas de flujo de aire y carga van en una llamada de fuga siempre que el serpentín esté involucrado: presión estática externa total, diferencial de temperatura y sobrecalentamiento/subenfriamiento según `reference.diagnostic-readings`. Un serpentín que se congela y descongela parece problema de plomería y es problema de refrigerante o de flujo de aire.
 
-> ⚠️ **Destapar el drenaje hace que el problema visible se detenga.** No hace que una rejilla que suda se detenga. Si el agua venía de las dos, el cliente ve un techo seco hoy y uno mojado la semana que entra.
+## Qué dices {#verbatim}
 
-## Fuente 2 — condensación en la cara de la rejilla {#face}
+Cuando encuentres la causa, di causa primero, reparación después, precio al final:
 
-La rejilla está **dentro del flujo de aire**. La temperatura de su superficie la define el aire que le pasa por encima. Cuando esa superficie baja del punto de rocío del cuarto, se forma agua — igual que suda un vaso frío en un día caluroso.
+> "Esto es lo que encontré. Su línea de drenaje estaba tapada, y eso regresó el agua a la charola hasta que el interruptor de seguridad apagó el sistema — ese interruptor es lo que evitó que esto llegara a su techo. Ya destapé la línea y la probé. La razón por la que se tapó es que el serpentín de arriba está sucio, así que esto va a regresar la próxima temporada si no atendemos eso también."
 
-La **humedad relativa (HR)** es cuánta humedad trae el aire, como porcentaje de lo que podría traer a esa temperatura. La HR más la temperatura del cuarto te dan el **punto de rocío** — la temperatura a la que el agua empieza a condensarse. Ese es el único umbral que importa aquí.
+Cuando no hay flotador de seguridad:
 
-Una cara de rejilla mojada significa una de dos cosas, y las lecturas te dicen cuál:
+> "Algo que quiero que sepa: este drenaje no tiene interruptor de seguridad. Si se vuelve a tapar mientras usted está en el trabajo, no hay nada que apague el sistema — el agua se va al techo. Es una pieza pequeña, y preferiría que usted la tuviera."
 
-- **El aire de suministro está demasiado frío** — un serpentín trabajando muy por debajo de lo normal, por poco flujo de aire o por problema de carga
-- **El cuarto está demasiado húmedo** — punto de rocío alto, así que hasta el aire de suministro normal condensa
+Cuando la charola del ático está oxidada y perforada:
 
-> **El aislamiento no puede arreglar una cara de rejilla mojada.** El aislamiento protege el cuerpo del ducto y la bota del aire del ambiente. No le hace nada al aire que pasa por la rejilla. Si la cara y las aletas están mojadas, forrar el ducto es trabajo dirigido al mecanismo equivocado — y el cliente paga una reparación que nunca iba a funcionar.
+> "La charola debajo de esta unidad se oxidó y se perforó, así que ya no está conteniendo el agua. Le enseño la foto. Le puedo dar las opciones hoy mismo — no quiero parchar algo que va a estar otra vez sobre su recámara en un mes."
 
-## Fuente 3 — condensación en la bota o el ducto {#boot}
+## Cuando sale mal {#failures}
 
-**Marco, aro del techo o techo** mojados — no las aletas — significa que aire húmedo está llegando a metal frío fuera del flujo de aire. Esta es la que sí es de aislamiento, y también la que se instala mal.
+**El drenaje queda limpio y el cliente dice "¿entonces ya quedó?" con el serpentín hecho un asco.** No le des la razón. Destapar la línea sin nombrar la causa es como esta misma llamada se agenda otra vez en seis semanas con un cliente más molesto. Di la causa en voz alta y ponla en la factura, aunque rechacen la limpieza del serpentín.
 
-| Revisión | Qué buscas |
-|---|---|
-| **¿Está mojado el aislamiento?** | Apriétalo. Mojado significa que la barrera de vapor no está haciendo su trabajo |
-| **¿Están selladas las uniones?** | El aislamiento con cara de foil solo es barrera de vapor si cada unión está encintada o con mastique |
-| **¿Está sellado a la bota?** | Puesto encima no es sellado. El aire húmedo se pasa de largo |
-| **¿Algún hueco hasta el metal desnudo?** | Con uno basta |
-| **Óxido o manchas viejas** | Te dicen cuánto tiempo lleva pasando esto |
+**El flotador está activado y el sistema no arranca en julio.** La tentación es puentearlo para "dejarlos con aire esta noche". **Nunca puentees un flotador de seguridad.** Ese es el interruptor funcionando. Puentearlo nos convierte a nosotros en la causa del daño al techo.
 
-> ⚠️ **La fibra de vidrio puesta sobre una bota fría sin una barrera de vapor continua empeora el problema, no lo arregla.** El vapor atraviesa la manta, condensa en el metal de abajo, y ahora el aislamiento saturado retiene agua contra el ducto donde nadie la ve.
+**No encuentras agua activa.** No inventes una causa. Documenta las manchas, toma lecturas, anota las condiciones que lo reproducirían y dile al cliente con claridad qué encontraste y qué no. Un honesto "no pude reproducirlo, esto es lo que revisé y esto es lo que hay que vigilar" es una visita defendible. Una reparación adivinada no lo es.
 
-## Las lecturas {#readings}
+**Resulta que el agua es de plomería.** Detente, dilo y haz que se agende el oficio correcto. No hagas una reparación parcial de plomería en un ticket de HVAC.
 
-Deja el sistema enfriando **15 minutos** antes de tomar nada, y toma todo el juego en el mismo ciclo. Los umbrales están en `reference.diagnostic-readings` — abajo está dónde poner la sonda.
+### Reglas duras
 
-| Lectura | Dónde |
-|---|---|
-| **Temperatura del cuarto + HR** | A media habitación, a la altura del pecho, **a 6 pies o más de la rejilla.** Aguanta quieto 2–3 minutos — los sensores de HR son lentos y el primer número siempre está mal |
-| **Temperatura del aire de suministro** | Dentro del flujo, en la rejilla |
-| **Temperatura de superficie de la rejilla** | Pistola infrarroja, sobre el metal |
-| **Temperatura del aire de retorno** | En la manejadora, por la ranura del filtro — pasando el filtro, antes del serpentín, con la punta sin tocar metal. **No en la rejilla de retorno del cuarto** |
-| **Diferencial de temperatura** | Retorno menos suministro. Meta **15–22°F** |
-| **Presión estática externa total** | Pleno de suministro y pleno de retorno, puntas **perpendiculares al flujo.** Suma los valores absolutos |
-| **Sobrecalentamiento / subenfriamiento** | Solo después de descartar flujo de aire — ver `sop.field.frozen-coil` para entender por qué importa el orden |
-
-**La placa de datos del equipo siempre gana.** La presión estática se referencia a 0.5" c.a. en la mayoría del equipo residencial, pero las manejadoras inverter y de mini-split ducteado muchas veces están calificadas mucho más bajo. Lee la placa, anota el valor nominal, y compara contra ese.
-
-## Punto de rocío según temperatura del cuarto y HR {#dew-point}
-
-| Temp. del cuarto | 50% HR | 55% | 60% | 65% | 70% |
-|---|---|---|---|---|---|
-| **72°F** | 52 | 55 | 57 | 60 | 62 |
-| **74°F** | 54 | 57 | 59 | 62 | 64 |
-| **76°F** | 56 | 59 | 61 | 63 | 65 |
-| **78°F** | 58 | 60 | 63 | 65 | 67 |
-
-Si la superficie de la rejilla marca por debajo del punto de rocío de esta tabla, la condensación queda comprobada y se acabó la discusión.
-
-## Cómo leer el resultado {#result}
-
-| Lo que encuentras | A qué apunta |
-|---|---|
-| Agua desde un punto, charola mojada, línea tapada | **Drenaje.** Destápalo — y aun así toma las lecturas |
-| Punto de rocío arriba de 60°F | **La casa está demasiado húmeda.** El ducto no lo va a arreglar; busca la fuente de humedad |
-| Diferencial arriba de 22°F con suministro frío | **Poco flujo de aire.** Filtro, serpentín, soplador, dampers, restricción de ducto — luego estática |
-| Estática arriba de lo que dice la placa | **Restricción de ducto.** Flex colgado, tramos aplastados, retorno chico |
-| Diferencial normal, retorno ya frío | **El cuarto se está enfriando de más.** Problema de control o termostato, no del serpentín |
-| Diferencial y estática normales, cara todavía mojada | Revisa otra vez el punto de rocío. Si está bien, el agua no es condensación — regresa a **localiza el agua** |
-| Marco mojado, cara seca | **Bota.** Aislamiento, barrera de vapor, sellado al techo |
-
-## No te detengas en la primera {#both}
-
-Una queja de agua puede tener dos causas al mismo tiempo, y el drenaje siempre es la que encuentras primero porque es la que revisas primero.
-
-**Antes de cerrar el trabajo, pregúntate: ¿lo que encontré explica lo que el cliente describió?** Un drenaje tapado no pone condensación en la cara exterior de una rejilla. Si el cliente describió que sudaba y tú encontraste una obstrucción, encontraste *un* problema, no necesariamente *el* problema.
-
-Toma las lecturas aunque ya hayas encontrado algo. Cuestan quince minutos y son la diferencia entre una visita y cuatro.
-
-## Qué le dices al cliente {#customer}
-
-Nombra la fuente, no el síntoma:
-
-> "El agua venía de [el drenaje de condensado / el aire de la rejilla que está más frío que el cuarto / el metal arriba del techo]. Lo que lo causó fue [X]. Ya [hice Y], y este es el número que nos dice que funcionó — su aire de suministro debe estar alrededor de 55°F en lugar de 48°F."
-
-Si encontraste una causa y sospechas otra, **dilo también, antes de irte.** Un cliente al que le avisaste de entrada que puede haber un segundo problema es un cliente que te cree cuando aparece. Ese mismo cliente sin avisar es una visita de regreso.
+- Nunca puentees ni quites un flotador de seguridad.
+- Nunca dejes un drenaje sin verificar después de destaparlo — vierte y observa.
+- Nunca cierres una llamada de fuga sin registrar si existe flotador de seguridad.
+- Nunca reemplaces una charola oxidada sin fotografiar la original.
+- Nunca cotices el charco. Cotiza la causa.
 
 ## Qué se registra {#record}
 
-- **Foto con la rejilla quitada**, antes de tocar nada
-- **Dónde estaba el agua** — cara y aletas, marco y techo, o goteo de un solo punto
-- **Temperatura del cuarto y HR, y el punto de rocío** que dan
-- **Suministro, retorno, diferencial y temperatura de superficie de la rejilla**
-- **Presión estática, y el valor nominal de la placa** contra el que la comparaste
-- **Condición de charola, línea de drenaje, trampa e interruptor de flotador**
-- **Condición del aislamiento** — mojado o seco, uniones selladas o no
-- **Causa identificada**, y si se sospecha una segunda
-- **Todas las lecturas que tomaste, incluidas las normales.** Las lecturas normales son las que descartan causas, y el siguiente técnico en este trabajo las necesita tanto como las anormales
+- Foto del agua, antes de tocarla, y foto después de la reparación.
+- Flotador: presente / ausente / activado / puenteado-al-llegar.
+- Drenaje primario: flujo antes, flujo después.
+- Trampa: presente, cebada, bien configurada — sí o no.
+- Condición del serpentín y presión estática.
+- Sobrecalentamiento / subenfriamiento y diferencial de temperatura si el serpentín estuvo involucrado.
+- Cada recomendación rechazada, dicha al alcance del cliente y anotada en el trabajo.
+
+Placa de datos del equipo capturada según `sop.field.equipment-capture` — en este tipo de llamada tampoco hay excepciones.
+
+## Calificación de QA {#qa}
+
+| Puntaje | Cómo se ve |
+|---|---|
+| **2** | Causa identificada y comprobada con una lectura o foto. Drenaje verificado después de destapar. Estado del flotador registrado. El cliente escuchó la causa en palabras claras. |
+| **1** | Se detuvo el agua y se destapó el drenaje, pero no se nombró ni se documentó la causa de fondo. |
+| **0** | Flotador puenteado, drenaje sin volver a verificar, sin fotos, o la factura describe el charco en lugar de la falla. |
 
 ## Relacionado
 
 - El estándar detrás de todo esto: `sop.field.diagnostics`
-- Umbrales y metas: `reference.diagnostic-readings`
-- Por qué el flujo de aire va antes que la carga: `sop.field.frozen-coil`
-- Llamadas de enfriamiento: `sop.field.no-cooling`
+- Hielo primero, agua después: `sop.field.frozen-coil`
+- Condensación en lugar de drenaje: `sop.field.sweating-grille`
+- Umbrales y lecturas esperadas: `reference.diagnostic-readings`

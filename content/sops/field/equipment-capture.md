@@ -4,11 +4,11 @@ title: Equipment Capture in ServiceTitan — Before Any Work
 department: field
 owner: service-manager
 status: published
-version: 3
-last_reviewed: 2026-08-28
+version: 4
+last_reviewed: 2026-09-04
 review_cadence_days: 90
 tags: [equipment, servicetitan, data-plate, serial, model, warranty, technician, field, capture]
-related: [sop.csm.warranty-callback, reference.guarantees, sop.csm.system-type, sop.csm.tools, governance.acknowledgement]
+related: [sop.csm.warranty-callback, reference.guarantees, sop.csm.system-type, sop.csm.tools, governance.acknowledgement, sop.field.forms]
 section: field-standards
 order: 3
 surfaces: [field, checklist]
@@ -17,133 +17,73 @@ acknowledgement: required
 
 # Equipment Capture in ServiceTitan — Before Any Work
 
-> **Every piece of equipment at the location goes into ServiceTitan, with a photo of its data plate, before you touch a tool.**
+> **Every piece of equipment at the location goes into ServiceTitan, with a scanned and photographed data plate, before you touch a tool.**
 
-## The 60-second version {#field-card}
+## When this applies {#applies}
 
-At every unit, before you start:
+Every visit, every job type, no exceptions: diagnostic, repair, tune-up, install, estimate, callback, warranty visit. It applies to the unit you were dispatched for **and** every other piece of equipment at the address — the second furnace nobody mentioned, the water heater in the corner, every RTU on a commercial roof. The job is *equipment at this location*, not *equipment that broke*.
 
-1. **Scan the equipment.** Point your tablet camera at the data plate and run the equipment scan — ServiceTitan reads the model and serial straight off the plate. Then photograph the plate as well.
-2. **Photograph the whole unit** where it sits.
-3. **Create the equipment record** — make, model, serial, location, filter size.
-4. **Then start work.**
+It does not apply only when the plate is physically unreachable without unsafe access, and even then the rule below at `#unreadable` still applies — you do not skip the record, you document why it is incomplete.
 
-**Roughly 60–90 seconds per unit.** That is the real cost, and this document does not pretend it is free.
+## The execution ladder {#execution}
 
-If you are genuinely up against it, the three that must be captured are **the plate scan, the model, and the serial.** Everything else can be filled in later from the scan and the photo. Nothing can be filled in later from a plate you did not scan.
+1. **Before you open a panel or pick up a tool, find every unit at the location** — the one you were sent for and anything else on the property that heats, cools, heats water, or filters air.
+2. **Scan the data plate** on your tablet. ServiceTitan reads model and serial straight off the plate — no typing, no transcription error.
+3. **Photograph the data plate**, filling the frame, in focus, even after a successful scan. The photo is the backstop if the scan misreads a character months from now.
+4. **Photograph the whole unit** where it sits, showing condition and surroundings.
+5. **Create or update the equipment record on the customer's location** — type, manufacturer, model, serial, fuel/power, capacity, refrigerant type, manufacture date, location, filter size, condition notes.
+6. **Repeat for every additional unit** at the address before you start diagnosing or repairing anything.
+7. **Only then start work.**
+8. **At close, confirm every unit you touched or found has a record attached to the location** — not buried in job notes (`sop.field.forms`).
 
-## What this does for you {#for-you}
+Budget 60–90 seconds per unit. If you are genuinely pressed, the three non-negotiable pieces are **the plate scan, the model, and the serial** — everything else can be filled in later from the scan and the photo. Nothing can be filled in later from a plate you never scanned.
 
-Not for the office — for the person holding the wrench.
-
-**You get paid for callbacks that aren't your fault.** A part fails inside the manufacturer's warranty and there is no serial on file, the claim fails. The company eats it, and the return trip lands on whoever is free — often you, on a job that now pays nothing. With the serial captured, the manufacturer pays and the callback is a paid job.
-
-**The right part rides out with you.** Model on file means the next dispatch to that address goes out with the part already on the truck. A second trip is unpaid drive time and a slot you could have billed.
-
-**The photo protects you.** When a customer says the unit was newer than it was, or that it was not leaking before you arrived, the dated photo of what you found is the end of the argument. That record exists for your benefit at least as much as the company's.
-
-**Your quotes get bigger and land faster.** Age and refrigerant type are what turn "it's pretty old" into a replacement conversation the customer believes. Both come off the plate. You cannot make that argument from memory.
-
-**You stop re-doing your own diagnostic work.** Everything you record today is waiting for you the next time you or anyone else is sent to that address.
-
-## "But—" {#objections}
-
-The objections are fair. Here are the answers.
-
-**"The customer is standing there and I look slow."**
-Narrate it and it reads as thorough, not slow:
+## What you say {#verbatim}
 
 > "I'm just logging your equipment — model and serial on file so we've got your warranty covered."
 
-Customers hear a company that keeps records. Nobody has ever complained about that sentence.
+> "You've actually got two systems here — I want to get both on record, not just the one you called about."
 
-**"It's 110° in that attic and I'm not spending an extra five minutes up there."**
-You are not. Scan the plate, take the photos, come down, and finish the record from the scan in the truck or on the stairs. The part that has to happen at the unit is the camera, and that is fifteen seconds.
+> "This plate's pretty worn — let me get what I can and note the rest so nobody guesses at it later."
 
-**"I already know this system, I've been here before."**
-Then the record already exists and this takes you ten seconds to confirm. If it does not exist, you are the reason the next tech starts from nothing.
+## Worked example {#example}
 
-**"I'll add it when I close the job."**
-Nobody does, and that is not a character flaw — it is what every busy trade does when the work runs long and the next call is waiting. Capture rate after the fact is close to zero. That is exactly why the rule is placed before the work and not after it.
+**Weak:** Tech is dispatched for a dead condenser, fixes the capacitor, closes the job. No equipment record. Three months later the compressor fails under manufacturer warranty. There is no serial on file, the claim is rejected, and the callback lands unpaid on whoever picks it up.
 
-**"The office wants data, that's an office problem."**
-Half of it is. The half above is not — the unpaid callback, the second trip, and the disputed damage claim all land on a technician.
+**Perfect:** Tech arrives, before touching the condenser, scans its plate, photographs it, and notices the furnace in the same closet has never been logged either. Scans and photographs that too. Both records go on the location: manufacturer, model, serial, refrigerant type, filter size. Capacitor gets replaced. Three months later the compressor fails — the serial is on file, the claim is approved, and the callback pays.
 
-## Capture every system, not just the one you were sent for {#every-system}
+| | Weak | Perfect |
+|---|---|---|
+| Units captured | 1 of 2 | 2 of 2 |
+| Model/serial source | Memory / skipped | Scan + photo |
+| Warranty claim later | Fails, unpaid callback | Approved, paid callback |
+| Next dispatch | Starts from nothing | Arrives with the right part |
 
-The job is *equipment at this location*, not *the equipment that broke*.
+## When it goes wrong {#failures}
 
-- Furnace **and** AC condenser is two records. Two plates, two entries.
-- Two-zone or two-furnace homes: every unit, including the attic one nobody mentioned.
-- Water heater, boiler, mini-split heads **and** their outdoor unit, air handler, IAQ gear.
-- Commercial: **every RTU on the roof**, numbered consistently so the next tech knows which is which.
+- **Plate is illegible or missing.** Run the scan anyway — a partial plate often still yields the manufacturer. Photograph whatever remains. Write "data plate illegible" in condition notes. Check for a secondary label: inside the blower door, on the cabinet, on the disconnect, or a prior installer's sticker. Never guess a serial — a guessed number is worse than a blank one because the next person will trust it.
+- **Access to a unit is refused or blocked.** Note it plainly — "customer refused attic access," "crawlspace locked" — and capture everything else. An explained gap is a record; a silent gap is a defect.
+- **You recorded it in job notes instead of the location.** That is not captured. Notes do not attach to the location, do not drive maintenance, and do not surface when the CSM books the next call. Move it to the equipment record before you close.
+- **Dispatch flags a closed job with no equipment attached.** Acknowledge the flag same day and complete or explain the gap. This is reviewed alongside your callback rate — the two are connected.
 
-The second system is the one that gets skipped, and it is the one that generates the next call. When that call comes in, a record we already hold is the difference between you arriving with the part and you arriving to look at it.
+### Hard rules
 
-## What goes in the record {#fields}
+- Never invent or estimate a model or serial number.
+- Never skip the second system because you were only dispatched for one.
+- Never leave equipment data sitting only in job notes.
+- Never close a job with unexplained missing equipment capture.
 
-| Field | Rule |
+## QA scoring {#qa}
+
+| Score | Standard |
 |---|---|
-| Equipment type | Furnace / boiler / AC condenser / air handler / heat pump / mini-split / water heater / IAQ |
-| Manufacturer | As printed on the plate |
-| **Model number** | **Exact, character for character** |
-| **Serial number** | **Exact, character for character** |
-| Fuel / power | Natural gas / propane / oil / electric |
-| Capacity | Tonnage or BTU as shown |
-| Refrigerant type | Cooling equipment — drives repair-vs-replace |
-| Manufacture date | From the plate, or decoded from the serial |
-| Location | Where the next tech will find it |
-| Filter size | Exact size per system — this is what makes maintenance possible |
-| Condition notes | What you actually found |
-
-**Model and serial are transcribed from the photo, never from memory.** They are long, they mix letters and digits, and one wrong character is a warranty claim that fails months later when nobody can reconstruct what happened.
-
-## Scan the plate, then photograph it {#photo}
-
-The typed fields can contain a typo. The scan and the photo cannot.
-
-- **Scan first:** every unit gets the equipment scan run against its data plate — model and serial come in from the scan, character for character, with no typing to get wrong.
-- **One photo per unit minimum after the scan:** **the data plate, filling the frame, in focus.** The photo is the backstop — if the scan misreads a character, the photo is what settles it months later.
-- Plus a wider shot showing the unit and its surroundings.
-- Dirty plate? Wipe it, then rescan and reshoot. A plate the scanner cannot read is a plate you cannot read either — a scan that failed is not a record.
-
-## When the plate is unreadable or gone {#unreadable}
-
-Common on old outdoor equipment. Do not skip the record, and do not invent numbers.
-
-1. Run the scan anyway — a partial plate still often gives you the manufacturer or part of the model — and photograph whatever is left, however partial.
-2. Enter what you *can* establish — type, manufacturer, location, fuel, rough age.
-3. **Write "data plate illegible" in the condition notes.**
-4. Check for a secondary label: inside the blower door, on the cabinet, on the disconnect, or a prior installer's sticker.
-
-**A guessed serial is worse than a blank one**, because the next person will trust it.
-
-## Where it goes {#where}
-
-**The equipment record attached to the customer's location — not the job notes.**
-
-This is the most common way it gets done wrong. Notes are invisible on the next visit: they do not attach to the location, do not drive maintenance, and do not show up when the CSM books the next call. The information exists and does nothing. Same principle as everywhere else here — if it is not in the right place in ServiceTitan, it did not happen (`sop.csm.tools`).
-
-## When it's missing {#enforcement}
-
-So this is not a rule that only exists on paper:
-
-- **Dispatch checks it at close.** A job closed with work performed and no equipment attached to the location gets flagged to the technician who closed it — same day, and you must acknowledge the flag and complete or explain the gap.
-- **It is reviewed in the weekly one-to-one**, alongside callback rate — the two are related, and the connection is the point.
-- **A genuine exception is fine when it is written down.** No access to the unit, customer refused the attic, locked crawlspace — say so in the notes. An explained gap is a record. A silent gap is a defect.
-- **This document is signed for.** There is an acknowledgement block at the foot of this page. Once you have signed it, "nobody told me" is off the table — and so is the reverse: if you were never asked to sign, that is on us and not on you (`governance.acknowledgement`).
-
-## Why before, and not after {#why-before}
-
-Beyond the fact that nobody does it afterwards:
-
-1. **The plate stops being reachable.** Pull a blower, replace a panel, drop insulation back down, and it is behind something. On a heat exchanger job it may be gone.
-2. **You need the serial mid-job.** The moment you find a failed part, the question is whether it is under warranty — and you cannot answer that from a record you have not made yet.
-3. **The replacement conversation needs it before you quote**, not after.
-4. **A stripped system cannot be photographed honestly.** The record should show what you found, not what you left.
+| 2 | Every unit at the location scanned, photographed, and recorded on the location with model/serial exact; gaps explained if any |
+| 1 | Primary unit captured correctly but a second unit at the address was missed, or minor fields incomplete |
+| 0 | No equipment record, a guessed serial/model, or capture logged only in job notes |
 
 ## Related
 
+- Closing the job and forms: `sop.field.forms`
 - Warranty periods and coverage: `reference.guarantees`
 - No-charge callbacks: `sop.csm.warranty-callback`
 - What the CSM captured at booking: `sop.csm.system-type`

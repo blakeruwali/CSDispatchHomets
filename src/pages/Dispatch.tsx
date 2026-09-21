@@ -1,11 +1,12 @@
 import React, { useMemo } from "react";
-import { Radio, Clock, LayoutList, Settings } from "lucide-react";
+import { Radio, Clock, LayoutList, Settings, Stethoscope } from "lucide-react";
 import { dispatchSections } from "@/lib/content";
 import { DocsLayout } from "@/components/content/DocsLayout";
 
 const SECTION_STYLE: Record<string, { icon: React.ElementType; color: string }> = {
   "dispatch-foundations": { icon: Clock, color: "hsl(200,80%,55%)" },
   "dispatch-board": { icon: LayoutList, color: "hsl(15,90%,55%)" },
+  "field-diagnostics": { icon: Stethoscope, color: "hsl(160,60%,42%)" },
   governance: { icon: Settings, color: "hsl(0,78%,50%)" },
 };
 

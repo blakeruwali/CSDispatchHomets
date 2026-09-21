@@ -1,11 +1,17 @@
 ---
 translation_of: sop.field.diagnostics
-source_version: 2
+source_version: 3
 ---
 
 # Diagnóstico — Comprobar la Causa Antes de Cotizar
 
 > **Una pieza no está diagnosticada hasta que la mediste fallando. Todo diagnóstico termina con una causa identificada, las lecturas que la comprueban, y un precio por escrito — siempre, en cada llamada.**
+
+Este es el estándar maestro. Todo documento de queja específica — sin calefacción, sin enfriamiento, serpentín congelado, y cualquier otro que se escriba después de este — está debajo de él. Esos documentos te dicen por dónde empezar en un síntoma dado. Este te dice qué cuenta como comprobación, cuándo detenerte y condenar algo, y qué tiene que estar en la página antes de que te vayas.
+
+## Cuándo aplica {#applies}
+
+En toda llamada de diagnóstico, residencial o comercial, sin importar el tipo de sistema. No hay queja tan pequeña como para saltárselo, ni cliente con tanta prisa como para hacerlo opcional.
 
 ## La versión de 90 segundos {#field-card}
 
@@ -26,6 +32,8 @@ Este es todo el documento en un párrafo, así que léelo dos veces.
 
 **Un diagnóstico es una causa que mediste, no una pieza que sospechas.** "Capacitor malo" no es un diagnóstico. "El capacitor de marcha mide 21.4 µF contra 45 µF nominales, el compresor consume amperaje de rotor bloqueado al intentar arrancar" sí es un diagnóstico. La diferencia no es papeleo. El primero es una corazonada que resulta acertada la mayoría de las veces; el segundo es la razón por la que podemos cobrar por conocimiento, respaldar la reparación, y ganar la discusión cuando un cliente o un fabricante nos cuestione seis meses después.
 
+**El hallazgo que le presentas al cliente tiene que ser el hallazgo que realmente mediste — nunca uno que dedujiste y que estás presentando como si fuera comprobado.** Si lo dedujiste porque no lo pudiste probar en sitio, dilo con esas palabras, tanto al cliente como en la nota. "No pude probar la válvula reversible directamente, pero las temperaturas de línea apuntan a que está goteando" es honesto. Presentar la misma corazonada como un hecho comprobado no es un atajo, es una tergiversación, y es lo único en este documento que no tiene excusa aceptable.
+
 Tres cosas tienen que ser ciertas antes de que cotices:
 
 1. **Mediste la falla.** Un número, tomado por ti, en esta visita.
@@ -38,7 +46,7 @@ Si falta cualquiera de las tres, no diagnosticaste nada. Fuiste de compras.
 
 **Es lo que más te mantiene fuera de viajes de regreso no pagados.** Casi toda visita de regreso tiene la misma raíz: se cambió una pieza, no se cambió lo que la mató, y eso mató también a la nueva. Volviste gratis. Un contactor cambiado sin revisar por qué se pegó es un trabajo que vas a hacer dos veces.
 
-**Es lo que hace que una cuenta grande se sostenga.** Un cliente aprueba una reparación de $1,400 cuando el técnico le muestra una lectura y le explica qué significa. Discute una de $260 cuando el técnico solo dice que la pieza está mala. La medición no es burocracia — es la herramienta de venta.
+**Es lo que hace que una cuenta grande se sostenga.** Un cliente aprueba una reparación de $1,400 cuando el técnico le muestra una lectura y le explica qué significa. Discute una de $260 cuando el técnico solo dice que la pieza está mala. La medición es la herramienta de venta.
 
 **Te protege cuando algo sale mal.** Si un compresor falla un mes después y tu expediente muestra subenfriamiento correcto, amperaje correcto y una lectura limpia de flujo de aire cuando te fuiste, eso es un sistema que falló. Sin esos datos, es un técnico que pasó algo por alto. El mismo trabajo, dos conversaciones completamente distintas.
 
@@ -64,7 +72,7 @@ Antes del diagnóstico, antes del registro del equipo, antes de todo: si encuent
 |---|---|
 | Olor a gas / detección positiva de fuga | Cierra el gas en el aparato. Saca a la gente si es fuerte. Se llama a la compañía de gas, luego a despacho. No generes ninguna fuente de ignición, y eso incluye los apagadores de luz. |
 | CO detectado en el espacio habitado | Apaga el aparato. Ventila. Los ocupantes afuera. Bomberos ante cualquier lectura más que mínima. |
-| Sospecha de intercambiador de calor agrietado | **Apágalo y etiquétalo en rojo. No lo vuelvas a encender para "mostrárselo" al cliente.** Se requiere una segunda opinión antes de condenarlo — ver abajo. |
+| Sospecha de intercambiador de calor agrietado | **Apágalo y etiquétalo en rojo. No lo vuelvas a encender para "mostrárselo" al cliente.** Se requiere una segunda opinión antes de condenarlo — ver `#condemn`. |
 | Cableado quemado, derretido o haciendo arco | Corta la energía en el desconectador antes que nada. |
 | Agua estancada junto a equipo eléctrico | Primero corta la energía, después diagnostica. |
 | Retroceso de gases / derrame en el conducto de humos | Apágalo. Esto es un evento de CO esperando a ocurrir. |
@@ -77,7 +85,7 @@ Nada en este documento — ni el tiempo que toma, ni la conversación del costo,
 
 Haz funcionar el sistema y observa la falla con tus propios ojos e instrumentos. Si el cliente dice que no enfría, ponle un termómetro. Si dice que hace ruido, escucha el ruido.
 
-**Si no la puedes reproducir, dilo y ve a `#no-fault` más abajo.** No "repares" una queja que nunca presenciaste. Así es como se cambia un capacitor que servía y la falla intermitente real regresa la próxima semana con tu nombre en la última factura.
+**Si no la puedes reproducir, dilo y ve a `#no-fault`.** No "repares" una queja que nunca presenciaste. Así es como se cambia un capacitor que servía y la falla intermitente real regresa la próxima semana con tu nombre en la última factura.
 
 ### 4. Registra el equipo {#equipment}
 
@@ -129,7 +137,7 @@ No con esta forma:
 
 Las dos piezas que más se cambian en este oficio son capacitores y contactores, y son las dos que más se cambian sin medir, porque son baratas y casi siempre son la respuesta. **"Casi siempre" no es un diagnóstico.** Mídelas de todos modos — toma cuarenta segundos y es la diferencia entre un hallazgo profesional y una corazonada afortunada.
 
-**Nunca condenes una pieza que no probaste.** Si no la puedes probar en sitio con lo que traes, dilo en la nota y explica de qué lo estás deduciendo.
+**Nunca condenes una pieza que no probaste.** Si no la puedes probar en sitio con lo que traes, dilo en la nota y explica de qué lo estás deduciendo — y dile lo mismo al cliente, con esas palabras.
 
 ### 7. Pregunta qué la mató {#root-cause}
 
@@ -156,7 +164,7 @@ El cliente pagó **{{price:diagnostic_residential}}** residencial o **{{price:di
 - **Una reparación que podemos hacer** → cotizada, presentada, aprobada o rechazada, registrada en cualquier caso.
 - **Un sistema que conviene reemplazar en lugar de reparar** → la reparación se cotiza igual, para que el cliente vea la comparación que en realidad se le está pidiendo hacer. Luego la conversación de reemplazo.
 - **Una pieza que hay que pedir** → cotizada, con la visita de regreso agendada antes de que te vayas.
-- **No se encontró falla** → aun así hay un resultado por escrito y un registro. Ver abajo.
+- **No se encontró falla** → aun así hay un resultado por escrito y un registro. Ver `#no-fault`.
 - **El cliente rechaza todo** → el precio se queda en el trabajo. Es el punto de partida del siguiente técnico y de la siguiente conversación.
 
 Un diagnóstico que termina con un "van a ser como seiscientos" de palabra no entregó lo que se vendió. La tarifa compró un precio por escrito.
@@ -256,9 +264,9 @@ Para que esta no sea una regla que solo vive en papel:
 
 ## Dos firmas, y la diferencia entre ellas {#signatures}
 
-El formulario termina con las dos. No son lo mismo y nunca deben presentarse como si lo fueran.
+Todo reporte de diagnóstico termina con las dos. No son lo mismo y nunca deben presentarse como si lo fueran.
 
-**Tu firma es obligatoria**, y dice: *"Realicé y documenté los 18 puntos de inspección registrados arriba."* Eso es una declaración sobre tu propio trabajo. No la firmes por puntos que calificaste sin probar.
+**Tu firma es obligatoria**, y dice: *"Realicé y documenté todos los puntos de inspección registrados arriba."* Eso es una declaración sobre tu propio trabajo. No la firmes por puntos que calificaste sin probar.
 
 **La del cliente es opcional**, y dice: *"Recibí y revisé este reporte de diagnóstico por escrito con el técnico. Firmar solo confirma la recepción — no autoriza ninguna reparación."*
 

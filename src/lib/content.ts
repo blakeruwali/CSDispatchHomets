@@ -378,10 +378,14 @@ export const CSM_SECTIONS: SectionDef[] = [
   { id: "interaction", title: "Customer Interaction", description: "Greeting, listening, profiles, emergency triage, escalation" },
   { id: "intake", title: "Intake", description: "Required data, service and system type, symptoms, lead source" },
   { id: "booking", title: "Booking", description: "Availability, service area, fees, membership, objections" },
-  { id: "leads", title: "Leads", description: "Missed calls, lead follow-up, and speed-to-lead recovery" },
   { id: "channels", title: "Channel Playbooks", description: "Speed to lead, marketplaces, inbound, LSA, web, Posh, SMS" },
   { id: "post-booking", title: "Post-Booking & Retention", description: "Tickets, handoff, follow-up, warranty, retention" },
   { id: "governance", title: "Governance", description: "Guarantees, doc control, QA rubric, coaching, onboarding" },
+  {
+    id: "membership-program",
+    title: "The Membership Program",
+    description: "Home+ pricing, covered systems, benefits, and adding systems three and four",
+  },
 ];
 
 export function csmSections(): ContentSection[] {
@@ -440,6 +444,11 @@ export const FIELD_SECTIONS: SectionDef[] = [
     title: "Governance",
     description: "How these documents are issued, acknowledged, and changed",
   },
+  {
+    id: "membership-program",
+    title: "The Membership Program",
+    description: "Home+ pricing, covered systems, benefits, and adding systems three and four",
+  },
 ];
 
 export function fieldSections(): ContentSection[] {
@@ -487,12 +496,48 @@ export const DISPATCH_SECTIONS: SectionDef[] = [
     title: "Running the Board",
     description: "Job priorities and the hour-by-hour workflow",
   },
+  // Complaint protocols a dispatcher has to recognise at booking and prep the
+  // truck for. The documents themselves are owned by the field book — they
+  // appear here so the person taking the call opens the same steps the
+  // technician will work.
+  {
+    id: "field-diagnostics",
+    title: "Complaint Protocols",
+    description: "Calls that need specific instruments, prep and duration before the truck rolls",
+  },
   // Shared with the CSM, field and sales surfaces.
   { id: "governance", title: "Governance", description: "How these documents are issued, acknowledged, and changed" },
+  {
+    id: "membership-program",
+    title: "The Membership Program",
+    description: "Home+ pricing, covered systems, benefits, and adding systems three and four",
+  },
 ];
 
 export function dispatchSections(): ContentSection[] {
   return sectionsForSurface("dispatch", DISPATCH_SECTIONS);
+}
+
+// --------------------------------------------------------------- leads sections
+
+/**
+ * Lead recovery and rescue: the work of bringing back leads that slipped —
+ * missed calls and cancelled estimates. Distinct from the CSM surface, which
+ * covers call handling and booking; this is the recovery effort, with its own
+ * owner and metrics (rescue rate, nurture conversion).
+ */
+export const LEADS_SECTIONS: SectionDef[] = [
+  {
+    id: "leads-recovery",
+    title: "Lead Recovery",
+    description: "Missed calls, cancelled estimates, and bringing leads back from the edge",
+  },
+  // Shared with the CSM, field, sales, dispatch and projects surfaces.
+  { id: "governance", title: "Governance", description: "How these documents are issued, acknowledged, and changed" },
+];
+
+export function leadsSections(): ContentSection[] {
+  return sectionsForSurface("leads", LEADS_SECTIONS);
 }
 
 // ----------------------------------------------------------- projects sections
@@ -530,4 +575,64 @@ export const PROJECTS_SECTIONS: SectionDef[] = [
 
 export function projectsSections(): ContentSection[] {
   return sectionsForSurface("projects", PROJECTS_SECTIONS);
+}
+
+// ------------------------------------------------------------ reviews sections
+
+/**
+ * The review program: why reviews matter to a company founded in Nov 2025,
+ * the 100+ first-year target, and who owns each ask. Distinct from the CSM
+ * surface (which handles calls) and field (which handles visits) — this is
+ * the shared reputation effort, with the tech ask, the CS ask, and the rules
+ * that apply to everyone in one place.
+ */
+export const REVIEWS_SECTIONS: SectionDef[] = [
+  {
+    id: "review-program",
+    title: "The Review Program",
+    description: "Targets, the technician's ask, the CS team's ask, and the rules for everyone",
+  },
+];
+
+export function reviewsSections(): ContentSection[] {
+  return sectionsForSurface("reviews", REVIEWS_SECTIONS);
+}
+
+// -------------------------------------------------------- membership sections
+
+/**
+ * The membership book: what Home+ costs, what it covers, and how a third or
+ * fourth system gets added. Surfaced on field, csm and dispatch too, because
+ * a member hears the same numbers from all three or trusts none of them.
+ */
+export const MEMBERSHIP_SECTIONS: SectionDef[] = [
+  {
+    id: "membership-program",
+    title: "The Membership Program",
+    description: "Home+ pricing, covered systems, benefits, and adding systems three and four",
+  },
+];
+
+export function membershipSections(): ContentSection[] {
+  return sectionsForSurface("membership", MEMBERSHIP_SECTIONS);
+}
+
+// ------------------------------------------------------------ insurance sections
+
+/**
+ * Insurance and home-warranty claims: the visit, the fee rule, and what we
+ * will and will not put on an invoice for a carrier. Its own book because the
+ * money is approved by a third party, which changes the paperwork and nothing
+ * else — and because the fee rule here is the one people get wrong.
+ */
+export const INSURANCE_SECTIONS: SectionDef[] = [
+  {
+    id: "insurance-claims",
+    title: "Insurance & Home Warranty",
+    description: "The claim visit, the diagnostic fee rule, estimates, and invoicing a carrier will accept",
+  },
+];
+
+export function insuranceSections(): ContentSection[] {
+  return sectionsForSurface("insurance", INSURANCE_SECTIONS);
 }

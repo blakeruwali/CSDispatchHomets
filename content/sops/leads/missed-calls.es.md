@@ -1,5 +1,5 @@
 ---
-translation_of: sop.csm.missed-calls
+translation_of: sop.leads.missed-calls
 source_version: 1
 ---
 

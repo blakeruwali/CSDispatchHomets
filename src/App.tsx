@@ -15,6 +15,10 @@ import CSM from "./pages/CSM";
 import Field from "./pages/Field";
 import Dispatch from "./pages/Dispatch";
 import Projects from "./pages/Projects";
+import Leads from "./pages/Leads";
+import Reviews from "./pages/Reviews";
+import Membership from "./pages/Membership";
+import Insurance from "./pages/Insurance";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +46,10 @@ const App = () => (
           <Route path="/field" element={gated(<Field />)} />
           <Route path="/dispatch" element={gated(<Dispatch />)} />
           <Route path="/projects" element={gated(<Projects />)} />
+          <Route path="/leads" element={gated(<Leads />)} />
+          <Route path="/reviews" element={gated(<Reviews />)} />
+          <Route path="/membership" element={gated(<Membership />)} />
+          <Route path="/insurance" element={gated(<Insurance />)} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

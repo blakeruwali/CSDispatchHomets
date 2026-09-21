@@ -1,23 +1,54 @@
 ---
 translation_of: reference.membership-plans
-source_version: 1
+source_version: 2
 ---
 
 # Planes de Membresía
 
 Una sola página, las dos familias de planes. Si un cliente pregunta qué obtiene, la respuesta está aquí — no improvises beneficios, y no prometas nada que esta página no liste.
 
-## Home+ — residencial {#home-plus}
+## Home+ Comfort — residencial {#home-plus}
 
 | | |
 |---|---|
 | **Precio** | {{price:membership_home_plus_monthly}} |
-| **Mantenimientos incluidos** | {{price:membership_home_plus_tuneups}} |
+| **Mantenimientos incluidos** | {{price:membership_home_plus_tuneups}} básicos de 26 puntos ({{price:membership_tuneup_retail}} de valor cada uno) |
+| **Sistema adicional** | {{price:membership_home_plus_extra_system}} |
+| **Mantenimiento Premium (38 puntos)** | No incluido. Mejora para miembro {{price:membership_premium_tuneup_upgrade}} por sistema. Precio de venta: $449 caldera/AC/bomba de calor, $549 boiler, $399 mini-split |
 | **Descuento en reparaciones** | {{price:membership_home_plus_repair_discount}} en reparaciones aprobadas elegibles |
 | **Diagnóstico** | {{price:membership_diagnostic_posture}} |
-| **Cancelación** | Cuando sea. Reembolso proporcional si no se usaron servicios. |
+| **Agenda** | Prioridad sobre no miembros |
+| **Ahorro anunciado** | {{price:membership_comfort_savings}} frente a contratar por separado |
+| **Cancelación** | Cuando sea, sin contrato. Reembolso proporcional si no se usaron servicios. |
 
-Home+ cubre los sistemas residenciales a los que damos servicio en el domicilio de la cuenta. No es transferible a una segunda propiedad, y no se le ofrece a un inquilino sobre un sistema que no le pertenece — ver `sop.csm.customer-profiles`.
+Home+ cubre los sistemas residenciales a los que damos servicio en el domicilio de la cuenta. Se transfiere al nuevo dueño si venden la casa; no sigue al cliente a una segunda propiedad, y no se le ofrece a un inquilino sobre un sistema que no le pertenece — ver `sop.csm.customer-profiles`.
+
+## Home+ Signature — nivel intermedio residencial {#signature}
+
+| | |
+|---|---|
+| **Precio** | {{price:membership_signature_price}} |
+| **Sistemas cubiertos** | {{price:membership_signature_systems}} |
+| **Mantenimiento** | {{price:membership_signature_tuneup}} |
+| **Diagnóstico** | {{price:membership_signature_diagnostic}} |
+| **Incluye** | Todo lo de Comfort, más análisis de combustión y flujo de aire e informe escrito en cada visita |
+
+Signature es la respuesta para casas con varios sistemas: cotízalo en vez de Comfort más sistemas adicionales o Comfort más mejoras Premium.
+
+## Home+ Infinite — nivel superior residencial {#infinite}
+
+| | |
+|---|---|
+| **Precio** | {{price:membership_infinite_price}} |
+| **Incluye** | Todo lo de Comfort |
+| **Descuento** | {{price:membership_infinite_discount}} en todos los servicios |
+| **Crédito de servicio** | {{price:membership_infinite_credit}} para cualquier reparación, reemplazo o servicio — se acumula |
+| **Crédito de reemplazo** | {{price:membership_infinite_replacement_credit}} para un reemplazo de sistema |
+| **Diagnóstico** | Gratis siempre, con o sin reparación |
+| **Emergencias** | Prioridad por encima de Comfort |
+
+Infinite se cotiza a clientes que ya enfrentan una reparación grande o un reemplazo este año. Vendérselo a una casa de bajo gasto produce un crédito sin usar y una cancelación.
+
 
 ## Business+ — comercial ligero {#business-plus}
 

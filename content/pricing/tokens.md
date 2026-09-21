@@ -5,7 +5,7 @@ department: ops
 owner: owner
 status: published
 version: 2
-last_reviewed: 2026-08-02
+last_reviewed: 2026-09-02
 review_cadence_days: 30
 tags: [pricing, tokens, reference]
 surfaces: []   # definitions file — machine-read, values appear resolved inside other docs
@@ -48,10 +48,30 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 
 | Token | Amount | Notes |
 |---|---|---|
-| `membership_home_plus_monthly`      | $19.99/mo | Home+ residential membership |
-| `membership_home_plus_tuneups`      | 2 per year | Included tune-ups, Home+ |
-| `membership_home_plus_repair_discount` | 15% | Discount on repairs for active members |
-| `membership_diagnostic_posture`     | Waived | Diagnostic fee for an active member |
+| `membership_home_plus_monthly`      | $7.99/mo billed annually ($95.88) first year, then $24.99/mo ($299/year) | Home+ Comfort — covers 2 systems |
+| `membership_home_plus_first_year`   | $95.88 | Home+ Comfort — first-year enrollment ($7.99/mo billed annually), covers 2 systems |
+| `membership_home_plus_renewal`      | $299/year | Home+ Comfort — every year after the first ($24.99/mo billed annually), covers 2 systems |
+| `membership_home_plus_systems`      | 2 systems | Systems covered by one Home+ membership (any mix of heating and cooling) |
+| `membership_home_plus_extra_system` | $99 per additional system, per year | Each system beyond the 2 included — charged in the first year and again at every renewal |
+| `membership_home_plus_tuneups`      | 2 per year | One **basic (26-point)** tune-up per covered system — cooling before summer, heating before winter |
+| `membership_home_plus_repair_discount` | 10% | Comfort — discount on the total invoice for an approved repair or replacement |
+| `membership_tuneup_retail`          | $299 | Retail value of one basic 26-point tune-up (furnace / AC / heat pump). Boiler $349, mini-split $279 |
+| `membership_premium_tuneup`         | **Quoted on site — confirm system type first** | Published premium retail on the website: furnace / AC / heat pump $449, boiler $549, mini-split $399. Quote a retail number only after the system type is confirmed; anything outside those three system types is estimated on site. |
+| `membership_premium_tuneup_upgrade` | $149 per system | Member upgrade price from the included basic tune-up to the Premium 38-point tune-up |
+| `membership_signature_price`        | $59/mo ($599/year — saves $109 vs. monthly) | Home+ Signature — middle residential tier, covers up to 3 systems |
+| `membership_signature_systems`      | Up to 3 systems | Systems covered by one Signature membership |
+| `membership_signature_tuneup`       | Premium 38-point on every covered system | Signature includes the premium deep-service visit — no $149 upgrade to sell |
+| `membership_signature_diagnostic`   | No dispatch fee | Signature diagnostic posture |
+| `membership_infinite_price`         | $2,999/year ($250/mo billed annually) | Home+ Infinite — top residential tier |
+| `membership_infinite_discount`      | 15% | Infinite — discount on all services |
+| `membership_infinite_credit`        | $2,000/year | Infinite — service credit toward any repair, replacement or service; rolls over |
+| `membership_infinite_replacement_credit` | $1,000/year | Infinite — replacement credit, applied to a system replacement |
+| `membership_diagnostic_posture`     | Waived | Diagnostic / service call fee for an active member |
+| `membership_comfort_savings`        | $548+ per year | Published Comfort savings vs. booking the same services separately ($847+ retail) |
+| `membership_intro_deadline`         | Introductory pricing ends October | Website banner — first-year Comfort rate is locked at enrollment |
+
+
+
 
 ### Business+ (light commercial, priced per qualifying rooftop unit)
 
@@ -66,6 +86,19 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | `membership_business_plus_premier_visits`     | 4 | Scheduled visit allocations per membership year |
 | `membership_business_plus_premier_discount`   | 12% | Discount on eligible approved repairs |
 | `membership_business_plus_enterprise`         | Written quote required | Enterprise — custom fleet/multi-location scope; renewal defined in the proposal |
+| `membership_business_plus_extra_rtu`          | $399/year per additional rooftop unit | Beyond the first included RTU; up to 9 units in the published flow |
+
+### Membership proposals (site survey → three options)
+
+| Token | Value | Notes |
+|---|---|---|
+| `membership_survey_fee` | Free | Membership / maintenance-plan site survey. No diagnostic fee when the visit is scoped as a plan survey only. |
+| `membership_proposal_options` | 3 | Minimum plan options presented in every membership proposal |
+| `membership_proposal_delivery_hours` | 24 hours | Deadline to email **and** text the proposal after the site survey |
+| `membership_proposal_call_hours` | 2 hours | Deadline to call the customer after the proposal is sent |
+| `membership_proposal_followup_days` | Day 2, day 5, day 14 | Follow-up cadence on an unanswered proposal before it goes to nurture |
+
+
 
 ## Deposits & payment flow
 
@@ -107,6 +140,15 @@ Later phase: the pricing tables are replaced by a generated artifact from the Se
 | `long_job_block` | 2 windows minimum, 4 windows for a same-day install | Long jobs are blocked on the board before anything else is booked around them |
 | `bump_diagnostic_credit` | Diagnostic fee waived when **we** move the job | A customer bumped by us is rebooked with the diagnostic waived — the bump is our cost, not theirs |
 | `bump_rebook_deadline` | Next business day, named window, on a live call | A displaced job never leaves the board without a date |
+
+
+## Insurance / home-warranty claims
+
+| Token | Value | Notes |
+|---|---|---|
+| `insurance_estimate_fee` | Free | Written estimate for the claim. The estimate is free; the diagnosis that produced it is not. |
+| `insurance_estimate_delivery` | Same day, by end of business | Emailed **and** texted to the customer, adjuster copied when the customer asks for it |
+| `insurance_claim_authority` | Manager only | Rewording, re-scoping, or re-dating an invoice to fit a carrier's request |
 
 
 ## Guarantees / SLAs

@@ -5,10 +5,10 @@ department: field
 owner: service-manager
 status: published
 version: 1
-last_reviewed: 2026-09-18
+last_reviewed: 2026-09-04
 review_cadence_days: 90
-tags: [diagnostics, complaint, field, condensate, drain, pan, float-switch, water, leak, condensation, sweating, dew-point, insulation]
-related: [sop.field.diagnostics, sop.field.frozen-coil, sop.field.no-cooling, reference.diagnostic-readings]
+tags: [diagnostics, complaint, field, condensate, drain, pan, float-switch, water, leak]
+related: [sop.field.diagnostics, reference.diagnostic-readings, sop.field.frozen-coil, sop.field.sweating-grille, sop.field.equipment-capture]
 section: field-diagnostics
 order: 4
 surfaces: [field, checklist]
@@ -16,147 +16,99 @@ surfaces: [field, checklist]
 
 # Complaint: Water Leaking
 
-> **Find out WHERE the water is before you work out why. Drain water and condensation look identical on a ceiling and have nothing else in common — different cause, different fix, different price.**
+> **Water is a symptom, never the fault. Find what put it there, prove it with a reading, and price the cause — not the puddle.**
 
-This is the call where the obvious repair is most often the wrong one. Every water complaint has something visibly wrong nearby — a damp pan, a bare duct, an old stain — and fixing the thing you can see is not the same as fixing the thing that is wetting the customer's ceiling. A repair aimed at the wrong source comes back, and it comes back to a customer who has already paid.
+The customer sees water on a ceiling or a floor and wants it stopped. Stopping it takes ten minutes. Finding out why it started is the visit, and it is the difference between a repeat call in August and a job that holds.
 
-## Three sources, one puddle {#three-sources}
+## When this applies {#applies}
 
-Almost every residential water call is one of three things. They are told apart by **where the water actually is**, not by what looks worst.
+Any call where water appears at or below an air handler, furnace, coil, condenser, mini-split head, or a line set. If the water is coming from plumbing rather than HVAC, stop and hand it to the plumbing side — a supply line above a furnace is not our diagnosis to guess at.
 
-| Where the water is | What it is | Where you go |
-|---|---|---|
-| Dripping or tracking from **one point** | Condensate drain, pan, or a leaking joint | **The drain** |
-| On the **face and vanes** of the grille | Supply air is below the room's dew point | **The grille face** |
-| On the **frame, ceiling ring, or ceiling around** the grille | Humid air condensing on cold metal at the boot | **The boot** |
+If the complaint is *ice* rather than water, work `sop.field.frozen-coil` first. A frozen coil that thaws while you drive to the call presents as a leak, and it is the single most common misread on this page.
 
-**Two of them can be true at once.** That is the callback this SOP exists to prevent — see **Do not stop at the first one**, below.
+**Locate the water before you diagnose why it is there.** Dripping from a single point is this document. Water spread evenly across the *face and fins* of a grille, or on the *frame and ceiling ring* around it, is condensation — dew point, not drainage — and that is `sop.field.sweating-grille`. The two look identical on a ceiling and have nothing else in common: different cause, different fix, different price. Both can be true at once on the same call, which is the repeat visit this pair of documents exists to prevent.
 
-## Before anything else — locate the water {#locate}
+## The execution ladder {#execution}
 
-**Pull the grille off and look.** Thirty seconds, and it decides everything that follows.
+Work it in this order. Do not skip to step 4 because the trap looks obvious.
 
-1. **Where is it wet?** Face and vanes, frame and ceiling ring, or running from a single point.
-2. **Is it condensation or flow?** Condensation forms evenly across a surface. Flow tracks, drips, and follows gravity from one place.
-3. **Photograph it with the grille off**, before you touch anything.
-4. **Squeeze any insulation** you find on the boot. Wet insulation is a finding in itself — see **The boot**, below.
+1. **Make it safe and stop the damage.** Power the system down if water is near electrical. Shop-vac the pan. Protect the ceiling or floor before you diagnose — a customer watching you diagnose while their drywall soaks will not hear a word of the findings.
+2. **Establish where the water is, precisely.** Primary pan, secondary pan, the drain line itself, a ceiling stain three feet from the unit, or the line set. Photograph it before you touch anything. That photo is the evidence for the estimate.
+3. **Check the float switch.** Is it present, is it wired, is it tripped? A tripped float that did its job means the drain is blocked — that is your answer, not a nuisance to bypass. **A missing float switch is a finding you write down on every one of these calls.**
+4. **Test the primary drain.** Pour water into the pan and watch it clear. Slow or no flow is a blockage. Verify the trap is present, correctly configured, and primed — an unprimed or missing trap on a negative-pressure air handler will pull air and hold water in the pan all day.
+5. **Clear and verify.** Vacuum from the termination, flush the line, then pour again and watch it run clean. **Re-verify after clearing or you have not finished the repair.**
+6. **If the drain is clear and water is still appearing, it is not a drain problem.** Move to the split below.
 
-**Do not quote anything before you have done this.** A price given from the driveway on a water call is a guess.
+## The split — what the water actually means {#the-split}
 
-## Source 1 — the drain {#drain}
-
-The cheapest to check, so check it first.
-
-| Check | Looking for |
+| What you observe | What it usually is |
 |---|---|
-| **Primary pan** | Standing water, rust line, biological growth |
-| **Drain line** | Flows clear when poured, or backs up |
-| **Trap** | Dry, missing, or wrong depth — a dry trap lets air pull water back |
-| **Float switch** | Tripped, wet, or bypassed by someone before you |
-| **Secondary pan** | Water in it means the primary has already failed at least once |
-| **Previous repairs** | A joint someone else cut in is a joint that can weep |
+| Pan full, drain slow, float tripped | Blocked primary drain / dirty coil shedding biofilm |
+| Pan dry, water at the line set | Missing or damaged insulation — sweating, not leaking |
+| Water on the grille face, fins, or ceiling ring | Condensation — `sop.field.sweating-grille`, measure before you insulate |
+| Water only when the system runs hard | Undersized or negative-pressure trap, or airflow blowing condensate off the coil |
+| Ceiling stain away from the unit | Secondary pan overflow, or drain line broken inside the ceiling |
+| Ice on the coil, water after it melts | `sop.field.frozen-coil` — charge or airflow |
+| Water at a horizontal furnace / coil in an attic | Pan rusted through, or the drain pitch is wrong |
+| Rust and staining, no active water today | Chronic, long-running. Document it — it changes the replacement conversation |
 
-**A blocked drain is often a symptom, not the cause.** A coil running much colder than design condenses harder and can overwhelm a drain that had been coping for years. If you find a blocked line, keep going — take the readings anyway and find out why the system is making that much water.
+**Measure before you conclude.** Airflow and charge readings belong on a leak call whenever the coil is involved: total external static pressure, temperature split, and superheat/subcool per `reference.diagnostic-readings`. A coil freezing and thawing looks like a plumbing problem and is a refrigerant or airflow problem.
 
-> ⚠️ **Clearing a drain makes the visible problem stop.** It does not make a sweating grille stop. If the water was coming from both, the customer sees a dry ceiling today and a wet one next week.
+## What you say {#verbatim}
 
-## Source 2 — condensation on the grille face {#face}
+When you have found the cause, state cause first, fix second, price last:
 
-The grille sits **in the airstream**. Its surface temperature is set by the air blowing over it. When that surface falls below the room's dew point, water forms on it — the same way a cold glass sweats on a warm day.
+> "Here's what I found. Your drain line was blocked, which backed the water up into the pan until the safety switch shut the system off — that switch is what stopped this from getting into your ceiling. I've cleared the line and tested it. The reason it blocked is the coil above it is dirty, so this will come back next season unless we address that too."
 
-**Relative humidity (RH)** is how much moisture the air is holding, as a percentage of what it could hold at that temperature. RH plus room temperature gives you the **dew point** — the temperature at which water starts condensing. That is the only threshold that matters here.
+When there is no float switch:
 
-So a wet grille face means one of two things, and the readings tell you which:
+> "One thing I want you to know about: there's no safety switch on this drain. If it blocks again while you're at work, there's nothing to shut the system off — the water goes into the ceiling instead. It's a small part, and I'd rather you had one."
 
-- **The supply air is too cold** — a coil running well below design, from low airflow or a charge problem
-- **The room is too humid** — a high dew point, so even normal supply air condenses
+When the pan is rusted through in an attic:
 
-> **Insulation cannot fix a wet grille face.** Insulation protects the duct body and the boot from ambient air. It does nothing to the air passing through the grille. If the face and vanes are wet, wrapping the duct is work aimed at the wrong mechanism — and the customer pays for a repair that was never going to hold.
+> "The pan under this unit has rusted through, so the water isn't being caught anymore. I'll show you the photo. I can give you the options for that today — I don't want to patch something that's going to be back over your bedroom in a month."
 
-## Source 3 — condensation on the boot or duct {#boot}
+## When it goes wrong {#failures}
 
-Wet **frame, ceiling ring, or ceiling** — not the vanes — means humid air is reaching cold metal outside the airstream. This is the one insulation is for, and it is also the one that gets installed badly.
+**The drain clears and the customer says "so it's fixed?" while the coil is filthy.** Do not agree. Clearing the line without naming the cause is how the same call books again in six weeks with an angrier customer. Say the cause out loud and put it on the invoice, even if they decline the coil cleaning.
 
-| Check | Looking for |
-|---|---|
-| **Is the insulation wet?** | Squeeze it. Wet means the vapour barrier is not doing its job |
-| **Are the seams sealed?** | Foil-faced insulation is only a vapour barrier if every seam is taped or mastic'd |
-| **Is it sealed to the boot?** | Laid on top is not sealed. Humid air goes straight past it |
-| **Any gap to bare metal?** | One gap is enough |
-| **Rust or old staining** | Tells you how long this has been happening |
+**The float switch is tripped and the system won't run in July.** The temptation is to bypass it to "get them cooling tonight." **Never bypass a float switch.** That is the switch working. Bypassing it makes us the cause of the ceiling damage.
 
-> ⚠️ **Fibreglass laid on a cold boot without a continuous vapour barrier makes the problem worse, not better.** Vapour passes through the batt, condenses on the metal underneath, and now saturated insulation is holding water against the duct where nobody can see it.
+**You cannot find active water.** Do not invent a cause. Document the staining, take readings, note the conditions that would reproduce it, and tell the customer plainly what you did and did not find. An honest "I could not reproduce it, here is what I checked and here is what to watch for" is a defensible visit. A guessed repair is not.
 
-## The readings {#readings}
+**The water turns out to be plumbing.** Stop, say so, and get the right trade booked. Do not run a partial plumbing repair on an HVAC ticket.
 
-Run the system in cooling for **15 minutes** before taking anything, and take the whole set in the same cycle. Thresholds live in `reference.diagnostic-readings` — the numbers below are where to put the probe.
+### Hard rules
 
-| Reading | Where |
-|---|---|
-| **Room temperature + RH** | Mid-room, chest height, **6+ feet from the register.** Hold still 2–3 minutes — RH sensors are slow and the first number is always wrong |
-| **Supply air temperature** | In the airstream at the grille |
-| **Grille surface temperature** | IR gun, on the metal |
-| **Return air temperature** | At the air handler, through the filter slot — past the filter, before the coil, tip off the metal. **Not at the return grille in the room** |
-| **Temperature split** | Return minus supply. Target **15–22°F** |
-| **Total external static pressure** | Supply plenum and return plenum, tips **perpendicular to airflow.** Add the absolute values |
-| **Superheat / subcooling** | Only after airflow is ruled out — see `sop.field.frozen-coil` for why order matters |
-
-**The equipment data plate always wins.** TESP is referenced at 0.5" w.c. on most residential equipment, but ducted inverter and mini-split air handlers are frequently rated far lower. Read the plate, write down the rated figure, and compare against that.
-
-## Dew point from room temperature and RH {#dew-point}
-
-| Room temp | 50% RH | 55% | 60% | 65% | 70% |
-|---|---|---|---|---|---|
-| **72°F** | 52 | 55 | 57 | 60 | 62 |
-| **74°F** | 54 | 57 | 59 | 62 | 64 |
-| **76°F** | 56 | 59 | 61 | 63 | 65 |
-| **78°F** | 58 | 60 | 63 | 65 | 67 |
-
-If the grille surface reads below the dew point in this table, condensation is confirmed and the argument is over.
-
-## Reading the result {#result}
-
-| What you find | What it points at |
-|---|---|
-| Water from one point, pan wet, line blocked | **Drain.** Clear it — then take the readings anyway |
-| Dew point above 60°F | **The house is too humid.** Ductwork will not fix it; look for the moisture source |
-| Split above 22°F with cold supply | **Low airflow.** Filter, coil, blower, dampers, duct restriction — then static |
-| TESP above the plate rating | **Duct restriction.** Sagging flex, crushed runs, undersized return |
-| Split normal, return already cold | **The room is being overcooled.** Control or thermostat problem, not the coil |
-| Split and static normal, face still wet | Re-check the dew point. If it is fine, the water is not condensation — go back to **locate the water** |
-| Frame wet, face dry | **Boot.** Insulation, vapour barrier, seal to the ceiling |
-
-## Do not stop at the first one {#both}
-
-A water complaint can have two causes running at the same time, and the drain is always the one you find first because it is the one you look at first.
-
-**Before you close the job, ask: does what I found explain what the customer actually described?** A blocked drain does not put condensation on the outside face of a grille. If the customer described sweating and you found a clog, you have found *a* problem, not necessarily *the* problem.
-
-Take the readings even when you have already found something. They cost fifteen minutes and they are the difference between one visit and four.
-
-## What you tell the customer {#customer}
-
-Name the source, not the symptom:
-
-> "The water was coming from [the condensate drain / the air at the register being colder than the room / the metal above the ceiling]. What caused it was [X]. I've [done Y], and here's the number that tells us it worked — your supply air should be around 55°F instead of 48°F."
-
-If you have found one cause and suspect another, **say that too, before you leave.** A customer told up front that there may be a second issue is a customer who trusts you when it turns up. The same customer told nothing is a recall.
+- Never bypass or remove a float switch.
+- Never leave a drain unverified after clearing it — pour and watch.
+- Never close a leak call without recording whether a float switch exists.
+- Never replace a rusted pan without photographing the original.
+- Never price the puddle. Price the cause.
 
 ## What gets recorded {#record}
 
-- **Photo with the grille off**, before anything was touched
-- **Where the water was** — face and vanes, frame and ceiling, or single-point drip
-- **Room temperature and RH, and the dew point** they give
-- **Supply, return, split, and grille surface temperature**
-- **TESP, and the rated figure from the data plate** you compared it against
-- **Pan, drain line, trap and float switch condition**
-- **Insulation condition** — wet or dry, seams sealed or not
-- **Cause identified**, and whether a second cause is suspected
-- **Every reading you took, including the normal ones.** The normal readings are what rule causes out, and the next technician on this job needs them as much as the abnormal ones
+- Photo of the water, before you touch it, and a photo after the repair.
+- Float switch: present / absent / tripped / bypassed-on-arrival.
+- Primary drain: flow before, flow after.
+- Trap: present, primed, correctly configured — yes or no.
+- Coil condition and static pressure.
+- Superheat / subcool and temperature split if the coil was involved.
+- Every declined recommendation, in the customer's hearing and in the job notes.
+
+Equipment data plate captured per `sop.field.equipment-capture` — no exceptions on this call type either.
+
+## QA scoring {#qa}
+
+| Score | What it looks like |
+|---|---|
+| **2** | Cause identified and proven with a reading or photo. Drain verified after clearing. Float switch status recorded. Customer heard the cause in plain words. |
+| **1** | Water stopped, drain cleared, but the underlying cause was not named or not documented. |
+| **0** | Float switch bypassed, drain not re-verified, no photos, or the invoice describes the puddle rather than the fault. |
 
 ## Related
 
 - The standard behind all of this: `sop.field.diagnostics`
-- Thresholds and targets: `reference.diagnostic-readings`
-- Why airflow comes before charge: `sop.field.frozen-coil`
-- Cooling calls: `sop.field.no-cooling`
+- Ice first, water second: `sop.field.frozen-coil`
+- Condensation rather than drainage: `sop.field.sweating-grille`
+- Thresholds and expected readings: `reference.diagnostic-readings`
