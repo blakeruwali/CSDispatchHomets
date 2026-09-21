@@ -217,23 +217,27 @@ describe("field surface", () => {
   });
 
   it("names parts by position, so a dropped part cannot mislabel the rest", () => {
-    // Titles are bare; "Part N" comes from numberSections. The field surface
-    // has unwritten parts that get dropped, and this is what keeps its
-    // headings agreeing with the document numbers beneath them.
+    // Titles are bare; "Part N" comes from numberSections. A part with no
+    // documents is dropped, and this is what keeps the headings agreeing with
+    // the document numbers beneath them.
+    //
+    // Safety was declared and empty for months, so it was dropped and the
+    // parts after it closed the gap. Writing it moved every later part down
+    // one — which is the mechanism working, not a regression. Clause numbers
+    // are positional by design; the stable id is the durable reference.
     const ns = numberSections(fieldSections());
     expect(ns.every((s) => !s.title.startsWith("Part"))).toBe(true);
     expect(ns.map((s) => `Part ${s.number} — ${s.title}`)).toEqual([
       "Part 1 — On Every Job",
-      // Safety is declared but unwritten, so it is dropped and the parts
-      // after it close the gap rather than keeping a hardcoded number.
-      "Part 2 — Diagnosing by Complaint",
-      "Part 3 — Documentation",
+      "Part 2 — Safety",
+      "Part 3 — Diagnosing by Complaint",
+      "Part 4 — Documentation",
       // The two install stages the crew performs on site. The rest of the
       // projects lifecycle is office work and stays out of this book.
-      "Part 4 — Install Day",
-      "Part 5 — Closeout & Comfort Check",
-      "Part 6 — Governance",
-      "Part 7 — The Membership Program",
+      "Part 5 — Install Day",
+      "Part 6 — Closeout & Comfort Check",
+      "Part 7 — Governance",
+      "Part 8 — The Membership Program",
     ]);
   });
 
