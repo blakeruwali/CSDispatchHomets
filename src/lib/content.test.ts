@@ -146,9 +146,10 @@ describe("CSM surface", () => {
   });
 
   it("renders every part of the SOP in reading order", () => {
-    // Seven parts came from the source document; `leads` is an eighth added
-    // here, so the count is no longer a property of the original SOP. The
-    // order still matters — it is what the clause numbers are derived from.
+    // Seven parts came from the source document. Parts have been added since
+    // and `leads` moved out to its own book, so the count is not a property of
+    // the original SOP. The order is what matters — clause numbers derive from
+    // it, so a part inserted mid-list renumbers everything after it.
     const sections = csmSections();
     expect(sections).toHaveLength(8);
     expect(sections.map((s) => s.id)).toEqual([
@@ -156,10 +157,10 @@ describe("CSM surface", () => {
       "interaction",
       "intake",
       "booking",
-      "leads",
       "channels",
       "post-booking",
       "governance",
+      "membership-program",
     ]);
   });
 
@@ -232,6 +233,7 @@ describe("field surface", () => {
       "Part 4 — Install Day",
       "Part 5 — Closeout & Comfort Check",
       "Part 6 — Governance",
+      "Part 7 — The Membership Program",
     ]);
   });
 
@@ -330,16 +332,17 @@ describe("translations", () => {
     expect(missing.map((d) => d.id)).toEqual([]);
   });
 
-  it("names the complaint documents still to be written", () => {
-    const planned = flattenDocs(fieldSections())
-      .filter((d) => d.status === "draft-needed")
-      .map((d) => d.id);
-    // Visible gaps rather than silent ones — they render as "Not yet written".
-    expect(planned).toEqual([
-      "sop.field.water-leak",
-      "sop.field.electrical",
-      "sop.field.noise",
-    ]);
+  it("has written and translated every complaint document", () => {
+    // water-leak, electrical and noise were placeholders here, listed by name
+    // so the gaps stayed visible rather than silent. They are written now, so
+    // what is worth pinning is the finished state: a technician meeting any
+    // complaint on the board finds a procedure, in either language.
+    const complaints = flattenDocs(fieldSections()).filter(
+      (d) => d.section === "field-diagnostics",
+    );
+    expect(complaints.length).toBeGreaterThanOrEqual(7);
+    expect(complaints.filter((d) => !inForce(d)).map((d) => d.id)).toEqual([]);
+    expect(complaints.filter((d) => !d.translations.es).map((d) => d.id)).toEqual([]);
   });
 
   it("records the English version each translation was made from", () => {
@@ -452,6 +455,9 @@ describe("document control", () => {
     // acknowledgement block.
     expect(inForce(docsById["sop.field.diagnostics"])).toBe(true);
     expect(docsById["sop.field.diagnostics"].requiresAck).toBe(true);
-    expect(inForce(docsById["playbook.referral"])).toBe(false);
+    // Held out of force pending the owner's ruling on the manufactured-urgency
+    // tactics carried over from the sales deck (S1). This is what the status
+    // field is for: the document exists and is readable, and it does not bind.
+    expect(inForce(docsById["sop.sales.urgency"])).toBe(false);
   });
 });
