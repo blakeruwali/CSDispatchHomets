@@ -9,7 +9,7 @@ last_reviewed: 2026-08-02
 review_cadence_days: 180
 tags: [governance, version-control, change-log, doc-control, editorial]
 supersedes: []
-related: [governance.coaching, governance.qa.csm, pricing.tokens]
+related: [governance.coaching, pricing.tokens]
 section: governance
 order: 2
 surfaces: [csm]

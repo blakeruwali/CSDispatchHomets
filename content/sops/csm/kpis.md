@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [kpi, metrics, targets, answer-rate, booking-rate, membership]
-related: [sop.csm.communication, governance.qa.csm, governance.coaching, playbook.speed-to-lead]
+related: [sop.csm.communication, governance.coaching, playbook.speed-to-lead]
 section: foundations
 order: 5
 surfaces: [csm, checklist]
@@ -46,5 +46,4 @@ Reviewed weekly in the 1:1 alongside three scored calls — see `governance.coac
 
 ## Related
 
-- Call-level scoring rubric: `governance.qa.csm`
 - Coaching and review cadence: `governance.coaching`

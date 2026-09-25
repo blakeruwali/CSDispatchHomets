@@ -8,7 +8,7 @@ version: 2
 last_reviewed: 2026-08-02
 review_cadence_days: 180
 tags: [onboarding, training, new-hire, csm, certification, 30-60-90]
-related: [governance.qa.csm, governance.coaching, sop.csm.role, sop.csm.escalation, reference.guarantees, sop.csm.non-english-callers]
+related: [governance.coaching, sop.csm.role, sop.csm.escalation, reference.guarantees, sop.csm.non-english-callers]
 section: governance
 order: 6
 surfaces: [csm]
@@ -35,7 +35,7 @@ surfaces: [csm]
 
 ## Month 1 {#month-1}
 
-- **20 solo bookings scored** against the rubric — `governance.qa.csm`.
+- **20 solo bookings** reviewed by the manager.
 - First 1:1 coaching review — `governance.coaching`.
 - Certify on all 5 channel playbooks: `playbook.inbound`, `playbook.lsa`, `playbook.web`, `playbook.posh`, `playbook.sms`.
 - Walk the interpreter protocol once, live, with the language line — `sop.csm.non-english-callers`. Do not let the first attempt be a real emergency.
@@ -57,4 +57,3 @@ Month 1 ends with a Manager sign-off, not automatically. A CSM who hasn't hit th
 ## Related
 
 - What the role owns: `sop.csm.role`
-- Scoring rubric used from week one: `governance.qa.csm`

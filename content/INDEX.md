@@ -120,7 +120,6 @@ The flagship SOP. All 7 parts and 38 sections of `csmSopData.tsx`, **plus** the 
 | Doc | id | Status |
 |---|---|---|
 | Document Control & Change Log | `governance.doc-control` | ✅ |
-| CSM QA Scoring Rubric | `governance.qa.csm` | ✅ |
 | Coaching & Review Cadence | `governance.coaching` | ✅ |
 | **Marketplace outbound rubric** | in `rubric-seed.ts` | ✅ scored at `/checklist` |
 | Dispatch QA rubric | `governance.qa.dispatch` | ⬜ |

@@ -380,7 +380,7 @@ export const CSM_SECTIONS: SectionDef[] = [
   { id: "booking", title: "Booking", description: "Availability, service area, fees, membership, objections" },
   { id: "channels", title: "Channel Playbooks", description: "Speed to lead, marketplaces, inbound, LSA, web, Posh, SMS" },
   { id: "post-booking", title: "Post-Booking & Retention", description: "Tickets, handoff, follow-up, warranty, retention" },
-  { id: "governance", title: "Governance", description: "Guarantees, doc control, QA rubric, coaching, onboarding" },
+  { id: "governance", title: "Governance", description: "Guarantees, doc control, coaching, onboarding" },
   {
     id: "membership-program",
     title: "The Membership Program",
