@@ -8,7 +8,7 @@ version: 2
 last_reviewed: 2026-08-02
 review_cadence_days: 90
 tags: [emergency, triage, safety, gas, carbon-monoxide, leak, flooding, no-heat, no-ac]
-related: [sop.csm.greeting, sop.csm.symptom-clarification, sop.csm.coverage, sop.csm.service-area, sop.csm.non-english-callers, governance.qa.csm]
+related: [sop.csm.greeting, sop.csm.symptom-clarification, sop.csm.coverage, sop.csm.service-area, sop.csm.non-english-callers]
 section: interaction
 order: 5
 surfaces: [csm, checklist]
@@ -81,4 +81,3 @@ Emergency triage is **pass/fail** on the QA rubric. Miss it and the whole call i
 
 - Turning a vague symptom into a real one: `sop.csm.symptom-clarification`
 - After-hours escalation path: `sop.csm.coverage`
-- QA weighting: `governance.qa.csm`

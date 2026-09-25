@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-08-02
 review_cadence_days: 180
 tags: [coaching, cadence, 1:1, weekly, monthly, quarterly, review]
-related: [governance.qa.csm, governance.doc-control, sop.csm.kpis]
+related: [governance.doc-control, sop.csm.kpis]
 section: governance
 order: 5
 surfaces: [csm]
@@ -50,5 +50,4 @@ This is also where the staleness backlog gets cleared: every doc past its `revie
 
 ## Related
 
-- Scoring instrument: `governance.qa.csm`
 - Versioning and announcements: `governance.doc-control`
