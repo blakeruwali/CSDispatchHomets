@@ -8,7 +8,7 @@ version: 1
 last_reviewed: 2026-09-25
 review_cadence_days: 90
 tags: [diagnostic-fee, value, objection, technician, field, pricing, customer-conversation]
-related: [sop.field.diagnostics, sop.field.forms, sop.field.membership, sop.csm.diagnostic-fee, scripts.objections.price, reference.guarantees, governance.acknowledgement]
+related: [sop.field.diagnostics, sop.field.forms, sop.field.membership, sop.csm.diagnostic-fee, script.objection.price, reference.guarantees, governance.acknowledgement]
 section: field-standards
 order: 5
 surfaces: [field, checklist]
@@ -105,5 +105,5 @@ She agrees. You run the diagnostic, find a failing capacitor — not low refrige
 - The diagnostic itself: `sop.field.diagnostics`
 - Fee verification and credits at close: `sop.field.forms`
 - What the customer was promised on the phone: `sop.csm.diagnostic-fee`
-- The phone version of this objection: `scripts.objections.price`
+- The phone version of this objection: `script.objection.price`
 - Credit and refund terms: `reference.guarantees`

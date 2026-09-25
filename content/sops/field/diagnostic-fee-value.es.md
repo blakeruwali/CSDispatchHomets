@@ -8,10 +8,12 @@ version: 1
 last_reviewed: 2026-09-25
 review_cadence_days: 90
 tags: [diagnostic-fee, value, objection, technician, field, pricing, customer-conversation]
-related: [sop.field.diagnostics, sop.field.forms, sop.field.membership, sop.csm.diagnostic-fee, scripts.objections.price, reference.guarantees, governance.acknowledgement]
+related: [sop.field.diagnostics, sop.field.forms, sop.field.membership, sop.csm.diagnostic-fee, script.objection.price, reference.guarantees, governance.acknowledgement]
 section: field-standards
 order: 5
 surfaces: [field, checklist]
+translation_of: sop.field.diagnostic-fee-value
+source_version: 1
 acknowledgement: required
 ---
 
@@ -105,5 +107,5 @@ Ella acepta. Haces el diagnóstico, encuentras un capacitor fallando — no refr
 - El diagnóstico en sí: `sop.field.diagnostics`
 - Verificación de tarifa y créditos al cierre: `sop.field.forms`
 - Lo que se prometió al cliente por teléfono: `sop.csm.diagnostic-fee`
-- La versión telefónica de esta objeción: `scripts.objections.price`
+- La versión telefónica de esta objeción: `script.objection.price`
 - Términos de crédito y reembolso: `reference.guarantees`
