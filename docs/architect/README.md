@@ -22,14 +22,25 @@ with a real role.**
 
 ## 1. Architect project
 
-Create an edge function named `role-lookup`. Paste the body from
-[`role-lookup.ts`](./role-lookup.ts) in this folder.
+**First**, run [`roles-for-email.sql`](./roles-for-email.sql) in Architect's SQL
+editor. It adds one security-definer function that returns the roles for an email
+address, callable only by the service role.
 
-Before pasting, check the assumption noted at the top of that file: it expects a
-table `user_roles` with `user_id` (referencing `auth.users`) and `role`. If yours
-differs, change the query and nothing else.
+This is where the assumption about Architect's schema lives — a `user_roles`
+table with `user_id` and `role`. If your column names differ, change them there
+and the edge function needs no edit. Confirm with:
 
-Then set one secret on the Architect project:
+```sql
+select role, count(*) from user_roles group by role order by count(*) desc;
+```
+
+That query is also the one worth running before anything else, because its output
+is what `ROLE_TABS` in `src/lib/access.ts` has to match.
+
+**Then** create an edge function named `role-lookup` and paste the body from
+[`role-lookup.ts`](./role-lookup.ts).
+
+Finally, set one secret on the Architect project:
 
 | Secret | Value |
 |---|---|
@@ -60,6 +71,11 @@ and `is_admin()`, tightens rubric seeding and suggestion review to admins, and
 seeds the owner as the first admin.
 
 Nothing about the app changes yet — the frontend gate ships in step 5.
+
+Note on types: the three new tables were added to
+`src/integrations/supabase/types.ts` by hand so the app typechecks before the
+migration exists. That file is generated, so regenerating it after this step is
+expected and will produce the same definitions.
 
 ## 4. Verify before enforcing
 

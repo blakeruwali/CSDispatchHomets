@@ -15,10 +15,10 @@
  * authenticated by the shared secret rather than by a user session — the
  * caller is a backend, not a person.
  *
- * ASSUMPTION TO CHECK BEFORE PASTING: that Architect stores roles in a table
- * named `user_roles` with a `user_id` column referencing auth.users and a
- * `role` column. If the table or columns are named differently, change the
- * query below and nothing else.
+ * Run `roles-for-email.sql` from this folder first — this function calls it.
+ * That SQL is where the assumption about Architect's schema lives (a
+ * `user_roles` table with `user_id` and `role`), so if your column names differ
+ * you change it there and this file stays as it is.
  */
 
 import { createClient } from "npm:@supabase/supabase-js@2";
@@ -92,43 +92,26 @@ Deno.serve(async (req) => {
   );
 
   try {
-    // Find the account by email. listUsers is paginated, so filter server-side
-    // where the SDK allows it and fall back to scanning the first pages.
-    let userId: string | null = null;
-    for (let page = 1; page <= 10 && !userId; page += 1) {
-      const { data, error } = await admin.auth.admin.listUsers({ page, perPage: 200 });
-      if (error) {
-        console.error("role-lookup: listUsers failed", error.message);
-        return json({ error: "Lookup failed" }, 500);
-      }
-      const users = data?.users ?? [];
-      for (const u of users) {
-        if ((u.email ?? "").toLowerCase() === email) {
-          userId = u.id;
-          break;
-        }
-      }
-      if (users.length < 200) break; // last page
-    }
+    // One indexed lookup via roles-for-email.sql in this folder, rather than
+    // paging through auth.users. listUsers() meant scanning every account on
+    // every sign-in and silently stopped finding people past a few thousand.
+    const { data, error } = await admin.rpc("roles_for_email", {
+      lookup_email: email,
+    });
 
-    // An address with no account is not an error — it is a person who has not
-    // signed into Architect. Empty roles is the correct answer, and the SOP app
-    // renders it as "your role hasn't been set up yet".
-    if (!userId) return json({ roles: [] });
-
-    const { data: rows, error: rolesErr } = await admin
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", userId);
-
-    if (rolesErr) {
-      console.error("role-lookup: user_roles query failed", rolesErr.message);
+    if (error) {
+      console.error("role-lookup: roles_for_email failed", error.message);
       return json({ error: "Lookup failed" }, 500);
     }
 
+    // An address with no account, or an account with no roles, both come back
+    // empty. That is not an error — it is a person who has not been set up, and
+    // the SOP app renders it as "your role hasn't been set up yet".
     const roles: string[] = [];
-    for (const row of rows ?? []) {
-      const role = typeof row?.role === "string" ? row.role.trim() : "";
+    for (const row of (data ?? []) as unknown[]) {
+      // The function returns setof text, so each row is a bare string. Guard
+      // anyway: this value ends up in an authorization table.
+      const role = typeof row === "string" ? row.trim() : "";
       if (role !== "" && roles.indexOf(role) === -1) roles.push(role);
     }
 
