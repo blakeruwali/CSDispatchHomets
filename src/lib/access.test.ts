@@ -205,7 +205,12 @@ describe("the roles Architect actually holds", () => {
     expect(tabsFor(["hr"])).not.toContain("rubric-seed");
   });
 
-  it("tells the five legacy `user` accounts to ask, not that they are denied", () => {
+  it("tells a legacy `user` account to ask, not that it is denied", () => {
+    // Verified against the live Architect database on 2026-09-25: no account
+    // holds `user` alone — every one of the five also holds a real role. So
+    // mapping `user` to nothing strands nobody today, and the union below is
+    // what keeps it that way if the leftover role is ever left on an account.
+
     expect(tabsFor(["user"])).toEqual([]);
     expect(isUnconfigured(["user"])).toBe(true);
     // Holding `user` alongside a real role must not drag them down to nothing.
