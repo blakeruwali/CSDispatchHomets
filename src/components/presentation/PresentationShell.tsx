@@ -2,10 +2,12 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import { slides } from "./slideData";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { MobilePresentation } from "./MobilePresentation";
-import { Search, X, Sun, Moon, BookOpen, Presentation, Headphones, Wrench, Radio, HardHat, Megaphone, Star, BadgeCheck, ShieldCheck } from "lucide-react";
+import { Search, X, Sun, Moon, BookOpen, Presentation } from "lucide-react";
 import { Link } from "react-router-dom";
 import { KnowledgeBase } from "@/components/knowledge-base/KnowledgeBase";
 import { kbSections } from "@/components/knowledge-base/kbData";
+import { useAccess } from "@/hooks/useAccess";
+import { NAV_TABS } from "@/lib/navTabs";
 
 export const PresentationShell: React.FC = () => {
   const isMobile = useIsMobile();
@@ -18,6 +20,7 @@ const ScrollablePresentation: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
+  const { tabs } = useAccess();
   const [lightMode, setLightMode] = useState(false);
   const [activeTab, setActiveTab] = useState<"guide" | "kb">("guide");
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -206,62 +209,19 @@ const ScrollablePresentation: React.FC = () => {
               <BookOpen className="w-3.5 h-3.5" />
               Knowledge Base
             </button>
-            <Link
-              to="/dispatch"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
-            >
-              <Radio className="w-3.5 h-3.5" />
-              Dispatch SOP
-            </Link>
-            <Link
-              to="/projects"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
-            >
-              <HardHat className="w-3.5 h-3.5" />
-              Projects SOP
-            </Link>
-            <Link
-              to="/field"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
-            >
-              <Wrench className="w-3.5 h-3.5" />
-              Field SOP
-            </Link>
-            <Link
-              to="/csm"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
-            >
-              <Headphones className="w-3.5 h-3.5" />
-              CSM SOP
-            </Link>
-            <Link
-              to="/leads"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
-            >
-              <Megaphone className="w-3.5 h-3.5" />
-              Leads SOP
-            </Link>
-            <Link
-              to="/reviews"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
-            >
-              <Star className="w-3.5 h-3.5" />
-              Reviews SOP
-            </Link>
-            <Link
-              to="/membership"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
-            >
-              <BadgeCheck className="w-3.5 h-3.5" />
-              Membership SOP
-            </Link>
-            <Link
-              to="/insurance"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
-            >
-              <ShieldCheck className="w-3.5 h-3.5" />
-              Insurance SOP
-            </Link>
+            {/* Only the tabs this person's role allows. The list lives in
+                src/lib/navTabs.ts, derived from the access map, so the menu and
+                the routes cannot disagree. */}
+            {NAV_TABS.filter((nav) => tabs.indexOf(nav.id) !== -1).map((nav) => (
+              <Link
+                key={nav.id}
+                to={nav.path}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${textMuted} ${hoverBg}`}
+              >
+                <nav.icon className="w-3.5 h-3.5" />
+                {nav.short}
+              </Link>
+            ))}
 
 
           </div>
