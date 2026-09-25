@@ -49,7 +49,7 @@ Techeo work goes in afternoons, evenings, and shoulder-season blocks. If a Teche
 
 > **No Techeo client #4 until a named person other than the founder owns Homets' daily operations.**
 
-Not "until things calm down." Not "until I've systematised more." A person, in a seat, with the authority to run the day. Funded by Techeo revenue, per hire #1 in `06-financial-model.md`.
+Not "until things calm down." Not "until I've systematized more." A person, in a seat, with the authority to run the day. Funded by Techeo revenue, per hire #1 in `06-financial-model.md`.
 
 Three clients is the ceiling of what one distracted owner can deliver without the quality collapse that ends the whole venture. The arithmetic is in `04-delivery.md`: at 16–20 founder hours per Demand Engine client per month, client four crosses 26 hours a week before any selling or admin.
 
@@ -72,7 +72,7 @@ The instrument already exists. `content/sops/csm/kpis.md` defines seven numbers 
 
 **Consequence of a trip:** Techeo enters new-business pause. Existing clients continue to be served — we do not break commitments to fix our own overreach — but no outbound, no audits, no discovery calls, no new signatures, until the number recovers for a full month.
 
-**Who enforces it.** This is the part that usually fails. *A tripwire the founder enforces on himself is not a control.* It needs to sit with someone else:
+**Who enforces it.** This is the part that usually fails. *A tripwire the founder enforces alone is not a control.* It needs to sit with someone else:
 
 1. The CS manager publishes the seven numbers weekly to a shared location neither party can quietly edit.
 2. A **named third party** — bookkeeper, advisor, or spouse — holds standing authority to declare the pause. Write the actual name in this document before the first Techeo dollar is invoiced.

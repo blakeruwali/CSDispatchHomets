@@ -24,7 +24,7 @@ In this order:
 2. **EIN**, then a business bank account and a dedicated card. No commingling, ever, including "I'll expense it and sort it later."
 3. **Operating agreement** — even as a single member. It is what proves the entity is real if the separation is ever challenged.
 4. **Separate books** in accounting software from transaction one. Not a class or a tag inside Homets' books. A separate set.
-5. **The Homets IP licence** — see below. Do this before the first client, not after.
+5. **The Homets IP license** — see below. Do this before the first client, not after.
 6. **Trademark** — clearance search on TECHEO, then file in class 35 (advertising and business services). Verify the mark is actually available before investing in the brand; a rebrand after three case studies carry the name is expensive.
 7. **Domain and brand audit** — confirm what is currently published at techeo.com and whether anything on it contradicts the positioning in `01`.
 
@@ -32,9 +32,9 @@ In this order:
 
 Techeo's first product is an extraction of assets that Homets paid to create: the CSM SOP set, the channel playbooks, the QA rubric, the price-token system. **Left undocumented, this is the single largest legal loose end in the plan.**
 
-- If Homets is **wholly owned by you**, execute a written licence (or assignment) from Homets to Techeo covering the SOP content and methodology, at a stated consideration. It costs little and it makes Techeo's inventory unambiguously Techeo's.
+- If Homets is **wholly owned by you**, execute a written license (or assignment) from Homets to Techeo covering the SOP content and methodology, at a stated consideration. It costs little and it makes Techeo's inventory unambiguously Techeo's.
 - If Homets has **any partner, co-owner, investor, or lender with a claim on its assets**, stop and resolve this in writing first. Building a second company on the first company's assets without documented consent is how a successful Techeo becomes a dispute — and the claim gets more valuable, not less, as Techeo grows.
-- Either way, the move of this folder out of the Homets repo (see `README.md`) should happen alongside the licence, so the records match the legal position.
+- Either way, the move of this folder out of the Homets repo (see `README.md`) should happen alongside the license, so the records match the legal position.
 
 ## Contract architecture {#contracts}
 
@@ -52,7 +52,7 @@ Techeo's first product is an extraction of assets that Homets paid to create: th
 | **Client obligations** — access, staff training attendance, a named internal owner | Makes the reason an engagement failed determinable. Without it, every failure is our fault by default. |
 | **Call recording compliance** — client warrants it has consent for recordings it supplies | We are handling their recordings. Their warranty, plus our own per-state rule below. |
 | **Data and confidentiality**, both directions, with the explicit statement that client data is never used for Homets' benefit | Turns the `07` data firewall into an enforceable promise. |
-| **IP** — Techeo retains its frameworks and templates; client receives a perpetual licence to the deliverables produced for them | Lets us reuse templates (the whole business model) while the client keeps what they paid for. |
+| **IP** — Techeo retains its frameworks and templates; client receives a perpetual license to the deliverables produced for them | Lets us reuse templates (the whole business model) while the client keeps what they paid for. |
 | **Term and termination** — 90-day initial, then month-to-month, 30 days' written notice | Short notice is a feature. It forces us to keep earning it. |
 | **Offboarding** — everything handed over, per `04-delivery.md` | Written down so it happens even on a bad exit. |
 | **Limitation of liability** — capped at fees paid | Standard and necessary. |
@@ -96,7 +96,7 @@ Bind E&O and cyber **before the first paid engagement**, not before the first cl
 
 ## Open items to close before the first invoice {#open}
 
-- [ ] Homets IP licence executed (or partner consent documented)
+- [ ] Homets IP license executed (or partner consent documented)
 - [ ] TECHEO trademark clearance result
 - [ ] techeo.com current state confirmed
 - [ ] Exclusion zone radius set — `07`, section `#coi`

@@ -52,7 +52,7 @@ Phase 1 is where the detail lives, because it is the part that is fully within y
 
 | Task | Done when |
 |---|---|
-| Build the Gap Statement as a spreadsheet — arithmetic, not judgement | Produces a defensible number from a test input set |
+| Build the Gap Statement as a spreadsheet — arithmetic, not judgment | Produces a defensible number from a test input set |
 | Build the audit PDF template, all nine sections from `03` | Template exists with placeholder content |
 | Write the access-request email that opens every audit | One email, sendable as-is |
 
@@ -73,11 +73,11 @@ Whatever embarrasses us here is the part of the audit that works. An audit that 
 | Work the top three findings from Homets' own audit | In progress with owners assigned |
 | MSA + SOW to counsel | Sent, with the clause list from `08` attached |
 | Quote E&O, cyber, and general liability | Three quotes in hand |
-| Draft the Homets → Techeo IP licence | Drafted, with counsel |
+| Draft the Homets → Techeo IP license | Drafted, with counsel |
 
 Week 5 pays for Phase 1 on its own: the findings are real money at Homets regardless of what Techeo becomes.
 
-### Week 6 · Nov 2 – 6 · Productise the transplant
+### Week 6 · Nov 2 – 6 · Productize the transplant
 
 | Task | Done when |
 |---|---|
@@ -121,7 +121,7 @@ One page. Not five. The audit is the sales tool; the site only has to be credibl
 
 - [ ] A priced, tested Engine Audit that has been run three times (Homets + two pilots)
 - [ ] A client SOP starter set that forks in under four hours
-- [ ] LLC, bank, insurance, MSA, and the IP licence in place
+- [ ] LLC, bank, insurance, MSA, and the IP license in place
 - [ ] A live one-page site
 - [ ] 20 named targets and 10 referral sources
 - [ ] The two blanks in `07` filled in
@@ -150,7 +150,7 @@ The discipline of doing almost nothing for two months is the plan working as des
 
 **Stagger the onboarding — one per month, never three at once.** Onboarding is the most founder-intensive phase of any engagement, and three simultaneous week-1s in the run-up to cooling season is precisely the failure the guardrails exist to prevent.
 
-**Exit criteria, Apr 30:** three design partners live, two paid audits delivered, one case study drafted with real numbers, Homets KPIs green, founder hours under the 26/week cap. Then May–August is delivery only — no new business — and September reopens selling with three case studies in hand.
+**Exit criteria, Apr 30:** three design partners signed, two onboarded, two paid audits delivered, the Homets case study published with real numbers, Homets KPIs green, founder hours under the 26/week cap. The third partner onboards in September — May–August is delivery only, with no new business and no onboarding, per the seasonality calendar in `07`. September reopens selling with three case studies in hand: Homets, plus the first two partners at their day-90 reviews (late June and late July).
 
 ## What is deliberately not in this plan {#not-in-plan}
 

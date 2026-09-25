@@ -46,7 +46,7 @@ Request all of it in one email at kickoff; a partial grant delays the clock and 
 
 ### 1. Booking Engine (weight 40%)
 
-The centrepiece. Everything else in the audit is table stakes that any agency could produce; this is the part nobody else can.
+The centerpiece. Everything else in the audit is table stakes that any agency could produce; this is the part nobody else can.
 
 **Mystery shop: 5 calls across 4 scenarios, at deliberately awkward hours.**
 
@@ -95,7 +95,7 @@ Declining the 86+ client is not lost revenue. It is the single most credible thi
 
 ## The Gap Statement {#gap}
 
-**One number, on page 2: annualised revenue currently leaking.** Everything else in the document supports it.
+**One number, on page 2: annualized revenue currently leaking.** Everything else in the document supports it.
 
 Build it only from their own data, and show every step:
 
@@ -104,7 +104,7 @@ Build it only from their own data, and show every step:
 + (marketplace leads never touched × their marketplace close rate × avg revenue)
 + (LSA budget exhausted before close of business × days × avg revenue per LSA job)
 + (documented Google Ads search-term waste)
-= annualised gap
+= annualized gap
 ```
 
 Rules, non-negotiable:
@@ -134,7 +134,7 @@ Section 3 is what sells. A recording of their own phone failing, timestamped and
 
 1. The scoring rubric, adapted from `content/governance/qa-rubric-csm.md`
 2. The five mystery-shop scenario scripts, verbatim
-3. The Gap Statement calculator as a spreadsheet, so it is arithmetic and not judgement
+3. The Gap Statement calculator as a spreadsheet, so it is arithmetic and not judgment
 4. The PDF template
 5. **Run the whole thing on Homets.** Score our own phones cold. Whatever embarrasses us is the part of the audit that works.
 6. Run it free on two friendly non-competing contractors from the network. Fix what confused them.

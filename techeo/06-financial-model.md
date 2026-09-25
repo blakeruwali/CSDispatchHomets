@@ -52,7 +52,7 @@ Direct cost excludes founder time, which is not a cash cost early but is the bin
 
 The second-to-last row is the honest one. **Target ≥65% margin after imputing founder time at $100/hr** — when a client falls below it, either the price is wrong or the delivery is not templated.
 
-**Break-even:** fixed monthly cost runs $1,200–1,800 (tools, bookkeeping, amortised insurance). Contribution from a single Booking Sprint client is ~$3,270. **One client covers the company.** Everything after that is either reserve, the Homets hire, or profit.
+**Break-even:** fixed monthly cost runs $1,200–1,800 (tools, bookkeeping, amortized insurance). Contribution from a single Booking Sprint client is ~$3,270. **One client covers the company.** Everything after that is either reserve, the Homets hire, or profit.
 
 **Client acquisition cost:** with a 6–10 week cycle, ~6 founder hours of selling per closed client plus ~8 hours of audit delivery (which the client pays for). Cash CAC is near zero; time CAC is ~14 hours. In a business where hours are the scarce input, **time CAC is the number to manage**, not dollars.
 
@@ -106,7 +106,7 @@ The cleanest framing: **Techeo's first $10–15k/mo of revenue is not profit. It
 |---|---|---|
 | Residential HVAC service company | **4–8× EBITDA** | Recurring membership revenue, route density, asset base, active PE consolidation |
 | Marketing agency | **1–3× EBITDA** | Key-person dependent, churn risk, no assets |
-| Productised software / data | 3–8× ARR | Only if rung 4 becomes a real product |
+| Productized software / data | 3–8× ARR | Only if rung 4 becomes a real product |
 
 **A dollar of EBITDA at Homets is worth two to four times a dollar of EBITDA at Techeo.** Three consequences that should shape decisions, not just be noted:
 
@@ -119,7 +119,7 @@ The cleanest framing: **Techeo's first $10–15k/mo of revenue is not profit. It
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
 | Homets performance slips while founder is distracted | High | Severe | The gate and kill switch in `07`. Non-negotiable. |
-| One case study is not enough to close | High | Moderate | Design partner programme; the audit proves competence on their data instead |
+| One case study is not enough to close | High | Moderate | Design partner program; the audit proves competence on their data instead |
 | Prospect sees Homets as a competitor | High | Moderate | Written market exclusivity + Homets exclusion zone, disclosed unprompted |
 | Client staff will not implement the SOPs | Medium | High | Staff-commitment requirement at sale; decline without it |
 | Founder becomes the delivery bottleneck | High | High | Templating rule in `04`; scorer hire at 3 clients |

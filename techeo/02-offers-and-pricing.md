@@ -38,7 +38,7 @@ This is outbound's entire payload. It is not a "free audit" — it is evidence, 
 
 Fully specified in `03-engine-audit.md`. Seven business days, roughly 8 hours of work, ~$1,300 contribution.
 
-**Credit the full $1,500 against the first month of any retainer signed within 30 days.** This makes the audit free to a buyer and paid by a tyre-kicker, which is exactly the filter we want. Never discount the audit itself; the credit is the concession.
+**Credit the full $1,500 against the first month of any retainer signed within 30 days.** This makes the audit free to a buyer and paid by a tire-kicker, which is exactly the filter we want. Never discount the audit itself; the credit is the concession.
 
 ### Rung 2 — Booking Sprint ($3,500/mo, 90-day minimum)
 
@@ -65,7 +65,7 @@ Entry requires a completed Booking Sprint, or an audit showing booking rate alre
 
 ### Rung 4 — Attribution Layer (+$1,500/mo, year 2)
 
-ServiceTitan booked revenue piped back into Google as offline conversions, so bidding optimises toward completed jobs rather than form fills. Build it for our own clients first; it is the highest-margin rung and the one most likely to become software. Do not sell it before it works on three accounts.
+ServiceTitan booked revenue piped back into Google as offline conversions, so bidding optimizes toward completed jobs rather than form fills. Build it for our own clients first; it is the highest-margin rung and the one most likely to become software. Do not sell it before it works on three accounts.
 
 ## How the price was set {#pricing-rationale}
 
@@ -82,7 +82,7 @@ A client taking **300 qualified calls per month** at a **50% booking rate** book
 | Average revenue per booked job | $400 | **Assumption. Replace with Homets' actual figure.** |
 | Incremental revenue | **$24,000 / mo** | Derived |
 
-The $400 is deliberately conservative: a $199 diagnostic that converts to any repair at $299/hr labour clears it easily, and a replacement sale is an order of magnitude more. **Before the first sales call, replace it with Homets' real average revenue per booked call from ServiceTitan.** The plan does not need a bigger number — it needs a true one, because the Gap Statement in `03` is only as strong as its weakest input, and a prospect who catches one soft assumption discounts everything else.
+The $400 is deliberately conservative: a $199 diagnostic that converts to any repair at $299/hr labor clears it easily, and a replacement sale is an order of magnitude more. **Before the first sales call, replace it with Homets' real average revenue per booked call from ServiceTitan.** The plan does not need a bigger number — it needs a true one, because the Gap Statement in `03` is only as strong as its weakest input, and a prospect who catches one soft assumption discounts everything else.
 
 **The pricing rule: never price above 15% of the incremental revenue you can defend with the client's own data.** At $24,000/mo defended, $3,500 is 14.6%. It also means a smaller client gets a smaller number honestly, rather than us stretching one price across every size of business.
 
@@ -92,7 +92,7 @@ The $400 is deliberately conservative: a $199 diagnostic that converts to any re
 - **Ad spend:** client's accounts, client's card, always. Never fronted.
 - **Term:** 90-day initial on rung 2, month-to-month thereafter with 30 days' written notice.
 - **Exclusivity:** one client per market per trade, granted in the MSA. See `05-go-to-market.md`.
-- **No discounts.** A prospect who needs a lower number gets a smaller scope, or gets the design partner programme if a slot is open. Discounting the same scope tells the next client the price was fiction.
+- **No discounts.** A prospect who needs a lower number gets a smaller scope, or gets the design partner program if a slot is open. Discounting the same scope tells the next client the price was fiction.
 - **Annual increase:** 5% on renewal, written into the MSA at signing so it is never a negotiation later.
 
 ## Price review {#review}

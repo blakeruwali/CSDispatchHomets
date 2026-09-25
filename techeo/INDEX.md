@@ -23,6 +23,26 @@ Every founding document, whether or not it is finished. If it is not on this pag
 
 Nothing here is ✅ settled in the sense that matters — no document in this folder has been tested against a paying client.
 
+### techeo.com — `website/`
+
+The website plan: thirteen documents, starting with the decision brief every other one builds from. The site is Techeo's first case study — it sells SEO, AEO, and speed to lead, so prospects will judge all three on techeo.com first.
+
+| Doc | Settles | Status |
+|---|---|---|
+| `website/00-website-brief.md` | Releases, season states, stack, canonical names, who owns what | 🟡 |
+| `website/01-strategy.md` | Site jobs, audiences, message hierarchy, success criteria, risks | 🟡 |
+| `website/02-information-architecture.md` | Page inventory, URLs, navigation, redirects, indexing | 🟡 |
+| `website/03-pages-v1.md` | Every v1 page, section by section, with copy | 🟡 |
+| `website/04-pages-v1-1-to-v3.md` | Insights, engines, pricing, case studies, calculator, glossary | 🟡 |
+| `website/05-design-system.md` | Wordmark, type, color tokens, components, photography | 🟡 |
+| `website/06-technical-architecture.md` | Astro stack, forms, data, Stripe, security, DNS, CI, monitoring | 🟡 |
+| `website/07-seo-and-aeo.md` | Query map, structured data, robots and llms.txt, AEO measurement | 🟡 |
+| `website/08-conversion-and-leads.md` | CTAs, forms, qualification, calculator, SLA, receptionist, email | 🟡 |
+| `website/09-analytics.md` | Event taxonomy, GA4, UTMs, dashboards, site scorecard | 🟡 |
+| `website/10-compliance.md` | Privacy, TCPA, CAN-SPAM, FTC, accessibility, trademarks | 🟡 |
+| `website/11-build-and-launch.md` | Schedule, hours, budget, QA, launch runbook | 🟡 |
+| `website/12-content-roadmap.md` | Editorial standards, articles, case studies, glossary | 🟡 |
+
 ---
 
 ## Blocking blanks
@@ -37,7 +57,7 @@ The plan cannot start until these are filled in. All of them are Week 1 tasks in
 | Homets current booking rate, answer rate, marketplace-untouched count | `02`, `03` | This is the first case study |
 | TECHEO trademark clearance | `08` `#formation` | A rebrand after three case studies is expensive |
 | techeo.com current state | `08` `#formation` | Unknown as of writing |
-| Homets → Techeo IP licence | `08` `#ip` | Largest legal loose end in the plan |
+| Homets → Techeo IP license | `08` `#ip` | Largest legal loose end in the plan |
 
 ---
 

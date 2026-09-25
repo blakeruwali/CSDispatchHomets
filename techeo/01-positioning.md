@@ -66,7 +66,7 @@ Search, Answer and Ads are the business. Booking is the door.
 | Trucks | 3 – 25 |
 | CRM | **ServiceTitan** — a hard qualifier, see below |
 | Demand spend | Already buying leads: LSA, Angi, Thumbtack, Yelp, or Google Ads |
-| Decision maker | Owner-operator still signing the cheques |
+| Decision maker | Owner-operator still signing the checks |
 | Geography | Outside Homets' market — see `07-homets-guardrails.md` |
 
 **Why ServiceTitan is a hard qualifier, not a preference.** It is where our unfair advantage compounds: we read their data natively, we can wire booked-revenue back into ad platforms as offline conversions, and our SOPs already reference ST objects. A non-ST client doubles delivery cost and halves the moat. Decline them for the first year, politely, and keep a waiting list.
@@ -78,7 +78,7 @@ Search, Answer and Ads are the business. Booking is the door.
 Write this down so it is a policy and not a mood:
 
 - Anyone inside Homets' service area. No exceptions, ever.
-- New businesses with no existing lead flow. There is nothing to optimise.
+- New businesses with no existing lead flow. There is nothing to optimize.
 - Anyone whose primary ask is a website redesign, a logo, or social media content.
 - Anyone who wants us to hold their ad accounts.
 - Price shoppers comparing us to a $900/mo SEO vendor. Different product; refer them out.
@@ -96,8 +96,8 @@ When asked for any of these: refer to a partner and take no fee for the referral
 |---|---|---|
 | National trades marketing agencies | Scale, case studies, brand recognition | They cannot fix the phone. They sell leads and blame the client's staff when those leads do not book. |
 | Local generalist agencies | Relationships, price | No trade expertise, no ST integration, no seasonality model. |
-| Franchise / buying-group marketing programmes | Bundled, trusted, cheap | Templated and lowest-common-denominator; no per-client conversion work. |
+| Franchise / buying-group marketing programs | Bundled, trusted, cheap | Templated and lowest-common-denominator; no per-client conversion work. |
 | In-house marketing coordinator | Cheap, loyal, always available | One person cannot cover four engines. Position as their force multiplier, not their replacement. |
 | Doing nothing | Free | The Gap Statement in `03-engine-audit.md` exists entirely to make this the expensive option. |
 
-The honest weakness to prepare for: **we have one case study and it is our own company.** Every prospect will note it. The answer is not to dodge it — it is the design partner programme in `05-go-to-market.md`, which buys three more case studies inside six months, and the audit in `03`, which proves competence on *their* numbers rather than asking them to trust ours.
+The honest weakness to prepare for: **we have one case study and it is our own company.** Every prospect will note it. The answer is not to dodge it — it is the design partner program in `05-go-to-market.md`, which buys three more case studies inside six months, and the audit in `03`, which proves competence on *their* numbers rather than asking them to trust ours.

@@ -23,10 +23,10 @@ Ranked by expected return per hour in the first year, not by reach.
 | # | Channel | Why it works here | Effort |
 |---|---|---|---|
 | 1 | **Peer networks** — ServiceTitan Pantheon, Nexstar, Service Nation / Roundtable, EGIA | Rooms full of exactly our ICP who already vet vendors by peer reference. Membership buys standing. | Medium, high conviction |
-| 2 | **Adjacent vendor referrals** — ST implementation consultants, trades bookkeepers, recruiters, financing reps | They already know who is growing, who is disorganised, and who just lost their marketing person. Highest-intent introductions available. | Low |
+| 2 | **Adjacent vendor referrals** — ST implementation consultants, trades bookkeepers, recruiters, financing reps | They already know who is growing, who is disorganized, and who just lost their marketing person. Highest-intent introductions available. | Low |
 | 3 | **Owner communities** — HVAC/plumbing owner Facebook groups, trades podcasts | Where owners complain about their agencies in public. Answer the complaint, do not pitch. | Low, slow compounding |
 | 4 | **Supply house relationships** — Ferguson, Johnstone counters, manufacturer reps | Counter conversations reach owners nothing else does. Co-marketing with a rep is warm by default. | Low |
-| 5 | **Own content** — the operator angle | "The HVAC owner who runs his own marketing" is a genuinely differentiated byline. Publish the Homets numbers. | High, slowest |
+| 5 | **Own content** — the operator angle | "The HVAC owner who runs their own marketing" is a genuinely differentiated byline. Publish the Homets numbers. | High, slowest |
 | 6 | **Trade shows** — AHR Expo, regional | Expensive; only worth it with three case studies in hand. Year two. | High cost |
 | 7 | **Cold outbound** | Only ever with a teardown attached. Never a generic email. | Medium, lowest conviction |
 
@@ -44,9 +44,9 @@ The only outbound we do. Shop their phone, score it, send the evidence.
 
 **Consent warning, read before the first call.** Recording law varies by state — some require all parties to consent. In a two-party-consent state, do not record; deliver structured notes against the rubric instead, which works nearly as well. Confirm the rule for each target's state before dialling, and see `08-legal-and-admin.md`.
 
-## Design Partner Programme {#design-partners}
+## Design Partner Program {#design-partners}
 
-Three slots. This is how we buy case studies, and it must be a written agreement, not a favour between contractors.
+Three slots. This is how we buy case studies, and it must be a written agreement, not a favor between contractors.
 
 **We give:** 50% off the Booking Sprint — $1,750/mo for six months, then standard pricing.
 
@@ -68,7 +68,7 @@ Three slots. This is how we buy case studies, and it must be a written agreement
 - Willing to be named publicly
 - Will commit their CS staff to training time
 
-Take the slower, more organised contractor over the faster, chaotic one. A design partner who does not implement produces no case study, and a failed first reference is worse than no reference.
+Take the slower, more organized contractor over the faster, chaotic one. A design partner who does not implement produces no case study, and a failed first reference is worse than no reference.
 
 **Stop at three.** The fourth discounted client is not a case study, it is underpriced revenue.
 
@@ -112,7 +112,7 @@ Never open with flattery, never use the word "audit" in outbound, and never lead
 >
 > If anyone comes to mind, I'd rather you send them a free teardown of their phone handling than an introduction to me — it's more useful to them and it makes you look good. Happy to produce those on request, no strings.
 
-Giving the vendor something to *give* rather than asking for a favour is the whole trick.
+Giving the vendor something to *give* rather than asking for a favor is the whole trick.
 
 ## Sales process {#process}
 

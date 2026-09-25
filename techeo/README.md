@@ -24,6 +24,7 @@ Read `01` and `07` first. `01` is what Techeo sells; `07` is what stops Techeo f
 | `08-legal-and-admin.md` | Formation, contracts, insurance, compliance |
 | `09-90-day-plan.md` | Week-by-week, anchored to real dates |
 | `10-metrics.md` | Techeo's own seven numbers |
+| `website/` | The techeo.com plan — start with `website/00-website-brief.md` |
 
 ## Status
 
@@ -31,6 +32,6 @@ Every document here is `draft`. Nothing in this folder has been tested against a
 
 ## Conventions
 
-Frontmatter mirrors `content/`'s: `id`, `title`, `owner`, `status`, `version`, `last_reviewed`, `review_cadence_days`. The `techeo.*` id namespace is deliberately outside the set that `scripts/validate-content.mjs` recognises, so the Homets validator neither governs nor trips on these files.
+Frontmatter mirrors `content/`'s: `id`, `title`, `owner`, `status`, `version`, `last_reviewed`, `review_cadence_days`. The `techeo.*` id namespace is deliberately outside the set that `scripts/validate-content.mjs` recognizes, so the Homets validator neither governs nor trips on these files.
 
-Prices are written inline here rather than tokenised. Tokenise them on the move to Techeo's own repo, once there is a pricebook worth a single source of truth.
+Prices are written inline here rather than tokenized. Tokenize them on the move to Techeo's own repo, once there is a pricebook worth a single source of truth.
