@@ -14,87 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      access_requests: {
-        Row: {
-          created_at: string
-          id: string
-          note: string | null
-          requester_email: string
-          reviewed_at: string | null
-          reviewed_by: string | null
-          status: string
-          tab: string
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          note?: string | null
-          requester_email: string
-          reviewed_at?: string | null
-          reviewed_by?: string | null
-          status?: string
-          tab: string
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          note?: string | null
-          requester_email?: string
-          reviewed_at?: string | null
-          reviewed_by?: string | null
-          status?: string
-          tab?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
-      staff_roles: {
-        Row: {
-          role: string
-          synced_at: string
-          user_id: string
-        }
-        Insert: {
-          role: string
-          synced_at?: string
-          user_id: string
-        }
-        Update: {
-          role?: string
-          synced_at?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
-      tab_grants: {
-        Row: {
-          granted_at: string
-          granted_by: string
-          id: string
-          tab: string
-          user_email: string
-          user_id: string
-        }
-        Insert: {
-          granted_at?: string
-          granted_by: string
-          id?: string
-          tab: string
-          user_email: string
-          user_id: string
-        }
-        Update: {
-          granted_at?: string
-          granted_by?: string
-          id?: string
-          tab?: string
-          user_email?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
       content_suggestions: {
         Row: {
           anchor: string | null
@@ -433,8 +352,6 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      has_role: { Args: { target_role: string }; Returns: boolean }
-      is_admin: { Args: never; Returns: boolean }
       is_homets_user: { Args: never; Returns: boolean }
       seed_rubric: { Args: { payload: Json }; Returns: Json }
     }

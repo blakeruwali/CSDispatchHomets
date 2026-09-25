@@ -13,7 +13,7 @@ import { returnOriginFor } from "./lib/oauthHandoff";
  * Supabase is configured for the implicit flow, so a success carries
  * `access_token`, and a failure carries `error_description` — a blocked
  * account, a cancelled consent screen, a misconfigured redirect. Both have to
- * be handled: sending a failed sign-in to the checklist produces a redirect
+ * be handled: sending a failed sign-in to the home page produces a redirect
  * loop back to /auth with nothing explaining why.
  *
  * Google sign-in that began on the company domain lands here on the Lovable
@@ -46,7 +46,7 @@ async function consumeOAuthFragment() {
 
   if (access_token && refresh_token) {
     await supabase.auth.setSession({ access_token, refresh_token });
-    window.location.hash = "#/checklist";
+    window.location.hash = "#/";
     return;
   }
 
