@@ -164,3 +164,52 @@ describe("unmapped roles", () => {
     expect(unmappedRoles(["user", "interested"])).toEqual([]);
   });
 });
+
+describe("the roles Architect actually holds", () => {
+  // Read from Architect on 2026-09-25:
+  //   user 5, admin 5, sales 4, customer-success 3,
+  //   vendor-management 2, technician 2, marketing 2, hr 2
+  //
+  // Pinned so that renaming a key in ROLE_TABS fails here rather than silently
+  // locking out whoever holds that role. If Architect adds a role, add it here
+  // and to ROLE_TABS together.
+  const LIVE_ROLES = [
+    "admin",
+    "sales",
+    "customer-success",
+    "technician",
+    "vendor-management",
+    "marketing",
+    "hr",
+    "user",
+  ];
+
+  it("has a mapping for every role in use", () => {
+    const unknown = LIVE_ROLES.filter((r) => !isKnownRole(r));
+    expect(unknown).toEqual([]);
+  });
+
+  it("leaves nobody with a real role seeing nothing", () => {
+    // `user` is the exception and is deliberate — it is a leftover placeholder,
+    // not a job. Everyone else must get at least one tab, or the role is
+    // mapped but useless.
+    const empty = LIVE_ROLES.filter((r) => r !== "user" && tabsFor([r]).length === 0);
+    expect(empty).toEqual([]);
+  });
+
+  it("keeps hr out of the admin surfaces", () => {
+    // hr is read-all, and read-all is not admin. There are no HR-only tabs, so
+    // nothing here is hidden from an admin either — the two are unrelated.
+    expect(isAdmin(["hr"])).toBe(false);
+    expect(tabsFor(["hr"])).not.toContain("access-requests");
+    expect(tabsFor(["hr"])).not.toContain("rubric-seed");
+  });
+
+  it("tells the five legacy `user` accounts to ask, not that they are denied", () => {
+    expect(tabsFor(["user"])).toEqual([]);
+    expect(isUnconfigured(["user"])).toBe(true);
+    // Holding `user` alongside a real role must not drag them down to nothing.
+    expect(tabsFor(["user", "technician"])).toEqual(tabsFor(["technician"]));
+    expect(isUnconfigured(["user", "technician"])).toBe(false);
+  });
+});
