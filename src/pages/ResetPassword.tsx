@@ -46,7 +46,7 @@ export default function ResetPassword() {
       return;
     }
     toast({ title: "Password set", description: "You can now sign in with your email and password." });
-    nav("/checklist");
+    nav("/");
   };
 
   return (

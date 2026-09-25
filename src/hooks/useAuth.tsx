@@ -33,7 +33,7 @@ export function isAllowedEmail(email?: string | null) {
  * A rejected sign-in has to survive the redirect that follows it.
  *
  * `useAuth` is called independently by RequireAuth, Auth, DocsLayout,
- * AcknowledgePanel and Checklist, and each call owns its own `useState`. The
+ * and AcknowledgePanel, and each call owns its own `useState`. The
  * rejection happens inside whichever component was mounted when the session
  * arrived — normally RequireAuth on a gated route — and the sign-in page then
  * mounts fresh, with its own state, knowing nothing about it.

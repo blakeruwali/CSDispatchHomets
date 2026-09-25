@@ -7,8 +7,6 @@ import RequireAuth from "./components/RequireAuth";
 import Index from "./pages/Index";
 import SalesSOP from "./pages/SalesSOP";
 import Sales from "./pages/Sales";
-import Checklist from "./pages/Checklist";
-import AdminSeed from "./pages/AdminSeed";
 import Auth from "./pages/Auth";
 import ResetPassword from "./pages/ResetPassword";
 import CSM from "./pages/CSM";
@@ -40,8 +38,6 @@ const App = () => (
           {/* The slide deck this SOP was migrated from. Kept for training
               sessions; the book at /sales is the governing text. */}
           <Route path="/sales/deck" element={gated(<Sales />)} />
-          <Route path="/checklist" element={gated(<Checklist />)} />
-          <Route path="/admin/seed" element={gated(<AdminSeed />)} />
           <Route path="/csm" element={gated(<CSM />)} />
           <Route path="/field" element={gated(<Field />)} />
           <Route path="/dispatch" element={gated(<Dispatch />)} />

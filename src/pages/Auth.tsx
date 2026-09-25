@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import logo from "@/assets/homets-logo-white.png";
-import { ShieldCheck, ClipboardCheck, BookOpen, Loader2, Mail, KeyRound } from "lucide-react";
+import { ShieldCheck, BookOpen, Loader2, Mail, KeyRound } from "lucide-react";
 
 
 export default function Auth() {
@@ -17,7 +17,7 @@ export default function Auth() {
   const nav = useNavigate();
   const location = useLocation();
   const from = (location.state as { from?: string } | null)?.from;
-  const dest = from && from !== "/auth" ? from : "/checklist";
+  const dest = from && from !== "/auth" ? from : "/";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
@@ -158,14 +158,13 @@ export default function Auth() {
             The Homets Operating System
           </h1>
           <p className="mt-4 text-base leading-relaxed text-white/60">
-            One place for the SOPs, pricing, dispatch rules and call scorecards your
+            One place for the SOPs, pricing, dispatch rules and scripts your
             team runs on — always the current version, always the same answer.
           </p>
 
           <ul className="mt-10 space-y-5">
             {[
               { Icon: BookOpen, title: "Standard Operating Procedures", body: "CSM, dispatch and field playbooks in English and Español." },
-              { Icon: ClipboardCheck, title: "Live scoring", body: "Real-time checklists that coach the call while it's happening." },
               { Icon: ShieldCheck, title: "Signed and tracked", body: "Version-scoped acknowledgements that protect you and the company." },
             ].map(({ Icon, title, body }) => (
               <li key={title} className="flex gap-4">
