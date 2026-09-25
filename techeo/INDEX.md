@@ -25,7 +25,7 @@ Nothing here is ✅ settled in the sense that matters — no document in this fo
 
 ### techeo.com — `website/`
 
-The website plan: thirteen documents, starting with the decision brief every other one builds from. The site is Techeo's first case study — it sells SEO, AEO, and speed to lead, so prospects will judge all three on techeo.com first.
+The website plan: thirteen documents, starting with the decision brief every other one builds from. **Start with `website/README.md`** — a reading guide by role and the decisions that block work, led by lean v1 or full spec (decide by Fri Oct 9, 2026). The site is Techeo's first case study — it sells SEO, AEO, and speed to lead, so prospects will judge all three on techeo.com first.
 
 | Doc | Settles | Status |
 |---|---|---|

@@ -29,10 +29,19 @@ order: 6
 | MSA + SOW drafted / reviewed | $1,500 | $3,000 | Do not skip. See `08`. |
 | Bookkeeping setup + 3 months | $600 | $1,200 | Separate books from day one |
 | Tool stack, 3 months | $500 | $1,200 | Per `04-delivery.md` |
-| Website | $0 | $0 | Build it yourself; domain already owned |
+| Website | $0 | $0 | **Superseded — see note below the table** |
 | **Total** | **$5,250** | **$13,700** | Plan on **$9,000** |
 
 Deliberately absent: office, branding agency, paid advertising, CRM, agency platform, any staff.
+
+**Correction, Sep 25, 2026: the website line above is wrong.** It assumed the founder would build the site, which the Phase 1 hours cap in `07-homets-guardrails.md` rules out. The website plan costs it properly (`website/11-build-and-launch.md` #budget):
+
+| Website option | Pre-revenue (through Jan 31, 2027) | Monthly from Feb 1, 2027 |
+|---|---|---|
+| **Lean v1** — recommended (`website/00-website-brief.md` D16) | ~$4,500 – $7,500 (estimate; get bids) | ~$350 – $800, mostly the receptionist |
+| Full spec as written in `website/` | $20,920 at plan ($11,583 – $39,788) | ~$1,274 at plan |
+
+With the lean v1, the startup total becomes roughly **$9,750 – $21,200, plan ~$15,000**. With the full spec it is ~$29,900 at plan — about a third of the Base scenario's year-one revenue before the first sale. Fund either from a documented owner capital contribution to Techeo LLC, never from Homets (#cash rule 4). The totals row above is the original estimate and excludes the website.
 
 ## Unit economics {#unit-economics}
 

@@ -37,13 +37,13 @@ order: 4
 | Engine | Cadence | Work |
 |---|---|---|
 | Booking | Weekly | 5 scored calls, coaching note, SLA compliance check |
-| Ads | Weekly | Search-term negatives, budget pacing vs seasonality, LSA dispute filing, bid adjustments |
+| Ads | Weekly | Search-term negatives, budget pacing vs seasonality, LSA lead rating and feedback, bid adjustments |
 | Search | Monthly | 2 service-area pages, GBP posts, review-velocity operations, technical fix queue |
 | Answer | Monthly | Entity and structured-data work, the 12-prompt citation re-test, content written to be quoted |
 | Reporting | Monthly | One page. Headline number: **cost per booked job.** |
 | Strategy | Quarterly | Engine re-score, plan, and the price conversation if scope has grown |
 
-**LSA dispute filing is quietly one of the highest-ROI recurring tasks we perform.** Unchallenged bad leads are money already lost, most contractors never file, and it is mechanical enough to delegate early.
+**LSA lead rating is quietly one of the highest-ROI recurring tasks we perform.** Google ended manual lead disputes in 2024: an automated review now credits leads it judges invalid, and rating a bad lead in the Leads tab is the signal that triggers a second look. Most contractors never rate their leads, so they never recover credits they are owed. It is mechanical enough to delegate early. Credits remain Google's decision — never promise one. *(Platform behavior changes; re-verify against Google's Local Services help pages each quarter.)*
 
 ## The reporting standard {#reporting}
 

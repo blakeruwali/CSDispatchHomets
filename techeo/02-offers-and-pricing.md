@@ -38,7 +38,7 @@ This is outbound's entire payload. It is not a "free audit" — it is evidence, 
 
 Fully specified in `03-engine-audit.md`. Seven business days, roughly 8 hours of work, ~$1,300 contribution.
 
-**Credit the full $1,500 against the first month of any retainer signed within 30 days.** This makes the audit free to a buyer and paid by a tire-kicker, which is exactly the filter we want. Never discount the audit itself; the credit is the concession.
+**Credit the full $1,500 against the first month of any retainer signed within 30 days of the readout call.** This makes the audit free to a buyer and paid by a tire-kicker, which is exactly the filter we want. Never discount the audit itself; the credit is the concession. The refund policy is still open — see `website/03-pages-v1.md` open question 2 for the recommended default — and must be settled before the first audit is sold.
 
 ### Rung 2 — Booking Sprint ($3,500/mo, 90-day minimum)
 
@@ -49,7 +49,7 @@ The Homets CSM system, transplanted. Included:
 - Speed-to-lead SLAs, instrumented and measured in ServiceTitan
 - 5 scored calls per week with a written coaching note
 - Weekly KPI report against the seven numbers
-- One live training session per month with their CSM team
+- Two live training sessions with their CSM team, in weeks 3 and 9 (`04-delivery.md`)
 
 Excluded: ad management, content, website work. Those are rung 3.
 
@@ -61,7 +61,7 @@ Excluded: ad management, content, website work. Those are rung 3.
 
 All four engines, monthly rhythm in `04-delivery.md`. Ad spend is billed **directly to the client's own card on their own accounts** and never passes through Techeo's books.
 
-Entry requires a completed Booking Sprint, or an audit showing booking rate already above 65%. **We do not scale demand into a broken phone.** This is a sales asset, not a restriction — it is the sentence that separates us from every vendor who ever took their money.
+Entry requires a completed Booking Sprint, or an audit showing a qualified booking rate of 65% or higher. **We do not scale demand into a broken phone.** This is a sales asset, not a restriction — it is the sentence that separates us from every vendor who ever took their money.
 
 ### Rung 4 — Attribution Layer (+$1,500/mo, year 2)
 

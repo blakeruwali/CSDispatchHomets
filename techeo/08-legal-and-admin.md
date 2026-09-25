@@ -81,7 +81,7 @@ Bind E&O and cyber **before the first paid engagement**, not before the first cl
 
 **TCPA.** If any engagement touches outbound SMS or dialling, consent and opt-out mechanics become our problem too. Keep SMS work inside the client's existing consented channels in year one, or exclude it from scope.
 
-**Google Ads / LSA policy.** Agency access has its own rules about account structure, ownership, and lead disputes. Use the client's own accounts with us as a linked manager — which the ownership clause requires anyway — rather than creating accounts we hold.
+**Google Ads / LSA policy.** Agency access has its own rules about account structure, ownership, and lead credits (manual LSA disputes were replaced by automated credit reviews in 2024). Use the client's own accounts with us as a linked manager — which the ownership clause requires anyway — rather than creating accounts we hold.
 
 **Employment.** Contractors are contractors: written agreements, defined deliverables, no control over hours, and a confidentiality clause covering client data. A part-time call scorer handling recordings and customer information needs that clause specifically.
 

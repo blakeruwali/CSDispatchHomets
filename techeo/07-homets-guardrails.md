@@ -114,7 +114,7 @@ An agency serving HVAC companies does **not** smooth seasonality — it compound
 |---|---|---|
 | Oct 2026 | Shoulder | **Build.** 12 hrs/wk |
 | Nov | Shoulder | **Build.** 12 hrs/wk |
-| Dec | Heating ramp + holidays | Minimal. Admin and legal only, 4 hrs/wk |
+| Dec | Heating ramp + holidays | Minimal. Admin, legal, and the Phase 2 content in `techeo.plan90`; 4 hrs/wk, nothing Dec 21 – Jan 1 |
 | Jan 2027 | Heating peak | Minimal. 4 hrs/wk |
 | Feb | Easing | **Sell.** 14 hrs/wk |
 | Mar | Shoulder | **Sell + onboard.** 18 hrs/wk |

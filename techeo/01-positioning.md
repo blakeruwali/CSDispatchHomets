@@ -18,7 +18,9 @@ order: 1
 
 ## The one sentence {#pitch}
 
-> Techeo is run by an HVAC operator. We install the same phone-and-follow-up system that books 70% of our own qualified calls, then we scale the demand on top of it — and you keep every account.
+> Techeo is run by an HVAC operator. We install the same phone-and-follow-up system we run at Homets — written down, scored weekly, and held to a 70% booking-rate standard on qualified calls — then we scale the demand on top of it. And you keep every account.
+
+**70% is our standard, not yet a published result.** It is the target in `content/sops/csm/kpis.md`. Once the Week 1 baseline is pulled, say what Homets actually books — and only claim "70%" as a result if the measured figure supports it.
 
 Three claims, each load-bearing:
 

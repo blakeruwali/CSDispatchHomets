@@ -74,7 +74,7 @@ This section sells the future. Most owners have not looked, and seeing a competi
 
 ### 4. Ads Engine (weight 15%)
 
-LSA position and budget exhaustion timing, LSA dispute hygiene (unchallenged bad leads are pure loss), Google Ads search-term waste, conversion tracking integrity — does a "conversion" mean a booked job or a page view — budget pacing against their own seasonality, and marketplace spend versus booked revenue per source.
+LSA position and budget exhaustion timing, LSA lead-rating hygiene (manual disputes ended in 2024; bad leads that are never rated in the Leads tab never get the second review that can credit them), Google Ads search-term waste, conversion tracking integrity — does a "conversion" mean a booked job or a page view — budget pacing against their own seasonality, and marketplace spend versus booked revenue per source.
 
 ### 5. Money (weight 10%)
 
