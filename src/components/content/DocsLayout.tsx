@@ -93,6 +93,9 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
     }
   });
   const scrollRef = useRef<HTMLDivElement>(null);
+  // Deep links: `#/csm?sop=<slug>` opens a specific document. The slug is the
+  // last segment of the doc id (`sop.csm.availability` → `availability`).
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // Held here rather than in the panel so the sidebar can mark, at a glance,
   // which binding documents this reader still owes an acknowledgement on.
