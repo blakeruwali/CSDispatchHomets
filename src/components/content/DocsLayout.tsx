@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   Search, X, Sun, Moon, ArrowLeft, ArrowRight, AlertTriangle, Menu, PencilLine, Languages,
 } from "lucide-react";
