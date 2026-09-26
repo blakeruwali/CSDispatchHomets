@@ -1,10 +1,8 @@
 import {
   BadgeCheck,
-  ClipboardCheck,
   Handshake,
   HardHat,
   Headphones,
-  KeyRound,
   Megaphone,
   Presentation,
   Radio,
@@ -12,65 +10,33 @@ import {
   Star,
   Wrench,
 } from "lucide-react";
-import { TABS } from "@/lib/access";
 
 /**
- * The tab menu: the same tabs as TABS in access.ts, with an icon and a short
- * label for the top bar.
- *
- * Derived from TABS rather than listed independently, so a tab added to the
- * access map cannot be missing from the menu and a menu entry cannot point at
- * a route that no longer exists. The order here is the order in the bar.
+ * The tab menu shown in the top bar. The order here is the order in the bar.
  */
 
 export interface NavTab {
   id: string;
   path: string;
-  /** Full name, used in access requests and the "what you can open" list. */
   label: string;
   /** Shorter form for the top bar, where space is tight. */
   short: string;
   icon: React.ElementType;
 }
 
-const ICONS: Record<string, React.ElementType> = {
-  "csm-deck": Presentation,
-  csm: Headphones,
-  field: Wrench,
-  dispatch: Radio,
-  "sales-guide": Handshake,
-  "sales-deck": Presentation,
-  projects: HardHat,
-  leads: Megaphone,
-  reviews: Star,
-  membership: BadgeCheck,
-  insurance: ShieldCheck,
-  "access-requests": KeyRound,
-};
-
-const SHORT: Record<string, string> = {
-  "csm-deck": "CSM Deck",
-  csm: "CSM SOP",
-  field: "Field SOP",
-  dispatch: "Dispatch SOP",
-  "sales-guide": "Sales SOP",
-  "sales-deck": "Sales Deck",
-  projects: "Projects SOP",
-  leads: "Leads SOP",
-  reviews: "Reviews SOP",
-  membership: "Membership SOP",
-  insurance: "Insurance SOP",
-  "access-requests": "Access",
-};
-
 /**
  * `/` is deliberately absent from the bar: it is the page the bar sits on, and
- * the logo already links there. It is still a gated tab — see TABS.
+ * the logo already links there.
  */
-export const NAV_TABS: NavTab[] = TABS.filter((t) => t.path !== "/").map((t) => ({
-  id: t.id,
-  path: t.path,
-  label: t.label,
-  short: SHORT[t.id] ?? t.label,
-  icon: ICONS[t.id] ?? ClipboardCheck,
-}));
+export const NAV_TABS: NavTab[] = [
+  { id: "csm", path: "/csm", label: "CSM SOP", short: "CSM SOP", icon: Headphones },
+  { id: "field", path: "/field", label: "Field SOP", short: "Field SOP", icon: Wrench },
+  { id: "dispatch", path: "/dispatch", label: "Dispatch SOP", short: "Dispatch SOP", icon: Radio },
+  { id: "sales-guide", path: "/sales", label: "Sales SOP", short: "Sales SOP", icon: Handshake },
+  { id: "sales-deck", path: "/sales/deck", label: "Sales Deck", short: "Sales Deck", icon: Presentation },
+  { id: "projects", path: "/projects", label: "Projects SOP", short: "Projects SOP", icon: HardHat },
+  { id: "leads", path: "/leads", label: "Leads SOP", short: "Leads SOP", icon: Megaphone },
+  { id: "reviews", path: "/reviews", label: "Reviews SOP", short: "Reviews SOP", icon: Star },
+  { id: "membership", path: "/membership", label: "Membership SOP", short: "Membership SOP", icon: BadgeCheck },
+  { id: "insurance", path: "/insurance", label: "Insurance SOP", short: "Insurance SOP", icon: ShieldCheck },
+];
