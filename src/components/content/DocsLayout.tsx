@@ -170,15 +170,40 @@ export const DocsLayout: React.FC<DocsLayoutProps> = ({
   const prev = index > 0 ? ordered[index - 1] : null;
   const next = index >= 0 && index < ordered.length - 1 ? ordered[index + 1] : null;
 
+  // URL → document: a `?sop=` link selects the matching doc on load and
+  // whenever the URL changes. Unknown slugs leave the current doc alone.
+  useEffect(() => {
+    const slug = searchParams.get("sop");
+    if (!slug) return;
+    const target = ordered.find((d) => d.id === slug || d.id.endsWith(`.${slug}`));
+    if (target && target.id !== activeId) {
+      setActiveId(target.id);
+      requestAnimationFrame(() => scrollRef.current?.scrollTo({ top: 0 }));
+    }
+    // activeId intentionally omitted: this syncs URL → state only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams, ordered]);
+
   const openDoc = useCallback((id: string) => {
     // A cross-reference can point at a document that lives on another surface;
     // following it here would silently dump the reader on document 1.
     if (!ordered.some((d) => d.id === id)) return;
     setActiveId(id);
     setNavOpen(false);
+    // Keep the URL in sync so any open doc is linkable; replace, so sidebar
+    // browsing doesn't pile up history entries.
+    const slug = id.split(".").pop() ?? id;
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        next.set("sop", slug);
+        return next;
+      },
+      { replace: true },
+    );
     // A new document always starts at its beginning, never mid-scroll.
     requestAnimationFrame(() => scrollRef.current?.scrollTo({ top: 0 }));
-  }, [ordered]);
+  }, [ordered, setSearchParams]);
 
   const onThisSurface = useCallback(
     (id: string) => ordered.some((d) => d.id === id),
