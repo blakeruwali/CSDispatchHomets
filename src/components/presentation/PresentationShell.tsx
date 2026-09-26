@@ -6,7 +6,6 @@ import { Search, X, Sun, Moon, BookOpen, Presentation } from "lucide-react";
 import { Link } from "react-router-dom";
 import { KnowledgeBase } from "@/components/knowledge-base/KnowledgeBase";
 import { kbSections } from "@/components/knowledge-base/kbData";
-import { useAccess } from "@/hooks/useAccess";
 import { NAV_TABS } from "@/lib/navTabs";
 
 export const PresentationShell: React.FC = () => {
@@ -20,7 +19,6 @@ const ScrollablePresentation: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
-  const { tabs } = useAccess();
   const [lightMode, setLightMode] = useState(false);
   const [activeTab, setActiveTab] = useState<"guide" | "kb">("guide");
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -209,10 +207,7 @@ const ScrollablePresentation: React.FC = () => {
               <BookOpen className="w-3.5 h-3.5" />
               Knowledge Base
             </button>
-            {/* Only the tabs this person's role allows. The list lives in
-                src/lib/navTabs.ts, derived from the access map, so the menu and
-                the routes cannot disagree. */}
-            {NAV_TABS.filter((nav) => tabs.indexOf(nav.id) !== -1).map((nav) => (
+            {NAV_TABS.map((nav) => (
               <Link
                 key={nav.id}
                 to={nav.path}
